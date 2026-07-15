@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>New Zealand North Island · Prepared for Louise Zhu · Alchemist Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep:#14301A;
+    --green-mid:#1E5228;
+    --gold:#B08D2E;
+    --gold-soft:#C9A84C;
+    --ink:#20211E;
+    --ink-mid:#4A4A44;
+    --ink-soft:#77776E;
+    --line:#E3DED2;
+    --line-soft:#EFEBE1;
+    --cream:#FBF9F4;
+    --paper:#FFFFFF;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:'Inter',sans-serif;font-weight:300;
+    color:var(--ink);background:var(--cream);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:880px;margin:0 auto;padding:0 30px;}
+
+  /* ---- Masthead ---- */
+  .masthead{background:var(--green-deep);color:#fff;padding:36px 0 34px;}
+  .masthead .page{display:flex;flex-direction:column;gap:24px;}
+  .brand-row{display:flex;justify-content:space-between;align-items:flex-start;
+    border-bottom:1px solid rgba(255,255,255,0.16);padding-bottom:18px;flex-wrap:wrap;gap:10px;}
+  .brand-lock .brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;letter-spacing:.26em;text-transform:uppercase;color:#fff;}
+  .brand-lock .brand span{color:var(--gold-soft);}
+  .brand-lock .partner{font-size:.66rem;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-top:6px;text-transform:uppercase;}
+  .brand-contact{font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.66);text-align:right;line-height:1.7;}
+  .brand-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+  .lang-toggle{display:inline-flex;align-items:stretch;font-size:.7rem;letter-spacing:.1em;border:1px solid rgba(255,255,255,.3);border-radius:20px;overflow:hidden;}
+  .lang-toggle span,.lang-toggle a{padding:4px 13px;color:rgba(255,255,255,.62);line-height:1.6;transition:color .2s,background .2s;}
+  .lang-toggle .active{background:var(--gold-soft);color:var(--green-deep);font-weight:600;}
+  .lang-toggle a:hover{color:#fff;}
+  .title-block .kicker{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px;}
+  .title-block h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.9rem;line-height:1.02;letter-spacing:.01em;color:#fff;}
+  .title-block h1 em{font-style:italic;color:var(--gold-soft);}
+  .meta-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:20px;}
+  .meta-item{font-size:.78rem;letter-spacing:.04em;color:rgba(255,255,255,.8);}
+  .meta-item b{display:block;font-weight:500;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:3px;}
+
+  /* ---- Section frame ---- */
+  section{background:var(--paper);}
+  section.alt{background:var(--cream);}
+  .sec-head{padding:34px 0 6px;}
+  .sec-head .page{display:flex;align-items:baseline;gap:16px;}
+  .sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.7rem;color:var(--green-deep);letter-spacing:.01em;white-space:nowrap;}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);}
+  .sec-intro{font-size:.86rem;color:var(--ink-mid);padding-bottom:18px;}
+
+  /* ---- Journey overview (map + strip) ---- */
+  .overview{display:grid;grid-template-columns:288px 1fr;gap:40px;padding:6px 0 34px;align-items:start;}
+  .map-wrap{background:var(--cream);border:1px solid var(--line);border-radius:3px;padding:14px 10px 8px;}
+  .map-wrap svg{width:100%;height:auto;display:block;}
+  .map-cap{text-align:center;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+  .strip-head{font-size:.82rem;letter-spacing:.03em;color:var(--ink-mid);margin-bottom:10px;}
+  .strip-head b{color:var(--green-deep);font-weight:600;}
+  .stops{display:flex;flex-direction:column;}
+  .stop{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:13px 0;}
+  .stop-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);line-height:1;}
+  .stop-place{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-weight:600;color:var(--ink);}
+  .stop-hotel{font-size:.92rem;color:var(--ink-mid);margin-top:3px;font-style:italic;font-family:'Cormorant Garamond',serif;}
+  .stop-nights{text-align:right;white-space:nowrap;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green-mid);font-weight:600;}
+  .stop-dates{display:block;font-size:.78rem;letter-spacing:.02em;color:var(--ink-soft);font-weight:400;text-transform:none;margin-top:3px;}
+  .leg{display:grid;grid-template-columns:34px 1fr;gap:14px;}
+  .leg .bar{grid-column:1;justify-self:center;width:1px;height:22px;background:var(--line);position:relative;}
+  .leg .bar::before{content:"";position:absolute;left:-2px;top:50%;width:5px;height:5px;border-radius:50%;background:var(--gold-soft);transform:translateY(-50%);}
+  .leg .txt{font-size:.82rem;color:var(--ink-mid);align-self:center;}
+  .leg.depart .bar{background:repeating-linear-gradient(var(--line) 0 3px, transparent 3px 6px);}
+  .leg.depart .txt{color:var(--ink-mid);}
+
+  /* ---- Schedule ---- */
+  .day{display:grid;grid-template-columns:212px 1fr;gap:0;border-top:1px solid var(--line);}
+  .day:last-of-type{border-bottom:1px solid var(--line);}
+  .day-side{padding:20px 22px 22px 0;border-right:1px solid var(--line-soft);}
+  .day-tag{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .day-date{font-size:.82rem;color:var(--ink-soft);margin:2px 0 12px;}
+  .day-hotel{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:1.12rem;color:var(--ink);line-height:1.2;}
+  .day-room{font-size:.74rem;color:var(--ink-soft);margin-top:4px;}
+  .meals{margin-top:13px;display:flex;gap:6px;}
+  .meal{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    font-size:.62rem;font-weight:600;background:var(--green-deep);color:var(--gold-soft);}
+  .meal.off{background:transparent;color:#CFC9BB;border:1px solid var(--line);}
+  .day-body{padding:20px 0 22px 24px;}
+  .day-body .head{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--green-mid);font-weight:600;margin-bottom:11px;}
+  .day-body ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .day-body li{position:relative;padding-left:18px;font-size:.87rem;color:var(--ink-mid);}
+  .day-body li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+  .day-body li.leisure::before{background:transparent;border:1px solid var(--gold);}
+  .day-body strong{font-weight:600;color:var(--ink);}
+
+  /* ---- Costs ---- */
+  .cost-wrap{padding:8px 0 30px;}
+  .cost-card{border:1px solid var(--line);background:var(--cream);border-radius:2px;padding:26px 30px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;}
+  .cost-main .label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .cost-main .fig{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--green-deep);line-height:1;}
+  .cost-main .sub{font-size:.82rem;color:var(--ink-mid);margin-top:6px;}
+  .cost-note{max-width:330px;font-size:.74rem;color:var(--ink-soft);line-height:1.5;border-left:2px solid var(--gold-soft);padding-left:16px;}
+
+  /* ---- Inc / Exc ---- */
+  .incexc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:8px 0 34px;}
+  .incexc h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .incexc.exc h3{color:var(--ink-soft);}
+  .incexc ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .incexc li{position:relative;padding-left:20px;font-size:.83rem;color:var(--ink-mid);}
+  .inc li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--gold);font-size:.8rem;}
+  .exc li::before{content:"\2013";position:absolute;left:0;top:0;color:var(--ink-soft);}
+
+  /* ---- Upgrades ---- */
+  .upgrades{padding:8px 0 12px;display:flex;flex-direction:column;}
+  .up{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:18px 0;border-top:1px solid var(--line);}
+  .up:last-of-type{border-bottom:1px solid var(--line);}
+  .up-name{font-family:'Cormorant Garamond',serif;font-size:1.16rem;color:var(--ink);font-weight:600;}
+  .up-loc{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+  .up-desc{font-size:.83rem;color:var(--ink-mid);margin-top:6px;max-width:580px;}
+  .up-price{text-align:right;white-space:nowrap;}
+  .up-price .amt{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--green-deep);}
+  .up-price .per{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
+  .up-foot{font-size:.74rem;color:var(--ink-soft);margin-top:16px;line-height:1.5;}
+
+  /* ---- Footer ---- */
+  footer{background:var(--green-deep);color:rgba(255,255,255,.8);padding:30px 0;margin-top:6px;}
+  footer .page{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;}
+  footer .fbrand{font-family:'Cormorant Garamond',serif;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-size:1rem;}
+  footer .fbrand small{display:block;font-family:'Inter',sans-serif;letter-spacing:.12em;font-size:.6rem;color:rgba(255,255,255,.55);margin-top:5px;}
+  footer .fmeta{font-size:.72rem;letter-spacing:.05em;text-align:right;color:rgba(255,255,255,.6);}
+  .legend{padding:16px 0 0;font-size:.72rem;color:var(--ink-soft);}
+  .legend b{color:var(--ink-mid);font-weight:500;}
+
+  @media (max-width:660px){
+    .overview{grid-template-columns:1fr;gap:24px;}
+    .map-wrap{max-width:300px;margin:0 auto;}
+    .day{grid-template-columns:1fr;}
+    .day-side{border-right:none;border-bottom:1px solid var(--line-soft);padding:18px 0;}
+    .day-body{padding:16px 0;}
+    .incexc-grid{grid-template-columns:1fr;gap:24px;}
+    .title-block h1{font-size:2.2rem;}
+  }
+  @media print{
+    body{background:#fff;font-size:11px;}
+    .page{max-width:100%;padding:0 14px;}
+    section,section.alt{background:#fff;}
+    .masthead{padding:24px 0 20px;}
+    .title-block h1{font-size:2.2rem;}
+    .overview,.day,.up,.incexc-grid,.cost-card,footer{break-inside:avoid;}
+    .sec-head{break-after:avoid;}
+    @page{margin:14mm 12mm;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="page">
+    <div class="brand-row">
+      <div class="brand-lock">
+        <div class="brand">Alchemist <span>Travel</span></div>
+        <div class="partner">In partnership with Beyond the Blue</div>
+      </div>
+      <div class="brand-right">
+        <div class="lang-toggle"><span class="active">EN</span><a href="louise-nz-2026-w9k4p-cn.html">中文</a></div>
+        <div class="brand-contact">Kristin Lim<br>kristin@alchemisttravel.com<br>+65 9751 4830</div>
+      </div>
+    </div>
+    <div class="title-block">
+      <div class="kicker">A Draft Proposal · New Zealand North Island</div>
+      <h1>North Island,<br><em>Unhurried</em></h1>
+      <div class="meta-row">
+        <div class="meta-item"><b>Prepared for</b>Louise Zhu &amp; family</div>
+        <div class="meta-item"><b>Dates</b>12 – 23 December 2026</div>
+        <div class="meta-item"><b>Duration</b>12 days · 11 nights</div>
+        <div class="meta-item"><b>Travellers</b>4 · two twin rooms</div>
+        <div class="meta-item"><b>Driver-guide</b>Private, Mandarin-speaking</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ JOURNEY OVERVIEW ============ -->
+<section>
+  <div class="sec-head"><div class="page"><h2>The Journey</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="overview">
+      <!-- MAP -->
+      <div class="map-wrap">
+        <svg viewBox="0 0 300 470" role="img" aria-label="Route map of New Zealand's North Island">
+          <path d="M 16.0,69.5 C 23.9,75.1 58.5,97.7 72.5,109.0 C 86.6,120.4 91.3,126.3 100.1,137.5 C 108.9,148.8 117.9,172.3 125.4,176.6 C 132.9,180.9 137.1,156.6 145.2,163.3 C 153.2,170.0 160.1,208.5 173.7,216.6 C 187.2,224.7 208.2,211.7 226.5,212.0 C 244.9,212.3 278.5,209.4 284.0,218.5 C 289.5,227.5 271.1,253.8 259.6,266.3 C 248.1,278.7 223.5,285.9 215.0,292.9 C 206.6,300.0 212.9,300.4 209.1,308.6 C 205.2,316.7 204.5,326.8 192.1,342.1 C 179.7,357.4 148.2,393.4 134.6,400.5 C 121.0,407.6 112.8,397.7 110.7,384.9 C 108.6,372.1 125.6,336.9 121.7,323.7 C 117.9,310.5 97.4,310.9 87.7,305.8 C 78.1,300.7 65.0,298.1 63.8,292.9 C 62.6,287.7 72.8,284.0 80.4,274.5 C 87.9,265.1 107.2,250.4 109.3,236.4 C 111.5,222.4 99.0,203.4 93.2,190.4 C 87.5,177.4 83.3,171.6 74.8,158.2 C 66.4,144.8 50.9,123.8 42.7,110.0 C 34.4,96.2 29.6,82.2 25.2,75.5 C 20.8,68.7 8.1,63.9 16.0,69.5 Z"
+                fill="#E7E0CF" stroke="#D6CDB8" stroke-width="1"/>
+          <path d="M 109.8,181.2 L 177.8,240.5 L 170.5,265.8 L 208.6,302.6"
+                fill="none" stroke="#B08D2E" stroke-width="1.8" stroke-dasharray="3 4" stroke-linecap="round"/>
+          <g font-family="Inter, sans-serif">
+            <circle cx="109.8" cy="181.2" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="101" y="178" text-anchor="end" font-size="10" font-weight="600" fill="#20211E">Auckland</text>
+            <text x="101" y="189" text-anchor="end" font-size="7.5" letter-spacing="0.5" fill="#8a8577">3 NIGHTS</text>
+            <circle cx="177.8" cy="240.5" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="187" y="237" text-anchor="start" font-size="10" font-weight="600" fill="#20211E">Rotorua</text>
+            <text x="187" y="248" text-anchor="start" font-size="7.5" letter-spacing="0.5" fill="#8a8577">3 NIGHTS</text>
+            <circle cx="170.5" cy="265.8" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="161" y="270" text-anchor="end" font-size="10" font-weight="600" fill="#20211E">Taupō</text>
+            <text x="161" y="280" text-anchor="end" font-size="7.5" letter-spacing="0.5" fill="#8a8577">2 NIGHTS</text>
+            <circle cx="208.6" cy="302.6" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="217" y="300" text-anchor="start" font-size="10" font-weight="600" fill="#20211E">Hawke's Bay</text>
+            <text x="217" y="311" text-anchor="start" font-size="7.5" letter-spacing="0.5" fill="#8a8577">3 NIGHTS</text>
+          </g>
+        </svg>
+        <div class="map-cap">North Island · Aotearoa</div>
+      </div>
+
+      <!-- STRIP -->
+      <div>
+        <div class="strip-head"><b>12 days · 11 nights</b> &nbsp;·&nbsp; Auckland to Napier</div>
+        <div class="stops">
+          <div class="stop">
+            <div class="stop-num">1</div>
+            <div><div class="stop-place">Auckland</div><div class="stop-hotel">Park Hyatt Auckland</div></div>
+            <div class="stop-nights">3 nights<span class="stop-dates">12 – 15 Dec</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">Drive south via Hobbiton · around 4 hours' driving</div></div>
+          <div class="stop">
+            <div class="stop-num">2</div>
+            <div><div class="stop-place">Rotorua</div><div class="stop-hotel">Pullman Rotorua</div></div>
+            <div class="stop-nights">3 nights<span class="stop-dates">15 – 18 Dec</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">Drive south · about 1 hour</div></div>
+          <div class="stop">
+            <div class="stop-num">3</div>
+            <div><div class="stop-place">Taupō</div><div class="stop-hotel">Hilton Lake Taupō</div></div>
+            <div class="stop-nights">2 nights<span class="stop-dates">18 – 20 Dec</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">Drive to Hawke's Bay via Craggy Range · about 2 hours</div></div>
+          <div class="stop">
+            <div class="stop-num">4</div>
+            <div><div class="stop-place">Hawke's Bay</div><div class="stop-hotel">The Manse, Hastings · exclusive use</div></div>
+            <div class="stop-nights">3 nights<span class="stop-dates">20 – 23 Dec</span></div>
+          </div>
+          <div class="leg depart"><div class="bar"></div><div class="txt">Depart · domestic flight Napier to Auckland, about 1¼ hours</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRIP SCHEDULE ============ -->
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>Day by Day</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">Your own Mandarin-speaking driver-guide travels with you from Auckland through to Hawke's Bay, so there is nothing to arrange along the way. No single drive is more than about three hours, and two days are left completely free.</p>
+
+    <!-- DAY 1 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 1</div>
+        <div class="day-date">Saturday, 12 December</div>
+        <div class="day-hotel">Park Hyatt Auckland</div>
+        <div class="day-room">2 × Harbour View Twin Room</div>
+        <div class="meals"><span class="meal off">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Arrive in Auckland</div>
+        <ul>
+          <li><strong>Private airport transfer.</strong> Your Mandarin-speaking driver-guide meets you as you land at Auckland Airport and takes you the short drive to the Park Hyatt, right on the water at Wynyard Quarter (about 30 minutes).</li>
+          <li><strong>Evening at leisure.</strong> Settle in and take the evening gently after your flight. When you're ready, there's a 25-metre infinity pool, a spa, and four restaurants and bars, with the harbour just outside.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 2</div>
+        <div class="day-date">Sunday, 13 December</div>
+        <div class="day-hotel">Park Hyatt Auckland</div>
+        <div class="day-room">2 × Harbour View Twin Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Auckland at leisure</div>
+        <ul>
+          <li><strong>Free day in Auckland.</strong> A whole day to yourselves, with nothing planned. Wake late and take it slowly.</li>
+          <li class="leisure"><strong>Ideas, at your own arrangement.</strong> If you feel like venturing out: the wine and arts villages of Matakana to the north, the white-sand beaches of Tāwharanui, the Tiritiri Matangi bird sanctuary, or a ferry to Rangitoto, the volcanic island out in the harbour.</li>
+          <li class="leisure"><strong>Optional distillery tours.</strong> Visits to Thomson Distillery and 1919 Distillery can be arranged if of interest.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 3</div>
+        <div class="day-date">Monday, 14 December</div>
+        <div class="day-hotel">Park Hyatt Auckland</div>
+        <div class="day-room">2 × Harbour View Twin Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Waiheke Island, food &amp; wine</div>
+        <ul>
+          <li><strong>Ferry to Waiheke Island.</strong> A short morning sail across the Hauraki Gulf, around 40 minutes, with your guide meeting you at Matiatia Wharf for the day ahead.</li>
+          <li><strong>Private Waiheke Food &amp; Wine Tour.</strong> A relaxed day among the island's vineyards: tastings at two standout wineries, a long lunch at one of them, and plenty of local olive oil and produce to try. Between tastings there are wide views over the gulf, and time to wander into the rainforest and forage native leaves to take home for tea.</li>
+          <li><strong>Return ferry to Auckland</strong> in the late afternoon.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 4</div>
+        <div class="day-date">Tuesday, 15 December</div>
+        <div class="day-hotel">Pullman Rotorua</div>
+        <div class="day-room">2 × Lake View Twin Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Auckland to Rotorua, via Hobbiton</div>
+        <ul>
+          <li><strong>Hobbiton Movie Set Signature Tour.</strong> Set off after breakfast for the drive south, close to three hours, to the Hobbiton Movie Set near Matamata. A guided two-hour walk leads you through the rolling farmland Sir Peter Jackson chose for the Shire: the hobbit holes tucked into the hillside, the round green door of Bag End, the double-arch bridge, and a drink to finish in the Green Dragon Inn.</li>
+          <li><strong>On to Rotorua.</strong> From there it is a little over an hour on to the Pullman, beside the lake in Rotorua. The evening is yours.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 5</div>
+        <div class="day-date">Wednesday, 16 December</div>
+        <div class="day-hotel">Pullman Rotorua</div>
+        <div class="day-room">2 × Lake View Twin Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Rotorua by floatplane, and a Māori celebration</div>
+        <ul>
+          <li><strong>Mount Tarawera &amp; Hot Pools by Floatplane.</strong> Today's highlight is a floatplane, usually flown in the morning. You lift off from the Rotorua lakefront, out over Mokoia Island and the crater of Mount Tarawera, and the steaming, colour-streaked valleys Māori call the "Sisters of Fire". You touch down at Orakei Korako, the "Hidden Valley", for an hour among the silica terraces and geysers, then fly on to a hot pool reached only by water, where 90 minutes slip quietly by.</li>
+          <li><strong>Afternoon at leisure.</strong> You are usually back by around midday, leaving the afternoon free to rest at the hotel or wander down to the lake before the evening out.</li>
+          <li><strong>Tū Te Rā Summer Harvest Celebration.</strong> From around 5pm, a summer feast in a forest Māori village: canapés to begin, stories told through haka and song, and a three-course hāngī drawn from the earth oven, all under the trees and firelight.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 6</div>
+        <div class="day-date">Thursday, 17 December</div>
+        <div class="day-hotel">Pullman Rotorua</div>
+        <div class="day-room">2 × Lake View Twin Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Forest canopy &amp; a kiwi encounter</div>
+        <ul>
+          <li><strong>Exclusive Canopy Tour.</strong> Take to the treetops on an exclusive canopy tour: a few gentle hours of ziplines, swing bridges and platforms high in 500 hectares of native forest, birdsong all around.</li>
+          <li><strong>National Kiwi Hatchery Tour.</strong> An hour in the company of New Zealand's most elusive bird, including the nocturnal house where you might just spot a kiwi. Every ticket supports the breeding programme.</li>
+          <li><strong>The rest of the day is free,</strong> to enjoy Rotorua however you please.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 7</div>
+        <div class="day-date">Friday, 18 December</div>
+        <div class="day-hotel">Hilton Lake Taupō</div>
+        <div class="day-room">2 × Guest Room, Twin</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Rotorua to Taupō</div>
+        <ul>
+          <li><strong>Drive to Taupō.</strong> An easy hour's drive south, with your guide pausing for the views along the way.</li>
+          <li><strong>Check in at Lake Taupō.</strong> The Hilton Lake Taupō looks out over New Zealand's largest lake, the Tongariro volcanoes rising across the water. The rest of the day is yours to unwind.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 8 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 8</div>
+        <div class="day-date">Saturday, 19 December</div>
+        <div class="day-hotel">Hilton Lake Taupō</div>
+        <div class="day-room">2 × Guest Room, Twin</div>
+        <div class="meals"><span class="meal">B</span><span class="meal">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">A day on Lake Taupō</div>
+        <ul>
+          <li><strong>Lake Cruise &amp; Trout Fishing.</strong> Spend the morning out on the water, gliding into quiet coves you can only reach by boat, the volcanoes Ruapehu, Ngāuruhoe and Tongariro filling the southern skyline. Lunch and fishing licences are included, and there is every chance of a Taupō trout on the line.</li>
+          <li><strong>Afternoon Geothermal Tour.</strong> In the afternoon, your guide takes you out to the geothermal parks and the roar of Huka Falls. (Park entry fees are payable locally.)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 9 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 9</div>
+        <div class="day-date">Sunday, 20 December</div>
+        <div class="day-hotel">The Manse, Hastings</div>
+        <div class="day-room">Exclusive use · 2 suites, King</div>
+        <div class="meals"><span class="meal">B</span><span class="meal">L</span><span class="meal">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Taupō to Hawke's Bay, via Craggy Range</div>
+        <ul>
+          <li><strong>Drive to Hawke's Bay.</strong> Leave Taupō mid-morning and drive about two hours south into the wine country of Hawke's Bay, drawing up at the Craggy Range estate.</li>
+          <li><strong>Giants Gourmet Experience at Craggy Range.</strong> Here you settle in for a long lunch, from late morning into the afternoon: a tour of the estate and cellars, a stroll through the kitchen gardens, and a six-course tasting menu, each course poured with the estate's own wines.</li>
+          <li><strong>Check in at The Manse.</strong> Then a short drive on to The Manse, your lodge near Hastings, yours alone for three nights. Dinner is laid on your first evening, with local wine to welcome you.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 10 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 10</div>
+        <div class="day-date">Monday, 21 December</div>
+        <div class="day-hotel">The Manse, Hastings</div>
+        <div class="day-room">Exclusive use · 2 suites, King</div>
+        <div class="meals"><span class="meal">B</span><span class="meal">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">The best of Hawke's Bay</div>
+        <ul>
+          <li><strong>Private Full-Day Hawke's Bay Tour.</strong> A full day exploring Hawke's Bay with a local guide (your Mandarin-speaking driver-guide leaves this morning). The Art Deco streets of Napier, the sculpture gardens at Birdwoods, the long views from Te Mata Peak, a stop for honey at Arataki, and a last tasting at Craggy Range. Two wine tastings and a two-course lunch are included.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 11 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 11</div>
+        <div class="day-date">Tuesday, 22 December</div>
+        <div class="day-hotel">The Manse, Hastings</div>
+        <div class="day-room">Exclusive use · 2 suites, King</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Hawke's Bay at leisure</div>
+        <ul>
+          <li><strong>Free day in Hawke's Bay,</strong> at the lodge or out and about, however suits you.</li>
+          <li class="leisure"><strong>Ideas, at your own arrangement.</strong> Perhaps the Art Deco streets of Napier, a trip out to the Cape Kidnappers gannet colony, the wineries around Havelock North, or the beaches at Waimarama and Ocean Beach.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 12 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 12</div>
+        <div class="day-date">Wednesday, 23 December</div>
+        <div class="day-hotel">Departure</div>
+        <div class="day-room">Napier Airport</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Fly home via Auckland</div>
+        <ul>
+          <li><strong>Transfer to Napier Airport.</strong> A short drive of about 25 minutes from the lodge.</li>
+          <li><strong>Domestic flight to Auckland.</strong> From there, a flight of around 1¼ hours to Auckland, connecting with your journey home. (Domestic and international flights are not included.)</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="legend"><b>Meals:</b> &nbsp; <span style="color:var(--green-deep);font-weight:600">B</span> Breakfast &nbsp;·&nbsp; <span style="color:var(--green-deep);font-weight:600">L</span> Lunch &nbsp;·&nbsp; <span style="color:var(--green-deep);font-weight:600">D</span> Dinner &nbsp;·&nbsp; a faded circle indicates a meal at leisure. Timings are indicative and confirmed closer to travel.</p>
+  </div>
+</section>
+
+<!-- ============ TRIP COSTS ============ -->
+<section>
+  <div class="sec-head"><div class="page"><h2>Trip Costs</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="cost-wrap">
+      <div class="cost-card">
+        <div class="cost-main">
+          <div class="label">Total · party of four</div>
+          <div class="fig">HK$362,690</div>
+          <div class="sub">Approximately HK$90,673 per person · based on two twin rooms</div>
+        </div>
+        <div class="cost-note">Priced in Hong Kong Dollars. Indicative and subject to availability and final confirmation. Based on current operator and exchange rates, and may be adjusted for any fuel surcharges advised before travel.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INCLUSIONS / EXCLUSIONS ============ -->
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>Inclusions &amp; Exclusions</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="incexc-grid">
+      <div class="incexc inc">
+        <h3>Included</h3>
+        <ul>
+          <li>Private Mandarin-speaking driver-guide, Days 1–9 (local English-speaking guide on Day 10)</li>
+          <li>11 nights' accommodation as listed, with breakfast daily</li>
+          <li>All private transfers and touring shown in the schedule</li>
+          <li>Auckland–Waiheke return ferry and private food &amp; wine tour with vineyard lunch</li>
+          <li>Guided Hobbiton Movie Set tour</li>
+          <li>Mount Tarawera, Orakei Korako &amp; hot pools by floatplane</li>
+          <li>Tū Te Rā Summer Harvest Celebration, with dinner</li>
+          <li>Exclusive forest canopy tour and National Kiwi Hatchery visit</li>
+          <li>Lake Taupō touring and private half-day fishing &amp; cruise (lunch and licences)</li>
+          <li>Craggy Range Giants Gourmet Experience (six courses with wine pairings)</li>
+          <li>The Manse on an exclusive-use basis, including first-night dinner for two and local wine</li>
+          <li>Full-day Hawke's Bay tour with two wine tastings and lunch</li>
+          <li>Napier Airport departure transfer</li>
+        </ul>
+      </div>
+      <div class="incexc exc">
+        <h3>Exclusions</h3>
+        <ul>
+          <li>International flights, and the domestic Napier–Auckland flight</li>
+          <li>Travel, medical and evacuation insurance</li>
+          <li>Meals not specified in the schedule</li>
+          <li>Activities and entry fees on leisure days</li>
+          <li>Park entry fees on the Taupō touring afternoon</li>
+          <li>Optional upgrades (see below)</li>
+          <li>Personal expenses and gratuities</li>
+          <li>Any fuel surcharges advised before travel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UPGRADE OPTIONS ============ -->
+<section>
+  <div class="sec-head"><div class="page"><h2>Upgrade Options</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">Two celebrated lodges that can replace the standard stay in Rotorua or Hawke's Bay.</p>
+    <div class="upgrades">
+
+      <div class="up">
+        <div>
+          <div class="up-loc">Rotorua · Days 4–7 · in place of Pullman Rotorua</div>
+          <div class="up-name">Solitaire Lodge, Lake Tarawera</div>
+          <div class="up-desc">A small lodge all its own on a peninsula reaching into Lake Tarawera, where the four of you would share a Two-Bedroom Tarawera Suite. Rates include pre-dinner drinks and canapés, a five-course dinner, breakfast and a light lunch each day.</div>
+        </div>
+        <div class="up-price"><div class="amt">HK$27,200</div><div class="per">per night</div></div>
+      </div>
+
+      <div class="up">
+        <div>
+          <div class="up-loc">Hawke's Bay · Days 9–12 · in place of The Manse</div>
+          <div class="up-name">Rosewood Cape Kidnappers, Te Awanga</div>
+          <div class="up-desc">A lodge set high on the cliffs above the sea, with a world-ranked golf course at the door, in two Grand Lodge Junior Suites. Rates include a pre-dinner drink, dinner and breakfast.</div>
+        </div>
+        <div class="up-price"><div class="amt">HK$85,400</div><div class="per">per night · 2 suites</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="page">
+    <div class="fbrand">Alchemist Travel<small>In partnership with Beyond the Blue</small></div>
+    <div class="fmeta">Kristin Lim &nbsp;·&nbsp; kristin@alchemisttravel.com &nbsp;·&nbsp; +65 9751 4830<br>A draft proposal prepared for Louise Zhu · July 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

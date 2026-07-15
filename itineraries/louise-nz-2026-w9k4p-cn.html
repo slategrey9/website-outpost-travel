@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>新西兰北岛 · 为朱总定制 · Alchemist Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep:#14301A;
+    --green-mid:#1E5228;
+    --gold:#B08D2E;
+    --gold-soft:#C9A84C;
+    --ink:#20211E;
+    --ink-mid:#45453F;
+    --ink-soft:#77776E;
+    --line:#E3DED2;
+    --line-soft:#EFEBE1;
+    --cream:#FBF9F4;
+    --paper:#FFFFFF;
+    --serif:'Cormorant Garamond',"Songti SC","STSong","Noto Serif SC","SimSun",serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:var(--sans);font-weight:300;
+    color:var(--ink);background:var(--cream);
+    line-height:1.85;-webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:880px;margin:0 auto;padding:0 30px;}
+
+  /* ---- Masthead ---- */
+  .masthead{background:var(--green-deep);color:#fff;padding:36px 0 34px;}
+  .masthead .page{display:flex;flex-direction:column;gap:24px;}
+  .brand-row{display:flex;justify-content:space-between;align-items:flex-start;
+    border-bottom:1px solid rgba(255,255,255,0.16);padding-bottom:18px;flex-wrap:wrap;gap:10px;}
+  .brand-lock .brand{font-family:var(--serif);font-size:1.3rem;letter-spacing:.26em;text-transform:uppercase;color:#fff;}
+  .brand-lock .brand span{color:var(--gold-soft);}
+  .brand-lock .partner{font-size:.72rem;letter-spacing:.06em;color:rgba(255,255,255,.62);margin-top:8px;}
+  .brand-contact{font-size:.74rem;letter-spacing:.02em;color:rgba(255,255,255,.66);text-align:right;line-height:1.9;}
+  .brand-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+  .lang-toggle{display:inline-flex;align-items:stretch;font-size:.72rem;letter-spacing:.08em;border:1px solid rgba(255,255,255,.3);border-radius:20px;overflow:hidden;}
+  .lang-toggle span,.lang-toggle a{padding:4px 13px;color:rgba(255,255,255,.62);line-height:1.6;transition:color .2s,background .2s;}
+  .lang-toggle .active{background:var(--gold-soft);color:var(--green-deep);font-weight:600;}
+  .lang-toggle a:hover{color:#fff;}
+  .title-block .kicker{font-size:.78rem;letter-spacing:.16em;color:var(--gold-soft);margin-bottom:14px;}
+  .title-block h1{font-family:var(--serif);font-weight:500;font-size:3rem;line-height:1.12;letter-spacing:.06em;color:#fff;}
+  .title-block h1 em{font-style:normal;color:var(--gold-soft);}
+  .meta-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px;}
+  .meta-item{font-size:.82rem;letter-spacing:.02em;color:rgba(255,255,255,.85);}
+  .meta-item b{display:block;font-weight:500;font-size:.7rem;letter-spacing:.08em;color:var(--gold-soft);margin-bottom:4px;}
+
+  /* ---- Section frame ---- */
+  section{background:var(--paper);}
+  section.alt{background:var(--cream);}
+  .sec-head{padding:34px 0 6px;}
+  .sec-head .page{display:flex;align-items:baseline;gap:16px;}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:1.7rem;color:var(--green-deep);letter-spacing:.04em;white-space:nowrap;}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);}
+  .sec-intro{font-size:.9rem;color:var(--ink-mid);padding-bottom:18px;line-height:1.9;}
+
+  /* ---- Journey overview (map + strip) ---- */
+  .overview{display:grid;grid-template-columns:288px 1fr;gap:40px;padding:6px 0 34px;align-items:start;}
+  .map-wrap{background:var(--cream);border:1px solid var(--line);border-radius:3px;padding:14px 10px 8px;}
+  .map-wrap svg{width:100%;height:auto;display:block;}
+  .map-cap{text-align:center;font-size:.72rem;letter-spacing:.12em;color:var(--ink-soft);margin-top:4px;}
+  .strip-head{font-size:.86rem;letter-spacing:.02em;color:var(--ink-mid);margin-bottom:12px;}
+  .strip-head b{color:var(--green-deep);font-weight:600;}
+  .stops{display:flex;flex-direction:column;}
+  .stop{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:13px 0;}
+  .stop-num{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1;}
+  .stop-place{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink);letter-spacing:.03em;}
+  .stop-hotel{font-size:.92rem;color:var(--ink-mid);margin-top:4px;font-family:var(--serif);letter-spacing:.02em;}
+  .stop-nights{text-align:right;white-space:nowrap;font-size:.84rem;letter-spacing:.04em;color:var(--green-mid);font-weight:600;}
+  .stop-dates{display:block;font-size:.8rem;letter-spacing:.02em;color:var(--ink-soft);font-weight:400;margin-top:3px;}
+  .leg{display:grid;grid-template-columns:34px 1fr;gap:14px;}
+  .leg .bar{grid-column:1;justify-self:center;width:1px;height:24px;background:var(--line);position:relative;}
+  .leg .bar::before{content:"";position:absolute;left:-2px;top:50%;width:5px;height:5px;border-radius:50%;background:var(--gold-soft);transform:translateY(-50%);}
+  .leg .txt{font-size:.82rem;color:var(--ink-mid);align-self:center;}
+  .leg.depart .bar{background:repeating-linear-gradient(var(--line) 0 3px, transparent 3px 6px);}
+  .leg.depart .txt{color:var(--ink-soft);}
+
+  /* ---- Schedule ---- */
+  .day{display:grid;grid-template-columns:212px 1fr;gap:0;border-top:1px solid var(--line);}
+  .day:last-of-type{border-bottom:1px solid var(--line);}
+  .day-side{padding:20px 22px 22px 0;border-right:1px solid var(--line-soft);}
+  .day-tag{font-size:.72rem;letter-spacing:.08em;color:var(--gold);font-weight:600;}
+  .day-date{font-size:.84rem;color:var(--ink-soft);margin:3px 0 12px;}
+  .day-hotel{font-family:var(--serif);font-weight:600;font-size:1.14rem;color:var(--ink);line-height:1.3;letter-spacing:.02em;}
+  .day-room{font-size:.78rem;color:var(--ink-soft);margin-top:5px;}
+  .meals{margin-top:13px;display:flex;gap:6px;}
+  .meal{width:23px;height:23px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    font-size:.72rem;font-weight:500;background:var(--green-deep);color:var(--gold-soft);}
+  .meal.off{background:transparent;color:#CFC9BB;border:1px solid var(--line);}
+  .day-body{padding:20px 0 22px 24px;}
+  .day-body .head{font-family:var(--serif);font-size:1.22rem;color:var(--green-mid);font-weight:600;margin-bottom:12px;letter-spacing:.03em;}
+  .day-body ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .day-body li{position:relative;padding-left:18px;font-size:.9rem;color:var(--ink-mid);line-height:1.9;}
+  .day-body li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+  .day-body li.leisure::before{background:transparent;border:1px solid var(--gold);}
+  .day-body strong{font-weight:600;color:var(--ink);}
+
+  /* ---- Costs ---- */
+  .cost-wrap{padding:8px 0 30px;}
+  .cost-card{border:1px solid var(--line);background:var(--cream);border-radius:2px;padding:26px 30px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;}
+  .cost-main .label{font-size:.78rem;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:8px;}
+  .cost-main .fig{font-family:var(--serif);font-size:2.5rem;color:var(--green-deep);line-height:1;}
+  .cost-main .sub{font-size:.86rem;color:var(--ink-mid);margin-top:8px;}
+  .cost-note{max-width:340px;font-size:.78rem;color:var(--ink-soft);line-height:1.8;border-left:2px solid var(--gold-soft);padding-left:16px;}
+
+  /* ---- Inc / Exc ---- */
+  .incexc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:8px 0 34px;}
+  .incexc h3{font-size:.82rem;letter-spacing:.08em;color:var(--green-mid);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .incexc.exc h3{color:var(--ink-soft);}
+  .incexc ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .incexc li{position:relative;padding-left:20px;font-size:.86rem;color:var(--ink-mid);line-height:1.7;}
+  .inc li::before{content:"\2713";position:absolute;left:0;top:1px;color:var(--gold);font-size:.82rem;}
+  .exc li::before{content:"\2013";position:absolute;left:0;top:0;color:var(--ink-soft);}
+
+  /* ---- Upgrades ---- */
+  .upgrades{padding:8px 0 12px;display:flex;flex-direction:column;}
+  .up{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:18px 0;border-top:1px solid var(--line);}
+  .up:last-of-type{border-bottom:1px solid var(--line);}
+  .up-name{font-family:var(--serif);font-size:1.18rem;color:var(--ink);font-weight:600;letter-spacing:.02em;}
+  .up-loc{font-size:.76rem;letter-spacing:.04em;color:var(--gold);margin-bottom:5px;}
+  .up-desc{font-size:.86rem;color:var(--ink-mid);margin-top:7px;max-width:580px;line-height:1.85;}
+  .up-price{text-align:right;white-space:nowrap;}
+  .up-price .amt{font-family:var(--serif);font-size:1.4rem;color:var(--green-deep);}
+  .up-price .per{font-size:.74rem;letter-spacing:.04em;color:var(--ink-soft);margin-top:3px;}
+
+  /* ---- Footer ---- */
+  footer{background:var(--green-deep);color:rgba(255,255,255,.8);padding:30px 0;margin-top:6px;}
+  footer .page{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;}
+  footer .fbrand{font-family:var(--serif);letter-spacing:.24em;text-transform:uppercase;color:#fff;font-size:1rem;}
+  footer .fbrand small{display:block;font-family:var(--sans);letter-spacing:.06em;font-size:.68rem;color:rgba(255,255,255,.55);margin-top:6px;text-transform:none;}
+  footer .fmeta{font-size:.76rem;letter-spacing:.02em;text-align:right;color:rgba(255,255,255,.6);line-height:1.9;}
+  .legend{padding:16px 0 0;font-size:.78rem;color:var(--ink-soft);line-height:1.8;}
+  .legend b{color:var(--ink-mid);font-weight:500;}
+
+  @media (max-width:660px){
+    .overview{grid-template-columns:1fr;gap:24px;}
+    .map-wrap{max-width:300px;margin:0 auto;}
+    .day{grid-template-columns:1fr;}
+    .day-side{border-right:none;border-bottom:1px solid var(--line-soft);padding:18px 0;}
+    .day-body{padding:16px 0;}
+    .incexc-grid{grid-template-columns:1fr;gap:24px;}
+    .title-block h1{font-size:2.3rem;}
+  }
+  @media print{
+    body{background:#fff;font-size:11px;}
+    .page{max-width:100%;padding:0 14px;}
+    section,section.alt{background:#fff;}
+    .masthead{padding:24px 0 20px;}
+    .title-block h1{font-size:2.3rem;}
+    .overview,.day,.up,.incexc-grid,.cost-card,footer{break-inside:avoid;}
+    .sec-head{break-after:avoid;}
+    @page{margin:14mm 12mm;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 页眉 ============ -->
+<header class="masthead">
+  <div class="page">
+    <div class="brand-row">
+      <div class="brand-lock">
+        <div class="brand">Alchemist <span>Travel</span></div>
+        <div class="partner">与 Beyond the Blue 合作呈献</div>
+      </div>
+      <div class="brand-right">
+        <div class="lang-toggle"><a href="louise-nz-2026-w9k4p.html">EN</a><span class="active">中文</span></div>
+        <div class="brand-contact">Kristin Lim<br>kristin@alchemisttravel.com<br>+65 9751 4830</div>
+      </div>
+    </div>
+    <div class="title-block">
+      <div class="kicker">行程草案 · 新西兰北岛 (North Island)</div>
+      <h1>北岛<br><em>悠然之旅</em></h1>
+      <div class="meta-row">
+        <div class="meta-item"><b>定制对象</b>朱总 及家人</div>
+        <div class="meta-item"><b>出行日期</b>2026年12月12日–23日</div>
+        <div class="meta-item"><b>行程天数</b>12天 · 11晚</div>
+        <div class="meta-item"><b>出行人数</b>4人 · 两间双床房</div>
+        <div class="meta-item"><b>司机导游</b>私人 · 中文</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 行程概览 ============ -->
+<section>
+  <div class="sec-head"><div class="page"><h2>行程概览</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="overview">
+      <!-- 地图 -->
+      <div class="map-wrap">
+        <svg viewBox="0 0 300 470" role="img" aria-label="新西兰北岛路线图">
+          <path d="M 16.0,69.5 C 23.9,75.1 58.5,97.7 72.5,109.0 C 86.6,120.4 91.3,126.3 100.1,137.5 C 108.9,148.8 117.9,172.3 125.4,176.6 C 132.9,180.9 137.1,156.6 145.2,163.3 C 153.2,170.0 160.1,208.5 173.7,216.6 C 187.2,224.7 208.2,211.7 226.5,212.0 C 244.9,212.3 278.5,209.4 284.0,218.5 C 289.5,227.5 271.1,253.8 259.6,266.3 C 248.1,278.7 223.5,285.9 215.0,292.9 C 206.6,300.0 212.9,300.4 209.1,308.6 C 205.2,316.7 204.5,326.8 192.1,342.1 C 179.7,357.4 148.2,393.4 134.6,400.5 C 121.0,407.6 112.8,397.7 110.7,384.9 C 108.6,372.1 125.6,336.9 121.7,323.7 C 117.9,310.5 97.4,310.9 87.7,305.8 C 78.1,300.7 65.0,298.1 63.8,292.9 C 62.6,287.7 72.8,284.0 80.4,274.5 C 87.9,265.1 107.2,250.4 109.3,236.4 C 111.5,222.4 99.0,203.4 93.2,190.4 C 87.5,177.4 83.3,171.6 74.8,158.2 C 66.4,144.8 50.9,123.8 42.7,110.0 C 34.4,96.2 29.6,82.2 25.2,75.5 C 20.8,68.7 8.1,63.9 16.0,69.5 Z"
+                fill="#E7E0CF" stroke="#D6CDB8" stroke-width="1"/>
+          <path d="M 109.8,181.2 L 177.8,240.5 L 170.5,265.8 L 208.6,302.6"
+                fill="none" stroke="#B08D2E" stroke-width="1.8" stroke-dasharray="3 4" stroke-linecap="round"/>
+          <g font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif">
+            <circle cx="109.8" cy="181.2" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="101" y="178" text-anchor="end" font-size="10" font-weight="600" fill="#20211E">奥克兰</text>
+            <text x="101" y="189" text-anchor="end" font-size="8" fill="#8a8577">3 晚</text>
+            <circle cx="177.8" cy="240.5" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="187" y="237" text-anchor="start" font-size="10" font-weight="600" fill="#20211E">罗托鲁瓦</text>
+            <text x="187" y="248" text-anchor="start" font-size="8" fill="#8a8577">3 晚</text>
+            <circle cx="170.5" cy="265.8" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="161" y="270" text-anchor="end" font-size="10" font-weight="600" fill="#20211E">陶波</text>
+            <text x="161" y="280" text-anchor="end" font-size="8" fill="#8a8577">2 晚</text>
+            <circle cx="208.6" cy="302.6" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="217" y="300" text-anchor="start" font-size="10" font-weight="600" fill="#20211E">霍克斯湾</text>
+            <text x="217" y="311" text-anchor="start" font-size="8" fill="#8a8577">3 晚</text>
+          </g>
+        </svg>
+        <div class="map-cap">新西兰北岛 (North Island) · Aotearoa</div>
+      </div>
+
+      <!-- 行程线 -->
+      <div>
+        <div class="strip-head"><b>12天 · 11晚</b> &nbsp;·&nbsp; 从奥克兰 (Auckland) 至内皮尔 (Napier)</div>
+        <div class="stops">
+          <div class="stop">
+            <div class="stop-num">1</div>
+            <div><div class="stop-place">奥克兰 (Auckland)</div><div class="stop-hotel">奥克兰柏悦酒店 Park Hyatt</div></div>
+            <div class="stop-nights">3晚<span class="stop-dates">12月12–15日</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">驱车南下，途经霍比特村 (Hobbiton) · 约4小时车程</div></div>
+          <div class="stop">
+            <div class="stop-num">2</div>
+            <div><div class="stop-place">罗托鲁瓦 (Rotorua)</div><div class="stop-hotel">罗托鲁瓦铂尔曼酒店 Pullman</div></div>
+            <div class="stop-nights">3晚<span class="stop-dates">12月15–18日</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">驱车南下 · 约1小时车程</div></div>
+          <div class="stop">
+            <div class="stop-num">3</div>
+            <div><div class="stop-place">陶波 (Taupō)</div><div class="stop-hotel">陶波湖希尔顿酒店 Hilton</div></div>
+            <div class="stop-nights">2晚<span class="stop-dates">12月18–20日</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">驱车前往霍克斯湾 (Hawke's Bay)，途经 Craggy Range 酒庄 · 约2小时车程</div></div>
+          <div class="stop">
+            <div class="stop-num">4</div>
+            <div><div class="stop-place">霍克斯湾 (Hawke's Bay)</div><div class="stop-hotel">The Manse 精品庄园 · 黑斯廷斯 (Hastings) · 独家包院</div></div>
+            <div class="stop-nights">3晚<span class="stop-dates">12月20–23日</span></div>
+          </div>
+          <div class="leg depart"><div class="bar"></div><div class="txt">返程 · 内皮尔 (Napier) 飞往奥克兰 (Auckland) 国内航班，约1小时15分钟</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 每日行程 ============ -->
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>每日行程</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">您的私人中文司机导游将全程陪同，从奥克兰 (Auckland) 一路至霍克斯湾 (Hawke's Bay)，沿途一切无需操心。各站之间的车程均不超过约三小时，并特别留出两整天自由活动的时间。</p>
+
+    <!-- 第1天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 1 天</div>
+        <div class="day-date">12月12日 · 星期六</div>
+        <div class="day-hotel">奥克兰柏悦酒店</div>
+        <div class="day-room">2 × 海景双床房</div>
+        <div class="meals"><span class="meal off">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">抵达奥克兰 (Auckland)</div>
+        <ul>
+          <li><strong>私人机场接送。</strong>您的中文司机导游将在奥克兰 (Auckland) 机场迎接，专车送往柏悦酒店。酒店坐落于温雅德海滨区 (Wynyard Quarter)，紧邻港湾，车程约30分钟。</li>
+          <li><strong>傍晚自由休息。</strong>旅途之后，先好好安顿下来。待您准备好，酒店备有25米无边泳池、水疗中心，以及四间餐厅与酒吧，港湾景致近在眼前。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第2天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 2 天</div>
+        <div class="day-date">12月13日 · 星期日</div>
+        <div class="day-hotel">奥克兰柏悦酒店</div>
+        <div class="day-room">2 × 海景双床房</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">奥克兰 (Auckland) 自由活动</div>
+        <ul>
+          <li><strong>奥克兰 (Auckland) 自由一日。</strong>今日不作任何安排，您可睡到自然醒，放慢脚步。</li>
+          <li class="leisure"><strong>出游建议（自行安排）。</strong>北面的 Matakana 葡萄酒与艺术小镇、Tāwharanui 的白沙海滩、Tiritiri Matangi 鸟类保护区，或乘渡轮前往港湾中的火山岛 Rangitoto。</li>
+          <li class="leisure"><strong>可选酒厂之旅。</strong>如有兴趣，可安排前往 Thomson Distillery 与 1919 Distillery 参观。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第3天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 3 天</div>
+        <div class="day-date">12月14日 · 星期一</div>
+        <div class="day-hotel">奥克兰柏悦酒店</div>
+        <div class="day-room">2 × 海景双床房</div>
+        <div class="meals"><span class="meal">早</span><span class="meal">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">怀赫科岛 (Waiheke Island) · 美食与美酒</div>
+        <ul>
+          <li><strong>渡轮前往怀赫科岛 (Waiheke Island)。</strong>清晨乘渡轮横跨豪拉基湾 (Hauraki Gulf)，约40分钟，您的导游将在 Matiatia 码头迎接，陪伴您展开一日行程。</li>
+          <li><strong>私人怀赫科岛 (Waiheke Island) 美食美酒之旅。</strong>在岛上葡萄园间悠然度过一日：品鉴两家出色酒庄的佳酿，于其中一家享用悠长午餐，并品尝当地橄榄油与特色食材。品酒之余，饱览海湾开阔景致，还可漫步雨林，采撷可带回家泡茶的原生植物。</li>
+          <li><strong>午后乘渡轮返回奥克兰 (Auckland)。</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第4天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 4 天</div>
+        <div class="day-date">12月15日 · 星期二</div>
+        <div class="day-hotel">罗托鲁瓦铂尔曼酒店</div>
+        <div class="day-room">2 × 湖景双床房</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">奥克兰 (Auckland) 至罗托鲁瓦 (Rotorua)，途经霍比特村 (Hobbiton)</div>
+        <ul>
+          <li><strong>霍比特村 (Hobbiton) 电影拍摄地之旅。</strong>早餐后驱车南行约三小时，前往玛塔玛塔 (Matamata) 附近的霍比特村 (Hobbiton) 电影拍摄地。约两小时的导览步行，带您走进彼得·杰克逊爵士为"夏尔 (the Shire)"选中的绵延牧场：依山而筑的霍比特洞、袋底洞 (Bag End) 标志性的圆形绿门、双拱石桥，最后在绿龙酒馆 (Green Dragon Inn) 小酌一杯。</li>
+          <li><strong>继续前往罗托鲁瓦 (Rotorua)。</strong>再行车一小时余，抵达湖畔的铂尔曼酒店。今晚自由安排。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第5天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 5 天</div>
+        <div class="day-date">12月16日 · 星期三</div>
+        <div class="day-hotel">罗托鲁瓦铂尔曼酒店</div>
+        <div class="day-room">2 × 湖景双床房</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">罗托鲁瓦 (Rotorua) 水上飞机之旅与毛利庆典</div>
+        <ul>
+          <li><strong>塔拉威拉火山 (Mount Tarawera) 与温泉 · 水上飞机。</strong>今日的重头戏是一段水上飞机之旅，通常安排在上午。飞机自罗托鲁瓦 (Rotorua) 湖畔起飞，掠过 Mokoia 岛与塔拉威拉 (Mount Tarawera) 火山口，以及毛利人称为"火焰姐妹"的蒸腾彩色地热谷。降落于有"隐谷"之称的 Orakei Korako，用一小时漫步于硅华台地与间歇泉之间；随后飞往一处仅能由水路抵达的温泉泡池，让约90分钟静静流淌。</li>
+          <li><strong>午后自由休息。</strong>通常约中午返回，午后可在酒店小憩或到湖边散步，为晚间活动稍作休整。</li>
+          <li><strong>Tū Te Rā 夏季丰收庆典。</strong>约下午五时起，在一座森林中的毛利村庄享受夏日盛宴：以精致小食开席，哈卡战舞与歌谣讲述古老故事，并奉上以传统地窑（hāngī）烹制的三道式大餐，一切都在林间与篝火映照下进行。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第6天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 6 天</div>
+        <div class="day-date">12月17日 · 星期四</div>
+        <div class="day-hotel">罗托鲁瓦铂尔曼酒店</div>
+        <div class="day-room">2 × 湖景双床房</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">森林树冠探险与几维鸟之约</div>
+        <ul>
+          <li><strong>专属树冠探险之旅。</strong>登上树梢，展开一段专属树冠探险：数小时轻松的高空滑索、吊桥与树顶平台，穿行于500公顷原生森林之间，鸟鸣环绕。</li>
+          <li><strong>国家几维鸟孵化中心导览。</strong>用一小时走近新西兰最神秘的几维鸟，包括夜行馆，或许能一睹这害羞夜行者的身影。每一张门票都用于支持繁育计划。</li>
+          <li><strong>其余时间自由安排，</strong>随您心意探索罗托鲁瓦 (Rotorua)。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第7天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 7 天</div>
+        <div class="day-date">12月18日 · 星期五</div>
+        <div class="day-hotel">陶波湖希尔顿酒店</div>
+        <div class="day-room">2 × 双床客房</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">罗托鲁瓦 (Rotorua) 至陶波 (Taupō)</div>
+        <ul>
+          <li><strong>驱车前往陶波 (Taupō)。</strong>轻松车程约一小时南下，导游沿途为您停留赏景。</li>
+          <li><strong>入住陶波湖 (Lake Taupō) 畔。</strong>陶波湖希尔顿酒店俯瞰新西兰最大的湖泊，汤加里罗 (Tongariro) 群峰在湖对岸巍然耸立。其余时间自由放松。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第8天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 8 天</div>
+        <div class="day-date">12月19日 · 星期六</div>
+        <div class="day-hotel">陶波湖希尔顿酒店</div>
+        <div class="day-room">2 × 双床客房</div>
+        <div class="meals"><span class="meal">早</span><span class="meal">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">陶波湖 (Lake Taupō) 上的一天</div>
+        <ul>
+          <li><strong>游湖与鳟鱼垂钓。</strong>上午出湖，泛舟驶入只能由水路抵达的静谧小湾，鲁阿佩胡 (Ruapehu)、瑙鲁霍伊 (Ngāuruhoe) 与汤加里罗 (Tongariro) 三座火山在南方天际连绵。午餐与钓鱼许可证均已包含，很有机会钓上一尾陶波 (Taupō) 鳟鱼。</li>
+          <li><strong>午后地热之旅。</strong>下午由导游带您前往地热公园，聆听胡卡瀑布 (Huka Falls) 的轰鸣。（公园门票现场自理。）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第9天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 9 天</div>
+        <div class="day-date">12月20日 · 星期日</div>
+        <div class="day-hotel">The Manse 精品庄园</div>
+        <div class="day-room">独家包院 · 2间套房，大床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal">午</span><span class="meal">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">陶波 (Taupō) 至霍克斯湾 (Hawke's Bay)，途经 Craggy Range 酒庄</div>
+        <ul>
+          <li><strong>驱车前往霍克斯湾 (Hawke's Bay)。</strong>上午自陶波 (Taupō) 出发，约两小时南下进入霍克斯湾 (Hawke's Bay) 葡萄酒乡，直抵 Craggy Range 酒庄。</li>
+          <li><strong>Craggy Range "Giants Gourmet" 美食体验。</strong>于此从上午一直悠享至午后：参观酒庄与酒窖，漫步香草花园，品味六道式精选菜单，每一道均搭配酒庄自酿佳酿。</li>
+          <li><strong>入住 The Manse。</strong>再驱车片刻，抵达黑斯廷斯 (Hastings) 附近的 The Manse 庄园，三晚由您一家独享。首晚已备晚宴，以当地美酒为您接风。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第10天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 10 天</div>
+        <div class="day-date">12月21日 · 星期一</div>
+        <div class="day-hotel">The Manse 精品庄园</div>
+        <div class="day-room">独家包院 · 2间套房，大床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">霍克斯湾 (Hawke's Bay) 精华一日</div>
+        <ul>
+          <li><strong>私人霍克斯湾 (Hawke's Bay) 全日之旅。</strong>由当地英语导游陪同（您的中文司机导游于今晨作别）。漫步内皮尔 (Napier) 的装饰艺术 (Art Deco) 街区、造访 Birdwoods 雕塑花园、登蒂玛塔峰 (Te Mata Peak) 远眺、于 Arataki 蜂蜜园小憩，最后在 Craggy Range 收尾。行程含两场品酒与两道式午餐。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第11天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 11 天</div>
+        <div class="day-date">12月22日 · 星期二</div>
+        <div class="day-hotel">The Manse 精品庄园</div>
+        <div class="day-room">独家包院 · 2间套房，大床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">霍克斯湾 (Hawke's Bay) 自由活动</div>
+        <ul>
+          <li><strong>又一日自由时光，</strong>可留在庄园，也可外出走走，一切随您。</li>
+          <li class="leisure"><strong>出游建议（自行安排）。</strong>内皮尔 (Napier) 的装饰艺术街区、前往 Cape Kidnappers 塘鹅栖息地、哈维洛克北一带的酒庄，或 Waimarama 与 Ocean Beach 海滩。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 第12天 -->
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 12 天</div>
+        <div class="day-date">12月23日 · 星期三</div>
+        <div class="day-hotel">启程</div>
+        <div class="day-room">内皮尔 (Napier) 机场</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">经奥克兰 (Auckland) 返程</div>
+        <ul>
+          <li><strong>送往内皮尔 (Napier) 机场。</strong>自庄园驱车约25分钟。</li>
+          <li><strong>转乘国内航班飞往奥克兰 (Auckland)。</strong>约1小时15分钟航程，于奥克兰 (Auckland) 衔接您的回程航班。（国内与国际机票均不含。）</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="legend"><b>餐食：</b> &nbsp; <span style="color:var(--green-deep);font-weight:600">早</span> 早餐 &nbsp;·&nbsp; <span style="color:var(--green-deep);font-weight:600">午</span> 午餐 &nbsp;·&nbsp; <span style="color:var(--green-deep);font-weight:600">晚</span> 晚餐 &nbsp;·&nbsp; 空心圆圈表示该餐自理。行程时间为大致参考，出发前将进一步确认。</p>
+  </div>
+</section>
+
+<!-- ============ 行程费用 ============ -->
+<section>
+  <div class="sec-head"><div class="page"><h2>行程费用</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="cost-wrap">
+      <div class="cost-card">
+        <div class="cost-main">
+          <div class="label">总价 · 四人</div>
+          <div class="fig">HK$362,690</div>
+          <div class="sub">约合每人 HK$90,673 · 以两间双床房为基准</div>
+        </div>
+        <div class="cost-note">以港币计价。价格为初步参考，视供应情况与最终确认为准。基于当前供应商报价与汇率，如产生燃油附加费，将于出行前另行告知。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 费用包含与不含 ============ -->
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>费用包含与不含</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="incexc-grid">
+      <div class="incexc inc">
+        <h3>费用包含</h3>
+        <ul>
+          <li>私人中文司机导游，第1–9天（第10天为当地英语导游）</li>
+          <li>全程11晚指定住宿，含每日早餐</li>
+          <li>行程内所有私人接送与游览</li>
+          <li>奥克兰 (Auckland)–怀赫科岛 (Waiheke Island) 往返渡轮，及私人美食美酒之旅（含葡萄园午餐）</li>
+          <li>霍比特村 (Hobbiton) 电影拍摄地导览</li>
+          <li>塔拉威拉火山 (Mount Tarawera)、Orakei Korako 与温泉 · 水上飞机之旅</li>
+          <li>Tū Te Rā 夏季丰收庆典（含晚宴）</li>
+          <li>专属树冠探险与国家几维鸟孵化中心导览</li>
+          <li>陶波湖 (Lake Taupō) 游览及私人半日游湖垂钓（含午餐与钓鱼证）</li>
+          <li>Craggy Range "Giants Gourmet" 美食体验（六道式配酒）</li>
+          <li>The Manse 独家包院，含首晚双人晚宴与当地美酒</li>
+          <li>霍克斯湾 (Hawke's Bay) 全日之旅，含两场品酒与午餐</li>
+          <li>内皮尔 (Napier) 机场送机</li>
+        </ul>
+      </div>
+      <div class="incexc exc">
+        <h3>费用不含</h3>
+        <ul>
+          <li>国际机票，及内皮尔 (Napier)–奥克兰 (Auckland) 国内航班</li>
+          <li>旅行、医疗与紧急救援保险</li>
+          <li>行程未列明的餐食</li>
+          <li>自由活动日的活动与门票</li>
+          <li>陶波 (Taupō) 午后地热游览的公园门票</li>
+          <li>可选升级项目（见下）</li>
+          <li>个人消费与小费</li>
+          <li>出行前另行告知的燃油附加费</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 升级选择 ============ -->
+<section>
+  <div class="sec-head"><div class="page"><h2>升级选择</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">两处久负盛名的顶级酒店，可替代罗托鲁瓦 (Rotorua) 或霍克斯湾 (Hawke's Bay) 的标准住宿。</p>
+    <div class="upgrades">
+
+      <div class="up">
+        <div>
+          <div class="up-loc">罗托鲁瓦 (Rotorua) · 第4–7天 · 替代罗托鲁瓦铂尔曼酒店</div>
+          <div class="up-name">Solitaire Lodge，塔拉威拉湖 (Lake Tarawera)</div>
+          <div class="up-desc">一座独踞半岛、伸入塔拉威拉湖 (Lake Tarawera)的精品酒店，您一家四口共享一间两卧室 Tarawera 套房。房价含餐前酒与小食、五道式晚宴、早餐及每日轻午餐。</div>
+        </div>
+        <div class="up-price"><div class="amt">HK$27,200</div><div class="per">每晚</div></div>
+      </div>
+
+      <div class="up">
+        <div>
+          <div class="up-loc">霍克斯湾 (Hawke's Bay) · 第9–12天 · 替代 The Manse</div>
+          <div class="up-name">瑰丽 Cape Kidnappers，Te Awanga</div>
+          <div class="up-desc">一座高踞海崖之上的酒店，坐拥世界排名的高尔夫球场，两间 Grand Lodge Junior 套房。房价含餐前酒、晚餐与早餐。</div>
+        </div>
+        <div class="up-price"><div class="amt">HK$85,400</div><div class="per">每晚 · 两间套房</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="page">
+    <div class="fbrand">Alchemist Travel<small>与 Beyond the Blue 合作呈献</small></div>
+    <div class="fmeta">Kristin Lim &nbsp;·&nbsp; kristin@alchemisttravel.com &nbsp;·&nbsp; +65 9751 4830<br>为朱总定制的行程草案 · 2026年7月</div>
+  </div>
+</footer>
+
+</body>
+</html>
