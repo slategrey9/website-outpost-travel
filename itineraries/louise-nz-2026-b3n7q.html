@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>New Zealand · South Island &amp; Auckland · Prepared for Louise Zhu · Alchemist Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root{
+    --green-deep:#14301A;
+    --green-mid:#1E5228;
+    --gold:#B08D2E;
+    --gold-soft:#C9A84C;
+    --ink:#20211E;
+    --ink-mid:#4A4A44;
+    --ink-soft:#77776E;
+    --line:#E3DED2;
+    --line-soft:#EFEBE1;
+    --cream:#FBF9F4;
+    --paper:#FFFFFF;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:'Inter',sans-serif;font-weight:300;
+    color:var(--ink);background:var(--cream);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:880px;margin:0 auto;padding:0 30px;}
+
+  /* ---- Masthead ---- */
+  .masthead{background:var(--green-deep);color:#fff;padding:36px 0 34px;}
+  .masthead .page{display:flex;flex-direction:column;gap:24px;}
+  .brand-row{display:flex;justify-content:space-between;align-items:flex-start;
+    border-bottom:1px solid rgba(255,255,255,0.16);padding-bottom:18px;flex-wrap:wrap;gap:10px;}
+  .brand-lock .brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;letter-spacing:.26em;text-transform:uppercase;color:#fff;}
+  .brand-lock .brand span{color:var(--gold-soft);}
+  .brand-lock .partner{font-size:.66rem;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-top:6px;text-transform:uppercase;}
+  .brand-contact{font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.66);text-align:right;line-height:1.7;}
+  .brand-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+  .lang-toggle{display:inline-flex;align-items:stretch;font-size:.7rem;letter-spacing:.1em;border:1px solid rgba(255,255,255,.3);border-radius:20px;overflow:hidden;}
+  .lang-toggle span,.lang-toggle a{padding:4px 13px;color:rgba(255,255,255,.62);line-height:1.6;transition:color .2s,background .2s;}
+  .lang-toggle .active{background:var(--gold-soft);color:var(--green-deep);font-weight:600;}
+  .lang-toggle a:hover{color:#fff;}
+  .title-block .kicker{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px;}
+  .title-block h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.9rem;line-height:1.02;letter-spacing:.01em;color:#fff;}
+  .title-block h1 em{font-style:italic;color:var(--gold-soft);}
+  .meta-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:20px;}
+  .meta-item{font-size:.78rem;letter-spacing:.04em;color:rgba(255,255,255,.8);}
+  .meta-item b{display:block;font-weight:500;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:3px;}
+
+  /* ---- Section frame ---- */
+  section{background:var(--paper);}
+  section.alt{background:var(--cream);}
+  .sec-head{padding:34px 0 6px;}
+  .sec-head .page{display:flex;align-items:baseline;gap:16px;}
+  .sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.7rem;color:var(--green-deep);letter-spacing:.01em;white-space:nowrap;}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);}
+  .sec-intro{font-size:.86rem;color:var(--ink-mid);padding-bottom:18px;}
+
+  /* ---- Journey overview (map + strip) ---- */
+  .overview{display:grid;grid-template-columns:340px 1fr;gap:38px;padding:6px 0 34px;align-items:start;}
+  .map-wrap{background:var(--cream);border:1px solid var(--line);border-radius:3px;padding:8px;box-shadow:0 1px 3px rgba(20,48,26,.05);}
+  .map-wrap svg{width:100%;height:auto;display:block;}
+  .map-cap{text-align:center;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+  .strip-head{font-size:.82rem;letter-spacing:.03em;color:var(--ink-mid);margin-bottom:10px;}
+  .strip-head b{color:var(--green-deep);font-weight:600;}
+  .stops{display:flex;flex-direction:column;}
+  .stop{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:13px 0;}
+  .stop-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);line-height:1;}
+  .stop-place{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-weight:600;color:var(--ink);}
+  .stop-hotel{font-size:.92rem;color:var(--ink-mid);margin-top:3px;font-style:italic;font-family:'Cormorant Garamond',serif;}
+  .stop-nights{text-align:right;white-space:nowrap;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green-mid);font-weight:600;}
+  .stop-dates{display:block;font-size:.78rem;letter-spacing:.02em;color:var(--ink-soft);font-weight:400;text-transform:none;margin-top:3px;}
+  .leg{display:grid;grid-template-columns:34px 1fr;gap:14px;}
+  .leg .bar{grid-column:1;justify-self:center;width:1px;height:22px;background:var(--line);position:relative;}
+  .leg .bar::before{content:"";position:absolute;left:-2px;top:50%;width:5px;height:5px;border-radius:50%;background:var(--gold-soft);transform:translateY(-50%);}
+  .leg .txt{font-size:.82rem;color:var(--ink-mid);align-self:center;}
+  .leg.depart .bar{background:repeating-linear-gradient(var(--line) 0 3px, transparent 3px 6px);}
+  .leg.depart .txt{color:var(--ink-mid);}
+
+  /* ---- Schedule ---- */
+  .day{display:grid;grid-template-columns:212px 1fr;gap:0;border-top:1px solid var(--line);}
+  .day:last-of-type{border-bottom:1px solid var(--line);}
+  .day-side{padding:20px 22px 22px 0;border-right:1px solid var(--line-soft);}
+  .day-tag{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .day-date{font-size:.82rem;color:var(--ink-soft);margin:2px 0 12px;}
+  .day-hotel{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:1.12rem;color:var(--ink);line-height:1.2;}
+  .day-room{font-size:.74rem;color:var(--ink-soft);margin-top:4px;}
+  .meals{margin-top:13px;display:flex;gap:6px;}
+  .meal{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    font-size:.62rem;font-weight:600;background:var(--green-deep);color:var(--gold-soft);}
+  .meal.off{background:transparent;color:#CFC9BB;border:1px solid var(--line);}
+  .day-body{padding:20px 0 22px 24px;}
+  .day-body .head{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--green-mid);font-weight:600;margin-bottom:11px;}
+  .day-body ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .day-body li{position:relative;padding-left:18px;font-size:.87rem;color:var(--ink-mid);}
+  .day-body li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+  .day-body li.leisure::before{background:transparent;border:1px solid var(--gold);}
+  .day-body strong{font-weight:600;color:var(--ink);}
+
+  /* ---- Costs ---- */
+  .cost-wrap{padding:8px 0 30px;}
+  .cost-card{border:1px solid var(--line);background:var(--cream);border-radius:2px;padding:26px 30px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;}
+  .cost-main .label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .cost-main .fig{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--green-deep);line-height:1;}
+  .cost-main .sub{font-size:.82rem;color:var(--ink-mid);margin-top:6px;}
+  .cost-note{max-width:330px;font-size:.74rem;color:var(--ink-soft);line-height:1.5;border-left:2px solid var(--gold-soft);padding-left:16px;}
+
+  /* ---- Inc / Exc ---- */
+  .incexc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:8px 0 34px;}
+  .incexc h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .incexc.exc h3{color:var(--ink-soft);}
+  .incexc ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .incexc li{position:relative;padding-left:20px;font-size:.83rem;color:var(--ink-mid);}
+  .inc li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--gold);font-size:.8rem;}
+  .exc li::before{content:"\2013";position:absolute;left:0;top:0;color:var(--ink-soft);}
+
+  /* ---- Upgrades ---- */
+  .upgrades{padding:8px 0 12px;display:flex;flex-direction:column;}
+  .up{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:18px 0;border-top:1px solid var(--line);}
+  .up:last-of-type{border-bottom:1px solid var(--line);}
+  .up-name{font-family:'Cormorant Garamond',serif;font-size:1.16rem;color:var(--ink);font-weight:600;}
+  .up-loc{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+  .up-desc{font-size:.83rem;color:var(--ink-mid);margin-top:6px;max-width:580px;}
+  .up-price{text-align:right;white-space:nowrap;}
+  .up-price .amt{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--green-deep);}
+  .up-price .per{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
+  .up-foot{font-size:.74rem;color:var(--ink-soft);margin-top:16px;line-height:1.5;}
+
+  /* ---- Footer ---- */
+  footer{background:var(--green-deep);color:rgba(255,255,255,.8);padding:30px 0;margin-top:6px;}
+  footer .page{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;}
+  footer .fbrand{font-family:'Cormorant Garamond',serif;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-size:1rem;}
+  footer .fbrand small{display:block;font-family:'Inter',sans-serif;letter-spacing:.12em;font-size:.6rem;color:rgba(255,255,255,.55);margin-top:5px;}
+  footer .fmeta{font-size:.72rem;letter-spacing:.05em;text-align:right;color:rgba(255,255,255,.6);}
+  .legend{padding:16px 0 0;font-size:.72rem;color:var(--ink-soft);}
+  .legend b{color:var(--ink-mid);font-weight:500;}
+
+  /* ---- Real journey map (MapLibre + CARTO) ---- */
+  #jmap{width:100%;height:498px;border-radius:2px;overflow:hidden;background:#EDEBE4;}
+  .maplibregl-ctrl-group{border-radius:3px !important;box-shadow:0 1px 4px rgba(20,48,26,.14) !important;}
+  .maplibregl-ctrl-group button{width:27px;height:27px;}
+  .maplibregl-ctrl-attrib.maplibregl-compact{background:rgba(251,249,244,.9) !important;min-height:22px;border-radius:11px !important;}
+  .maplibregl-ctrl-attrib.maplibregl-compact:not(.maplibregl-compact-show) .maplibregl-ctrl-attrib-inner{display:none;}
+  .maplibregl-ctrl-attrib a{color:var(--ink-soft);}
+  .maplibregl-ctrl-attrib-button{opacity:.7;}
+  .jmap-pin{width:26px;height:26px;border-radius:50%;background:var(--green-deep);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;border:1.6px solid var(--gold-soft);box-shadow:0 2px 7px rgba(20,48,26,.32);cursor:pointer;}
+  .maplibregl-popup-content{font-family:'Inter',sans-serif;border-radius:4px;padding:9px 13px;box-shadow:0 3px 14px rgba(20,48,26,.2);}
+  .jmap-pop-place{font-weight:600;color:var(--green-deep);font-size:.86rem;}
+  .jmap-pop-hotel{color:var(--ink-mid);font-size:.76rem;margin-top:1px;}
+  .jmap-pop-nights{color:var(--gold);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;margin-top:4px;}
+
+  @media (max-width:660px){
+    .overview{grid-template-columns:1fr;gap:24px;}
+    .map-wrap{max-width:none;margin:0;}
+    #jmap{height:440px;}
+    .day{grid-template-columns:1fr;}
+    .day-side{border-right:none;border-bottom:1px solid var(--line-soft);padding:18px 0;}
+    .day-body{padding:16px 0;}
+    .incexc-grid{grid-template-columns:1fr;gap:24px;}
+    .title-block h1{font-size:2.2rem;}
+  }
+  @media print{
+    body{background:#fff;font-size:11px;}
+    .page{max-width:100%;padding:0 14px;}
+    section,section.alt{background:#fff;}
+    .masthead{padding:24px 0 20px;}
+    .title-block h1{font-size:2.2rem;}
+    .overview,.day,.up,.incexc-grid,.cost-card,footer{break-inside:avoid;}
+    .sec-head{break-after:avoid;}
+    @page{margin:14mm 12mm;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="page">
+    <div class="brand-row">
+      <div class="brand-lock">
+        <div class="brand">Alchemist <span>Travel</span></div>
+        <div class="partner">In partnership with Beyond the Blue</div>
+      </div>
+      <div class="brand-right">
+        <div class="lang-toggle"><span class="active">EN</span><a href="louise-nz-2026-b3n7q-cn.html">中文</a></div>
+        <div class="brand-contact">Kristin Lim<br>kristin@alchemisttravel.com<br>+65 9751 4830</div>
+      </div>
+    </div>
+    <div class="title-block">
+      <div class="kicker">A Draft Proposal &middot; Auckland &amp; South Island</div>
+      <h1>Scenic Peaks,<br>Island <em>Harbours</em></h1>
+      <div class="meta-row">
+        <div class="meta-item"><b>Prepared for</b>Louise Zhu &amp; family</div>
+        <div class="meta-item"><b>Dates</b>14 – 27 December 2026</div>
+        <div class="meta-item"><b>Duration</b>14 days &middot; 13 nights</div>
+        <div class="meta-item"><b>Travellers</b>Four</div>
+        <div class="meta-item"><b>Driver-guide</b>Private, Mandarin-speaking</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><div class="page"><h2>The Journey</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="overview">
+      <div class="map-wrap">
+        <div id="jmap" role="img" aria-label="Interactive route map: Auckland, Mount Cook, Queenstown"></div>
+        <template id="jmap-legacy"><svg viewBox="0 0 300 470" role="img" aria-label="Route map of New Zealand, Auckland to Queenstown">
+          <path d="M 151.7,235.8 C 159.2,237.1 176.6,246.3 181.1,253.4 C 185.6,260.5 182.4,269.8 178.8,278.3 C 175.3,286.8 169.4,297.2 159.6,304.3 C 149.8,311.5 128.9,312.4 120.0,321.3 C 111.2,330.1 116.8,349.0 106.5,357.5 C 96.1,365.9 70.7,371.0 57.8,372.2 C 45.0,373.3 36.5,366.9 29.6,364.3 C 22.6,361.6 16.0,362.0 16.0,356.3 C 16.0,350.7 22.4,337.1 29.6,330.3 C 36.7,323.5 49.2,321.8 59.0,315.6 C 68.8,309.4 78.6,300.4 88.4,293.0 C 98.2,285.7 109.9,279.4 117.8,271.5 C 125.7,263.6 130.2,251.5 135.9,245.5 C 141.5,239.6 144.2,234.5 151.7,235.8 Z"
+                fill="#E7E0CF" stroke="#D6CDB8" stroke-width="1"/>
+          <path d="M 152.1,97.8 C 156.0,100.6 173.1,111.7 180.0,117.3 C 186.9,122.9 189.2,125.8 193.5,131.3 C 197.9,136.8 202.3,148.4 206.0,150.5 C 209.7,152.6 211.7,140.7 215.7,144.0 C 219.7,147.2 223.0,166.2 229.7,170.2 C 236.4,174.2 246.7,167.8 255.7,167.9 C 264.8,168.1 281.3,166.7 284.0,171.1 C 286.7,175.6 277.7,188.5 272.0,194.6 C 266.4,200.7 254.2,204.3 250.1,207.7 C 245.9,211.2 249.0,211.4 247.1,215.4 C 245.3,219.5 244.9,224.4 238.8,231.9 C 232.7,239.5 217.2,257.2 210.5,260.7 C 203.8,264.2 199.8,259.3 198.7,253.0 C 197.7,246.7 206.1,229.4 204.2,222.9 C 202.3,216.4 192.2,216.6 187.4,214.1 C 182.7,211.6 176.3,210.3 175.7,207.7 C 175.1,205.2 180.1,203.3 183.8,198.7 C 187.5,194.1 197.0,186.8 198.1,179.9 C 199.1,173.0 193.0,163.7 190.1,157.3 C 187.3,150.9 185.2,148.1 181.1,141.5 C 177.0,134.9 169.3,124.5 165.3,117.7 C 161.2,111.0 158.9,104.1 156.7,100.8 C 154.5,97.5 148.3,95.1 152.1,97.8 Z"
+                fill="#E7E0CF" stroke="#D6CDB8" stroke-width="1"/>
+          <path d="M 150.3,303.9 L 93.8,314.5 L 60.3,337.8" fill="none" stroke="#B08D2E" stroke-width="1.8" stroke-dasharray="3 4" stroke-linecap="round"/>
+          <path d="M 198.3,152.8 L 150.3,303.9" fill="none" stroke="#B08D2E" stroke-width="1.4" stroke-dasharray="1.5 6" stroke-linecap="round" opacity="0.5"/>
+          <g font-family="Inter, sans-serif">
+            <circle cx="198.3" cy="152.8" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="207.3" y="149.8" text-anchor="start" font-size="10" font-weight="600" fill="#20211E">Auckland</text>
+            <text x="207.3" y="159.8" text-anchor="start" font-size="8" fill="#8a8577">4 NIGHTS</text>
+            <circle cx="93.8" cy="314.5" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="93.8" y="302.5" text-anchor="middle" font-size="10" font-weight="600" fill="#20211E">Mount Cook</text>
+            <text x="93.8" y="293.5" text-anchor="middle" font-size="8" fill="#8a8577">2 NIGHTS</text>
+            <circle cx="60.3" cy="337.8" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="52.3" y="334.8" text-anchor="end" font-size="10" font-weight="600" fill="#20211E">Queenstown</text>
+            <text x="52.3" y="344.8" text-anchor="end" font-size="8" fill="#8a8577">7 NIGHTS</text>
+          </g>
+        </svg></template>
+        <div class="map-cap">New Zealand &middot; Aotearoa</div>
+      </div>
+      <div>
+        <div class="strip-head"><b>14 days &middot; 13 nights</b> &nbsp;&middot;&nbsp; Auckland to Queenstown</div>
+        <div class="stops">
+          <div class="stop">
+            <div class="stop-num">1</div>
+            <div><div class="stop-place">Auckland</div><div class="stop-hotel">Park Hyatt Auckland</div></div>
+            <div class="stop-nights">4 nights<span class="stop-dates">14 – 18 Dec</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">Fly to Christchurch, then drive to Mount Cook &middot; about 4 hours' driving</div></div>
+          <div class="stop">
+            <div class="stop-num">2</div>
+            <div><div class="stop-place">Mount Cook</div><div class="stop-hotel">Mt Cook Lakeside Retreat &middot; Lake Pūkaki</div></div>
+            <div class="stop-nights">2 nights<span class="stop-dates">18 – 20 Dec</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">Drive to Queenstown with touring &middot; about 3½ hours</div></div>
+          <div class="stop">
+            <div class="stop-num">3</div>
+            <div><div class="stop-place">Queenstown</div><div class="stop-hotel">The Rees Hotel &amp; Luxury Apartments</div></div>
+            <div class="stop-nights">7 nights<span class="stop-dates">20 – 27 Dec</span></div>
+          </div>
+          <div class="leg depart"><div class="bar"></div><div class="txt">Depart &middot; Queenstown Airport, own arrangements</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>Day by Day</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">Four unhurried nights in Auckland open the trip, with Waiheke and the coast, before you fly south into the Southern Alps. The South Island is some of the most beautiful country on earth, and the route is shaped to take in its greatest sights: the glaciers and dark skies of Aoraki/Mount Cook, then a long, settled week in Queenstown for Glenorchy, Central Otago wine and the lakes, with several days left open. Your Mandarin-speaking guide is with you throughout.</p>
+
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 1</div>
+        <div class="day-date">Monday, 14 December</div>
+        <div class="day-hotel">Park Hyatt Auckland</div>
+        <div class="day-room">Harbour Suite &amp; connecting Deluxe Room</div>
+        <div class="meals"><span class="meal off">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Arrive in Auckland</div>
+        <ul>
+          <li><strong>Arrive in Auckland.</strong> Make your own way from the airport to the Park Hyatt, on the water at Wynyard Quarter. (International flights and this transfer are your own arrangement; a private transfer can be added if you'd prefer.)</li>
+          <li><strong>Settle in on the waterfront.</strong> The rest of the day is yours. The hotel has a 25-metre infinity pool, a day spa, and four restaurants and bars, with the harbour just outside.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 2</div>
+        <div class="day-date">Tuesday, 15 December</div>
+        <div class="day-hotel">Park Hyatt Auckland</div>
+        <div class="day-room">Harbour Suite &amp; connecting Deluxe Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Auckland, and the All Blacks Experience</div>
+        <ul>
+          <li><strong>The All Blacks Experience.</strong> A 45-minute guided experience in the heart of the city: the story and spirit of New Zealand's teams in black, a chance to face the haka, and an interactive zone to test your rugby skills. More than a rugby attraction, it is a window into Māori culture.</li>
+          <li class="leisure"><strong>The rest of the day at leisure.</strong> Auckland, the City of Sails, is yours to explore: a cruise or a sail on the Waitematā, the ferry across to Devonport, or the cafés and galleries around Viaduct Harbour and Wynyard Quarter.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 3</div>
+        <div class="day-date">Wednesday, 16 December</div>
+        <div class="day-hotel">Park Hyatt Auckland</div>
+        <div class="day-room">Harbour Suite &amp; connecting Deluxe Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Waiheke Island, food &amp; wine</div>
+        <ul>
+          <li><strong>Ferry to Waiheke Island.</strong> Your Mandarin-speaking guide walks you to the terminal for the morning ferry across the Hauraki Gulf, about 40 minutes.</li>
+          <li><strong>Private Waiheke Food &amp; Wine Tour.</strong> A relaxed day among the island's vineyards with a local guide: tastings at two of Waiheke's best-loved wineries, a long vineyard lunch, and local olive oil and produce to try, with wide views over the gulf throughout. Back to the ferry in the late afternoon.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 4</div>
+        <div class="day-date">Thursday, 17 December</div>
+        <div class="day-hotel">Park Hyatt Auckland</div>
+        <div class="day-room">Harbour Suite &amp; connecting Deluxe Room</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Auckland by the coast</div>
+        <ul>
+          <li><strong>Private Auckland City Tour.</strong> A full day along Auckland's east coast with your guide: the views across to Rangitoto from Achilles Point, the significance of Bastion Point, then over the harbour bridge to the North Shore and the Victorian village of Devonport, finishing with the short climb up Mount Victoria for a 360-degree view over the city and gulf. Lunch is settled locally.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 5</div>
+        <div class="day-date">Friday, 18 December</div>
+        <div class="day-hotel">Mt Cook Lakeside Retreat</div>
+        <div class="day-room">Two-bedroom villa &middot; private Fantail Spa</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Fly south to the Southern Alps</div>
+        <ul>
+          <li><strong>Private transfer and flight to Christchurch.</strong> A private transfer from the Park Hyatt to the airport, then the flight south to Christchurch, around 1½ hours.</li>
+          <li><strong>Drive to Mount Cook with touring.</strong> Your Mandarin-speaking driver-guide meets you in Christchurch for the drive inland to Aoraki/Mount Cook, across the Canterbury Plains and up into the Mackenzie Country, the land opening into golden tussock grass and turquoise glacial lakes.</li>
+          <li><strong>Mt Cook Lakeside Retreat.</strong> Arrive mid-afternoon at your two-bedroom villa on the shore of Lake Pūkaki, with Aoraki/Mount Cook filling the view. A bottle of New Zealand sparkling is waiting, and dinner is a three-course evening meal, served either at the retreat's restaurant, The Moraine, or brought to your villa for a private dinner.</li>
+          <li><strong>Dark Sky Reserve Stargazing Experience.</strong> Later in the evening, join the team in the Pūkaki Cellar Observatory, in the heart of the Aoraki Mackenzie Dark Sky Reserve and among the clearest night skies on earth. A glass of wine or whisky in the cellar, then an astronomer to guide you through the southern stars by telescope. (Weather dependent.)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 6</div>
+        <div class="day-date">Saturday, 19 December</div>
+        <div class="day-hotel">Mt Cook Lakeside Retreat</div>
+        <div class="day-room">Two-bedroom villa &middot; private Fantail Spa</div>
+        <div class="meals"><span class="meal">B</span><span class="meal">L</span><span class="meal">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Glaciers by helicopter and ski plane</div>
+        <ul>
+          <li><strong>The Ultimate Alpine Experience.</strong> The day's highlight, and the finest way to see the Southern Alps: fly by ski plane and helicopter on the same day over Aoraki/Mount Cook, up the Tasman Valley past the Hochstetter Icefall to a snow landing high on the Tasman Glacier, where the aircraft falls silent. Time on the glacier before swapping aircraft for the flight back.</li>
+          <li><strong>Afternoon at Mount Cook.</strong> Rejoin your guide to explore the national park at your own pace: the Hooker Valley Track, the Sir Edmund Hillary Alpine Centre, or the shore of Lake Pūkaki with the mountain above.</li>
+          <li><strong>Dinner at the retreat.</strong> Breakfast, a hiker's lunch and a three-course dinner are provided each day of your stay.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 7</div>
+        <div class="day-date">Sunday, 20 December</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">Two-bedroom Lake View Apartment</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Over the Lindis to Queenstown</div>
+        <ul>
+          <li><strong>Drive to Queenstown with touring.</strong> Leave the mountains after breakfast for another of the South Island's great drives, back over the Lindis Pass and down through Central Otago to Queenstown, your guide stopping at the sights along the way.</li>
+          <li><strong>The Rees Hotel &amp; Luxury Apartments.</strong> Check in to your two-bedroom lake-view apartment above Lake Wakatipu, looking across to the Remarkables, with a private beach and wharf, a courtesy shuttle into town, and breakfast each morning. The evening is yours.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 8</div>
+        <div class="day-date">Monday, 21 December</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">Two-bedroom Lake View Apartment</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">A day around Queenstown</div>
+        <ul>
+          <li><strong>Queenstown Full Day Tour.</strong> A full day exploring Queenstown and its surrounds with your guide, shaped around what you feel like: the lakes and alpine passes, high-country landscapes, the wineries of Gibbston, or the historic gold-rush village of Arrowtown. Lunch and entry fees are settled locally.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 9</div>
+        <div class="day-date">Tuesday, 22 December</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">Two-bedroom Lake View Apartment</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Glenorchy: peaks, a glacier and a jet boat</div>
+        <ul>
+          <li><strong>Private Peaks to Paradise Flight &amp; Jet Boat.</strong> From 8am, a morning that is hard to better. You lift off by helicopter from Glenorchy over Lake Whakatipu and the Dart River, setting down high on exclusive Mount Alfred where the engine falls silent for 360-degree views, then again beneath the hanging glacier and waterfalls of the Earnslaw Burn. From Paradise, a wilderness jet boat carries you back down the braided river through the Te Wāhipounamu World Heritage wilderness, with a few spins along the way. (Weather dependent.)</li>
+          <li><strong>Afternoon in Glenorchy.</strong> After the jet boat, a relaxed afternoon among the lakes, native forest and Lord of the Rings filming locations, with a generous platter lunch at Mrs Woolly's (settled locally). Back to Queenstown in the late afternoon.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 10</div>
+        <div class="day-date">Wednesday, 23 December</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">Two-bedroom Lake View Apartment</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Central Otago wine &amp; Cardrona Distillery</div>
+        <ul>
+          <li><strong>Gibbston Valley Wine Tour.</strong> Into the Gibbston Valley, the "Valley of the Vines" set between schist mountains and the Kawarau gorge, for two tastings at some of Central Otago's finest pinot noir cellar doors, with a relaxed winery lunch along the way (settled locally).</li>
+          <li><strong>Cardrona Distillery.</strong> In the afternoon, on to the remote Cardrona Distillery for a 75-minute tour, watching whisky and gin made from scratch and tasting across the range. Back to Queenstown by evening.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 11</div>
+        <div class="day-date">Thursday, 24 December</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">Two-bedroom Lake View Apartment</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Queenstown at leisure</div>
+        <ul>
+          <li><strong>Free day in Queenstown,</strong> the adventure capital, to spend however suits you.</li>
+          <li class="leisure"><strong>Ideas, at your own arrangement.</strong> A cruise on the vintage TSS Earnslaw to Walter Peak, the Skyline Gondola, a jet boat on the Dart or Shotover, e-biking the Arrow River trail to Gibbston, or the Onsen hot pools above the Shotover canyon.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 12</div>
+        <div class="day-date">Friday, 25 December</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">Two-bedroom Lake View Apartment</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Christmas Day at leisure</div>
+        <ul>
+          <li><strong>Christmas Day in Queenstown,</strong> a free day over the holiday, entirely yours. A Christmas lunch or dinner can be arranged if you'd like.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 13</div>
+        <div class="day-date">Saturday, 26 December</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">Two-bedroom Lake View Apartment</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Queenstown &amp; Wānaka at leisure</div>
+        <ul>
+          <li><strong>Free day around Queenstown and Wānaka.</strong></li>
+          <li class="leisure"><strong>Ideas, at your own arrangement.</strong> The drive over to Wānaka and Mount Aspiring National Park, the Rob Roy Glacier or Mount Iron walks, the wineries and Rippon vineyard above Lake Wānaka, or Arrowtown's cafés and gold-rush history.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">Day 14</div>
+        <div class="day-date">Sunday, 27 December</div>
+        <div class="day-hotel">Departure</div>
+        <div class="day-room">Queenstown Airport</div>
+        <div class="meals"><span class="meal">B</span><span class="meal off">L</span><span class="meal off">D</span></div>
+      </div>
+      <div class="day-body">
+        <div class="head">Depart New Zealand</div>
+        <ul>
+          <li><strong>Depart Queenstown.</strong> After breakfast, make your own way to Queenstown Airport for your onward flight. (International flights and this transfer are your own arrangement; a private transfer can be added if you'd prefer.)</li>
+        </ul>
+      </div>
+    </div>
+
+<p class="legend"><b>Meals:</b> &nbsp; <span style="color:var(--green-deep);font-weight:600">B</span> Breakfast &nbsp;&middot;&nbsp; <span style="color:var(--green-deep);font-weight:600">L</span> Lunch &nbsp;&middot;&nbsp; <span style="color:var(--green-deep);font-weight:600">D</span> Dinner &nbsp;&middot;&nbsp; a faded circle indicates a meal at leisure. Breakfast is included at the Park Hyatt and The Rees; the Mt Cook retreat is full board. Timings are indicative and confirmed closer to travel.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="page"><h2>Trip Costs</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="cost-wrap">
+      <div class="cost-card">
+        <div class="cost-main">
+          <div class="label">Total &middot; party of four</div>
+          <div class="fig">HK$386,000</div>
+          <div class="sub">Approximately HK$96,500 per person</div>
+        </div>
+        <div class="cost-note">Priced in Hong Kong Dollars. Indicative and subject to availability and final confirmation. Based on current operator and exchange rates, and may be adjusted for any fuel surcharges advised before travel.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>Inclusions &amp; Exclusions</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="incexc-grid">
+      <div class="incexc inc">
+        <h3>Included</h3>
+        <ul>
+          <li>Private Mandarin-speaking guide in Auckland, and a private Mandarin-speaking driver-guide through the South Island</li>
+          <li>13 nights' accommodation as listed</li>
+          <li>Domestic flight: Auckland–Christchurch (economy)</li>
+          <li>Private touring and transfers shown in the schedule (see Exclusions for the arrival and departure airport transfers)</li>
+          <li>Auckland: The All Blacks Experience; Waiheke return ferry and private food &amp; wine tour with vineyard lunch; full-day private Auckland coast and city tour</li>
+          <li>Mount Cook: Christchurch–Mt Cook transfer with touring, The Ultimate Alpine Experience by helicopter and ski plane, Mount Cook afternoon tour, and Dark Sky Reserve stargazing at the Pūkaki Cellar Observatory</li>
+          <li>Queenstown: full-day tour, Glenorchy Peaks to Paradise helicopter with alpine landings and wilderness jet boat, afternoon Glenorchy tour, and Central Otago wine with Cardrona Distillery tour</li>
+          <li>Breakfast daily at the Park Hyatt and The Rees; full board at the Mt Cook retreat, with welcome sparkling wine</li>
+        </ul>
+      </div>
+      <div class="incexc exc">
+        <h3>Exclusions</h3>
+        <ul>
+          <li>International flights to and from New Zealand</li>
+          <li>Airport transfers on arrival (Day 1) and departure (Day 14), by your own arrangement, or added at a cost</li>
+          <li>Travel, medical and evacuation insurance</li>
+          <li>Meals not specified in the schedule, including lunches on touring days and dinners in Auckland and Queenstown</li>
+          <li>Activities and entry fees on leisure days</li>
+          <li>Optional upgrades and suggested activities (see below)</li>
+          <li>Personal expenses and gratuities</li>
+          <li>Any fuel surcharges advised before travel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="page"><h2>Upgrade Options</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">A few experiences that can be added to your days in the south.</p>
+    <div class="upgrades">
+      <div class="up">
+        <div>
+          <div class="up-loc">Wānaka &middot; Day 7 &middot; on the drive to Queenstown</div>
+          <div class="up-name">Hāwea Rafting &amp; Tipi Lunch</div>
+          <div class="up-desc">Break the transfer day with a rafting run on the Hāwea River near Wānaka, gentle grade-two rapids and clear swimming holes, followed by a picnic lunch in a Nordic tipi on the riverbank.</div>
+        </div>
+        <div class="up-price"><div class="amt">On request</div><div class="per">per person</div></div>
+      </div>
+      <div class="up">
+        <div>
+          <div class="up-loc">Queenstown &middot; Day 8</div>
+          <div class="up-name">Kawarau Bridge Bungy</div>
+          <div class="up-desc">The original 43-metre bungy off the Kawarau Bridge, the world home of bungy, above the Kawarau Gorge. Choose to touch the water or stay dry, solo or tandem.</div>
+        </div>
+        <div class="up-price"><div class="amt">On request</div><div class="per">per person</div></div>
+      </div>
+      <div class="up">
+        <div>
+          <div class="up-loc">Queenstown &middot; Day 8</div>
+          <div class="up-name">Skyline Gondola &amp; Luge</div>
+          <div class="up-desc">Ride the steepest cable car in the Southern Hemisphere up Bob's Peak for a 220-degree panorama over Queenstown and Lake Wakatipu, then three luge rides down the purpose-built track.</div>
+        </div>
+        <div class="up-price"><div class="amt">On request</div><div class="per">per person</div></div>
+      </div>
+      <div class="up">
+        <div>
+          <div class="up-loc">Gibbston Valley &middot; Day 10</div>
+          <div class="up-name">Oxbow Thrill Seeker</div>
+          <div class="up-desc">A three-in-one adventure near Gibbston: a jet sprint boat on a purpose-built racetrack, the Ultimate Off-Roader over steep terrain, and clay target shooting against the mountains.</div>
+        </div>
+        <div class="up-price"><div class="amt">On request</div><div class="per">per person</div></div>
+      </div>
+    </div>
+    <p class="up-foot">Guide availability on your leisure days, and further touring, can also be arranged at an additional cost. Just let us know.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="page">
+    <div class="fbrand">Alchemist Travel<small>In partnership with Beyond the Blue</small></div>
+    <div class="fmeta">Kristin Lim &nbsp;&middot;&nbsp; kristin@alchemisttravel.com &nbsp;&middot;&nbsp; +65 9751 4830<br>A draft proposal prepared for Louise Zhu &middot; July 2026</div>
+  </div>
+</footer>
+
+
+<script>
+  (function(){
+    var container = document.getElementById('jmap');
+    if(!container) return;
+    var STOPS = [
+      { order:1, place:'Auckland', hotel:'Park Hyatt Auckland', nights:'4 nights &middot; 14&ndash;18 Dec', coord:[174.7590,-36.8437] },
+      { order:2, place:'Mount Cook', hotel:'Mt Cook Lakeside Retreat', nights:'2 nights &middot; 18&ndash;20 Dec', coord:[170.1250,-44.2200] },
+      { order:3, place:'Queenstown', hotel:'The Rees Hotel &amp; Luxury Apartments', nights:'7 nights &middot; 20&ndash;27 Dec', coord:[168.6900,-45.0380] }
+    ];
+    /* Auckland --(fly)--> Christchurch --(drive: Geraldine/Tekapo)--> Mt Cook
+       --(Twizel/Omarama/Lindis/Cromwell)--> Queenstown */
+    var ROUTE = [
+      [174.7590,-36.8437],[172.5400,-43.4890],[171.2400,-43.9000],[170.4770,-44.0040],
+      [170.1250,-44.2200],[169.9700,-44.4870],[169.6667,-44.5833],[169.1950,-45.0380],
+      [168.6900,-45.0380]
+    ];
+    function fallback(){ var t=document.getElementById('jmap-legacy'); if(t){container.innerHTML='';container.appendChild(t.content.cloneNode(true));container.style.height='auto';} }
+    if(typeof maplibregl === 'undefined'){ fallback(); return; }
+    try {
+      var map = new maplibregl.Map({
+        container: 'jmap',
+        style: { version:8,
+          sources:{ carto:{ type:'raster', tileSize:256,
+            tiles:['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                   'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                   'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'],
+            attribution:'&copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a> &middot; &copy; OpenStreetMap contributors' } },
+          layers:[ { id:'carto-base', type:'raster', source:'carto' } ] },
+        dragRotate:false, pitchWithRotate:false, cooperativeGestures:true,
+        minZoom:4,
+        maxBounds:[[165.0,-48.5],[180.5,-33.0]],
+        attributionControl:false
+      });
+      map.touchZoomRotate.disableRotation();
+      map.addControl(new maplibregl.NavigationControl({ showCompass:false }), 'top-right');
+      map.addControl(new maplibregl.AttributionControl({ compact:true }), 'bottom-right');
+      map.on('load', function(){
+        var a=map.getContainer().querySelector('.maplibregl-ctrl-attrib'); if(a){a.removeAttribute('open');a.classList.remove('maplibregl-compact-show');}
+        map.addSource('route',{ type:'geojson', data:{ type:'Feature', properties:{}, geometry:{ type:'LineString', coordinates: ROUTE } } });
+        map.addLayer({ id:'route-casing', type:'line', source:'route', layout:{'line-join':'round','line-cap':'round'}, paint:{'line-color':'#FFFFFF','line-width':6.5,'line-opacity':0.9} });
+        map.addLayer({ id:'route-line',   type:'line', source:'route', layout:{'line-join':'round','line-cap':'round'}, paint:{'line-color':'#5E5A50','line-width':3.4,'line-dasharray':[2,1.5]} });
+        var b=new maplibregl.LngLatBounds();
+        STOPS.forEach(function(s){ b.extend(s.coord);
+          var el=document.createElement('div'); el.className='jmap-pin'; el.textContent=s.order;
+          new maplibregl.Marker({element:el,anchor:'center'}).setLngLat(s.coord)
+            .setPopup(new maplibregl.Popup({offset:16,closeButton:false}).setHTML(
+              '<div class="jmap-pop-place">'+s.order+'. '+s.place+'</div><div class="jmap-pop-hotel">'+s.hotel+'</div><div class="jmap-pop-nights">'+s.nights+'</div>'))
+            .addTo(map);
+        });
+        ROUTE.forEach(function(c){ b.extend(c); });
+        map.fitBounds(b, { padding:{top:54,bottom:70,left:52,right:56}, maxZoom:5.6, duration:0 });
+      });
+      map.on('error', function(e){ if(e&&e.error&&/style|source|network/i.test(String(e.error))) fallback(); });
+    } catch(err){ fallback(); }
+  })();
+</script>
+
+</body>
+</html>
