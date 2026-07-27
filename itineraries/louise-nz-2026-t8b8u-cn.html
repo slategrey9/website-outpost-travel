@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>新西兰 · 南岛与奥克兰 · 为朱总定制 · Alchemist Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root{
+    --green-deep:#14301A;
+    --green-mid:#1E5228;
+    --gold:#B08D2E;
+    --gold-soft:#C9A84C;
+    --ink:#20211E;
+    --ink-mid:#45453F;
+    --ink-soft:#77776E;
+    --line:#E3DED2;
+    --line-soft:#EFEBE1;
+    --cream:#FBF9F4;
+    --paper:#FFFFFF;
+    --serif:'Cormorant Garamond',"Songti SC","STSong","Noto Serif SC","SimSun",serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:var(--sans);font-weight:300;
+    color:var(--ink);background:var(--cream);
+    line-height:1.85;-webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:880px;margin:0 auto;padding:0 30px;}
+
+  /* ---- Masthead ---- */
+  .masthead{background:var(--green-deep);color:#fff;padding:34px 0 24px;}
+  .masthead .page{display:flex;flex-direction:column;gap:24px;}
+  .brand-row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;}
+  .brand-lock .brand{font-family:var(--serif);font-size:1.3rem;letter-spacing:.26em;text-transform:uppercase;color:#fff;}
+  .brand-lock .brand span{color:var(--gold-soft);}
+  .brand-lock .partner{font-size:.72rem;letter-spacing:.06em;color:rgba(255,255,255,.62);margin-top:8px;}
+  .brand-contact{font-size:.74rem;letter-spacing:.02em;color:rgba(255,255,255,.66);text-align:right;line-height:1.9;}
+  .brand-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+  .lang-toggle{display:inline-flex;align-items:stretch;font-size:.72rem;letter-spacing:.08em;border:1px solid rgba(255,255,255,.3);border-radius:20px;overflow:hidden;}
+  .lang-toggle span,.lang-toggle a{padding:4px 13px;color:rgba(255,255,255,.62);line-height:1.6;transition:color .2s,background .2s;}
+  .lang-toggle .active{background:var(--gold-soft);color:var(--green-deep);font-weight:600;}
+  .lang-toggle a:hover{color:#fff;}
+  .title-block .kicker{font-size:.78rem;letter-spacing:.16em;color:var(--gold-soft);margin-bottom:14px;}
+  .title-block h1{font-family:var(--serif);font-weight:500;font-size:3rem;line-height:1.12;letter-spacing:.06em;color:#fff;}
+  .title-block h1 em{font-style:normal;color:var(--gold-soft);}
+  .meta-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px;}
+  .meta-item{font-size:.82rem;letter-spacing:.02em;color:rgba(255,255,255,.85);}
+  .meta-item b{display:block;font-weight:500;font-size:.7rem;letter-spacing:.08em;color:var(--gold-soft);margin-bottom:4px;}
+
+  /* ---- Section frame ---- */
+  section{background:var(--paper);}
+  section.alt{background:var(--cream);}
+  .sec-head{padding:34px 0 6px;}
+  .sec-head .page{display:flex;align-items:baseline;gap:16px;}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:1.7rem;color:var(--green-deep);letter-spacing:.04em;white-space:nowrap;}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);}
+  .sec-intro{font-size:.9rem;color:var(--ink-mid);padding-bottom:18px;line-height:1.9;}
+
+  /* ---- Journey overview (map + strip) ---- */
+  .overview{display:grid;grid-template-columns:340px 1fr;gap:38px;padding:6px 0 34px;align-items:start;}
+  .map-wrap{background:var(--cream);border:1px solid var(--line);border-radius:3px;padding:8px;box-shadow:0 1px 3px rgba(20,48,26,.05);}
+  .map-wrap svg{width:100%;height:auto;display:block;}
+  .map-cap{text-align:center;font-size:.72rem;letter-spacing:.12em;color:var(--ink-soft);margin-top:4px;}
+  .strip-head{font-size:.86rem;letter-spacing:.02em;color:var(--ink-mid);margin-bottom:12px;}
+  .strip-head b{color:var(--green-deep);font-weight:600;}
+  .stops{display:flex;flex-direction:column;}
+  .stop{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:13px 0;}
+  .stop-num{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1;}
+  .stop-place{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink);letter-spacing:.03em;}
+  .stop-hotel{font-size:.92rem;color:var(--ink-mid);margin-top:4px;font-family:var(--serif);letter-spacing:.02em;}
+  .stop-nights{text-align:right;white-space:nowrap;font-size:.84rem;letter-spacing:.04em;color:var(--green-mid);font-weight:600;}
+  .stop-dates{display:block;font-size:.8rem;letter-spacing:.02em;color:var(--ink-soft);font-weight:400;margin-top:3px;}
+  .leg{display:grid;grid-template-columns:34px 1fr;gap:14px;}
+  .leg .bar{grid-column:1;justify-self:center;width:1px;height:24px;background:var(--line);position:relative;}
+  .leg .bar::before{content:"";position:absolute;left:-2px;top:50%;width:5px;height:5px;border-radius:50%;background:var(--gold-soft);transform:translateY(-50%);}
+  .leg .txt{font-size:.82rem;color:var(--ink-mid);align-self:center;}
+  .leg.depart .bar{background:repeating-linear-gradient(var(--line) 0 3px, transparent 3px 6px);}
+  .leg.depart .txt{color:var(--ink-soft);}
+
+  /* ---- Schedule ---- */
+  .day{display:grid;grid-template-columns:212px 1fr;gap:0;border-top:1px solid var(--line);}
+  .day:last-of-type{border-bottom:1px solid var(--line);}
+  .day-side{padding:20px 22px 22px 0;border-right:1px solid var(--line-soft);}
+  .day-tag{font-size:.72rem;letter-spacing:.08em;color:var(--gold);font-weight:600;}
+  .day-date{font-size:.84rem;color:var(--ink-soft);margin:3px 0 12px;}
+  .day-hotel{font-family:var(--serif);font-weight:600;font-size:1.14rem;color:var(--ink);line-height:1.3;letter-spacing:.02em;}
+  .day-room{font-size:.78rem;color:var(--ink-soft);margin-top:5px;}
+  .day-guide{margin-top:13px;padding-top:10px;border-top:1px solid var(--line-soft);font-size:.72rem;line-height:1.5;color:var(--ink-soft);}
+  .day-guide.free{color:var(--gold);}
+  .meals{margin-top:13px;display:flex;gap:6px;}
+  .meal{width:23px;height:23px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    font-size:.72rem;font-weight:500;background:var(--green-deep);color:var(--gold-soft);}
+  .meal.off{background:transparent;color:#CFC9BB;border:1px solid var(--line);}
+  .day-body{padding:20px 0 22px 24px;}
+  .day-body .head{font-family:var(--serif);font-size:1.22rem;color:var(--green-mid);font-weight:600;margin-bottom:12px;letter-spacing:.03em;}
+  .day-body ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .day-body li{position:relative;padding-left:18px;font-size:.9rem;color:var(--ink-mid);line-height:1.9;}
+  .day-body li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+  .day-body li.leisure::before{background:transparent;border:1px solid var(--gold);}
+  .day-body strong{font-weight:600;color:var(--ink);}
+
+  /* ---- Costs ---- */
+  .cost-wrap{padding:8px 0 30px;}
+  .cost-card{border:1px solid var(--line);background:var(--cream);border-radius:2px;padding:26px 30px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;}
+  .cost-main .label{font-size:.78rem;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:8px;}
+  .cost-main .fig{font-family:var(--serif);font-size:2.5rem;color:var(--green-deep);line-height:1;}
+  .cost-main .sub{font-size:.86rem;color:var(--ink-mid);margin-top:8px;}
+  .cost-note{max-width:340px;font-size:.78rem;color:var(--ink-soft);line-height:1.8;border-left:2px solid var(--gold-soft);padding-left:16px;}
+
+  /* ---- Inc / Exc ---- */
+  .incexc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:8px 0 34px;}
+  .incexc h3{font-size:.82rem;letter-spacing:.08em;color:var(--green-mid);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .incexc.exc h3{color:var(--ink-soft);}
+  .incexc ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .incexc li{position:relative;padding-left:20px;font-size:.86rem;color:var(--ink-mid);line-height:1.7;}
+  .inc li::before{content:"\2713";position:absolute;left:0;top:1px;color:var(--gold);font-size:.82rem;}
+  .exc li::before{content:"\2013";position:absolute;left:0;top:0;color:var(--ink-soft);}
+
+  /* ---- Upgrades ---- */
+  .upgrades{padding:8px 0 12px;display:flex;flex-direction:column;}
+  .up{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:18px 0;border-top:1px solid var(--line);}
+  .up:last-of-type{border-bottom:1px solid var(--line);}
+  .up-name{font-family:var(--serif);font-size:1.18rem;color:var(--ink);font-weight:600;letter-spacing:.02em;}
+  .up-loc{font-size:.76rem;letter-spacing:.04em;color:var(--gold);margin-bottom:5px;}
+  .up-desc{font-size:.86rem;color:var(--ink-mid);margin-top:7px;max-width:580px;line-height:1.85;}
+  .up-price{text-align:right;white-space:nowrap;}
+  .up-price .amt{font-family:var(--serif);font-size:1.4rem;color:var(--green-deep);}
+  .up-price .per{font-size:.74rem;letter-spacing:.04em;color:var(--ink-soft);margin-top:3px;}
+  .up-foot{font-size:.78rem;color:var(--ink-soft);margin-top:16px;line-height:1.8;}
+
+  /* ---- Footer ---- */
+  footer{background:var(--green-deep);color:rgba(255,255,255,.8);padding:30px 0;margin-top:6px;}
+  footer .page{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;}
+  footer .fbrand{font-family:var(--serif);letter-spacing:.24em;text-transform:uppercase;color:#fff;font-size:1rem;}
+  footer .fbrand small{display:block;font-family:var(--sans);letter-spacing:.06em;font-size:.68rem;color:rgba(255,255,255,.55);margin-top:6px;text-transform:none;}
+  footer .fmeta{font-size:.76rem;letter-spacing:.02em;text-align:right;color:rgba(255,255,255,.6);line-height:1.9;}
+  .legend{padding:16px 0 0;font-size:.78rem;color:var(--ink-soft);line-height:1.8;}
+  .legend b{color:var(--ink-mid);font-weight:500;}
+
+  /* ---- Real journey map (MapLibre + CARTO) ---- */
+  #jmap{width:100%;height:498px;border-radius:2px;overflow:hidden;background:#EDEBE4;}
+  .maplibregl-ctrl-group{border-radius:3px !important;box-shadow:0 1px 4px rgba(20,48,26,.14) !important;}
+  .maplibregl-ctrl-group button{width:27px;height:27px;}
+  .maplibregl-ctrl-attrib.maplibregl-compact{background:rgba(251,249,244,.9) !important;min-height:22px;border-radius:11px !important;}
+  .maplibregl-ctrl-attrib.maplibregl-compact:not(.maplibregl-compact-show) .maplibregl-ctrl-attrib-inner{display:none;}
+  .maplibregl-ctrl-attrib a{color:var(--ink-soft);}
+  .maplibregl-ctrl-attrib-button{opacity:.7;}
+  .jmap-pin{width:26px;height:26px;border-radius:50%;background:var(--green-deep);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:12px;font-weight:600;border:1.6px solid var(--gold-soft);box-shadow:0 2px 7px rgba(20,48,26,.32);cursor:pointer;}
+  .maplibregl-popup-content{font-family:var(--sans);border-radius:4px;padding:9px 13px;box-shadow:0 3px 14px rgba(20,48,26,.2);}
+  .jmap-pop-place{font-weight:600;color:var(--green-deep);font-size:.86rem;}
+  .jmap-pop-hotel{color:var(--ink-mid);font-size:.76rem;margin-top:1px;}
+  .jmap-pop-nights{color:var(--gold);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;margin-top:4px;}
+
+  /* ---- Cover image ---- */
+  .cover{position:relative;background:var(--green-deep);}
+  .cover-img{display:block;width:100%;height:clamp(270px,42vw,460px);object-fit:cover;object-position:center 60%;}
+  .cover::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to top,rgba(11,28,15,.95) 0%,rgba(11,28,15,.87) 20%,rgba(11,28,15,.64) 42%,rgba(11,28,15,.22) 66%,rgba(11,28,15,0) 86%);}
+  .cover-text{position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:30px;}
+  .cover-text .kicker{font-size:.78rem;letter-spacing:.16em;color:#DCC069;margin-top:16px;
+    text-shadow:0 1px 12px rgba(0,0,0,.8),0 0 3px rgba(0,0,0,.5);}
+  .cover-text h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5.6vw,3rem);
+    line-height:1.14;letter-spacing:.06em;color:#fff;text-shadow:0 2px 22px rgba(0,0,0,.45);}
+  .cover-text h1 em{font-style:normal;color:var(--gold-soft);}
+  .meta-band{background:var(--green-deep);color:#fff;padding:22px 0 24px;}
+  .meta-band .meta-row{margin-top:0;}
+  .cover-cap{font-size:.72rem;letter-spacing:.02em;color:rgba(255,255,255,.5);margin-top:16px;}
+
+  /* ---- Where you'll stay ---- */
+  .props{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:8px 0 36px;}
+  .prop{background:var(--cream);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;}
+  .prop img{display:block;width:100%;height:clamp(150px,16vw,170px);object-fit:cover;}
+  .prop-slot{height:clamp(150px,16vw,170px);display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;
+    background:repeating-linear-gradient(135deg,var(--line-soft) 0 9px,#F6F2E8 9px 18px);border-bottom:1px solid var(--line);}
+  .prop-slot span{font-size:.7rem;letter-spacing:.06em;color:var(--ink-soft);line-height:1.9;}
+  .prop-body{padding:15px 17px 18px;flex:1;}
+  .prop-loc{font-size:.7rem;letter-spacing:.08em;color:var(--gold);}
+  .prop-name{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--green-deep);line-height:1.35;margin:5px 0 6px;letter-spacing:.02em;min-height:2.7em;}
+  .prop-room{font-size:.76rem;color:var(--ink-soft);line-height:1.7;}
+  .prop-body p{font-size:.8rem;color:var(--ink-mid);margin-top:9px;line-height:1.85;}
+
+  /* ---- Day image ---- */
+  .day-img{margin-top:17px;}
+  .day-img img{display:block;width:100%;height:clamp(165px,24vw,225px);object-fit:cover;border-radius:2px;}
+  .day-slot{height:clamp(165px,24vw,225px);border-radius:2px;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:repeating-linear-gradient(135deg,var(--line-soft) 0 9px,#F6F2E8 9px 18px);}
+  .day-slot span{font-size:.7rem;letter-spacing:.06em;color:var(--ink-soft);padding:0 18px;line-height:1.9;}
+  .day-img figcaption{font-size:.74rem;letter-spacing:.02em;color:var(--ink-soft);margin-top:7px;}
+
+  @media (max-width:660px){
+    .props{grid-template-columns:1fr;gap:18px;}
+    .prop img,.prop-slot{height:190px;}
+    .day-img img,.day-slot{height:175px;}
+    .prop-name{min-height:0;}
+    .cover-text{padding-bottom:22px;}
+    .overview{grid-template-columns:1fr;gap:24px;}
+    .map-wrap{max-width:none;margin:0;}
+    #jmap{height:440px;}
+    .day{grid-template-columns:1fr;}
+    .day-side{border-right:none;border-bottom:1px solid var(--line-soft);padding:18px 0;}
+    .day-body{padding:16px 0;}
+    .incexc-grid{grid-template-columns:1fr;gap:24px;}
+    .title-block h1{font-size:2.3rem;}
+  }
+  @media print{
+    body{background:#fff;font-size:11px;}
+    .page{max-width:100%;padding:0 14px;}
+    section,section.alt{background:#fff;}
+    .masthead{padding:24px 0 20px;}
+    .title-block h1{font-size:2.3rem;}
+    .cover-img{height:200px;}
+    .cover-text h1{font-size:2.2rem;}
+    .meta-band{padding:14px 0 16px;}
+    .props{grid-template-columns:repeat(3,1fr);gap:12px;}
+    .prop,.day-img{break-inside:avoid;}
+    .day-img img,.day-slot{height:105px;}
+    .prop img,.prop-slot{height:88px;}
+    .overview,.day,.up,.incexc-grid,.cost-card,footer{break-inside:avoid;}
+    .sec-head{break-after:avoid;}
+    @page{margin:14mm 12mm;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 页眉 ============ -->
+<header class="masthead">
+  <div class="page">
+    <div class="brand-row">
+      <div class="brand-lock">
+        <div class="brand">Alchemist <span>Travel</span></div>
+        <div class="partner">与 Beyond the Blue 合作呈献</div>
+      </div>
+      <div class="brand-right">
+        <div class="lang-toggle"><a href="louise-nz-2026-t8b8u.html">EN</a><span class="active">中文</span></div>
+        <div class="brand-contact">Kristin Lim<br>kristin@alchemisttravel.com<br>+65 9751 4830</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <img class="cover-img" src="images/nz-milford-sound-cover.jpg"
+       alt="新西兰峡湾国家公园米尔福德峡湾米特峰日出">
+  <div class="cover-text">
+    <div class="page">
+      <h1>湖光山色<br><em>岛屿港湾</em></h1>
+      <div class="kicker">行程草案 · 奥克兰 (Auckland) 与南岛 (South Island)</div>
+    </div>
+  </div>
+</div>
+
+<div class="meta-band">
+  <div class="page">
+    <div class="meta-row">
+      <div class="meta-item"><b>定制对象</b>朱总 及家人</div>
+      <div class="meta-item"><b>出行日期</b>2026年12月14日–27日</div>
+      <div class="meta-item"><b>行程天数</b>14天 · 13晚</div>
+      <div class="meta-item"><b>出行人数</b>4人</div>
+      <div class="meta-item"><b>司机导游</b>私人 · 中文</div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-head"><div class="page"><h2>行程概览</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="overview">
+      <div class="map-wrap">
+        <div id="jmap" role="img" aria-label="互动路线地图：奥克兰、库克山、皇后镇"></div>
+        <template id="jmap-legacy"><svg viewBox="-20 0 320 470" role="img" aria-label="新西兰路线图，奥克兰至皇后镇">
+          <path d="M 151.7,235.8 C 159.2,237.1 176.6,246.3 181.1,253.4 C 185.6,260.5 182.4,269.8 178.8,278.3 C 175.3,286.8 169.4,297.2 159.6,304.3 C 149.8,311.5 128.9,312.4 120.0,321.3 C 111.2,330.1 116.8,349.0 106.5,357.5 C 96.1,365.9 70.7,371.0 57.8,372.2 C 45.0,373.3 36.5,366.9 29.6,364.3 C 22.6,361.6 16.0,362.0 16.0,356.3 C 16.0,350.7 22.4,337.1 29.6,330.3 C 36.7,323.5 49.2,321.8 59.0,315.6 C 68.8,309.4 78.6,300.4 88.4,293.0 C 98.2,285.7 109.9,279.4 117.8,271.5 C 125.7,263.6 130.2,251.5 135.9,245.5 C 141.5,239.6 144.2,234.5 151.7,235.8 Z"
+                fill="#E7E0CF" stroke="#D6CDB8" stroke-width="1"/>
+          <path d="M 152.1,97.8 C 156.0,100.6 173.1,111.7 180.0,117.3 C 186.9,122.9 189.2,125.8 193.5,131.3 C 197.9,136.8 202.3,148.4 206.0,150.5 C 209.7,152.6 211.7,140.7 215.7,144.0 C 219.7,147.2 223.0,166.2 229.7,170.2 C 236.4,174.2 246.7,167.8 255.7,167.9 C 264.8,168.1 281.3,166.7 284.0,171.1 C 286.7,175.6 277.7,188.5 272.0,194.6 C 266.4,200.7 254.2,204.3 250.1,207.7 C 245.9,211.2 249.0,211.4 247.1,215.4 C 245.3,219.5 244.9,224.4 238.8,231.9 C 232.7,239.5 217.2,257.2 210.5,260.7 C 203.8,264.2 199.8,259.3 198.7,253.0 C 197.7,246.7 206.1,229.4 204.2,222.9 C 202.3,216.4 192.2,216.6 187.4,214.1 C 182.7,211.6 176.3,210.3 175.7,207.7 C 175.1,205.2 180.1,203.3 183.8,198.7 C 187.5,194.1 197.0,186.8 198.1,179.9 C 199.1,173.0 193.0,163.7 190.1,157.3 C 187.3,150.9 185.2,148.1 181.1,141.5 C 177.0,134.9 169.3,124.5 165.3,117.7 C 161.2,111.0 158.9,104.1 156.7,100.8 C 154.5,97.5 148.3,95.1 152.1,97.8 Z"
+                fill="#E7E0CF" stroke="#D6CDB8" stroke-width="1"/>
+          <path d="M 150.3,303.9 L 93.8,314.5 L 60.3,337.8" fill="none" stroke="#B08D2E" stroke-width="1.8" stroke-dasharray="3 4" stroke-linecap="round"/>
+          <path d="M 198.3,152.8 L 150.3,303.9" fill="none" stroke="#B08D2E" stroke-width="1.4" stroke-dasharray="1.5 6" stroke-linecap="round" opacity="0.5"/>
+          <g font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif">
+            <circle cx="198.3" cy="152.8" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="207.3" y="149.8" text-anchor="start" font-size="10" font-weight="600" fill="#20211E">奥克兰</text>
+            <text x="207.3" y="159.8" text-anchor="start" font-size="8" fill="#8a8577">4 晚</text>
+            <circle cx="93.8" cy="314.5" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="93.8" y="302.5" text-anchor="middle" font-size="10" font-weight="600" fill="#20211E">库克山</text>
+            <text x="93.8" y="293.5" text-anchor="middle" font-size="8" fill="#8a8577">2 晚</text>
+            <circle cx="60.3" cy="337.8" r="4.2" fill="#14301A" stroke="#C9A84C" stroke-width="1.6"/>
+            <text x="52.3" y="334.8" text-anchor="end" font-size="10" font-weight="600" fill="#20211E">皇后镇</text>
+            <text x="52.3" y="344.8" text-anchor="end" font-size="8" fill="#8a8577">7 晚</text>
+          </g>
+        </svg></template>
+        <div class="map-cap">新西兰 (New Zealand) · Aotearoa</div>
+      </div>
+      <div>
+        <div class="strip-head"><b>14天 · 13晚</b> &nbsp;·&nbsp; 从奥克兰 (Auckland) 至皇后镇 (Queenstown)</div>
+        <div class="stops">
+          <div class="stop">
+            <div class="stop-num">1</div>
+            <div><div class="stop-place">奥克兰 (Auckland)</div><div class="stop-hotel">奥克兰柏悦酒店 Park Hyatt</div></div>
+            <div class="stop-nights">4晚<span class="stop-dates">12月14–18日</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">飞往基督城 (Christchurch)，再驱车前往库克山 (Mount Cook) · 约4小时车程</div></div>
+          <div class="stop">
+            <div class="stop-num">2</div>
+            <div><div class="stop-place">库克山 (Mount Cook)</div><div class="stop-hotel">库克山湖畔度假别墅 (Mt Cook Lakeside Retreat) · 普卡基湖 (Lake Pūkaki)</div></div>
+            <div class="stop-nights">2晚<span class="stop-dates">12月18–20日</span></div>
+          </div>
+          <div class="leg"><div class="bar"></div><div class="txt">驱车前往皇后镇 (Queenstown)，沿途游览 · 约3.5小时车程</div></div>
+          <div class="stop">
+            <div class="stop-num">3</div>
+            <div><div class="stop-place">皇后镇 (Queenstown)</div><div class="stop-hotel">The Rees Hotel &amp; Luxury Apartments 酒店</div></div>
+            <div class="stop-nights">7晚<span class="stop-dates">12月20–27日</span></div>
+          </div>
+          <div class="leg depart"><div class="bar"></div><div class="txt">返程 · 皇后镇 (Queenstown) 机场（自行前往）</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHERE YOU'LL STAY ============ -->
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>入住酒店</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="props">
+
+      <figure class="prop">
+        <img src="images/nz-park-hyatt-auckland.jpg" alt="奥克兰柏悦酒店 Harbour Suite 套房起居空间与露台，俯瞰游艇码头">
+        <div class="prop-body">
+          <div class="prop-loc">奥克兰 (Auckland) · 4 晚</div>
+          <div class="prop-name">奥克兰柏悦酒店<br>Park Hyatt Auckland</div>
+          <div class="prop-room">Harbour Suite 套房 &amp; 连通豪华客房 · 4 张单人床</div>
+          <p>坐落于温雅德海滨区 (Wynyard Quarter) 水畔，隔灯塔湾远眺怀特玛塔港 (Waitematā Harbour)。设有25米无边泳池、水疗中心与四间餐厅酒吧，市中心近在咫尺。</p>
+        </div>
+      </figure>
+
+      <figure class="prop">
+        <img src="images/nz-mt-cook-lakeside-retreat.jpg" alt="库克山湖畔度假别墅卧室，尖顶木梁天花，推门即见群山">
+        <div class="prop-body">
+          <div class="prop-loc">普卡基湖 (Lake Pūkaki) · 2 晚</div>
+          <div class="prop-name">库克山湖畔度假别墅<br>Mt Cook Lakeside Retreat</div>
+          <div class="prop-room">两卧室别墅 · 4 张单人床 · 私人 Fantail 水疗</div>
+          <p>别墅坐落普卡基湖 (Lake Pūkaki) 畔，奥拉基/库克山 (Aoraki/Mount Cook) 尽收眼底，并配私人户外温泉池。入住期间全食宿，地处暗夜保护区核心。</p>
+        </div>
+      </figure>
+
+      <figure class="prop">
+        <img src="images/nz-the-rees-queenstown.jpg" alt="The Rees 酒店休息厅，隔瓦卡蒂普湖远眺 The Remarkables 山脉">
+        <div class="prop-body">
+          <div class="prop-loc">皇后镇 (Queenstown) · 7 晚</div>
+          <div class="prop-name">The Rees Hotel &amp; Luxury Apartments</div>
+          <div class="prop-room">两卧室湖景公寓 · 1 张特大床 &amp; 2 张单人床</div>
+          <p>高踞瓦卡蒂普湖 (Lake Wakatipu) 之上，远眺 The Remarkables 山脉，设有私人沙滩与码头、往返镇中心免费班车，并含每日早餐。</p>
+        </div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="page"><h2>每日行程</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">旅程以奥克兰 (Auckland) 四晚从容时光开启，探访怀赫科岛 (Waiheke Island) 与海岸，随后南飞进入南阿尔卑斯山脉 (Southern Alps)。南岛 (South Island) 是世上最壮美的土地之一，此行路线正为饱览其精华景致而设：奥拉基/库克山 (Aoraki/Mount Cook) 的冰川与暗夜星空，继而在皇后镇 (Queenstown) 安享悠长的一周，尽揽格林诺奇 (Glenorchy)、中奥塔哥 (Central Otago) 美酒与湖光山色，其间并留出数日自由休息。每个游览日均由私人中文导游全程陪同；自由活动日则完全由您自行安排，如需导游随行，我们亦可另行安排。</p>
+
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 1 天</div>
+        <div class="day-date">12月14日 · 星期一</div>
+        <div class="day-hotel">奥克兰柏悦酒店</div>
+        <div class="day-room">Harbour Suite 套房 &amp; 连通豪华客房 &middot; 4 张单人床</div>
+        <div class="meals"><span class="meal off">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide free">抵达日 &middot; 自行安排</div>
+      </div>
+      <div class="day-body">
+        <div class="head">抵达奥克兰 (Auckland)，入住海滨酒店</div>
+        <ul>
+          <li><strong>抵达奥克兰 (Auckland)。</strong>国泰航空 CX113 由香港飞抵，13:25 落地。请自行从机场前往柏悦酒店，酒店坐落于温雅德海滨区 (Wynyard Quarter) 的水岸之畔。（国际机票与此段接送均由您自行安排；如有需要，可另行安排私人接送。）</li>
+          <li><strong>入住水岸酒店。</strong>当日余下时间由您自在安排。酒店设有25米无边泳池、水疗中心，以及四间餐厅与酒吧，港湾景致近在眼前。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 2 天</div>
+        <div class="day-date">12月15日 · 星期二</div>
+        <div class="day-hotel">奥克兰柏悦酒店</div>
+        <div class="day-room">Harbour Suite 套房 &amp; 连通豪华客房 &middot; 4 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide free">自由活动 &middot; 如需导游可另行安排</div>
+      </div>
+      <div class="day-body">
+        <div class="head">第二程抵达，奥克兰 (Auckland) 自由活动</div>
+        <ul>
+          <li><strong>抵达奥克兰 (Auckland)。</strong>国泰航空 CX195 由香港飞抵，06:45 落地，同样由您自行安排接送前往柏悦酒店。</li>
+          <li><strong>全日自由活动，</strong>不设固定行程，让您从容适应时差，按自己的节奏安顿下来。</li>
+          <li class="leisure"><strong>以下建议可供参考，需自行安排。</strong>在怀特玛塔港 (Waitematā Harbour) 乘船巡游或扬帆出海、乘渡轮前往德文波特 (Devonport)、参观奥克兰美术馆 (Auckland Art Gallery) 与奥克兰公园 (Auckland Domain)，或漫步高架桥港 (Viaduct Harbour) 与温雅德海滨区 (Wynyard Quarter) 的咖啡馆与艺廊，均在酒店附近。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 3 天</div>
+        <div class="day-date">12月16日 · 星期三</div>
+        <div class="day-hotel">奥克兰柏悦酒店</div>
+        <div class="day-room">Harbour Suite 套房 &amp; 连通豪华客房 &middot; 4 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide">私人中文导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">渡轮前往怀赫科岛 (Waiheke Island)，酒庄品鉴与悠长午餐</div>
+        <ul>
+          <li><strong>渡轮前往怀赫科岛 (Waiheke Island)。</strong>早餐后，您的中文导游在酒店大堂与您会合，步行约十分钟即至码头，搭乘上午的渡轮横跨豪拉基湾 (Hauraki Gulf)，约40分钟。</li>
+          <li><strong>私人怀赫科岛 (Waiheke Island) 美食美酒之旅。</strong>由当地导游陪同，在岛上葡萄园间悠然度过一日：品鉴岛上两家最受喜爱酒庄的佳酿，享用一顿悠长的酒庄午餐，并品尝当地橄榄油与特色食材，一路饱览海湾开阔景致。您的中文导游全程陪同。傍晚返回码头。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-waiheke-vineyard.jpg" alt="怀赫科岛豪拉基湾上方的葡萄园">
+          <figcaption>怀赫科岛 (Waiheke Island) 俯瞰海湾的葡萄园</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 4 天</div>
+        <div class="day-date">12月17日 · 星期四</div>
+        <div class="day-hotel">奥克兰柏悦酒店</div>
+        <div class="day-room">Harbour Suite 套房 &amp; 连通豪华客房 &middot; 4 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide">私人中文导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">私人奥克兰 (Auckland) 城市之旅，续访 All Blacks 全黑队体验馆</div>
+        <ul>
+          <li><strong>私人奥克兰 (Auckland) 城市之旅。</strong>与导游沿东海岸展开全日行程：于阿基里斯角 (Achilles Point) 眺望朗伊托托岛 (Rangitoto Island)、了解巴斯蒂恩角 (Bastion Point) 在新西兰历史上的重要意义，再越过海港大桥前往北岸 (North Shore) 与维多利亚时代的小镇德文波特 (Devonport)，最后登上维多利亚山 (Mount Victoria)，360度饱览城市与海湾。午餐现场自理。</li>
+          <li><strong>All Blacks 全黑队体验馆 (The All Blacks Experience)。</strong>下午返回市中心，展开45分钟导览体验：走近新西兰 (New Zealand) 黑衫军团的传奇与精神，亲身感受毛利战舞 Haka，并在互动区一试身手。这不仅是一场橄榄球体验，更是了解毛利文化的一扇窗。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-auckland-skyline.jpg" alt="自火山锥顶远眺奥克兰市区与怀特玛塔港">
+          <figcaption>自维多利亚山 (Mount Victoria) 顶俯瞰奥克兰 (Auckland) 与海港</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 5 天</div>
+        <div class="day-date">12月18日 · 星期五</div>
+        <div class="day-hotel">库克山湖畔度假别墅</div>
+        <div class="day-room">两卧室别墅 &middot; 4 张单人床 &middot; 私人 Fantail 水疗</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal">晚</span></div>
+        <div class="day-guide">私人中文司机导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">飞往基督城 (Christchurch) 转赴奥拉基/库克山 (Aoraki/Mount Cook)，暗夜保护区观星</div>
+        <ul>
+          <li><strong>私人接送并飞往基督城 (Christchurch)。</strong>私人专车送您从柏悦酒店前往机场，转乘航班南下基督城 (Christchurch)，约1.5小时航程。</li>
+          <li><strong>驱车前往库克山 (Mount Cook)，沿途游览。</strong>您的中文司机导游在基督城 (Christchurch) 迎接，驱车向内陆进发，前往奥拉基/库克山 (Aoraki/Mount Cook)，穿越坎特伯雷平原 (Canterbury Plains)，进入麦肯齐地区 (Mackenzie Country)，眼前渐次展开金色丛生草原与碧蓝冰川湖泊。</li>
+          <li><strong>库克山湖畔度假别墅 (Mt Cook Lakeside Retreat)。</strong>午后抵达您位于普卡基湖 (Lake Pūkaki) 畔的两卧室别墅，奥拉基/库克山 (Aoraki/Mount Cook) 尽收眼底。一瓶新西兰起泡酒静候您的到来，三道式晚宴可于度假别墅餐厅 The Moraine 享用，亦可送至您的别墅享受私人晚餐。</li>
+          <li><strong>暗夜保护区观星体验。</strong>入夜后，在普卡基酒窖天文台 (Pūkaki Cellar Observatory) 与观星团队会合。这里位于奥拉基·麦肯齐暗夜保护区 (Aoraki Mackenzie Dark Sky Reserve) 的核心，是地球上最清澈的夜空之一。先在酒窖中品一杯葡萄酒或威士忌，再由天文学家借助望远镜带您遍览南半球星空。（视天气而定。）</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-mackenzie-country.jpg" alt="麦肯齐地区的金色丛生草原，远处为南阿尔卑斯山脉">
+          <figcaption>驱车向内陆途中的麦肯齐地区 (Mackenzie Country)</figcaption>
+        </figure>
+        <figure class="day-img">
+          <img src="images/nz-dark-sky-stargazing.jpg" style="object-position:center 88%" alt="奥拉基·麦肯齐暗夜保护区的银河">
+          <figcaption>奥拉基·麦肯齐暗夜保护区 (Aoraki Mackenzie Dark Sky Reserve) 的南半球星空</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 6 天</div>
+        <div class="day-date">12月19日 · 星期六</div>
+        <div class="day-hotel">库克山湖畔度假别墅</div>
+        <div class="day-room">两卧室别墅 &middot; 4 张单人床 &middot; 私人 Fantail 水疗</div>
+        <div class="meals"><span class="meal">早</span><span class="meal">午</span><span class="meal">晚</span></div>
+        <div class="day-guide">私人中文司机导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">直升机与雪地飞机观景飞行，俯瞰奥拉基/库克山 (Aoraki/Mount Cook) 与塔斯曼冰川 (Tasman Glacier)</div>
+        <ul>
+          <li><strong>“The Ultimate Alpine Experience”极致高山体验。</strong>今日的重头戏，也是饱览南阿尔卑斯山脉 (Southern Alps) 的绝佳方式：同日搭乘雪地飞机与直升机，翱翔于奥拉基/库克山 (Aoraki/Mount Cook) 之上，沿塔斯曼谷 (Tasman Valley) 飞越 Hochstetter 冰瀑，降落于塔斯曼冰川 (Tasman Glacier) 高处的雪原，飞机熄火，静享冰川时光，再换乘另一架返航。</li>
+          <li><strong>库克山 (Mount Cook) 午后自在游。</strong>与导游会合，按自己的节奏探索国家公园：胡克山谷步道 (Hooker Valley Track)、埃德蒙·希拉里爵士高山中心 (Sir Edmund Hillary Alpine Centre)，或伫立于普卡基湖 (Lake Pūkaki) 畔仰望山峰。</li>
+          <li><strong>返回别墅晚餐。</strong>入住期间，度假别墅每日提供早餐、登山午餐与三道式晚宴。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-ultimate-alpine-experience.jpg" alt="南阿尔卑斯高处雪原上的直升机与旅客">
+          <figcaption>南阿尔卑斯山脉高处的雪原降落</figcaption>
+        </figure>
+        <figure class="day-img">
+          <img src="images/nz-aoraki-mount-cook.jpg" alt="空中俯瞰奥拉基/库克山与南阿尔卑斯山脉">
+          <figcaption>空中俯瞰奥拉基/库克山 (Aoraki/Mount Cook)</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 7 天</div>
+        <div class="day-date">12月20日 · 星期日</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">两卧室湖景公寓 &middot; 1 张特大床 &amp; 2 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide">私人中文司机导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">翻越林迪斯山口 (Lindis Pass)，穿越中奥塔哥 (Central Otago) 前往皇后镇 (Queenstown)</div>
+        <ul>
+          <li><strong>驱车前往皇后镇 (Queenstown)，沿途游览。</strong>早餐后告别群山，再度踏上南岛 (South Island) 最美的公路之一，翻越林迪斯山口 (Lindis Pass)，一路穿越中奥塔哥 (Central Otago) 抵达皇后镇 (Queenstown)，导游沿途带您停留观景。</li>
+          <li><strong>The Rees Hotel &amp; Luxury Apartments 酒店。</strong>入住高踞瓦卡蒂普湖 (Lake Wakatipu) 之上的两卧室湖景公寓，远眺 The Remarkables 山脉；酒店设有私人沙滩与码头、往返镇中心的免费班车，并含每日早餐。傍晚时光由您自在安排。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-mount-cook-road.jpg" alt="公路沿普卡基湖蜿蜒，远处为奥拉基/库克山">
+          <figcaption>离开奥拉基/库克山 (Aoraki/Mount Cook) 南下的公路</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 8 天</div>
+        <div class="day-date">12月21日 · 星期一</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">两卧室湖景公寓 &middot; 1 张特大床 &amp; 2 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide">私人中文司机导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">皇后镇 (Queenstown) 全日游：湖泊、高山垭口与箭镇 (Arrowtown)</div>
+        <ul>
+          <li><strong>皇后镇 (Queenstown) 全日游。</strong>与导游用一整天探索皇后镇 (Queenstown) 及周边，行程可依您的喜好而定：湖泊与高山垭口、高原风光、吉布斯顿谷 (Gibbston) 酒庄，或淘金古镇箭镇 (Arrowtown)。午餐与门票现场自理。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-queenstown-lakefront.jpg" alt="秋日瓦卡蒂普湖畔的皇后镇滨湖区">
+          <figcaption>皇后镇 (Queenstown) 滨湖区 · 瓦卡蒂普湖 (Lake Wakatipu)</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 9 天</div>
+        <div class="day-date">12月22日 · 星期二</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">两卧室湖景公寓 &middot; 1 张特大床 &amp; 2 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide">私人中文司机导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">直升机飞越米尔福德峡湾 (Milford Sound)，格林诺奇 (Glenorchy) 高山降落与达特河 (Dart River) 喷射快艇</div>
+        <ul>
+          <li><strong>私人“Peaks to Paradise”直升机之旅，含米尔福德峡湾 (Milford Sound) 飞越。</strong>上午8点启程，这一程的精彩难以超越。中文司机导游送您前往格林诺奇 (Glenorchy) 机场，乘直升机升空，飞越瓦卡蒂普湖 (Lake Wakatipu) 与达特河 (Dart River)，向西深入峡湾国家公园 (Fiordland) 腹地，俯瞰米尔福德峡湾 (Milford Sound) 及其周边的原始森林、冰川与湖泊。折返群山之间，降落于专属的阿尔弗雷德山 (Mount Alfred) 之巅，引擎熄灭，群山、河流与湖泊的360度美景尽收眼底；随后再次降落于 Earnslaw Burn 的悬冰川与飞瀑之下。（视天气而定。）</li>
+          <li><strong>达特河 (Dart River) 荒野喷射快艇。</strong>在 Paradise，已有私人荒野喷射快艇等候，载您沿达特河 (Dart River) 辫状河道顺流而下，穿行于高耸群峰与原始森林之间，深入蒂瓦希普纳穆 (Te Wāhipounamu) 新西兰西南部世界遗产区。向导一路分享当地故事与传说，快艇亦会在浅水河道间来几个畅快回旋。</li>
+          <li><strong>格林诺奇 (Glenorchy) 午后时光。</strong>快艇之后，于湖泊、原生森林与《指环王》(Lord of the Rings) 取景地间悠然消磨一个下午，并在 Mrs Woolly's 享用丰盛拼盘午餐（现场自理）。傍晚返回皇后镇 (Queenstown)。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-milford-sound-flyover.jpg" alt="自机舱窗口俯瞰米尔福德峡湾">
+          <figcaption>空中俯瞰米尔福德峡湾 (Milford Sound)</figcaption>
+        </figure>
+        <figure class="day-img">
+          <img src="images/nz-dart-river-jet.jpg" alt="南阿尔卑斯山下达特河上的荒野喷射快艇">
+          <figcaption>格林诺奇 (Glenorchy) 达特河 (Dart River) 荒野喷射快艇</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 10 天</div>
+        <div class="day-date">12月23日 · 星期三</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">两卧室湖景公寓 &middot; 1 张特大床 &amp; 2 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide">私人中文司机导游</div>
+      </div>
+      <div class="day-body">
+        <div class="head">皇后镇 (Queenstown) 品酒之旅：中奥塔哥 (Central Otago) 黑皮诺与 Cardrona 酒厂</div>
+        <ul>
+          <li><strong>吉布斯顿谷 (Gibbston Valley) 品酒之旅。</strong>深入吉布斯顿谷 (Gibbston Valley)，这片“藤蔓之谷”坐落于片岩山峦与卡瓦劳峡谷 (Kawarau Gorge) 之间。您将在中奥塔哥 (Central Otago) 数一数二的黑皮诺酒庄享受两场品鉴，沿途从容享用一顿酒庄午餐（现场自理）。</li>
+          <li><strong>Cardrona 酒厂 (Cardrona Distillery)。</strong>午后前往地处偏远的 Cardrona 酒厂，展开75分钟导览，亲见威士忌与金酒从原料到成酒的完整过程，并遍尝各式佳酿。傍晚返回皇后镇 (Queenstown)。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-cardrona-distillery.jpg" alt="中奥塔哥 Cardrona 酒厂的铜制蒸馏器">
+          <figcaption>Cardrona 酒厂的蒸馏器</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 11 天</div>
+        <div class="day-date">12月24日 · 星期四</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">两卧室湖景公寓 &middot; 1 张特大床 &amp; 2 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide free">自由活动 &middot; 如需导游可另行安排</div>
+      </div>
+      <div class="day-body">
+        <div class="head">皇后镇 (Queenstown) 自由活动</div>
+        <ul>
+          <li><strong>皇后镇 (Queenstown) 自由一日，</strong>这座探险之都任您随心而游。</li>
+          <li class="leisure"><strong>出游建议（自行安排）。</strong>搭乘复古蒸汽船 TSS Earnslaw 前往 Walter Peak 高原牧场、乘 Skyline 缆车登顶、在达特河 (Dart River) 或 Shotover 河体验喷射快艇、骑行 Arrow River 步道至吉布斯顿谷 (Gibbston)，或前往 Shotover 峡谷之上的 Onsen 温泉泡池。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-queenstown-town.jpg" alt="皇后镇市中心步行街的商铺与咖啡馆">
+          <figcaption>皇后镇 (Queenstown) 市中心</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 12 天</div>
+        <div class="day-date">12月25日 · 星期五</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">两卧室湖景公寓 &middot; 1 张特大床 &amp; 2 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide free">自由活动 &middot; 如需导游可另行安排</div>
+      </div>
+      <div class="day-body">
+        <div class="head">皇后镇 (Queenstown) 圣诞节自由活动</div>
+        <ul>
+          <li><strong>皇后镇 (Queenstown) 圣诞节，</strong>节日里的自由一日，完全属于您。如有需要，我们可为您安排圣诞午餐或晚宴。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 13 天</div>
+        <div class="day-date">12月26日 · 星期六</div>
+        <div class="day-hotel">The Rees Hotel &amp; Luxury Apartments</div>
+        <div class="day-room">两卧室湖景公寓 &middot; 1 张特大床 &amp; 2 张单人床</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide free">自由活动 &middot; 如需导游可另行安排</div>
+      </div>
+      <div class="day-body">
+        <div class="head">皇后镇 (Queenstown) 与瓦纳卡 (Wānaka) 自由活动</div>
+        <ul>
+          <li><strong>皇后镇 (Queenstown) 与瓦纳卡 (Wānaka) 自由一日。</strong></li>
+          <li class="leisure"><strong>出游建议（自行安排）。</strong>驱车前往瓦纳卡 (Wānaka) 与阿斯派林山国家公园 (Mount Aspiring National Park)、走一段 Rob Roy 冰川或 Mount Iron 步道、探访瓦纳卡湖 (Lake Wānaka) 畔的 Rippon 酒庄与中奥塔哥 (Central Otago) 酒庄，或漫步淘金古镇箭镇 (Arrowtown)。</li>
+        </ul>
+        <figure class="day-img">
+          <img src="images/nz-lake-wanaka-tree.jpg" alt="暮色中矗立于瓦纳卡湖中的孤树与雪山">
+          <figcaption>暮色中的瓦纳卡湖 (Lake Wānaka)</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-side">
+        <div class="day-tag">第 14 天</div>
+        <div class="day-date">12月27日 · 星期日</div>
+        <div class="day-hotel">启程</div>
+        <div class="day-room">皇后镇 (Queenstown) 机场</div>
+        <div class="meals"><span class="meal">早</span><span class="meal off">午</span><span class="meal off">晚</span></div>
+        <div class="day-guide free">启程日 &middot; 自行安排</div>
+      </div>
+      <div class="day-body">
+        <div class="head">皇后镇 (Queenstown) 飞奥克兰 (Auckland)，转机返回香港</div>
+        <ul>
+          <li><strong>从皇后镇 (Queenstown) 启程。</strong>早餐后，请自行前往皇后镇 (Queenstown) 机场，搭乘航班飞往奥克兰 (Auckland)，再转乘 14:55 起飞的国际航班返回香港。（机票与此段接送均由您自行安排；如有需要，可另行安排私人接送。）</li>
+        </ul>
+      </div>
+    </div>
+
+<p class="legend"><b>餐食：</b> &nbsp; <span style="color:var(--green-deep);font-weight:600">早</span> 早餐 &nbsp;&middot;&nbsp; <span style="color:var(--green-deep);font-weight:600">午</span> 午餐 &nbsp;&middot;&nbsp; <span style="color:var(--green-deep);font-weight:600">晚</span> 晚餐 &nbsp;&middot;&nbsp; 空心圆圈表示该餐自理。柏悦酒店与 The Rees 均含每日早餐；库克山 (Mount Cook) 度假别墅为全食宿。行程时间为大致参考，出发前将进一步确认。</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>行程费用</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="cost-wrap">
+      <div class="cost-card">
+        <div class="cost-main">
+          <div class="label">总价 · 四人</div>
+          <div class="fig">HK$386,000</div>
+          <div class="sub">约合每人 HK$96,500</div>
+        </div>
+        <div class="cost-note">以港币计价。价格为初步参考，视供应情况与最终确认为准。基于当前供应商报价与汇率，如产生燃油附加费，将于出行前另行告知。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="page"><h2>费用包含与不含</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="incexc-grid">
+      <div class="incexc inc">
+        <h3>费用包含</h3>
+        <ul>
+          <li>奥克兰 (Auckland) 私人中文导游，及南岛 (South Island) 私人中文司机导游，于各游览日随行（自由活动日不含导游，如有需要可另行安排）</li>
+          <li>全程13晚指定住宿</li>
+          <li>国内航班：奥克兰 (Auckland)–基督城 (Christchurch)（经济舱）</li>
+          <li>行程内所示的私人游览与接送（抵达与离境的机场接送见“费用不含”）</li>
+          <li>奥克兰 (Auckland)：All Blacks 全黑队体验；怀赫科岛 (Waiheke Island) 往返渡轮及私人美食美酒之旅（含葡萄园午餐）；全日私人奥克兰 (Auckland) 海岸与城市之旅</li>
+          <li>库克山 (Mount Cook)：基督城 (Christchurch)–库克山 (Mount Cook) 沿途游览接送、“The Ultimate Alpine Experience”直升机与雪地飞机之旅、库克山 (Mount Cook) 午后游览，及普卡基酒窖天文台 (Pūkaki Cellar Observatory) 暗夜观星</li>
+          <li>皇后镇 (Queenstown)：全日游、格林诺奇 (Glenorchy)“Peaks to Paradise”直升机（含米尔福德峡湾 (Milford Sound) 飞越及高山降落）与达特河 (Dart River) 荒野喷射快艇、格林诺奇 (Glenorchy) 午后游览，及中奥塔哥 (Central Otago) 美酒与 Cardrona 酒厂 (Cardrona Distillery) 导览</li>
+          <li>柏悦酒店与 The Rees 每日早餐；库克山 (Mount Cook) 度假别墅全食宿，含迎宾起泡酒</li>
+        </ul>
+      </div>
+      <div class="incexc exc">
+        <h3>费用不含</h3>
+        <ul>
+          <li>往返新西兰 (New Zealand) 的国际机票</li>
+          <li>抵达日（第1天）与离境日（第14天）的机场接送，由您自行安排，或另行付费加入</li>
+          <li>旅行、医疗与紧急救援保险</li>
+          <li>行程未列明的餐食，包括游览日午餐及奥克兰 (Auckland)、皇后镇 (Queenstown) 的晚餐</li>
+          <li>自由活动日的活动与门票</li>
+          <li>可选升级与建议活动（见下）</li>
+          <li>个人消费与小费</li>
+          <li>出行前另行告知的燃油附加费</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="sec-head"><div class="page"><h2>可选加订体验</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">以下体验可加入您在南岛 (South Island) 的行程之中，若想为旅程增添几分探险色彩。每项均为您一家私人安排，费用可另行报价。</p>
+    <div class="upgrades">
+      <div class="up">
+        <div>
+          <div class="up-loc">瓦纳卡 (Wānaka) · 第7天 · 前往皇后镇 (Queenstown) 途中</div>
+          <div class="up-name">Hāwea 漂流与蒂皮帐篷午餐</div>
+          <div class="up-desc">为转场日增添一段体验：在瓦纳卡 (Wānaka) 附近的 Hāwea 河体验漂流，二级缓流与清澈的泳潭，随后在河畔的北欧蒂皮帐篷享用野餐午餐。</div>
+        </div>
+        <div class="up-price"><div class="amt">待询</div><div class="per">每人</div></div>
+      </div>
+      <div class="up">
+        <div>
+          <div class="up-loc">皇后镇 (Queenstown) · 第8天</div>
+          <div class="up-name">卡瓦劳大桥蹦极 (Kawarau Bridge Bungy)</div>
+          <div class="up-desc">从卡瓦劳大桥一跃而下的43米蹦极，这里是“世界蹦极发源地”，横跨卡瓦劳峡谷 (Kawarau Gorge)。可选择轻触水面或全身不湿，单人或双人同跃。</div>
+        </div>
+        <div class="up-price"><div class="amt">待询</div><div class="per">每人</div></div>
+      </div>
+      <div class="up">
+        <div>
+          <div class="up-loc">皇后镇 (Queenstown) · 第8天</div>
+          <div class="up-name">Skyline 缆车与斜坡滑车</div>
+          <div class="up-desc">乘南半球最陡的缆车登上 Bob's Peak，饱览皇后镇 (Queenstown) 与瓦卡蒂普湖 (Lake Wakatipu) 的220度全景，再沿专建赛道畅玩三趟斜坡滑车。</div>
+        </div>
+        <div class="up-price"><div class="amt">待询</div><div class="per">每人</div></div>
+      </div>
+      <div class="up">
+        <div>
+          <div class="up-loc">吉布斯顿谷 (Gibbston Valley) · 第10天</div>
+          <div class="up-name">Oxbow 极限探险 (Thrill Seeker)</div>
+          <div class="up-desc">吉布斯顿谷 (Gibbston) 附近的三合一探险：专业赛道上的喷射竞速快艇、征服陡峭地形的极限越野车，以及群山映衬下的飞碟射击。</div>
+        </div>
+        <div class="up-price"><div class="amt">待询</div><div class="per">每人</div></div>
+      </div>
+    </div>
+    <p class="up-foot">自由活动日的导游候命及额外游览亦可另行安排，欢迎随时告知。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="page">
+    <div class="fbrand">Alchemist Travel<small>与 Beyond the Blue 合作呈献</small></div>
+    <div class="fmeta">Kristin Lim &nbsp;·&nbsp; kristin@alchemisttravel.com &nbsp;·&nbsp; +65 9751 4830<br>为朱总定制的行程草案 · 2026年7月</div>
+  </div>
+</footer>
+
+
+<script>
+  (function(){
+    var container = document.getElementById('jmap');
+    if(!container) return;
+    var STOPS = [
+      { order:1, place:'奥克兰 (Auckland)', hotel:'奥克兰柏悦酒店 Park Hyatt', nights:'4晚 &middot; 12月14&ndash;18日', coord:[174.7590,-36.8437] },
+      { order:2, place:'库克山 (Mount Cook)', hotel:'库克山湖畔度假别墅', nights:'2晚 &middot; 12月18&ndash;20日', coord:[170.1250,-44.2200] },
+      { order:3, place:'皇后镇 (Queenstown)', hotel:'The Rees Hotel &amp; Luxury Apartments 酒店', nights:'7晚 &middot; 12月20&ndash;27日', coord:[168.6900,-45.0380] }
+    ];
+    /* Auckland --(fly)--> Christchurch --(drive: Geraldine/Tekapo)--> Mt Cook
+       --(Twizel/Omarama/Lindis/Cromwell)--> Queenstown */
+    var ROUTE = [
+      [174.7590,-36.8437],[172.5400,-43.4890],[171.2400,-43.9000],[170.4770,-44.0040],
+      [170.1250,-44.2200],[169.9700,-44.4870],[169.6667,-44.5833],[169.1950,-45.0380],
+      [168.6900,-45.0380]
+    ];
+    function fallback(){ var t=document.getElementById('jmap-legacy'); if(t){container.innerHTML='';container.appendChild(t.content.cloneNode(true));container.style.height='auto';} }
+    if(typeof maplibregl === 'undefined'){ fallback(); return; }
+    try {
+      var map = new maplibregl.Map({
+        container: 'jmap',
+        style: { version:8,
+          sources:{ carto:{ type:'raster', tileSize:256,
+            tiles:['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                   'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                   'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'],
+            attribution:'&copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a> &middot; &copy; OpenStreetMap contributors' } },
+          layers:[ { id:'carto-base', type:'raster', source:'carto' } ] },
+        dragRotate:false, pitchWithRotate:false, cooperativeGestures:true,
+        minZoom:4,
+        maxBounds:[[165.0,-48.5],[180.5,-33.0]],
+        attributionControl:false
+      });
+      map.touchZoomRotate.disableRotation();
+      map.addControl(new maplibregl.NavigationControl({ showCompass:false }), 'top-right');
+      map.addControl(new maplibregl.AttributionControl({ compact:true }), 'bottom-right');
+      map.on('load', function(){
+        var a=map.getContainer().querySelector('.maplibregl-ctrl-attrib'); if(a){a.removeAttribute('open');a.classList.remove('maplibregl-compact-show');}
+        map.addSource('route',{ type:'geojson', data:{ type:'Feature', properties:{}, geometry:{ type:'LineString', coordinates: ROUTE } } });
+        map.addLayer({ id:'route-casing', type:'line', source:'route', layout:{'line-join':'round','line-cap':'round'}, paint:{'line-color':'#FFFFFF','line-width':6.5,'line-opacity':0.9} });
+        map.addLayer({ id:'route-line',   type:'line', source:'route', layout:{'line-join':'round','line-cap':'round'}, paint:{'line-color':'#5E5A50','line-width':3.4,'line-dasharray':[2,1.5]} });
+        var b=new maplibregl.LngLatBounds();
+        STOPS.forEach(function(s){ b.extend(s.coord);
+          var el=document.createElement('div'); el.className='jmap-pin'; el.textContent=s.order;
+          new maplibregl.Marker({element:el,anchor:'center'}).setLngLat(s.coord)
+            .setPopup(new maplibregl.Popup({offset:16,closeButton:false}).setHTML(
+              '<div class="jmap-pop-place">'+s.order+'. '+s.place+'</div><div class="jmap-pop-hotel">'+s.hotel+'</div><div class="jmap-pop-nights">'+s.nights+'</div>'))
+            .addTo(map);
+        });
+        ROUTE.forEach(function(c){ b.extend(c); });
+        map.fitBounds(b, { padding:{top:54,bottom:70,left:52,right:56}, maxZoom:5.6, duration:0 });
+      });
+      map.on('error', function(e){ if(e&&e.error&&/style|source|network/i.test(String(e.error))) fallback(); });
+    } catch(err){ fallback(); }
+  })();
+</script>
+
+</body>
+</html>
