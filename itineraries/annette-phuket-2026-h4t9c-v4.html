@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>A Family Getaway to Phuket &middot; Outpost Travel</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+:root{
+  --green-deep:#14301A; --green-mid:#1E5228;
+  --gold:#B08D2E; --gold-soft:#C9A84C;
+  --ink:#20211E; --ink-mid:#4A4A44; --ink-soft:#77776E;
+  --line:#E3DED2; --line-soft:#EFEBE1;
+  --cream:#FBF9F4; --paper:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.doc{color-scheme:light;}
+.doc{font-family:'Inter',sans-serif;font-weight:300;color:var(--ink);background:var(--cream);
+  line-height:1.6;-webkit-font-smoothing:antialiased;}
+.page{max-width:880px;margin:0 auto;padding:0 30px;}
+.doc a{color:var(--green-mid);}
+.doc a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* Masthead */
+.masthead{background:var(--green-deep);color:#fff;padding:34px 0 28px;}
+.masthead .page{display:flex;flex-direction:column;gap:24px;}
+.brand-row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;letter-spacing:.26em;text-transform:uppercase;color:#fff;}
+.brand span{color:var(--gold-soft);}
+.partner{font-size:.66rem;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-top:6px;text-transform:uppercase;}
+.brand-contact{font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.66);text-align:right;line-height:1.7;}
+.kicker{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px;}
+.title-block h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.9rem;line-height:1.02;color:#fff;}
+.title-block h1 em{font-style:italic;color:var(--gold-soft);}
+.subtitle{font-size:.82rem;letter-spacing:.05em;color:rgba(255,255,255,.72);margin-top:14px;}
+.meta-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:20px;}
+.meta-item{font-size:.78rem;letter-spacing:.04em;color:rgba(255,255,255,.8);}
+.meta-item b{display:block;font-weight:500;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:3px;}
+
+/* Section frame */
+.sec{background:var(--paper);}
+.sec.alt{background:var(--cream);}
+.sec-head{padding:34px 0 6px;}
+.sec-head .page{display:flex;align-items:baseline;gap:16px;}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.7rem;color:var(--green-deep);white-space:nowrap;}
+.sec-head .rule{flex:1;height:1px;background:var(--line);}
+.sec-intro{font-size:.86rem;color:var(--ink-mid);padding-bottom:6px;}
+.sec-intro + .sec-intro{padding-top:9px;}
+
+/* At a glance */
+.tbl-wrap{overflow-x:auto;padding:14px 0 6px;}
+table{border-collapse:collapse;width:100%;min-width:560px;}
+thead th.num{width:132px;}
+tr.grp th{text-align:left;font-weight:400;padding:24px 0 9px;border-bottom:1px solid var(--line);}
+tbody tr.grp:first-child th{padding-top:6px;}
+tr.grp .ratoll{margin-top:5px;}
+.vtag{display:inline-block;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  color:var(--green-mid);background:#EDE7D6;border:1px solid var(--gold-soft);padding:3px 9px;border-radius:2px;margin-bottom:7px;}
+.vtag-sm{display:table;font-size:.55rem;padding:2px 8px;margin-bottom:6px;}
+tr.pending td{color:var(--ink-soft);}
+tr.pending td.num{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+thead th{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--gold);
+  text-align:left;padding:0 14px 9px 0;border-bottom:1px solid var(--line);vertical-align:bottom;}
+thead th.num{text-align:right;padding-right:0;padding-left:16px;}
+tbody td{padding:15px 14px 15px 0;border-bottom:1px solid var(--line-soft);font-size:.82rem;color:var(--ink-mid);vertical-align:top;}
+tbody td.num{text-align:right;padding-right:0;padding-left:16px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+tbody tr:last-child td{border-bottom:1px solid var(--line);}
+td .rname,th .rname{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;color:var(--green-deep);line-height:1.25;text-transform:none;letter-spacing:0;}
+td .ratoll,th .ratoll{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:4px;font-weight:500;}
+td .sub{display:block;font-size:.7rem;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+td .usd{font-family:'Cormorant Garamond',serif;font-size:1.24rem;color:var(--green-deep);font-weight:600;}
+td .sgd{display:block;font-size:.7rem;color:var(--ink-soft);margin-top:3px;}
+.tbl-foot{font-size:.72rem;color:var(--ink-soft);padding:12px 0 30px;line-height:1.65;}
+
+/* Map */
+.map-wrap{background:var(--cream);border:1px solid var(--line);border-radius:3px;padding:8px;
+  box-shadow:0 1px 3px rgba(20,48,26,.05);margin:16px 0 6px;}
+#jmap{width:100%;height:470px;border-radius:2px;overflow:hidden;background:#EDEBE4;}
+.map-cap{text-align:center;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;padding-bottom:30px;}
+.maplibregl-ctrl-group{border-radius:3px !important;box-shadow:0 1px 4px rgba(20,48,26,.14) !important;}
+.maplibregl-ctrl-group button{width:27px;height:27px;}
+.maplibregl-ctrl-attrib.maplibregl-compact{background:rgba(251,249,244,.9) !important;min-height:22px;border-radius:11px !important;}
+.maplibregl-ctrl-attrib.maplibregl-compact:not(.maplibregl-compact-show) .maplibregl-ctrl-attrib-inner{display:none;}
+.maplibregl-ctrl-attrib a{color:var(--ink-soft);}
+.maplibregl-ctrl-attrib-button{opacity:.7;}
+.jmap-pin{width:26px;height:26px;border-radius:50%;background:var(--green-deep);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;border:1.6px solid var(--gold-soft);
+  box-shadow:0 2px 7px rgba(20,48,26,.32);cursor:pointer;}
+.jmap-air{width:19px;height:19px;border-radius:50%;background:var(--gold);border:1.6px solid #fff;
+  box-shadow:0 2px 6px rgba(20,48,26,.3);cursor:pointer;}
+.maplibregl-popup-content{font-family:'Inter',sans-serif;border-radius:4px;padding:9px 13px;box-shadow:0 3px 14px rgba(20,48,26,.2);}
+.jmap-pop-place{font-weight:600;color:var(--green-deep);font-size:.86rem;}
+.jmap-pop-hotel{color:var(--ink-mid);font-size:.76rem;margin-top:1px;}
+.jmap-pop-nights{color:var(--gold);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;margin-top:4px;}
+
+/* Resort cards */
+.cards{padding:16px 0 34px;display:flex;flex-direction:column;gap:30px;}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+.card > img{display:block;width:100%;height:clamp(180px,26vw,260px);object-fit:cover;}
+.hero-slot{height:clamp(150px,20vw,200px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:16px;background:repeating-linear-gradient(135deg,var(--line-soft) 0 9px,#F6F2E8 9px 18px);}
+.hero-slot span{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);line-height:1.9;}
+.card-head{padding:20px 26px 16px;border-bottom:1px solid var(--line);
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 20px;}
+.card-head .ratoll{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.card-head h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem;color:var(--green-deep);line-height:1.15;}
+.card-head .room{font-size:.76rem;color:var(--ink-soft);margin-top:5px;}
+.card-price{text-align:right;white-space:nowrap;}
+.card-price .amt{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--green-deep);line-height:1;}
+.card-price .amt small{font-size:.95rem;font-weight:400;color:var(--ink-soft);}
+.card-price .per{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px;}
+.card-price .pend{color:var(--gold);margin-top:0;}
+.card-price .est{font-size:.72rem;color:var(--ink-soft);margin-top:4px;}
+.fp-shot{position:relative;border:1px solid var(--line);border-radius:2px;overflow:hidden;}
+.fp-shot img{display:block;width:100%;height:clamp(150px,17vw,190px);object-fit:cover;}
+.fp-shot figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(20,48,26,.62);color:#fff;
+  font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;}
+.card-body{display:grid;grid-template-columns:1.32fr 1fr;gap:30px;padding:22px 26px 26px;}
+.blk + .blk{margin-top:20px;}
+.blk h4{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);font-weight:600;margin-bottom:8px;}
+.blk p{font-size:.84rem;color:var(--ink-mid);}
+.blk p + p{margin-top:8px;}
+.blk ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.blk li{position:relative;padding-left:18px;font-size:.82rem;color:var(--ink-mid);}
+.blk li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.fp-slot{height:170px;border:1px solid var(--line);border-radius:2px;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:16px;background:repeating-linear-gradient(135deg,var(--line-soft) 0 9px,#F6F2E8 9px 18px);}
+.fp-slot span{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);line-height:1.8;}
+.rooms-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:10px;}
+.rooms-list li{border-left:2px solid var(--gold-soft);padding-left:13px;}
+.rooms-list li::before{display:none;}
+.rooms-list .rm{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--green-deep);line-height:1.25;}
+.rooms-list .rp{display:block;font-size:.73rem;letter-spacing:.03em;color:var(--gold);margin-top:3px;font-variant-numeric:tabular-nums;}
+.rooms-list .rs{display:block;font-size:.74rem;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+.fp-shot + .blk{margin-top:20px;}
+.fp-shot + .fp-shot{margin-top:14px;}
+.updated-line{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.02rem;color:var(--gold);padding-top:30px;}
+.update-sec .sec-head{padding-top:12px;}
+.offerbox{margin-top:22px;border:1px solid var(--gold-soft);background:#FCFAF3;border-radius:2px;padding:16px 18px;}
+.offerbox h4{color:var(--gold);}
+.offerbox .oprice{display:block;font-size:.82rem;color:var(--green-deep);font-weight:500;margin:9px 0 11px;font-variant-numeric:tabular-nums;}
+.offerbox ul ul{margin-top:6px;gap:5px;}
+.offerbox ul ul li{padding-left:15px;font-size:.79rem;}
+.offerbox ul ul li::before{width:4px;height:4px;top:8px;background:var(--gold-soft);}
+.offerbox ul ul ul li::before{background:transparent;border:1px solid var(--gold-soft);}
+.offerbox .actcat{font-weight:500;color:var(--green-mid);}
+.choose{padding:12px 0 34px;display:flex;flex-direction:column;gap:13px;}
+.choose p{font-size:.88rem;color:var(--ink-mid);}
+.chip{display:inline-block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  color:var(--green-deep);background:#EDE7D6;border:1px solid var(--gold-soft);padding:5px 11px;border-radius:2px;}
+.note-sm{font-size:.76rem;color:var(--ink-soft);margin-top:9px;line-height:1.55;}
+.flagbox{margin-top:20px;border-left:2px solid var(--gold-soft);padding:2px 0 2px 15px;}
+.flagbox h4{color:var(--gold);}
+.flagbox p{font-size:.79rem;color:var(--ink-soft);}
+.flagbox p + p{margin-top:6px;}
+.weblink{display:inline-block;margin-top:16px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green-mid);border-bottom:1px solid var(--gold-soft);padding-bottom:2px;text-decoration:none;}
+.weblink:hover{color:var(--gold);}
+
+/* Recommendations */
+.recs{padding:12px 0 34px;display:flex;flex-direction:column;}
+.rec{display:grid;grid-template-columns:190px 1fr;gap:24px;padding:18px 0;border-top:1px solid var(--line);}
+.rec:last-of-type{border-bottom:1px solid var(--line);}
+.rec dt{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;padding-top:3px;}
+.rec dd{font-size:.86rem;color:var(--ink-mid);}
+.rec dd b{font-family:'Cormorant Garamond',serif;font-size:1.06rem;font-weight:600;color:var(--green-deep);display:block;margin-bottom:3px;}
+
+/* Inc / Exc */
+.incexc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:14px 0 30px;}
+.incexc h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+.incexc.exc h3{color:var(--ink-soft);}
+.incexc ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.incexc li{position:relative;padding-left:20px;font-size:.83rem;color:var(--ink-mid);}
+.inc li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--gold);font-size:.8rem;}
+.exc li::before{content:"\2013";position:absolute;left:0;top:0;color:var(--ink-soft);}
+
+/* Notes */
+.notes{padding:14px 0 32px;display:flex;flex-direction:column;gap:11px;}
+.notes p{position:relative;padding-left:20px;font-size:.79rem;color:var(--ink-soft);line-height:1.6;}
+.notes p::before{content:"\2020";position:absolute;left:0;top:0;color:var(--gold-soft);}
+.notes b{color:var(--ink-mid);font-weight:500;}
+
+/* Next */
+.next-wrap{padding:14px 0 34px;}
+.next{border:1px solid var(--line);background:var(--cream);border-radius:2px;padding:26px 30px;}
+.next p{font-size:.9rem;color:var(--ink-mid);max-width:620px;}
+.next p + p{margin-top:11px;}
+.next .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--green-deep);margin-top:18px;}
+.next .contact{font-size:.74rem;letter-spacing:.05em;color:var(--ink-soft);margin-top:6px;}
+
+/* Footer */
+.doc footer{background:var(--green-deep);color:rgba(255,255,255,.8);padding:30px 0;}
+.doc footer .page{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;}
+.fbrand{font-family:'Cormorant Garamond',serif;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-size:1rem;}
+.fbrand small{display:block;font-family:'Inter',sans-serif;letter-spacing:.12em;font-size:.6rem;color:rgba(255,255,255,.55);margin-top:5px;}
+.fmeta{font-size:.72rem;letter-spacing:.05em;text-align:right;color:rgba(255,255,255,.6);}
+
+@media (max-width:720px){
+  .card-body{grid-template-columns:1fr;gap:22px;}
+  .rec{grid-template-columns:1fr;gap:6px;}
+  .incexc-grid{grid-template-columns:1fr;gap:24px;}
+  .title-block h1{font-size:2.15rem;}
+  .brand-contact{text-align:left;}
+  .card-head,.card-body,.next{padding-left:20px;padding-right:20px;}
+  #jmap{height:420px;}
+}
+@media (max-width:600px){
+  /* Let the rate table reflow rather than scroll sideways on a phone */
+  table{min-width:0;}
+  thead th.num{width:auto;}
+  thead th,tbody td{font-size:.78rem;}
+  thead th.num,tbody td.num{padding-left:10px;}
+  td .usd{font-size:1.02rem;}
+  tr.pending td.num{font-size:.66rem;white-space:normal;}
+}
+@media print{
+  .doc{background:#fff;}
+  .sec,.sec.alt{background:#fff;}
+  .card,.rec,.incexc-grid,.next{break-inside:avoid;}
+  .sec-head{break-after:avoid;}
+  @page{margin:14mm 12mm;}
+}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<header class="masthead">
+  <div class="page">
+    <div class="brand-row">
+      <div>
+        <div class="brand">Outpost <span>Travel</span></div>
+        <div class="partner">An affiliate of Alchemist Travel</div>
+      </div>
+      <div class="brand-contact">Prepared for Annette</div>
+    </div>
+    <div class="title-block">
+      <h1>A Family Getaway to Phuket</h1>
+      <p class="subtitle">1&ndash;6 October 2026 &middot; 5 nights &middot; 2 adults and 2 children</p>
+    </div>
+  </div>
+</header>
+
+<section class="sec alt update-sec">
+  <div class="page"><p class="updated-line">Updated 11 August 2026, for 1&ndash;6 October 2026</p></div>
+  <div class="sec-head"><div class="page"><h2>Anantara Koh Yao Yai</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">New rates for the revised dates, 1 to 6 October, which is five nights rather than four. They include breakfast, taxes and fees, and there is a fourth room type available now alongside the three quoted before.</p>
+    <div class="cards">
+
+<article class="card">
+  <img src="images/pk-anantara-hero.jpg" alt="Aerial view of Anantara Koh Yao Yai, with green-roofed buildings set along a forested headland above the beach">
+  <div class="card-head">
+    <div>
+      <p class="ratoll">Koh Yao Yai &middot; Phang Nga Bay</p>
+      <h3>Anantara Koh Yao Yai</h3>
+      <p class="room">Four room types quoted, from the Family Pool View Suite</p>
+    </div>
+    <div class="card-price">
+      <div class="amt"><small>From</small> SGD 2,199</div>
+      <div class="per">Five nights, total incl. taxes &amp; fees</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <div class="blk"><h4>Anantara VIP benefits through us</h4><ul>
+        <li>VIP status, welcome amenities and a gift in the room</li>
+        <li>Room upgrade on arrival, subject to availability</li>
+        <li>24-hour check-in and check-out, subject to availability</li>
+        <li>A welcome letter, and a meet and greet with the general manager</li>
+      </ul></div>
+      <div class="blk"><h4>The rooms</h4>
+        <ul class="rooms-list">
+          <li><span class="rm">Family Pool View Suite</span><span class="rp">SGD 440 / night &middot; SGD 2,199 total</span><span class="rs">91 sqm, kids' themed, looking over the family pool and the slides. A king or twin beds, plus bunk beds.</span></li>
+          <li><span class="rm">Family Sea View Suite</span><span class="rp">SGD 471 / night &middot; SGD 2,356 total</span><span class="rs">The same 91 sqm suite and the same bed arrangement, facing the sea instead of the pool.</span></li>
+          <li><span class="rm">Family Suite Pool Access</span><span class="rp">SGD 503 / night &middot; SGD 2,513 total</span><span class="rs">91 sqm, again with bunk beds, and the terrace opens straight onto the pool with the slides.</span></li>
+          <li><span class="vtag vtag-sm">Villa</span><span class="rm">Lagoon Pool Villa</span><span class="rp">SGD 636 / night &middot; SGD 3,182 total</span><span class="rs">170 sqm, with a proper separate living room and its own pool on the lagoon. A king bed and a single bed.</span></li>
+        </ul>
+      </div>
+      <div class="blk"><h4>The place</h4><p>Out in Phang Nga Bay on Koh Yao Yai, looking across at the limestone karsts rather than the open sea. The bay is sheltered, so the water in front of the resort would be calmer compared to the Phuket beaches.</p></div>
+      <div class="blk"><h4>Included with every room type</h4><ul>
+        <li>Breakfast each morning</li>
+        <li>Round-trip speedboat transfers between the resort and either Laem Sai Pier on Phuket or Thalane Pier in Krabi</li>
+        <li>THB 2,500 resort credit per room for the stay, for dining, the spa or island excursions</li>
+      </ul></div>
+      <div class="blk"><h4>Family suites only</h4><ul>
+        <li>Children under 12 eat free from the kids' menu when dining with you at Pakarang or The Beach Restaurant, food only</li>
+        <li>A 60-minute spa treatment for two</li>
+      </ul></div>
+      <div class="blk"><h4>Lagoon Pool Villa only</h4><ul>
+        <li>Round-trip airport transfers from Phuket or Krabi International, one van per booking</li>
+        <li>A floating breakfast in your own pool, once during the stay</li>
+        <li>A 90-minute spa treatment for two</li>
+      </ul></div>
+      <div class="blk offerbox"><h4>A more all-inclusive option</h4>
+        <p>If you'd like the activities included as well, there is a Family Getaway offer running for your dates. It adds half board, a half-day island tour, unlimited soft drinks, and a choice of one activity each day.</p>
+        <span class="oprice">SGD 1,061 / night &middot; SGD 5,305 total &middot; Family Pool View Suite</span>
+        <ul>
+          <li>Daily breakfast</li>
+          <li>Daily lunch or dinner for two adults and two children</li>
+          <li>Free-flow non-alcoholic beverages for two adults and two children</li>
+          <li>Roundtrip airport transfers between Phuket Airport and the private lounge at Laem Sai Pier</li>
+          <li>Two children under 12 stay for free</li>
+          <li>Roundtrip speedboat transfers between Laem Sai Pier, Phuket and the resort jetty</li>
+          <li>One non-motorised water sport experience</li>
+          <li>One activity for two adults and two children per day
+            <ul>
+              <li><span class="actcat">Island Explorer</span> (choose one)
+                <ul>
+                  <li>Half-day island hopping by private long-tail boat</li>
+                  <li>Cycling tour to Laem Haad Beach</li>
+                  <li>Koh Yao Yai sidecar adventure with picnic set</li>
+                </ul>
+              </li>
+              <li><span class="actcat">Local Experience</span>
+                <ul>
+                  <li>Island discovery by tuk-tuk with local artisans and craftsmanship revival</li>
+                </ul>
+              </li>
+              <li><span class="actcat">Culinary Journey</span>
+                <ul>
+                  <li>Spice Spoon Cooking Class</li>
+                </ul>
+              </li>
+              <li><span class="actcat">Spa &amp; Wellness</span> (choose one)
+                <ul>
+                  <li>90-minute spa treatment</li>
+                  <li>90-minute private sunrise yoga</li>
+                  <li>90-minute flying yoga</li>
+                  <li>60-minute Thai boxing lesson</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p class="note-sm">Family suites only. The figure above is for the Family Pool View Suite, the entry suite, so the other two suites price up from there.</p>
+        <p class="note-sm">Unlike the rates above, this one is refundable: free cancellation until 16:00 on 28 September 2026, with the deposit taken that day.</p>
+      </div>
+      <a class="weblink" href="https://www.anantara.com/en/koh-yao-yai-phuket" target="_blank" rel="noopener">anantara.com/koh-yao-yai</a>
+    </div>
+    <div>
+      <figure class="fp-shot"><img src="images/pk-anantara-suite.jpg" alt="Family Pool View Suite at Anantara Koh Yao Yai, with pale-wood bunk beds and a lounge area"><figcaption>Family Pool View Suite</figcaption></figure>
+      <figure class="fp-shot"><img src="images/pk-kyy-seaview.jpg" alt="Family Sea View Suite at Anantara Koh Yao Yai, with a balcony looking over the sea and limestone karsts at sunset"><figcaption>Family Sea View Suite</figcaption></figure>
+      <figure class="fp-shot"><img src="images/pk-kyy-poolaccess.jpg" alt="Family Suite Pool Access at Anantara Koh Yao Yai, with sliding doors opening onto the pool and its water slides"><figcaption>Family Suite Pool Access</figcaption></figure>
+      <figure class="fp-shot"><img src="images/pk-anantara-lagoon.jpg" alt="Lagoon Pool Villa at Anantara Koh Yao Yai, a single-storey villa with a curved private pool and deck set over the lagoon"><figcaption>Lagoon Pool Villa</figcaption></figure>
+      <div class="blk"><h4>Getting there</h4>
+        <span class="chip">Road 20 min &middot; boat 35 min</span>
+      </div>
+      <div class="blk flagbox"><h4>Worth knowing</h4><p>While there is an additional boat transfer, it is less developed and more tranquil than Phuket.</p><p>I like that this one is very new, and that it has a lot of family-friendly facilities. They say they have the largest kids' club in southern Thailand, and there are four water slides at the family pool. There is a full programme of <a href="https://www.anantara.com/en/koh-yao-yai-phuket/family" target="_blank" rel="noopener">family activities</a> to go with it.</p></div>
+      <div class="blk"><h4>Terms</h4><p class="note-sm">The four room rates above are non-refundable. They cannot be cancelled or changed, and the full amount is charged to the card at the time of booking rather than on arrival.</p><p class="note-sm">The Family Getaway offer is the exception and is refundable. Refundable versions of the four room rates are available too, at a higher nightly figure. Just let me know.</p></div>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="page"><p class="updated-line">For 1&ndash;5 October 2026</p></div>
+  <div class="sec-head"><div class="page"><h2>At a glance</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">We've listed four options that are located on Phuket itself, two of which are villas, while the fifth is an Anantara on Koh Yao Yai as an additional option for you to consider. You can think of Koh Yao Yai as the &ldquo;Maldives&rdquo; of this area. It is very quiet and probably the most unspoiled island in the bay. However, it does require an airport transfer to the speedboat jetty, followed by a speedboat ride, which is complimentary as part of the benefits for this rate. It is a bit of a transfer, but worthwhile if you would like a quiet beach getaway that's more off the beaten path.</p>
+    <p class="sec-intro">Another thing to note is that October is traditionally a fairly rainy season in Phuket, which is reflected in some of the lower rates you will see at the hotels. With that in mind, I've also kept facilities and activities within the resort or room itself in the back of my head, in case you do encounter some rainy days. That said, one of our colleagues is based in Phuket and I did ask her about the weather. She mentioned that it really depends on the year: the year before had lots of rain, whereas last year was perfectly sunny.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Room type</th>
+            <th scope="col" class="num">Per night</th>
+            <th scope="col" class="num">Four nights</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr class="grp"><th scope="rowgroup" colspan="3">
+  <div class="rname">The Slate</div>
+  <div class="ratoll">Nai Yang &middot; 10 minutes by road</div>
+</th></tr>
+<tr>
+  <td>D-Buk Family Suite<span class="sub">76 sqm, including room and terrace</span></td>
+  <td class="num">SGD 331</td>
+  <td class="num"><span class="usd">SGD 1,325</span></td>
+</tr>
+<tr>
+  <td>Private Pool Suite<span class="sub">112 sqm, including room, patio and pool</span></td>
+  <td class="num">SGD 400</td>
+  <td class="num"><span class="usd">SGD 1,601</span></td>
+</tr>
+<tr>
+  <td>One Bedroom Pearl Shell Suite<span class="sub">132 sqm, including room and balcony</span></td>
+  <td class="num">SGD 561</td>
+  <td class="num"><span class="usd">SGD 2,246</span></td>
+</tr>
+
+<tr class="grp"><th scope="rowgroup" colspan="3">
+  <div class="rname">InterContinental Phuket Resort</div>
+  <div class="ratoll">Kamala &middot; 40 minutes by road</div>
+</th></tr>
+<tr>
+  <td>1 King Classic Pool View<span class="sub">41 sqm, refundable</span></td>
+  <td class="num">SGD 553</td>
+  <td class="num"><span class="usd">SGD 2,212</span></td>
+</tr>
+<tr>
+  <td>Beachside Suite Ocean View, Club Lounge access<span class="sub">61 sqm, with its own living room</span></td>
+  <td class="num">SGD 1,382</td>
+  <td class="num"><span class="usd">SGD 5,528</span></td>
+</tr>
+
+<tr class="grp"><th scope="rowgroup" colspan="3">
+  <div class="vtag">Villa option one</div>
+  <div class="rname">Banyan Tree Phuket</div>
+  <div class="ratoll">Bang Tao &middot; 20 minutes by road</div>
+</th></tr>
+<tr>
+  <td>Banyan Pool Villa, non-refundable<span class="sub">170 sqm, one bedroom, private pool &middot; quoted in USD</span></td>
+  <td class="num">USD 502<span class="sgd">~SGD 660</span></td>
+  <td class="num"><span class="usd">USD 2,006</span><span class="sgd">~SGD 2,641</span></td>
+</tr>
+<tr>
+  <td>Banyan Pool Villa, refundable<span class="sub">The same villa, with the flexibility to cancel</span></td>
+  <td class="num">USD 579<span class="sgd">~SGD 762</span></td>
+  <td class="num"><span class="usd">USD 2,315</span><span class="sgd">~SGD 3,047</span></td>
+</tr>
+
+<tr class="grp"><th scope="rowgroup" colspan="3">
+  <div class="vtag">Villa option two</div>
+  <div class="rname">Anantara Mai Khao</div>
+  <div class="ratoll">Mai Khao &middot; 15 minutes by road</div>
+</th></tr>
+<tr>
+  <td>Pool Villa<span class="sub">186 sqm, private pool, refundable</span></td>
+  <td class="num">SGD 1,125</td>
+  <td class="num"><span class="usd">SGD 4,500</span></td>
+</tr>
+
+<tr class="grp"><th scope="rowgroup" colspan="3">
+  <div class="rname">Anantara Koh Yao Yai</div>
+  <div class="ratoll">Phang Nga Bay &middot; 20 minutes by road, then 35 by boat</div>
+</th></tr>
+<tr>
+  <td>Family Pool View Suite<span class="sub">91 sqm, kids' themed, looking over the family pool</span></td>
+  <td class="num">SGD 439</td>
+  <td class="num"><span class="usd">SGD 1,756</span></td>
+</tr>
+<tr>
+  <td>Family Sea View Suite<span class="sub">The same suite, facing the sea</span></td>
+  <td class="num">SGD 470</td>
+  <td class="num"><span class="usd">SGD 1,881</span></td>
+</tr>
+<tr>
+  <td><span class="vtag vtag-sm">Villa option three</span>Lagoon Pool Villa<span class="sub">170 sqm, a separate living room, with its own pool on the lagoon</span></td>
+  <td class="num">SGD 615</td>
+  <td class="num"><span class="usd">SGD 2,460</span></td>
+</tr></tbody>
+      </table>
+    </div>
+    <p class="tbl-foot">All rates include breakfast, taxes and service charge. Banyan Tree is quoted in US dollars by the hotel, so the Singapore dollar figures alongside it are an estimate and will move with the exchange rate on the day. Everything else is quoted in Singapore dollars. Each property's benefits and cancellation terms are listed against it below.</p>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="sec-head"><div class="page"><h2>Where they are</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">The airport sits north of the island, and amongst the Phuket options The Slate is the closest at ten minutes away and the InterContinental the furthest at forty. Everything on Phuket faces west into the Andaman Sea. Koh Yao Yai lies behind the island in Phang Nga Bay, sheltered by it, with a quieter vibe.</p>
+    <div class="map-wrap">
+      <div id="jmap" role="img" aria-label="Map of Phuket and Phang Nga Bay showing The Slate at Nai Yang, Anantara Koh Yao Yai, InterContinental Phuket at Kamala, Banyan Tree Phuket at Bang Tao, and Phuket International Airport"></div>
+    </div>
+    <p class="map-cap">Phuket &middot; Phang Nga Bay &middot; Thailand</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-head"><div class="page"><h2>Where You'll Stay</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="cards">
+
+<article class="card">
+  <img src="images/pk-slate-hero.jpg" alt="The family pool at The Slate, with a tin-mining themed pavilion, water spouts and tyre swings above the water">
+  <div class="card-head">
+    <div>
+      <p class="ratoll">Nai Yang</p>
+      <h3>The Slate</h3>
+      <p class="room">Three room types quoted, from the D-Buk Family Suite</p>
+    </div>
+    <div class="card-price">
+      <div class="amt"><small>From</small> SGD 1,325</div>
+      <div class="per">Total incl. taxes &amp; fees</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <div class="blk"><h4>The rooms</h4>
+        <ul class="rooms-list">
+          <li><span class="rm">D-Buk Family Suite</span><span class="rp">SGD 331 / night &middot; SGD 1,325 total</span><span class="rs">76 sqm including room and terrace. There is a good-sized daybed alongside the main bed that looks like it can be set up as a proper second bed, so it could work well for your eldest, or simply for naps.</span></li>
+          <li><span class="rm">Private Pool Suite</span><span class="rp">SGD 400 / night &middot; SGD 1,601 total</span><span class="rs">112 sqm including room, patio and your own pool.</span></li>
+          <li><span class="rm">One Bedroom Pearl Shell Suite</span><span class="rp">SGD 561 / night &middot; SGD 2,246 total</span><span class="rs">132 sqm including room and balcony.</span></li>
+        </ul>
+      </div>
+      <div class="blk"><h4>The place</h4><p>Ten minutes from the airport, on Nai Yang beach with national park behind it, so the sand stays quiet. On a four-night stay that short transfer is worth more than it sounds: you can be in the water by early afternoon on the first day, and out of the door easily on the last.</p></div>
+      <div class="blk"><h4>Included with all three room types</h4><ul>
+        <li>Daily breakfast at Tin Mine Restaurant</li>
+        <li>Complimentary round-trip airport transfer</li>
+        <li>Two hours of complimentary babysitting for one child per stay</li>
+        <li>Daily <a href="https://www.theslatephuket.com/experiences/family-activities.html" target="_blank" rel="noopener">kids' and family activities</a></li>
+        <li>Kids' amenities, and baby cots free of charge</li>
+        <li>Early check-in and late check-out, subject to availability</li>
+        <li>10% off at Kru Precision Wellness, 20% off at Coqoon Spa (excluding the beauty salon, spa packages and promotions)</li>
+      </ul></div>
+      <a class="weblink" href="https://www.theslatephuket.com/" target="_blank" rel="noopener">theslatephuket.com</a>
+    </div>
+    <div>
+      <figure class="fp-shot">
+        <img src="images/pk-slate-room.jpg" alt="Room at The Slate, with a reclaimed-timber headboard wall, dark floors, industrial metal fittings and a day bed">
+        <figcaption>D-Buk Family Suite</figcaption>
+      </figure>
+      <figure class="fp-shot">
+        <img src="images/pk-slate-pearlshell.jpg" alt="Living area of the One Bedroom Pearl Shell Suite at The Slate, with pink armchairs, a vintage trunk table and doors onto a covered terrace">
+        <figcaption>One Bedroom Pearl Shell Suite</figcaption>
+      </figure>
+      <div class="blk"><h4>Getting there</h4>
+        <span class="chip">Road &middot; 10 minutes</span>
+      </div>
+      <div class="blk flagbox"><h4>Worth knowing</h4><p>This is a unique, quirky hotel, and you'll see this reflected in the room and hotel design, which has a tin mining theme. The hotel is family-owned and run by a third-generation tin mining family in Phuket, offering a definitely different experience compared to a larger corporate resort.</p><p>Note that it's also very family friendly. There is a good kids' club, a babysitting service is available, and there is not just a family pool but also a shallow infant pool next to it.</p></div>
+      <div class="blk"><h4>Terms</h4><p class="note-sm">Reservations must be cancelled or modified 30 days prior to the arrival date. 100% of the total amount is charged thereafter.</p></div>
+    </div>
+  </div>
+</article>
+
+<article class="card">
+  <img src="images/pk-intercon-hero.jpg" alt="Beachfront pool at InterContinental Phuket Resort, with loungers on the deck, casuarina trees and turquoise sea beyond">
+  <div class="card-head">
+    <div>
+      <p class="ratoll">Kamala</p>
+      <h3>InterContinental Phuket Resort</h3>
+      <p class="room">Two room types quoted, from the 1 King Classic Pool View</p>
+    </div>
+    <div class="card-price">
+      <div class="amt"><small>From</small> SGD 2,212</div>
+      <div class="per">Total incl. taxes &amp; fees</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <div class="blk"><h4>The rooms</h4>
+        <ul class="rooms-list">
+          <li><span class="rm">1 King Classic Pool View</span><span class="rp">SGD 553 / night &middot; SGD 2,212 total</span><span class="rs">41 sqm, refundable, with nothing to pay until you arrive.</span></li>
+          <li><span class="rm">Beachside Suite Ocean View</span><span class="rp">SGD 1,382 / night &middot; SGD 5,528 total</span><span class="rs">61 sqm with Club Lounge access, and more of a one-bedroom arrangement: it has its own living room, so you can sit out there once the children are asleep.</span></li>
+        </ul>
+      </div>
+      <div class="blk"><h4>The place</h4><p>Kamala, forty minutes down the west coast, and the largest of these by some way. A long stretch of beachfront, several pools, and Planet Trekkers a few steps away.</p></div>
+      <div class="blk"><h4>Included with both</h4><ul>
+        <li>Daily breakfast for two</li>
+        <li>USD 100 resort credit</li>
+        <li>Planet Trekkers kids' club</li>
+        <li>IHG Destined benefits: early check-in and late check-out, and a room upgrade, each subject to availability</li>
+      </ul></div>
+      <a class="weblink" href="https://phuket.intercontinental.com/" target="_blank" rel="noopener">phuket.intercontinental.com</a>
+    </div>
+    <div>
+      <figure class="fp-shot">
+        <img src="images/pk-intercon-room.jpg" alt="Classic Pool View room at InterContinental Phuket Resort, with a king bed, seating area and a balcony">
+        <figcaption>1 King Classic Pool View</figcaption>
+      </figure>
+      <figure class="fp-shot">
+        <img src="images/pk-intercon-beachside.jpg" alt="Living room of the Beachside Suite Ocean View at InterContinental Phuket, with a blue sectional sofa and a balcony over the sea">
+        <figcaption>Beachside Suite Ocean View</figcaption>
+      </figure>
+      <div class="blk"><h4>Getting there</h4>
+        <span class="chip">Road &middot; 40 minutes</span>
+      </div>
+      <div class="blk flagbox"><h4>Worth knowing</h4><p>It's a 40 minute drive, but I think it's worthwhile. This property is very highly rated for families, and our colleague who lives in Phuket says it is her personal favourite with her own family.</p><p>If you're looking for a large, luxury resort vibe, I would highly recommend this one.</p></div>
+      <div class="blk"><h4>Terms</h4><p class="note-sm">Both rates above are refundable until 24 September 2026, with no prepayment: you settle at the property.</p><p class="note-sm">There are cheaper non-refundable rates here too, with and without breakfast. Without breakfast, the King room drops by about SGD 80 a night and the Beachside Suite by about SGD 200. If this is the property you like, tell me and I'll lay out the full range.</p></div>
+    </div>
+  </div>
+</article>
+
+<article class="card">
+  <img src="images/pk-banyantree-hero.jpg" alt="Aerial view of Banyan Tree Phuket, with lagoon-shaped pools, terracotta pavilion roofs and palm gardens beside the Laguna golf course">
+  <div class="card-head">
+    <div>
+      <p class="vtag">Villa option one</p>
+      <p class="ratoll">Bang Tao</p>
+      <h3>Banyan Tree Phuket</h3>
+      <p class="room">Banyan Pool Villa &middot; 170 sqm, one bedroom</p>
+    </div>
+    <div class="card-price">
+      <div class="amt"><small>From</small> USD 2,006</div>
+      <div class="per">Total incl. taxes &amp; fees</div>
+      <div class="est">~SGD 2,641</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <div class="blk"><h4>The rooms</h4>
+        <p>Every room here is a villa, and every villa has a walled garden with its own pool. Two ways to take the same villa:</p>
+        <ul class="rooms-list">
+          <li><span class="rm">Banyan Pool Villa, non-refundable</span><span class="rp">USD 502 / night &middot; USD 2,006 total &middot; about SGD 2,641</span><span class="rs">Paid online at the time of booking and not cancellable.</span></li>
+          <li><span class="rm">Banyan Pool Villa, refundable</span><span class="rp">USD 579 / night &middot; USD 2,315 total &middot; about SGD 3,047</span><span class="rs">About USD 310 more across the stay to keep the flexibility, and it carries the better benefits of the two.</span></li>
+        </ul>
+        <p class="note-sm">Banyan Tree quote in US dollars, so the Singapore dollar figures here are an estimate.</p>
+      </div>
+      <div class="blk"><h4>The place</h4><p>Twenty minutes from the airport at Bang Tao, inside the Laguna complex, where a lagoon links several resorts and a shuttle boat runs between them. There is a Terra Kids Club with daily activities.</p></div>
+      <div class="blk"><h4>Included either way</h4><ul>
+        <li>Breakfast each morning</li>
+        <li>Terra Kids Club, nine until six daily</li>
+        <li>The run of Laguna Phuket, so the lagoon, the shuttle boats and a spread of restaurants without leaving the complex</li>
+      </ul></div>
+      <div class="blk"><h4>On the non-refundable rate</h4><ul>
+        <li>20% off à la carte food and drink across the resort's restaurants</li>
+        <li>20% off à la carte treatments at Banyan Tree Spa</li>
+        <li>A set dinner for two at Saffron, once during the stay</li>
+      </ul></div>
+      <div class="blk"><h4>On the refundable rate</h4><ul>
+        <li>USD 100 hotel credit for the stay</li>
+        <li>Early check-in and late check-out, subject to availability</li>
+        <li>Room upgrade at check-in, subject to availability</li>
+        <li>Welcome note and amenities, and wifi throughout</li>
+      </ul></div>
+      <a class="weblink" href="https://www.banyantree.com/thailand/phuket" target="_blank" rel="noopener">banyantree.com</a>
+    </div>
+    <div>
+      <figure class="fp-shot">
+        <img src="images/pk-banyantree-villa.jpg" alt="Bedroom of a Banyan Pool Villa at Banyan Tree Phuket, with a Thai mural above the bed and a writing desk">
+        <figcaption>Banyan Pool Villa</figcaption>
+      </figure>
+      <div class="blk"><h4>Getting there</h4>
+        <span class="chip">Road &middot; 20 minutes</span>
+      </div>
+      <div class="blk flagbox"><h4>Worth knowing</h4><p>This is a reasonably priced villa option for Phuket.</p></div>
+    </div>
+  </div>
+</article>
+
+<article class="card">
+  <img src="images/pk-maikhao-hero.jpg" alt="Anantara Mai Khao at dusk, with a peaked restaurant pavilion lit above the main pool">
+  <div class="card-head">
+    <div>
+      <p class="vtag">Villa option two</p>
+      <p class="ratoll">Mai Khao</p>
+      <h3>Anantara Mai Khao</h3>
+      <p class="room">Pool Villa &middot; 186 sqm</p>
+    </div>
+    <div class="card-price">
+      <div class="amt">SGD 4,500</div>
+      <div class="per">Total incl. taxes &amp; fees</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <div class="blk"><h4>The rooms</h4>
+        <ul class="rooms-list">
+          <li><span class="rm">Pool Villa</span><span class="rp">SGD 1,125 / night &middot; SGD 4,500 total</span><span class="rs">186 sqm, the largest villa on this list, with a private pool behind its own walls. King or twin beds.</span></li>
+        </ul>
+      </div>
+      <div class="blk"><h4>The place</h4><p>Mai Khao, the long quiet beach that runs north from the airport, and only fifteen minutes from the terminal. A villa resort rather than a hotel with villas in it, which is the reason it sits alongside Banyan Tree as the other way to do this with your own pool.</p><p>It was also used for some scenes in HBO's The White Lotus season three, if anyone is a fan.</p></div>
+      <div class="blk"><h4>Included with the rate</h4><ul>
+        <li>Breakfast each morning</li>
+        <li>A private one-way airport transfer</li>
+        <li>Children dine free</li>
+        <li>Complimentary minibar, and a resort activity</li>
+        <li>25% off at VIVID Mai Khao</li>
+      </ul></div>
+      <div class="blk"><h4>And through us</h4><ul>
+        <li>VIP status, welcome amenities and a gift in the room</li>
+        <li>Room upgrade on arrival, subject to availability</li>
+        <li>24-hour check-in and check-out, subject to availability</li>
+        <li>A dedicated contact at the resort, and a meet and greet with the general manager</li>
+      </ul></div>
+      <a class="weblink" href="https://www.anantara.com/en/mai-khao-phuket" target="_blank" rel="noopener">anantara.com/mai-khao</a>
+    </div>
+    <div>
+      <figure class="fp-shot">
+        <img src="images/pk-maikhao-villa.jpg" alt="Pool Villa at Anantara Mai Khao, with a private mosaic-tiled pool, sun loungers and the bedroom pavilion opening onto the deck">
+        <figcaption>Pool Villa</figcaption>
+      </figure>
+      <div class="blk"><h4>Getting there</h4>
+        <span class="chip">Road &middot; 15 minutes</span>
+      </div>
+      <div class="blk flagbox"><h4>Worth knowing</h4><p>The rate comes with a local bike tour of Mai Khao village. I am not sure how much use that is to you with a toddler and a baby, so I can ask them to swap it for something more child-friendly.</p></div>
+      <div class="blk"><h4>Terms</h4><p class="note-sm">Free cancellation until 16:00 on 24 September 2026. The full SGD 4,500 is charged to the card on that date rather than at the time of booking.</p></div>
+    </div>
+  </div>
+</article>
+
+<article class="card">
+  <img src="images/pk-anantara-hero.jpg" alt="Aerial view of Anantara Koh Yao Yai, with green-roofed buildings set along a forested headland above the beach">
+  <div class="card-head">
+    <div>
+      <p class="ratoll">Koh Yao Yai &middot; Phang Nga Bay</p>
+      <h3>Anantara Koh Yao Yai</h3>
+      <p class="room">Three room types quoted, from the Family Pool View Suite</p>
+    </div>
+    <div class="card-price">
+      <div class="amt"><small>From</small> SGD 1,756</div>
+      <div class="per">Total incl. taxes &amp; fees</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <div class="blk"><h4>The rooms</h4>
+        <ul class="rooms-list">
+          <li><span class="rm">Family Pool View Suite</span><span class="rp">SGD 439 / night &middot; SGD 1,756 total</span><span class="rs">91 sqm, kids' themed, looking over the family pool and the slides.</span></li>
+          <li><span class="rm">Family Sea View Suite</span><span class="rp">SGD 470 / night &middot; SGD 1,881 total</span><span class="rs">The same suite facing the sea instead, at around SGD 125 more across the stay.</span></li>
+          <li><span class="vtag vtag-sm">Villa option three</span><span class="rm">Lagoon Pool Villa</span><span class="rp">SGD 615 / night &middot; SGD 2,460 total</span><span class="rs">170 sqm, with a proper separate living room and its own pool on the lagoon, so there is somewhere to sit once the children are asleep. It also includes two benefits the suites don't: an airport transfer, and a floating breakfast.</span></li>
+        </ul>
+      </div>
+      <div class="blk"><h4>The place</h4><p>Out in Phang Nga Bay on Koh Yao Yai, looking across at the limestone karsts rather than the open sea. The bay is sheltered, so the water in front of the resort would be calmer compared to the Phuket beaches.</p></div>
+      <div class="blk"><h4>Included with the rate</h4><ul>
+        <li>Breakfast each morning</li>
+        <li>Shared round-trip speedboat transfers, on a <a href="https://online.flippingbook.com/view/689533312/" target="_blank" rel="noopener">published timetable</a></li>
+        <li>THB 2,500 resort credit</li>
+        <li>Children dine free</li>
+      </ul></div>
+      <div class="blk"><h4>And through us</h4><ul>
+        <li>VIP status, welcome amenities and a gift in the room</li>
+        <li>Room upgrade on arrival, subject to availability</li>
+        <li>24-hour check-in and check-out, subject to availability</li>
+        <li>A dedicated contact at the resort, and a meet and greet with the general manager</li>
+      </ul></div>
+      <a class="weblink" href="https://www.anantara.com/en/koh-yao-yai-phuket" target="_blank" rel="noopener">anantara.com/koh-yao-yai</a>
+    </div>
+    <div>
+      <figure class="fp-shot">
+        <img src="images/pk-anantara-suite.jpg" alt="Family Pool View Suite at Anantara Koh Yao Yai, with pale-wood bunk beds, a rope climbing ladder and a lounge area">
+        <figcaption>Family Pool View / Sea View Suite</figcaption>
+      </figure>
+      <figure class="fp-shot">
+        <img src="images/pk-anantara-lagoon.jpg" alt="Lagoon Pool Villa at Anantara Koh Yao Yai, a single-storey villa with a curved private pool and deck set over the lagoon">
+        <figcaption>Lagoon Pool Villa</figcaption>
+      </figure>
+      <div class="blk"><h4>Getting there</h4>
+        <span class="chip">Road 20 min &middot; boat 35 min</span>
+      </div>
+      <div class="blk flagbox"><h4>Worth knowing</h4><p>While there is an additional boat transfer, it is less developed and more tranquil than Phuket.</p><p>I like that this one is very new, and that it has a lot of family-friendly facilities. They say they have the largest kids' club in southern Thailand, and there are four water slides at the family pool. There is a full programme of <a href="https://www.anantara.com/en/koh-yao-yai-phuket/family" target="_blank" rel="noopener">family activities</a> to go with it.</p></div>
+      <div class="blk"><h4>Terms</h4><p class="note-sm">All three rates are non-refundable. They cannot be cancelled or changed, and the full amount is charged to the card at the time of booking rather than on arrival.</p><p class="note-sm">Refundable rates are available at a higher nightly figure if you would rather keep the flexibility. Just let me know.</p></div>
+    </div>
+  </div>
+</article>
+
+</div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="sec-head"><div class="page"><h2>Choosing Between Them</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="choose">
+      <p>For a boutique hotel feel, I'd suggest going with The Slate. For a large, classic luxury resort experience I highly recommend the InterContinental.</p>
+      <p>If you're looking for a villa option on Phuket, I think both Banyan Tree and Anantara Mai Khao are solid options. The Anantara Mai Khao rooms feel fresher and I feel this is reflected in the price.</p>
+      <p>That said, if you don't mind a boat transfer (which I think is worthwhile: there is a nice lounge at the boat terminal with a kids area, and the speedboat is quite luxurious and an experience in itself), I rate Anantara Koh Yao Yai very highly. It's the newest property, opened in August 2023, and I think they are very thoughtful about creating a child-centric experience, from the speedboat transfer through to the stay. For instance, their Family Suite has a curtain around the bunk beds, and their Lagoon Pool Villa is my <em>favourite</em> layout of all the villas. It actually has a proper separate living room, unlike the other two villa options on Phuket.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-head"><div class="page"><h2>Next Steps</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="next-wrap">
+      <div class="next">
+        <p>Let me know which hotel and room type you're inclined towards, and I'll send you a secure credit card authorisation link to make the booking for you.</p>
+        <p>As always, please don't hesitate to ask if you have any questions!</p>
+        <p class="sign">Kristin</p>
+        <p class="contact">kristin@alchemisttravel.com &middot; +65 9751 4830</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="page">
+    <div class="fbrand">Outpost Travel<small>The effortless way to go further</small></div>
+    <div class="fmeta">Phuket &middot; 1&ndash;6 Oct 2026<br>Prepared for Annette</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  (function(){
+    var container = document.getElementById('jmap');
+    if(!container) return;
+
+    /* Hotel pins, numbered north to south as they appear in the table. coord = [lng, lat] */
+    var STOPS = [
+      { order:1, place:'The Slate',                     hotel:'Nai Yang',                 nights:'10 min from the airport',      coord:[98.2981, 8.0862] },
+      { order:2, place:'InterContinental Phuket Resort',hotel:'Kamala',                   nights:'40 min from the airport',      coord:[98.2859, 7.9629] },
+      { order:3, place:'Banyan Tree Phuket',            hotel:'Bang Tao, Laguna',         nights:'20 min from the airport',      coord:[98.2958, 8.0130] },
+      { order:4, place:'Anantara Mai Khao',             hotel:'Mai Khao',                 nights:'15 min from the airport',    coord:[98.2937, 8.1789] },
+      { order:5, place:'Anantara Koh Yao Yai',          hotel:'Koh Yao Yai, Phang Nga Bay', nights:'20 min road, 35 min boat',   coord:[98.6071, 8.0419] }
+    ];
+    var AIRPORT = { place:'Phuket International Airport', hotel:'HKT', coord:[98.3058, 8.1101] };
+
+    if(typeof maplibregl === 'undefined'){ container.style.display='none'; return; }
+    try {
+      var map = new maplibregl.Map({
+        container: 'jmap',
+        style: { version:8,
+          sources:{ carto:{ type:'raster', tileSize:256,
+            tiles:['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                   'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                   'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'],
+            attribution:'&copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a> &middot; &copy; OpenStreetMap contributors' } },
+          layers:[ { id:'carto-base', type:'raster', source:'carto' } ] },
+        dragRotate:false, pitchWithRotate:false, cooperativeGestures:true,
+        minZoom:8,
+        maxBounds:[[98.05,7.70],[98.85,8.40]],
+        attributionControl:false
+      });
+      map.touchZoomRotate.disableRotation();
+      map.addControl(new maplibregl.NavigationControl({ showCompass:false }), 'top-right');
+      map.addControl(new maplibregl.AttributionControl({ compact:true }), 'bottom-right');
+      map.on('load', function(){
+        var a=map.getContainer().querySelector('.maplibregl-ctrl-attrib');
+        if(a){a.removeAttribute('open');a.classList.remove('maplibregl-compact-show');}
+
+        var b=new maplibregl.LngLatBounds();
+
+        /* Airport first, so hotel pins sit above it */
+        b.extend(AIRPORT.coord);
+        var ae=document.createElement('div'); ae.className='jmap-air';
+        new maplibregl.Marker({element:ae,anchor:'center'}).setLngLat(AIRPORT.coord)
+          .setPopup(new maplibregl.Popup({offset:14,closeButton:false}).setHTML(
+            '<div class="jmap-pop-place">'+AIRPORT.place+'</div><div class="jmap-pop-hotel">'+AIRPORT.hotel+'</div>'))
+          .addTo(map);
+
+        STOPS.forEach(function(s){ b.extend(s.coord);
+          var el=document.createElement('div'); el.className='jmap-pin'; el.textContent=s.order;
+          new maplibregl.Marker({element:el,anchor:'center'}).setLngLat(s.coord)
+            .setPopup(new maplibregl.Popup({offset:16,closeButton:false}).setHTML(
+              '<div class="jmap-pop-place">'+s.order+'. '+s.place+'</div><div class="jmap-pop-hotel">'+s.hotel+'</div><div class="jmap-pop-nights">'+s.nights+'</div>'))
+            .addTo(map);
+        });
+
+        map.fitBounds(b, { padding:{top:60,bottom:70,left:60,right:64}, maxZoom:10.4, duration:0 });
+      });
+    } catch(err){ container.style.display='none'; }
+  })();
+</script>
+
+</body>
+</html>
