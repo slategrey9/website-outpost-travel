@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>New Year in Phu Quoc &middot; January 2027 &middot; Outpost Travel</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+:root{
+  --green-deep:#14301A; --green-mid:#1E5228;
+  --gold:#B08D2E; --gold-soft:#C9A84C;
+  --ink:#20211E; --ink-mid:#4A4A44; --ink-soft:#77776E;
+  --line:#E3DED2; --line-soft:#EFEBE1;
+  --cream:#FBF9F4; --paper:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.doc{color-scheme:light;}
+.doc{font-family:'Inter',sans-serif;font-weight:300;color:var(--ink);background:var(--cream);
+  line-height:1.6;-webkit-font-smoothing:antialiased;}
+.page{max-width:880px;margin:0 auto;padding:0 30px;}
+.doc a{color:var(--green-mid);}
+.doc a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* Masthead */
+.masthead{background:var(--green-deep);color:#fff;padding:34px 0 28px;}
+.masthead .page{display:flex;flex-direction:column;gap:24px;}
+.brand-row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;letter-spacing:.26em;text-transform:uppercase;color:#fff;}
+.brand span{color:var(--gold-soft);}
+.partner{font-size:.66rem;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-top:6px;text-transform:uppercase;}
+.brand-contact{font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.66);text-align:right;line-height:1.7;}
+.title-block h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.9rem;line-height:1.02;color:#fff;}
+.title-block h1 em{font-style:italic;color:var(--gold-soft);}
+.subtitle{font-size:.82rem;letter-spacing:.05em;color:rgba(255,255,255,.72);margin-top:14px;}
+
+/* Section frame */
+.sec{background:var(--paper);}
+.sec.alt{background:var(--cream);}
+.sec-head{padding:34px 0 6px;}
+.sec-head .page{display:flex;align-items:baseline;gap:16px;}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.7rem;color:var(--green-deep);white-space:nowrap;}
+.sec-head .rule{flex:1;height:1px;background:var(--line);}
+.sec-intro{font-size:.86rem;color:var(--ink-mid);padding-bottom:6px;}
+.sec-intro + .sec-intro{padding-top:9px;}
+.opts + .sec-intro{padding-top:16px;}
+
+/* The three options, up top */
+.opts{list-style:none;counter-reset:opt;padding:10px 0 4px;display:flex;flex-direction:column;gap:13px;}
+.opts li{counter-increment:opt;position:relative;padding-left:30px;font-size:.86rem;color:var(--ink-mid);}
+.opts li::before{content:counter(opt) ".";position:absolute;left:2px;top:0;color:var(--gold);font-weight:500;}
+.opts b{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:600;color:var(--green-deep);display:block;margin-bottom:2px;}
+
+/* At a glance */
+.tbl-wrap{overflow-x:auto;padding:18px 0 6px;}
+table{border-collapse:collapse;width:100%;min-width:560px;}
+thead th.num{width:132px;}
+tr.grp th{text-align:left;font-weight:400;padding:24px 0 9px;border-bottom:1px solid var(--line);}
+tbody tr.grp:first-child th{padding-top:6px;}
+tr.grp .ratoll{margin-top:5px;}
+.vtag{display:inline-block;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  color:var(--green-mid);background:#EDE7D6;border:1px solid var(--gold-soft);padding:3px 9px;border-radius:2px;margin-bottom:7px;}
+.vtag-sm{display:table;font-size:.55rem;padding:2px 8px;margin-bottom:6px;}
+thead th{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--gold);
+  text-align:left;padding:0 14px 9px 0;border-bottom:1px solid var(--line);vertical-align:bottom;}
+thead th.num{text-align:right;padding-right:0;padding-left:16px;}
+tbody td{padding:15px 14px 15px 0;border-bottom:1px solid var(--line-soft);font-size:.82rem;color:var(--ink-mid);vertical-align:top;}
+tbody td.num{text-align:right;padding-right:0;padding-left:16px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+tbody tr:last-child td{border-bottom:1px solid var(--line);}
+td .rname,th .rname{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;color:var(--green-deep);line-height:1.25;text-transform:none;letter-spacing:0;}
+td .ratoll,th .ratoll{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:4px;font-weight:500;}
+td .sub{display:block;font-size:.7rem;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+td .amt-lg{font-family:'Cormorant Garamond',serif;font-size:1.24rem;color:var(--green-deep);font-weight:600;}
+.tbl-foot{font-size:.72rem;color:var(--ink-soft);padding:12px 0 30px;line-height:1.65;}
+
+/* Map */
+.map-wrap{background:var(--cream);border:1px solid var(--line);border-radius:3px;padding:8px;
+  box-shadow:0 1px 3px rgba(20,48,26,.05);margin:16px 0 6px;}
+#jmap{width:100%;height:470px;border-radius:2px;overflow:hidden;background:#EDEBE4;}
+.map-cap{text-align:center;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;padding-bottom:30px;}
+.maplibregl-ctrl-group{border-radius:3px !important;box-shadow:0 1px 4px rgba(20,48,26,.14) !important;}
+.maplibregl-ctrl-group button{width:27px;height:27px;}
+.maplibregl-ctrl-attrib.maplibregl-compact{background:rgba(251,249,244,.9) !important;min-height:22px;border-radius:11px !important;}
+.maplibregl-ctrl-attrib.maplibregl-compact:not(.maplibregl-compact-show) .maplibregl-ctrl-attrib-inner{display:none;}
+.maplibregl-ctrl-attrib a{color:var(--ink-soft);}
+.maplibregl-ctrl-attrib-button{opacity:.7;}
+.jmap-pin{width:26px;height:26px;border-radius:50%;background:var(--green-deep);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;border:1.6px solid var(--gold-soft);
+  box-shadow:0 2px 7px rgba(20,48,26,.32);cursor:pointer;}
+.jmap-air{width:19px;height:19px;border-radius:50%;background:var(--gold);border:1.6px solid #fff;
+  box-shadow:0 2px 6px rgba(20,48,26,.3);cursor:pointer;}
+.maplibregl-popup-content{font-family:'Inter',sans-serif;border-radius:4px;padding:9px 13px;box-shadow:0 3px 14px rgba(20,48,26,.2);}
+.jmap-pop-place{font-weight:600;color:var(--green-deep);font-size:.86rem;}
+.jmap-pop-hotel{color:var(--ink-mid);font-size:.76rem;margin-top:1px;}
+.jmap-pop-nights{color:var(--gold);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;margin-top:4px;}
+
+/* Resort cards */
+.cards{padding:16px 0 34px;display:flex;flex-direction:column;gap:30px;}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+.card > img{display:block;width:100%;height:clamp(180px,26vw,260px);object-fit:cover;}
+.card-head{padding:20px 26px 16px;border-bottom:1px solid var(--line);
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 20px;}
+.card-head .ratoll{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.card-head h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem;color:var(--green-deep);line-height:1.15;}
+.card-head .room{font-size:.76rem;color:var(--ink-soft);margin-top:5px;}
+.card-price{text-align:right;white-space:nowrap;}
+.card-price .amt{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--green-deep);line-height:1;}
+.card-price .amt small{font-size:.95rem;font-weight:400;color:var(--ink-soft);}
+.card-price .per{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px;}
+.fp-shot{position:relative;border:1px solid var(--line);border-radius:2px;overflow:hidden;}
+.fp-shot img{display:block;width:100%;height:clamp(150px,17vw,190px);object-fit:cover;}
+.fp-shot figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(20,48,26,.62);color:#fff;
+  font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;}
+.card-body{display:grid;grid-template-columns:1.32fr 1fr;gap:30px;padding:22px 26px 26px;}
+.blk + .blk{margin-top:20px;}
+.blk h4{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);font-weight:600;margin-bottom:8px;}
+.blk p{font-size:.84rem;color:var(--ink-mid);}
+.blk p + p{margin-top:8px;}
+.blk ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.blk li{position:relative;padding-left:18px;font-size:.82rem;color:var(--ink-mid);}
+.blk li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.fp-shot + .blk{margin-top:20px;}
+.fp-shot + .fp-shot{margin-top:14px;}
+
+/* Rates table inside a property card: numbers aligned in their own columns,
+   the prose on its own row underneath so it never crowds them. */
+.rtbl{width:100%;min-width:0;border-collapse:collapse;margin-top:11px;}
+.rtbl th{font-size:.57rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500;
+  text-align:left;padding:0 8px 7px 0;border-bottom:1px solid var(--line);}
+.rtbl th.num{text-align:right;padding-right:0;padding-left:12px;width:92px;}
+.rtbl td{border:0;padding:11px 8px 0 0;vertical-align:baseline;}
+.rtbl td.num{text-align:right;padding-left:12px;padding-right:0;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.rtbl .r-name td{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-weight:600;color:var(--green-deep);line-height:1.3;}
+.rtbl .r-name td.num{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:400;color:var(--ink-soft);}
+.rtbl .r-name td.tot{font-family:'Cormorant Garamond',serif;font-size:1.06rem;font-weight:600;color:var(--green-deep);}
+.rtbl .r-desc td{padding:4px 0 13px;font-size:.75rem;color:var(--ink-soft);line-height:1.5;border-bottom:1px solid var(--line-soft);}
+.rtbl tbody tr:last-child td{border-bottom:0;padding-bottom:2px;}
+.rtbl .rate{display:block;font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);margin-top:5px;}
+.rtbl .vtag-sm{display:inline-block;margin:0 0 0 8px;vertical-align:2px;}
+
+/* Floor plans: full card width, under the two-column body */
+.plans{border-top:1px solid var(--line);padding:20px 26px 24px;}
+.plans h4{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-mid);font-weight:600;margin-bottom:12px;}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.plan{border:1px solid var(--line);border-radius:2px;background:#fff;overflow:hidden;}
+.plan img{display:block;width:100%;height:clamp(230px,29vw,330px);object-fit:contain;background:#fff;padding:8px;}
+.plan figcaption{border-top:1px solid var(--line-soft);background:var(--cream);color:var(--ink-soft);
+  font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;padding:7px 11px;text-align:center;}
+
+.chip{display:inline-block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  color:var(--green-deep);background:#EDE7D6;border:1px solid var(--gold-soft);padding:5px 11px;border-radius:2px;}
+.note-sm{font-size:.76rem;color:var(--ink-soft);margin-top:9px;line-height:1.55;}
+.blk h4 + .note-sm{margin-top:0;}
+.flagbox{margin-top:20px;border-left:2px solid var(--gold-soft);padding:2px 0 2px 15px;}
+.flagbox h4{color:var(--gold);}
+.flagbox p{font-size:.79rem;color:var(--ink-soft);}
+.flagbox p + p{margin-top:6px;}
+.weblink{display:inline-block;margin-top:16px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green-mid);border-bottom:1px solid var(--gold-soft);padding-bottom:2px;text-decoration:none;}
+.weblink:hover{color:var(--gold);}
+
+/* Next */
+.next-wrap{padding:14px 0 34px;}
+.next{border:1px solid var(--line);background:var(--cream);border-radius:2px;padding:26px 30px;}
+.next p{font-size:.9rem;color:var(--ink-mid);max-width:620px;}
+.next p + p{margin-top:11px;}
+.next .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--green-deep);margin-top:18px;}
+.next .contact{font-size:.74rem;letter-spacing:.05em;color:var(--ink-soft);margin-top:6px;}
+
+/* Footer */
+.doc footer{background:var(--green-deep);color:rgba(255,255,255,.8);padding:30px 0;}
+.doc footer .page{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;}
+.fbrand{font-family:'Cormorant Garamond',serif;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-size:1rem;}
+.fbrand small{display:block;font-family:'Inter',sans-serif;letter-spacing:.12em;font-size:.6rem;color:rgba(255,255,255,.55);margin-top:5px;}
+.fmeta{font-size:.72rem;letter-spacing:.05em;text-align:right;color:rgba(255,255,255,.6);}
+
+.nojs{padding:16px 0 30px;font-size:.84rem;color:var(--ink-soft);}
+
+@media (max-width:720px){
+  .card-body{grid-template-columns:1fr;gap:22px;}
+  .plans-grid{grid-template-columns:1fr;}
+  .title-block h1{font-size:2.15rem;}
+  .brand-contact{text-align:left;}
+  .card-head,.card-body,.plans,.next{padding-left:20px;padding-right:20px;}
+  #jmap{height:420px;}
+}
+@media (max-width:600px){
+  /* Let the rate table reflow rather than scroll sideways on a phone */
+  table{min-width:0;}
+  thead th.num{width:auto;}
+  thead th,tbody td{font-size:.78rem;}
+  thead th.num,tbody td.num{padding-left:10px;}
+  td .amt-lg{font-size:1.02rem;}
+}
+@media print{
+  .doc{background:#fff;}
+  .sec,.sec.alt{background:#fff;}
+  .card,.next,.plan{break-inside:avoid;}
+  .sec-head{break-after:avoid;}
+  @page{margin:14mm 12mm;}
+}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<header class="masthead">
+  <div class="page">
+    <div class="brand-row">
+      <div>
+        <div class="brand">Outpost <span>Travel</span></div>
+        <div class="partner">An affiliate of Alchemist Travel</div>
+      </div>
+      <div class="brand-contact">Prepared for Annette</div>
+    </div>
+    <div class="title-block">
+      <h1>New Year in <em>Phu Quoc</em></h1>
+      <p class="subtitle">Early January 2027 &middot; Family of 8: 4 adults, 1 baby, 1 toddler, 10yo, 12yo</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     ALL RATES AND ROOM DATA LIVE IN ONE PLACE: the DATA block at
+     the foot of this file. The table below and the property cards
+     further down are both rendered from it, so a rate is only ever
+     typed once and the two sections cannot drift apart.
+     To re-quote: change `total` on a room and nothing else.
+     ============================================================ -->
+
+<section class="sec">
+  <div class="sec-head"><div class="page"><h2>At a glance</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">I've selected three options for Phu Quoc for the group:</p>
+    <ol class="opts">
+      <li><b>New World</b>You are already familiar with this one, and it provides the best value.</li>
+      <li><b>InterContinental</b>If you would like a change of scenery. I also want to highlight that their three-bedroom villa has a fab layout and is almost the same price as three classic rooms, which is rare. So, if you're looking at the Intercon, the villa is worth considering. As the Intercon is also on the west coast of the island, you'll get lovely sunset views.</li>
+      <li><b>Regent</b>The Regent came in higher than I thought it would, but I've left it in as an FYI.</li>
+    </ol>
+    <p class="sec-intro">Note that the two-bedroom classic room option for InterContinental has two twin beds (not doubles or queens), so it would be a bit of a squeeze for four people. The maximum occupancy is two adults and one child on existing bedding, so if 2A + 2C were to share a room we can enquire about the possibility of a rollaway bed.</p>
+    <p class="sec-intro">Note that for the InterContinental there is a 3-bedroom residence layout, but unfortunately it is not available for your dates.</p>
+    <p class="sec-intro">One more thing to note is that the dates are not identical. The Regent has a minimum 5 night stay, hence the date is as you see below.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Room type</th>
+            <th scope="col" class="num">Per night</th>
+            <th scope="col" class="num">Total for the stay</th>
+          </tr>
+        </thead>
+        <tbody id="rate-rows"></tbody>
+      </table>
+    </div>
+    <p class="tbl-foot">Rates include service charge and taxes. The resorts quote in USD and VND, so the SGD figures are an estimate. Occupancy, benefits and cancellation terms are listed for each property below.</p>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="sec-head"><div class="page"><h2>Where they are</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <p class="sec-intro">The airport sits in the middle of the island. New World is south at Bãi Khem, one of the quieter beaches on the island, a little under half an hour from the airport and walking distance from Sunset Town. The InterContinental and the Regent are neighbours on Bãi Trường, the long west coast beach that runs south of Duong Dong, which puts the sunset in front of you and the airport about a quarter of an hour behind.</p>
+    <div class="map-wrap">
+      <div id="jmap" role="img" aria-label="Map of Phu Quoc showing New World Phu Quoc at Khem Beach in the south, InterContinental Phu Quoc Long Beach Resort and Regent Phu Quoc on Long Beach, and Phu Quoc International Airport"></div>
+    </div>
+    <p class="map-cap">Phu Quoc &middot; An Giang &middot; Vietnam</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-head"><div class="page"><h2>Where You'll Stay</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="cards" id="cards"></div>
+    <noscript><p class="nojs">This page needs JavaScript to lay out the rates. If you are seeing this, let me know and I will send the same thing as a PDF.</p></noscript>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="sec-head"><div class="page"><h2>Next Steps</h2><div class="rule"></div></div></div>
+  <div class="page">
+    <div class="next-wrap">
+      <div class="next">
+        <p>Have a read through and let me know which way you and the family are leaning, and I will go back to each resort to confirm availability as there are no rooms on hold at the moment.</p>
+        <p>As always, please don't hesitate to ask if you have any questions.</p>
+        <p class="sign">Kristin</p>
+        <p class="contact">kristin@alchemisttravel.com &middot; +65 9751 4830</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="page">
+    <div class="fbrand">Outpost Travel<small>The effortless way to go further</small></div>
+    <div class="fmeta">Phu Quoc &middot; Jan 2027<br>Prepared for Annette</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+/* =================================================================
+   DATA. The single source of truth for this page.
+   `total` is the all-in cost of the stay for ONE unit of that room,
+   in the property's quote currency (a room may override with its
+   own `ccy`). Everything else on the page (per-night figures, SGD
+   equivalents, the at-a-glance table, the card headline prices) is
+   derived from it.
+   ================================================================= */
+
+/* FX: Google spot on 13 Aug 2026 with the standard +3% buffer. */
+var FX = { usdToSgd: 1.3182, vndPerSgd: 19728 };
+
+var PROPERTIES = [
+  {
+    id: 'newworld',
+    name: 'New World Phu Quoc Resort',
+    area: 'Bãi Khem &middot; Khem Beach',
+    areaShort: 'Khem Beach',
+    coord: [104.0273, 10.0390],
+    stay: '1&ndash;5 January 2027',
+    nights: 4,
+    ccy: 'VND',
+    rateLine: 'Preferred Agent rate',
+    transfer: 'Road &middot; about 25 minutes',
+    web: { href: 'https://phuquoc.newworldhotels.com/', label: 'phuquoc.newworldhotels.com' },
+    hero: { src: 'images/pq-newworld-hero.jpg', alt: 'The water park at New World Phu Quoc from the air, with slides, a lagoon pool and a splash deck set among palms above the white sand of Khem Beach' },
+    /* Shots follow the room order below, one per villa type. */
+    shots: [
+      { src: 'images/pq-newworld-garden.jpg', alt: 'Bedroom of a Garden Pool Villa at New World Phu Quoc, with a king bed, a chequerboard marble floor, a freestanding bath and glass onto the courtyard pool', cap: 'Garden Pool Villa' },
+      { src: 'images/pq-newworld-premium.jpg', alt: 'A Premium Pool Villa at New World Phu Quoc, two storeys with a walled garden, private pool and loungers under a parasol', cap: 'Premium Pool Villa' },
+      { src: 'images/pq-newworld-deluxe.jpg', alt: 'Living room of a Deluxe Pool Villa at New World Phu Quoc, with a hanging chair, a dining room beyond and glass onto the private pool', cap: 'Deluxe Pool Villa' },
+      { src: 'images/pq-newworld-grand.jpg', alt: 'Living room of a Grand Pool Villa at New World Phu Quoc, with a timber ceiling, long sofa and full-height glass onto the private pool', cap: 'Grand Pool Villa' }
+    ],
+    rooms: [
+      { key:'garden', name:'Garden Pool Villa', total:96898725, occ:'sleeps 9', tag:'3 bedrooms',
+        desc:'125 sqm, three bedrooms with two Kings and two twin beds, a separate living room and a private pool.' },
+      { key:'premium', name:'Premium Pool Villa', total:116533725, occ:'sleeps 9', tag:'3 bedrooms',
+        desc:'261 sqm over two floors, two Kings and two twin beds, private pool and a balcony over the garden. This is the one you were upgraded into in March.' },
+      { key:'deluxe', name:'Deluxe Pool Villa', total:120460725, occ:'sleeps 12', tag:'4 bedrooms',
+        desc:'167 sqm on one floor, four detached bedrooms with three Kings and two twin beds, a private pool, and a barbecue with outdoor seating.' },
+      { key:'grand', name:'Grand Pool Villa', total:147949725, occ:'sleeps 9', tag:'3 bedrooms',
+        desc:'298 sqm over two floors, the largest here, with two Kings and two twin beds, a private pool and a garden balcony.' }
+    ],
+    place: 'Bãi Khem in the south, about twenty-five minutes from the airport, on one of the quieter beaches on the island and a short hop from Sunset Town.',
+    included: {
+      title: 'Included with every villa',
+      items: [
+        'Daily breakfast at The Bay Kitchen',
+        'Airport shuttle on the resort schedule, booked in advance',
+        'Free access to the New World water park',
+        'Tickets to the Kiss of the Sea show and the Kiss Bridge, valid to 31 October 2027',
+        'Resort activities for in-house guests, wifi, and tea and coffee in the villa'
+      ]
+    },
+    family: {
+      title: 'And through us, as a Preferred Agent',
+      items: [
+        'VND 3,000,000 credit, about SGD 150, per villa for the stay towards food and drink, on stays of three nights or more',
+        'A one category upgrade on Garden Pool Villa bookings, subject to availability on arrival',
+        'A personalised welcome and VIP amenities in the villa on arrival',
+        'Early check-in from 10:00 and late check-out until 16:00, subject to availability',
+        '20 per cent off karaoke and the driving range, and one complimentary round of bowling per stay'
+      ]
+    },
+    flag: {
+      title: 'Worth knowing',
+      paras: [
+        'Your stay in March was in a Premium Pool Villa, so you know this hotel well! Here are more options for room sizes and layouts for your consideration.'
+      ]
+    },
+    terms: []
+  },
+
+  {
+    id: 'intercon',
+    name: 'InterContinental Phu Quoc Long Beach Resort',
+    area: 'Bãi Trường &middot; Long Beach',
+    areaShort: 'Long Beach',
+    coord: [103.9830, 10.1126],
+    stay: '1&ndash;5 or 2&ndash;6 January 2027',
+    nights: 4,
+    ccy: 'USD',
+    rateLine: 'IHG Destined rate',
+    transfer: 'Road &middot; about 15 minutes',
+    web: { href: 'https://phuquoc.intercontinental.com/', label: 'phuquoc.intercontinental.com' },
+    hero: { src: 'images/pq-intercon-hero.jpg', alt: 'InterContinental Phu Quoc from the air, with the free-form main pool, cabanas and the pool bar set among palms above the beach' },
+    /* Shots follow the room order below. */
+    shots: [
+      { src: 'images/pq-intercon-classic.jpg', alt: 'Classic room at InterContinental Phu Quoc, with a king bed, a day bed and a balcony over the palms', cap: 'Classic Ocean View' },
+      { src: 'images/pq-intercon-residence.jpg', alt: 'Bedroom of a Residence Ocean View at InterContinental Phu Quoc, with a king bed and a balcony looking straight out to sea', cap: 'Residence Ocean View' },
+      { src: 'images/pq-intercon-villa-living.jpg', alt: 'Living room of the Three Bedroom Villa at InterContinental Phu Quoc, with two sofas, cane armchairs, a daybed and glass doors on both sides opening onto the garden', cap: 'Three Bedroom Villa' }
+    ],
+    rooms: [
+      { key:'classic', name:'Classic Ocean View, 1 King or 1 Twin', total:3072, occ:'2 adults and 1 child under 12',
+        desc:'The standard room, facing the sea.' },
+      { key:'residence', name:'2 Bedroom Residence Ocean View', total:4551, occ:'4 adults and 1 child',
+        desc:'One King and one Twin bedroom with a living area between them, up in the Sky Tower.' },
+      { key:'villa', name:'Three Bedroom Villa, Club Lounge access', total:9610, occ:'6 adults and 1 child',
+        desc:'Three bedrooms over two floors, a shared living area, a private pool of your own and Club Lounge access for the villa. The floor plans are below.' }
+    ],
+    plans: {
+      title: 'Three Bedroom Villa floor plan',
+      items: [
+        { src:'images/pq-intercon-plan-ground.jpg', alt:'Ground floor plan of the Three Bedroom Villa at InterContinental Phu Quoc, showing the private pool, living pavilion, dining room, kitchen and one bedroom suite', cap:'Ground floor &middot; 417 sqm' },
+        { src:'images/pq-intercon-plan-upper.jpg', alt:'Upper floor plan of the Three Bedroom Villa at InterContinental Phu Quoc, showing two further bedroom suites above the pool', cap:'Upper floor &middot; 174 sqm' }
+      ]
+    },
+    place: 'Bãi Trường on the west coast, about fifteen minutes down from the airport, with the rooms and residences in the Sky Tower and the villas along the sand. Sunset is straight ahead of you from this side of the island.',
+    included: {
+      title: 'Included with every room type',
+      items: [
+        'Daily breakfast at Sora &amp; Umi, 06:30 to 10:30',
+        'USD 100 credit per stay towards food and drink, the spa or Club privileges',
+        'Priority upgrade to the next room category, subject to availability on arrival',
+        'Priority early check-in and late check-out, subject to availability',
+        'Wifi on unlimited devices, and a handwritten welcome card',
+        'Water and fresh fruit or snacks in the room on arrival, and turndown service',
+        'VIP status added to your profile'
+      ]
+    },
+    family: {
+      title: 'For the children',
+      items: [
+        'Trekkers, a 250 sqm kids’ club for ages four to twelve',
+        'The Hideout for the teenagers, with billiards, chess, board games, a PlayStation 4 and Just Dance',
+        'Babysitting on request, at a charge',
+        'The full list of <a href="https://phuquoc.intercontinental.com/facilities" target="_blank" rel="noopener">resort facilities</a>'
+      ]
+    },
+    flag: {
+      title: 'Worth knowing',
+      paras: [
+        'Children under twelve are welcome in the Club Lounge all day when an adult is with them, apart from the evening drinks hours between 17:30 and 19:30. During those two hours the resort offers an alternative venue at the Club Lounge for guests travelling with children, with some food items and children’s activities.'
+      ]
+    },
+    terms: [
+      'A deposit for the full stay falls due 28 days before arrival.',
+      'Free cancellation until 18:00 Vietnam time 28 days before arrival. After that, one night is charged.'
+    ]
+  },
+
+  {
+    id: 'regent',
+    name: 'Regent Phu Quoc',
+    area: 'Bãi Trường &middot; Long Beach',
+    areaShort: 'Long Beach',
+    coord: [103.9846, 10.1178],
+    stay: '2&ndash;7 January 2027',
+    nights: 5,
+    ccy: 'USD',
+    rateLine: 'IHG Destined Rate (Villa only)',
+    transfer: 'Road &middot; 15 to 20 minutes',
+    web: { href: 'https://phuquoc.regenthotels.com/', label: 'phuquoc.regenthotels.com' },
+    hero: { src: 'images/pq-regent-hero.jpg', alt: 'The Ocean Club pool at Regent Phu Quoc, a long still pool reflecting a row of coconut palms, with sun loungers and parasols along the pavilion on the right' },
+    /* The resort does not publish a Resort View Suite photograph, so the only
+       shot here is the villa. Better none than another room's picture. */
+    shots: [
+      { src: 'images/pq-regent-villa.jpg', alt: 'Bedroom of the Three Bedroom Lagoon Pool Villa at Regent Phu Quoc, with a king bed, two armchairs by the window and full-height glass onto the lagoon', cap: 'Three Bedroom Lagoon Pool Villa' }
+    ],
+    rooms: [
+      { key:'suite', name:'Resort View Suite', total:6220, ccy:'SGD', occ:'2 adults', rate:'Stay Longer Pay Less, with breakfast' },
+      { key:'lagoon', name:'Three Bedroom Lagoon Pool Villa', total:21832.97, occ:'One villa for the group', rate:'IHG Destined',
+        desc:'Three bedrooms with a private pool on the lagoon. The nightly rate eases across the stay, from USD 3,950 on the second and third of January down to USD 3,619 on the sixth.' }
+    ],
+    place: 'The same stretch of Long Beach, inside the marina development, fifteen to twenty minutes from the airport. Five pools, three restaurants and a lagoon the villas sit around.',
+    included: {
+      title: 'Included with the villa, on the IHG Destined rate',
+      items: [
+        'Daily breakfast at Rice Market',
+        'USD 100 credit per stay towards food and drink, the spa or Club privileges',
+        'A Refreshment Gallery in the villa, replenished daily, with alcoholic and non-alcoholic drinks and gourmet snacks',
+        'Laundry and pressing of three garments per service, per bedroom, per day',
+        'Priority upgrade to the next category, subject to availability on arrival',
+        'Priority early check-in and late check-out, subject to availability',
+        'Wifi, a handwritten welcome card, water and fresh fruit on arrival, and turndown service',
+        'VIP status added to your profile'
+      ]
+    },
+    family: {
+      title: 'For the children',
+      items: [
+        'Regent Kids, with imagination zones, a climbing playground, a mini theatre with beanbags and a maze',
+        'Babysitting on request, at a surcharge'
+      ]
+    },
+    flag: {
+      title: 'Worth knowing',
+      paras: [
+        'The villa is only available for 2 to 7 January.'
+      ]
+    },
+    terms: [
+      'The villa: a deposit for the full stay falls due 28 days before arrival, with free cancellation until 18:00 Vietnam time 28 days before. After that, one night is charged.',
+      'The suites: non-refundable and paid in advance at the time of booking.'
+    ]
+  }
+];
+
+/* =================================================================
+   RENDER. Nothing below needs editing to re-quote the page.
+   ================================================================= */
+(function(){
+  var nf = new Intl.NumberFormat('en-SG', { maximumFractionDigits: 0 });
+
+  /* A room may carry its own `ccy` overriding the property's: the Regent
+     suite is priced in SGD while the villa is quoted in USD. */
+  function cur(p, r){ return (r && r.ccy) || p.ccy; }
+  function sgd(p, r, amt){
+    var c = cur(p, r);
+    if (c === 'SGD') return Math.round(amt);
+    if (c === 'USD') return Math.round(amt * FX.usdToSgd);
+    return Math.round(amt / FX.vndPerSgd);
+  }
+  /* Everything is shown in SGD. The quote currencies are noted once in the
+     footnote under the table rather than repeated against every figure. */
+  function sgdStr(p, r, amt){ return 'SGD ' + nf.format(sgd(p, r, amt)); }
+  function perNight(p, r){ return r.total / p.nights; }
+  function cheapest(p){
+    return p.rooms.reduce(function(a, b){
+      return sgd(p, b, b.total) < sgd(p, a, a.total) ? b : a;   /* compare in one currency */
+    });
+  }
+
+  /* ---- At a glance table ---- */
+  var rows = [];
+  PROPERTIES.forEach(function(p){
+    rows.push(
+      '<tr class="grp"><th scope="rowgroup" colspan="3">' +
+        '<div class="rname">' + p.name + '</div>' +
+        '<div class="ratoll">' + p.area + ' &middot; ' + p.stay + ' &middot; ' + p.nights + ' nights</div>' +
+      '</th></tr>'
+    );
+    p.rooms.forEach(function(r){
+      rows.push(
+        '<tr>' +
+          '<td>' + (r.tag ? '<span class="vtag vtag-sm">' + r.tag + '</span>' : '') + r.name +
+            '<span class="sub">' + r.occ + '</span></td>' +
+          '<td class="num">' + sgdStr(p, r, perNight(p, r)) + '</td>' +
+          '<td class="num"><span class="amt-lg">' + sgdStr(p, r, r.total) + '</span></td>' +
+        '</tr>'
+      );
+    });
+  });
+  document.getElementById('rate-rows').innerHTML = rows.join('');
+
+  /* ---- Property cards ---- */
+  function list(block){
+    return '<div class="blk"><h4>' + block.title + '</h4><ul>' +
+      block.items.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div>';
+  }
+  function shot(s){
+    return '<figure class="fp-shot"><img src="' + s.src + '" alt="' + s.alt + '">' +
+           (s.cap ? '<figcaption>' + s.cap + '</figcaption>' : '') + '</figure>';
+  }
+
+  var cards = PROPERTIES.map(function(p){
+    var low = cheapest(p);
+    var multi = p.rooms.length > 1;
+
+    /* One row for the name and the two aligned money columns, a second row
+       underneath for the description, when there is one. */
+    var roomsHtml = '<div class="blk"><h4>' + (multi ? 'The rooms' : 'The villa') + '</h4>' +
+      '<table class="rtbl"><thead><tr>' +
+        '<th scope="col">Room</th>' +
+        '<th scope="col" class="num">Per night</th>' +
+        '<th scope="col" class="num">Total</th>' +
+      '</tr></thead><tbody>' +
+      p.rooms.map(function(r){
+        var html = '<tr class="r-name">' +
+            '<td>' + r.name + (r.tag ? '<span class="vtag vtag-sm">' + r.tag + '</span>' : '') + '</td>' +
+            '<td class="num">' + sgdStr(p, r, perNight(p, r)) + '</td>' +
+            '<td class="num tot">' + sgdStr(p, r, r.total) + '</td>' +
+          '</tr>';
+        if (r.desc || r.rate){
+          html += '<tr class="r-desc"><td colspan="3">' + (r.desc || '') +
+            (r.rate ? '<span class="rate">' + r.rate + '</span>' : '') + '</td></tr>';
+        }
+        return html;
+      }).join('') +
+      '</tbody></table></div>';
+
+    var plansHtml = '';
+    if (p.plans){
+      plansHtml = '<div class="plans"><h4>' + p.plans.title + '</h4><div class="plans-grid">' +
+        p.plans.items.map(function(f){
+          return '<figure class="plan">' +
+                   '<a href="' + f.src + '" target="_blank" rel="noopener">' +
+                     '<img src="' + f.src + '" alt="' + f.alt + '"></a>' +
+                 '<figcaption>' + f.cap + ' &middot; tap to enlarge</figcaption></figure>';
+        }).join('') + '</div></div>';
+    }
+
+    var termsHtml = (p.terms && p.terms.length)
+      ? '<div class="blk"><h4>Terms</h4>' +
+          p.terms.map(function(t){ return '<p class="note-sm">' + t + '</p>'; }).join('') + '</div>'
+      : '';
+
+    return '<article class="card" id="' + p.id + '">' +
+      '<img src="' + p.hero.src + '" alt="' + p.hero.alt + '">' +
+      '<div class="card-head">' +
+        '<div>' +
+          '<p class="ratoll">' + p.area + '</p>' +
+          '<h3>' + p.name + '</h3>' +
+          '<p class="room">' + p.rateLine + '</p>' +
+        '</div>' +
+        '<div class="card-price">' +
+          '<div class="amt">' + (multi ? '<small>From</small> ' : '') + sgdStr(p, low, low.total) + '</div>' +
+          '<div class="per">' + p.nights + ' nights, total incl. taxes &amp; fees</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<div>' +
+          roomsHtml +
+          '<div class="blk"><h4>The place</h4><p>' + p.place + '</p></div>' +
+          list(p.included) +
+          list(p.family) +
+          '<a class="weblink" href="' + p.web.href + '" target="_blank" rel="noopener">' + p.web.label + '</a>' +
+        '</div>' +
+        '<div>' +
+          p.shots.map(shot).join('') +
+          '<div class="blk"><h4>Getting there</h4><span class="chip">' + p.transfer + '</span></div>' +
+          '<div class="blk flagbox"><h4>' + p.flag.title + '</h4>' +
+            p.flag.paras.map(function(t){ return '<p>' + t + '</p>'; }).join('') + '</div>' +
+          termsHtml +
+        '</div>' +
+      '</div>' +
+      plansHtml +
+    '</article>';
+  });
+  document.getElementById('cards').innerHTML = cards.join('');
+})();
+</script>
+
+<script>
+/* Journey map. Pins are read straight off PROPERTIES, so a property
+   added above appears on the map without touching this block. */
+(function(){
+  var container = document.getElementById('jmap');
+  if(!container || typeof maplibregl === 'undefined'){ if(container) container.style.display='none'; return; }
+
+  var AIRPORT = { place:'Phu Quoc International Airport', hotel:'PQC', coord:[103.9975, 10.1679] };
+
+  try {
+    var map = new maplibregl.Map({
+      container: 'jmap',
+      style: { version:8,
+        sources:{ carto:{ type:'raster', tileSize:256,
+          tiles:['https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                 'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+                 'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'],
+          attribution:'&copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a> &middot; &copy; OpenStreetMap contributors' } },
+        layers:[ { id:'carto-base', type:'raster', source:'carto' } ] },
+      dragRotate:false, pitchWithRotate:false, cooperativeGestures:true,
+      minZoom:8,
+      maxBounds:[[103.70,9.75],[104.35,10.55]],
+      attributionControl:false
+    });
+    map.touchZoomRotate.disableRotation();
+    map.addControl(new maplibregl.NavigationControl({ showCompass:false }), 'top-right');
+    map.addControl(new maplibregl.AttributionControl({ compact:true }), 'bottom-right');
+
+    map.on('load', function(){
+      var a = map.getContainer().querySelector('.maplibregl-ctrl-attrib');
+      if(a){ a.removeAttribute('open'); a.classList.remove('maplibregl-compact-show'); }
+
+      var b = new maplibregl.LngLatBounds();
+
+      /* Airport first, so the hotel pins sit above it */
+      b.extend(AIRPORT.coord);
+      var ae = document.createElement('div'); ae.className = 'jmap-air';
+      new maplibregl.Marker({element:ae, anchor:'center'}).setLngLat(AIRPORT.coord)
+        .setPopup(new maplibregl.Popup({offset:14, closeButton:false}).setHTML(
+          '<div class="jmap-pop-place">' + AIRPORT.place + '</div><div class="jmap-pop-hotel">' + AIRPORT.hotel + '</div>'))
+        .addTo(map);
+
+      PROPERTIES.forEach(function(p, i){
+        b.extend(p.coord);
+        var el = document.createElement('div'); el.className = 'jmap-pin'; el.textContent = i + 1;
+        new maplibregl.Marker({element:el, anchor:'center'}).setLngLat(p.coord)
+          .setPopup(new maplibregl.Popup({offset:16, closeButton:false}).setHTML(
+            '<div class="jmap-pop-place">' + (i+1) + '. ' + p.name + '</div>' +
+            '<div class="jmap-pop-hotel">' + p.areaShort + '</div>' +
+            '<div class="jmap-pop-nights">' + p.transfer.replace('Road &middot; ', '') + ' from the airport</div>'))
+          .addTo(map);
+      });
+
+      map.fitBounds(b, { padding:{top:60,bottom:70,left:60,right:64}, maxZoom:11, duration:0 });
+    });
+  } catch(err){ container.style.display = 'none'; }
+})();
+</script>
+
+</body>
+</html>
