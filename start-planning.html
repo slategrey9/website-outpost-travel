@@ -1071,16 +1071,20 @@
     const sectionTrip  = document.getElementById('section-trip');
     const commonFields = document.getElementById('commonFields');
 
-    function showSection(type) {
-      sectionHotel.classList.remove('active');
-      sectionTrip.classList.remove('active');
-      commonFields.style.display = 'none';
+    /* Hidden sections still submit their fields, and the hotel and trip
+       sections share the names destination and travel_dates. Disabling the
+       inactive section keeps those empty duplicates out of the submission. */
+    function setSectionActive(section, active) {
+      section.classList.toggle('active', active);
+      section.querySelectorAll('input, select, textarea').forEach(el => {
+        el.disabled = !active;
+      });
+    }
 
-      if (type === 'hotel') {
-        sectionHotel.classList.add('active');
-      } else if (type === 'trip') {
-        sectionTrip.classList.add('active');
-      }
+    function showSection(type) {
+      setSectionActive(sectionHotel, type === 'hotel');
+      setSectionActive(sectionTrip,  type === 'trip');
+      commonFields.style.display = 'none';
 
       if (type) {
         commonFields.style.display = 'flex';
