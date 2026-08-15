@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>NZ Roadtrip Sample Itinerary · 3 Weeks · Outpost Travel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green-deep:  #14301A;
+      --green-mid:   #1E5228;
+      --green-light: #3A8050;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --cream:       #FAF8F3;
+      --warm-white:  #FFFFFF;
+      --text-dark:   #1A1A18;
+      --text-mid:    #4A4A45;
+      --text-light:  #7A7A72;
+      --border:      #E5E0D5;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-dark);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(20,48,26,0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .hero {
+      height: 100vh; min-height: 640px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      background: var(--green-deep);
+      background-image:
+        linear-gradient(to bottom, rgba(10,28,12,0.42) 0%, rgba(10,28,12,0.72) 100%),
+        url('https://images.unsplash.com/photo-1466970601638-4e5fb6556584?w=2400&q=80&fm=jpg&auto=format&fit=crop');
+      background-size: cover; background-position: center 40%;
+    }
+    .hero-proposal {
+      font-size: 0.92rem; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(4rem, 9vw, 7rem); line-height: 0.95;
+      color: #fff; letter-spacing: 0.03em;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-destinations {
+      margin-top: 28px;
+      font-size: 1.02rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+    }
+    .hero-rule {
+      width: 40px; height: 1px; background: rgba(201,168,76,0.5);
+      margin: 32px auto;
+    }
+    .hero-client-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem; font-weight: 300; color: #fff; letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .hero-client-meta {
+      margin-top: 14px;
+      font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .hero-brand {
+      position: absolute; bottom: 36px; left: 0; right: 0; text-align: center;
+      font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .section { padding: 88px 48px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem); line-height: 1.12;
+      color: var(--green-deep); margin-bottom: 20px;
+    }
+    p { font-size: 0.95rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* CAROUSEL */
+    .carousel-section { background: var(--green-deep); padding: 80px 48px; }
+    .carousel-section .eyebrow { color: var(--gold-light); }
+    .carousel-section h2 { color: #fff; }
+
+    .carousel-wrap { position: relative; margin-top: 44px; }
+    .carousel-track {
+      display: flex; gap: 20px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .c-card {
+      flex: 0 0 290px; scroll-snap-align: start;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .c-card-img {
+      width: 100%; height: 195px; flex-shrink: 0;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+    }
+    .c-card-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .c-location {
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 7px;
+    }
+    .c-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: #fff; line-height: 1.2; margin-bottom: 6px;
+    }
+    .c-link {
+      font-size: 0.66rem; letter-spacing: 0.04em;
+      color: var(--gold-light); text-decoration: underline;
+      text-underline-offset: 2px; margin-bottom: 12px;
+      transition: color 0.2s; word-break: break-all;
+    }
+    .c-link:hover { color: var(--gold); }
+    .c-room { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-bottom: 14px; }
+    .c-nights {
+      display: inline-flex; align-items: center;
+      font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,0.28); padding: 5px 11px;
+      margin-top: auto; width: fit-content;
+    }
+
+    .carousel-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 26px;
+    }
+    .c-dots { display: flex; gap: 8px; }
+    .c-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.18); cursor: pointer; transition: background 0.2s;
+    }
+    .c-dot.active { background: var(--gold); }
+    .c-arrows { display: flex; gap: 10px; }
+    .c-btn {
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.18); background: none; cursor: pointer;
+      color: rgba(255,255,255,0.65); font-size: 0.95rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .c-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* OVERVIEW */
+    .overview-section { background: var(--cream); }
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .stats { display: flex; flex-direction: column; gap: 26px; padding-top: 6px; }
+    .stat { border-left: 2px solid var(--gold); padding-left: 22px; }
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1; margin-bottom: 5px;
+    }
+    .stat-l { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
+
+    /* TIMELINE */
+    .timeline-section { background: var(--green-deep); padding: 60px 48px; }
+    .timeline-section .eyebrow { color: var(--gold-light); }
+
+    .tl-outer { margin-top: 44px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .tl-outer::-webkit-scrollbar { display: none; }
+
+    .tl-row {
+      display: flex; align-items: flex-start;
+      min-width: 1400px; position: relative;
+      padding-top: 0;
+    }
+    .tl-row::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: calc(5% + 4px);
+      right: calc(5% + 4px);
+      height: 1px;
+      background: rgba(201,168,76,0.22);
+    }
+
+    .tl-stop {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; text-align: center; padding: 0 8px;
+    }
+    .tl-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--gold);
+      position: relative; z-index: 1;
+      flex-shrink: 0;
+      margin-bottom: 18px;
+    }
+    .tl-days {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem; color: var(--gold-light);
+      font-weight: 400; letter-spacing: 0.04em;
+      margin-bottom: 9px;
+    }
+    .tl-country {
+      font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+    }
+    .tl-prop {
+      font-size: 0.74rem; color: rgba(255,255,255,0.85);
+      line-height: 1.4;
+    }
+
+    /* OUTLINE */
+    .outline-section { background: var(--cream); padding: 80px 48px; }
+    .outline-list {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 56px;
+      row-gap: 28px;
+    }
+    .outline-day {
+      border-left: 1px solid var(--border);
+      padding-left: 20px;
+    }
+    .outline-day-head {
+      display: flex; align-items: baseline; gap: 14px;
+      margin-bottom: 12px;
+    }
+    .outline-day-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; color: var(--green-deep);
+      font-weight: 400; letter-spacing: 0.02em;
+    }
+    .outline-day-date {
+      font-size: 0.68rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-light);
+    }
+    .outline-items {
+      list-style: none; display: flex; flex-direction: column; gap: 7px;
+    }
+    .outline-items li {
+      font-size: 0.84rem; color: var(--text-mid);
+      line-height: 1.6;
+      padding-left: 16px; position: relative;
+    }
+    .outline-items li::before {
+      content: '·';
+      position: absolute; left: 4px; top: -2px;
+      color: var(--gold); font-size: 1.1rem;
+    }
+    .outline-items .item-supplier {
+      color: var(--text-light); font-size: 0.78rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.54rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 2px 7px;
+      margin-left: 6px;
+      vertical-align: 2px;
+      white-space: nowrap;
+    }
+    .tag-own {
+      background: rgba(122,122,114,0.08); color: var(--text-light);
+      border: 1px solid var(--border);
+    }
+    .tag-opt {
+      background: rgba(201,168,76,0.1); color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.32);
+    }
+
+    /* DAY SECTIONS */
+    #itinerary .day-section { background: var(--warm-white); }
+    #itinerary .day-section:nth-child(even) { background: var(--cream); }
+
+    .day-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
+    #itinerary .day-section:nth-child(even) .day-imgs { order: -1; }
+
+    .day-text {
+      padding: 72px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .day-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400;
+      color: var(--gold);
+      line-height: 1; margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .day-dest {
+      font-size: 0.61rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .day-text h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.95rem; font-weight: 400;
+      color: var(--green-deep); line-height: 1.1; margin-bottom: 5px;
+    }
+    .day-prop {
+      font-size: 0.73rem; color: var(--text-light); letter-spacing: 0.05em; margin-bottom: 20px;
+    }
+    .day-text p { font-size: 0.91rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 14px; }
+    .day-text p:last-of-type { margin-bottom: 0; }
+    .day-text a { color: var(--green-mid); text-decoration: underline; text-underline-offset: 2px; }
+    .day-text a:hover { color: var(--green-deep); }
+
+    .day-groups { margin-top: 28px; display: flex; flex-direction: column; gap: 22px; }
+
+    .dg-label {
+      font-size: 0.57rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+      border-bottom: 1px solid rgba(201,168,76,0.22);
+      padding-bottom: 7px; margin-bottom: 13px;
+    }
+
+    .transfer-dir { margin-bottom: 13px; }
+    .transfer-dir:last-child { margin-bottom: 0; }
+    .dir-label {
+      font-size: 0.52rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-light); display: block; margin-bottom: 5px;
+    }
+    .t-row {
+      display: flex; gap: 9px; align-items: flex-start;
+      font-size: 0.8rem; color: var(--text-mid); line-height: 1.6;
+      margin-bottom: 4px;
+    }
+    .t-icon {
+      width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px;
+      color: var(--gold); display: block;
+    }
+    .t-dur { font-size: 0.72rem; color: var(--text-light); font-style: italic; margin-left: 3px; }
+
+    .inc-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 0.8rem; color: var(--text-mid); line-height: 1.6;
+      margin-bottom: 7px;
+    }
+    .inc-row:last-child { margin-bottom: 0; }
+    .inc-tick { color: var(--gold); flex-shrink: 0; font-size: 0.75rem; margin-top: 3px; }
+    .inc-row.optional .inc-tick { color: var(--text-light); }
+    .inc-row.optional { color: var(--text-light); font-style: italic; }
+
+    .day-imgs {
+      display: flex; flex-direction: column;
+    }
+    .day-img {
+      flex: 1;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid); min-height: 290px;
+    }
+
+    /* INCLUSIONS */
+    .inc-section { background: var(--green-deep); }
+    .inc-section .eyebrow { color: var(--gold-light); }
+    .inc-section h2 { color: #fff; }
+    .inc-section .divider { background: var(--gold); }
+    .inc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+    .inc-col h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: var(--gold-light); margin-bottom: 22px;
+    }
+    .inc-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .inc-list li {
+      display: flex; gap: 14px;
+      font-size: 0.87rem; color: rgba(255,255,255,0.72); line-height: 1.62;
+    }
+    .yes { color: var(--gold); flex-shrink: 0; font-size: 0.8rem; padding-top: 2px; }
+    .no  { color: rgba(255,255,255,0.25); flex-shrink: 0; font-size: 0.8rem; padding-top: 2px; }
+
+    /* PRICING */
+    .pricing-section { background: var(--warm-white); text-align: center; }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif; font-size: 4.8rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1;
+      display: block; margin-top: 36px;
+    }
+    .price-context {
+      font-size: 0.82rem; color: var(--text-light);
+      letter-spacing: 0.06em; margin-top: 10px;
+    }
+    .price-pp {
+      display: inline-block; margin-top: 18px;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); border: 1px solid var(--border); padding: 8px 20px;
+    }
+    .price-footnote {
+      display: block; margin-top: 18px;
+      font-size: 0.78rem; color: var(--text-light); font-style: italic;
+      max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.75;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111; padding: 36px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38);
+    }
+    .footer-note { font-size: 0.68rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; }
+
+    /* HOVER */
+    .c-card { transition: border-color 0.25s ease; }
+    .c-card:hover { border-color: rgba(201,168,76,0.42); }
+    .c-card-img { transition: filter 0.35s ease; filter: contrast(1.1) saturate(1.08); }
+    .c-card:hover .c-card-img { filter: brightness(1.08) contrast(1.1) saturate(1.08); }
+    .day-img { transition: filter 0.45s ease; filter: contrast(1.1) saturate(1.08); }
+    .day-section:hover .day-imgs .day-img { filter: brightness(1.06) contrast(1.1) saturate(1.08); }
+
+    /* TIMELINE ANIMATION */
+    .tl-row::before {
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    }
+    .tl-row.tl-visible::before { transform: scaleX(1); }
+
+    .tl-stop {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .tl-row.tl-visible .tl-stop:nth-child(1) { transition-delay: 0.30s; }
+    .tl-row.tl-visible .tl-stop:nth-child(2) { transition-delay: 0.40s; }
+    .tl-row.tl-visible .tl-stop:nth-child(3) { transition-delay: 0.50s; }
+    .tl-row.tl-visible .tl-stop:nth-child(4) { transition-delay: 0.60s; }
+    .tl-row.tl-visible .tl-stop:nth-child(5) { transition-delay: 0.70s; }
+    .tl-row.tl-visible .tl-stop:nth-child(6) { transition-delay: 0.80s; }
+    .tl-row.tl-visible .tl-stop:nth-child(7) { transition-delay: 0.90s; }
+    .tl-row.tl-visible .tl-stop:nth-child(8) { transition-delay: 1.00s; }
+    .tl-row.tl-visible .tl-stop:nth-child(9) { transition-delay: 1.10s; }
+    .tl-row.tl-visible .tl-stop:nth-child(10) { transition-delay: 1.20s; }
+    .tl-row.tl-visible .tl-stop { opacity: 1; transform: translateY(0); }
+
+    .tl-dot { transition: transform 0.22s ease, box-shadow 0.22s ease; }
+    .tl-stop:hover .tl-dot {
+      transform: scale(1.55);
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.22);
+    }
+    .tl-prop { transition: color 0.2s ease; }
+    .tl-country { transition: color 0.2s ease; }
+    .tl-stop:hover .tl-country { color: var(--gold-light); }
+    .tl-stop:hover .tl-prop { color: #fff; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .section { padding: 64px 24px; }
+      .carousel-section { padding: 64px 24px; }
+      .timeline-section { padding: 48px 24px; }
+      .outline-section { padding: 64px 24px; }
+      .outline-list { grid-template-columns: 1fr; column-gap: 0; }
+      .overview-grid { grid-template-columns: 1fr; gap: 40px; }
+      .day-grid { grid-template-columns: 1fr; }
+      #itinerary .day-section:nth-child(even) .day-imgs { order: 0; }
+      .day-imgs { order: -1; }
+      .day-img { min-height: 200px; }
+      .day-text { padding: 40px 24px; }
+      .inc-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+
+      .hero-brand { white-space: normal; line-height: 1.9; padding: 0 24px; }
+      .c-card { flex: 0 0 82vw; }
+
+      .dg-label  { font-size: 0.65rem; }
+      .dir-label { font-size: 0.6rem; }
+      .t-row     { font-size: 0.85rem; }
+      .inc-row   { font-size: 0.85rem; }
+      .day-prop  { font-size: 0.78rem; }
+      .price-amount { font-size: 3rem; }
+
+      .tl-outer { overflow-x: visible; }
+      .tl-row {
+        flex-direction: column;
+        align-items: stretch;
+        min-width: 0;
+        padding-left: 24px;
+        gap: 0;
+      }
+      .tl-row::before {
+        top: 5px;
+        left: 4px;
+        right: auto;
+        bottom: 28px;
+        width: 1px;
+        height: auto;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+      }
+      .tl-row.tl-visible::before { transform: scaleY(1); }
+      .tl-stop {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto auto;
+        column-gap: 16px;
+        align-items: start;
+        text-align: left;
+        padding: 0 0 26px 0;
+        position: relative;
+      }
+      .tl-stop:last-child { padding-bottom: 0; }
+      .tl-dot {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        margin-left: -28px;
+        margin-bottom: 0;
+        margin-top: 3px;
+        align-self: start;
+      }
+      .tl-days    { grid-column: 2; }
+      .tl-country { grid-column: 2; }
+      .tl-prop    { grid-column: 2; }
+      .tl-stop { transform: translateX(-10px); }
+      .tl-row.tl-visible .tl-stop { transform: translateX(0); }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 52px 20px; }
+      .carousel-section, .timeline-section, .outline-section { padding: 44px 20px; }
+      .day-text { padding: 36px 20px; }
+      .hero h1 { font-size: clamp(3rem, 13vw, 5rem); }
+      .hero-proposal { font-size: 0.78rem; letter-spacing: 0.24em; }
+      .hero-destinations { font-size: 0.85rem; letter-spacing: 0.16em; }
+      .hero-client-meta { font-size: 0.78rem; letter-spacing: 0.14em; }
+      .price-amount { font-size: 2.6rem; }
+      .c-card { flex: 0 0 88vw; }
+      .stat-n { font-size: 1.9rem; }
+    }
+
+    /* SCHEDULE TIMELINE (v3 prescriptive day-by-day) */
+    .schedule { margin: 26px 0 24px; }
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 18px;
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+    }
+    .schedule-item:first-child { border-top: none; padding-top: 4px; }
+    .schedule-time {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--green-deep);
+      letter-spacing: 0.02em;
+      padding-top: 1px;
+    }
+    .schedule-content {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .schedule-content strong {
+      color: var(--green-deep);
+      font-weight: 500;
+    }
+    .schedule-est {
+      display: inline-block;
+      font-size: 0.66rem;
+      color: var(--text-light);
+      font-style: italic;
+      letter-spacing: 0.06em;
+      margin-left: 4px;
+    }
+    .schedule-drive {
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 0.82rem;
+      margin: 6px 0 6px;
+      letter-spacing: 0.02em;
+    }
+    .schedule-drive::before {
+      content: '› ';
+      color: var(--gold);
+      font-style: normal;
+    }
+    .schedule-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
+      background: rgba(201,168,76,0.06);
+      border-left: 2px solid rgba(201,168,76,0.4);
+      padding: 10px 14px;
+      margin: 14px 0;
+      line-height: 1.65;
+    }
+
+    /* DRIVE TOTAL */
+    .drive-total {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 14px 20px;
+      margin: 24px 0 22px;
+      font-size: 0.84rem;
+      color: var(--text-mid);
+    }
+    .drive-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      fill: var(--green-mid);
+    }
+    .drive-total strong {
+      color: var(--green-deep);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      margin-right: 6px;
+    }
+
+    /* TAG BLOCKS (INCLUDED / EXCLUDED / OPTIONAL EXTRA) */
+    .tag-blocks { margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+    .tag-block {
+      padding: 14px 18px;
+      border-radius: 3px;
+      font-size: 0.83rem;
+      line-height: 1.65;
+    }
+    .tag-block ul { list-style: none; padding: 0; margin: 0; }
+    .tag-block li {
+      padding: 3px 0 3px 16px;
+      position: relative;
+      color: var(--text-mid);
+    }
+    .tag-block li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      top: -1px;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+    .tag-label {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .tag-included {
+      background: rgba(46,125,50,0.05);
+      border-left: 3px solid #2E7D32;
+    }
+    .tag-included .tag-label { color: #2E7D32; }
+    .tag-excluded {
+      background: rgba(230,81,0,0.05);
+      border-left: 3px solid #E65100;
+    }
+    .tag-excluded .tag-label { color: #E65100; }
+    .tag-optional {
+      background: rgba(184,134,11,0.06);
+      border-left: 3px solid #B8860B;
+    }
+    .tag-optional .tag-label { color: #B8860B; }
+
+    /* Day section overrides for v3 */
+    #itinerary .day-section { min-height: auto; }
+    #itinerary .day-grid { min-height: 0; }
+    #itinerary .day-text { padding: 64px 56px; }
+
+    @media (max-width: 900px) {
+      .schedule-item {
+        grid-template-columns: 70px 1fr;
+        gap: 12px;
+      }
+      .schedule-time { font-size: 0.8rem; }
+      .schedule-content { font-size: 0.85rem; }
+      #itinerary .day-text { padding: 36px 22px; }
+      .drive-total { padding: 12px 16px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-logo">Outpost Travel</div>
+  <div class="nav-links">
+    <a href="#outline">Outline</a>
+    <a href="#properties">Properties</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#inclusions">Inclusions</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-proposal">Sample Itinerary</p>
+  <h1>Across <em>Aotearoa</em></h1>
+  <p class="hero-destinations">21-Day New Zealand Luxury Self-Drive Adventure</p>
+  <p class="hero-client-meta">21 Days, 20 Nights &nbsp;·&nbsp; Auckland to Queenstown</p>
+  <div class="hero-brand">Outpost Travel &nbsp;·&nbsp; kristin@outposttravel.com</div>
+</div>
+
+
+<!-- WELCOME -->
+<section class="section overview-section">
+  <div class="section-inner" style="max-width: 820px;">
+    <p class="eyebrow">Welcome to Aotearoa</p>
+    <h2>Land of the long white cloud</h2>
+    <div class="divider"></div>
+    <p>Aotearoa/New Zealand, where nature displays its full dramatic range. From vibrant cities steeped in Māori culture and culinary innovation to ancient glaciers and mountains, geothermal valleys steaming with otherworldly energy, and fiords carved by time itself, this is a destination that rewards curiosity at every turn.</p>
+    <p>Whether you're seeking adrenaline-fuelled adventures, tranquil wilderness experiences or the chance to explore Middle-earth brought to life, together with our local partner who specialises in self-drive tours, we bring an intimate knowledge to craft experiences that connect you with the real New Zealand, ensuring you return home with memories that transcend the ordinary.</p>
+  </div>
+</section>
+
+
+<!-- TRIP OVERVIEW -->
+<section class="section overview-section" style="background: var(--warm-white);">
+  <div class="section-inner">
+    <div class="overview-grid">
+      <div>
+        <p class="eyebrow">The Journey</p>
+        <h2>21 days across<br>both islands</h2>
+        <div class="divider"></div>
+        <p>This itinerary moves you through the full sweep of Aotearoa — beginning in Auckland's harbour-side city, threading through the geothermal heart of Rotorua and Taupō, and crossing to the South Island for Abel Tasman, Marlborough wine country, the rugged coast at Kaikōura, and the alpine drama of Tekapo, Mount Cook and Wanaka before closing in adventure-capital Queenstown.</p>
+        <p>It is a self-drive trip designed for a group of eight, with two premium 4WDs, three carefully placed flight legs, and a mix of luxury lodges, lakeside villas and full-villa exclusive-use stays.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">21</div>
+          <div class="stat-l">Days &amp; 20 nights</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">10</div>
+          <div class="stat-l">Properties across both islands</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">8</div>
+          <div class="stat-l">Travellers (as costed) &nbsp;·&nbsp; 2 × Toyota Prado 4WD</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">Oct</div>
+          <div class="stat-l">Spring shoulder &nbsp;·&nbsp; warming days, snow on the Alps</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="section-inner">
+    <p class="eyebrow">Journey at a Glance</p>
+    <div class="tl-outer">
+      <div class="tl-row">
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Day 1</div>
+          <div class="tl-country">Auckland</div>
+          <div class="tl-prop">QT Auckland</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 2–3</div>
+          <div class="tl-country">Rotorua</div>
+          <div class="tl-prop">On The Point</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 4–5</div>
+          <div class="tl-country">Taupō</div>
+          <div class="tl-prop">The Point Villas</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 6–8</div>
+          <div class="tl-country">Nelson</div>
+          <div class="tl-prop">Pīhopa Retreat</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Day 9</div>
+          <div class="tl-country">Blenheim</div>
+          <div class="tl-prop">The Marlborough</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Day 10</div>
+          <div class="tl-country">Kaikōura</div>
+          <div class="tl-prop">Manakau Lodge</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 11–12</div>
+          <div class="tl-country">Christchurch</div>
+          <div class="tl-prop">The George</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 13–14</div>
+          <div class="tl-country">Lake Tekapo</div>
+          <div class="tl-prop">Peppers Bluewater</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 15–16</div>
+          <div class="tl-country">Wanaka</div>
+          <div class="tl-prop">Marina Terrace</div>
+        </div>
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 17–21</div>
+          <div class="tl-country">Queenstown</div>
+          <div class="tl-prop">MajorDomo Villas</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- OUTLINE -->
+<section class="outline-section" id="outline">
+  <div class="section-inner">
+    <p class="eyebrow">Outline</p>
+    <h2>Day by day</h2>
+    <div class="divider"></div>
+
+    <div class="outline-list">
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 1</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Singapore Airlines, arrives Auckland early afternoon <span class="tag tag-own">Own arrangements</span></li>
+          <li>Private Transfer Auckland International to Auckland City</li>
+          <li>At leisure in Auckland</li>
+          <li>3:00 PM | QT Auckland (1 night)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 2</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>9:00 AM | Premium 4WD pickup, Auckland City</li>
+          <li>Drive Auckland to Rotorua via Hobbiton</li>
+          <li>Hobbiton Movie Set Signature Tour <span class="item-supplier">— Hobbiton Tours</span></li>
+          <li>Redwoods Treewalk</li>
+          <li>2:00 PM | On The Point (2 nights)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 3</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Restorative Journey (2.5 hrs) <span class="item-supplier">— Wai Ariki Hot Springs &amp; Spa</span></li>
+          <li>Mitai Māori Cultural Evening Experience (3 hrs)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 4</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Rotorua to Taupō</li>
+          <li>At leisure in Taupō</li>
+          <li>3:00 PM | The Point Villas (2 nights)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 5</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Taupō to Whakapapa</li>
+          <li>Taranaki Falls Self-Guided Walk</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 6</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Return rental vehicle, Taupō</li>
+          <li>10:05 AM | Air New Zealand, Taupō to Auckland <span class="tag tag-own">Own arrangements</span></li>
+          <li>12:20 PM | Air New Zealand, Auckland to Nelson <span class="tag tag-own">Own arrangements</span></li>
+          <li>2:00 PM | Premium 4WD pickup, Nelson Airport</li>
+          <li>2:00 PM | Pīhopa Retreat (3 nights)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 7</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Shared Best Abel Tasman Day Trip <span class="item-supplier">— Abel Tasman Charters</span></li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 8</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>At leisure in Nelson</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 9</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Nelson to Blenheim</li>
+          <li>2:00 PM | The Marlborough (1 night)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 10</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Blenheim to Kaikōura</li>
+          <li>1:15 PM | Whale Watch Tour — Ocean's Cabin <span class="item-supplier">— Whale Watch Kaikōura</span></li>
+          <li>2:00 PM | Manakau Lodge (1 night)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 11</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Kaikōura to Christchurch</li>
+          <li>2:00 PM | The George (2 nights)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 12</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>At leisure in Christchurch</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 13</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Christchurch to Tekapo</li>
+          <li>Summit Stargazing Experience (1h 45m) <span class="item-supplier">— Dark Sky Project</span> <span class="tag tag-opt">Optional · NZ$225 pp</span></li>
+          <li>2:00 PM | Peppers Bluewater Lake Tekapo (2 nights)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 14</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>At leisure in Aoraki / Mount Cook National Park</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 15</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Tekapo to Wanaka</li>
+          <li>3:00 PM | Marina Terrace Apartments (2 nights)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 16</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>9:00 AM | Lake, Cruise and Island Nature Walk (3.5 hrs ex Wanaka) <span class="item-supplier">— Eco Wanaka Adventures</span></li>
+          <li>Tandem Skydive 15,000 FT <span class="item-supplier">— Skydive Wanaka</span> <span class="tag tag-opt">Optional · NZ$549 pp</span></li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 17</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Drive Wanaka to Queenstown</li>
+          <li>MajorDomo Villas (4 nights)</li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 18</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>11:30 AM | Milford Fly/Nature Cruise/Fly <span class="item-supplier">— Air Milford</span></li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 19</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Shared Wilderness Jet Boat <span class="item-supplier">— Dart River Adventures</span></li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 20</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>At leisure in Queenstown</li>
+          <li>The Original Onsen <span class="item-supplier">— Onsen Hot Pools</span> <span class="tag tag-opt">Optional · NZ$175 / 2 pax</span></li>
+        </ul>
+      </div>
+
+      <div class="outline-day">
+        <div class="outline-day-head"><span class="outline-day-num">Day 21</span><span class="outline-day-date"></span></div>
+        <ul class="outline-items">
+          <li>Return rental vehicle, Queenstown Airport</li>
+          <li>10:35 AM | Air New Zealand, Queenstown to Auckland <span class="tag tag-own">Own arrangements</span></li>
+          <li>Auckland Airport — travel between terminals</li>
+          <li>5:00 PM | Singapore Airlines, departs Auckland early evening <span class="tag tag-own">Own arrangements</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PROPERTIES CAROUSEL -->
+<div class="carousel-section" id="properties">
+  <div class="section-inner">
+    <p class="eyebrow">Your Accommodation</p>
+    <h2>Ten Properties, Two Islands</h2>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="c-track">
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/f0c9f78e-4795-4adc-8fd8-fdc337586017.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Auckland</p>
+            <p class="c-name">QT Auckland</p>
+            <a class="c-link" href="https://www.qthotels.com/auckland/" target="_blank" rel="noopener">qthotels.com/auckland</a>
+            <p class="c-room">QT Deluxe King × 4</p>
+            <span class="c-nights">1 Night &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/f4e20b59-d177-46f1-bbf9-456dbd58d551.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Rotorua</p>
+            <p class="c-name">On The Point</p>
+            <a class="c-link" href="http://www.onthepoint.co.nz" target="_blank" rel="noopener">onthepoint.co.nz</a>
+            <p class="c-room">Lake View Lodge × 4</p>
+            <span class="c-nights">2 Nights &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/e9f5af08-9227-404e-9384-171a0e3e1ded.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Taupō</p>
+            <p class="c-name">The Point Villas</p>
+            <a class="c-link" href="http://www.thepointvillas.co.nz/" target="_blank" rel="noopener">thepointvillas.co.nz</a>
+            <p class="c-room">Two- &amp; Three-Bedroom Villas</p>
+            <span class="c-nights">2 Nights &nbsp;·&nbsp; Villa Only</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/5b1f9396-afbf-406b-9c88-1c8b3cdf780d.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Nelson</p>
+            <p class="c-name">Pīhopa Retreat</p>
+            <a class="c-link" href="https://www.pihoparetreat.nz/" target="_blank" rel="noopener">pihoparetreat.nz</a>
+            <p class="c-room">Four Suites (King)</p>
+            <span class="c-nights">3 Nights &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/ff664cca-b01a-4e98-aadc-50eb7f5aa911.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Blenheim</p>
+            <p class="c-name">The Marlborough</p>
+            <a class="c-link" href="http://www.themarlboroughlodge.co.nz" target="_blank" rel="noopener">themarlboroughlodge.co.nz</a>
+            <p class="c-room">Premium Room × 4</p>
+            <span class="c-nights">1 Night &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/68c0d5e4-f66c-4e1f-b6b4-843da61fc551.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Kaikōura</p>
+            <p class="c-name">Manakau Lodge</p>
+            <a class="c-link" href="https://www.manakaulodge.com/" target="_blank" rel="noopener">manakaulodge.com</a>
+            <p class="c-room">Exclusive Use, Four Bedrooms</p>
+            <span class="c-nights">1 Night</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/9743ef91-5ab6-4eb3-adbc-eec52004071f.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Christchurch</p>
+            <p class="c-name">The George</p>
+            <a class="c-link" href="http://www.thegeorge.com" target="_blank" rel="noopener">thegeorge.com</a>
+            <p class="c-room">Junior Suite × 4</p>
+            <span class="c-nights">2 Nights &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/bc2b29cb-357e-4098-9c17-1751944eb297.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Lake Tekapo</p>
+            <p class="c-name">Peppers Bluewater Lake Tekapo</p>
+            <a class="c-link" href="https://www.peppers.co.nz/bluewater/" target="_blank" rel="noopener">peppers.co.nz/bluewater</a>
+            <p class="c-room">Three-Bedroom Villa &amp; Deluxe Lakeview</p>
+            <span class="c-nights">2 Nights &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/d2d41911-13a5-4113-ade6-69f7f2d38c7a.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Wanaka</p>
+            <p class="c-name">Marina Terrace Apartments</p>
+            <a class="c-link" href="https://marinaterrace.co.nz/" target="_blank" rel="noopener">marinaterrace.co.nz</a>
+            <p class="c-room">Two-Bedroom Apartment</p>
+            <span class="c-nights">2 Nights</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://assets.tourwriter.com/large/2811d3bc-e048-4f82-9510-ee48f7fee50f.jpeg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Queenstown</p>
+            <p class="c-name">MajorDomo · Matakauri House</p>
+            <p class="c-room">Private Villa, 1–8 Guests</p>
+            <span class="c-nights">4 Nights</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel-footer">
+        <div class="c-dots" id="c-dots">
+          <div class="c-dot active" data-i="0"></div>
+          <div class="c-dot" data-i="3"></div>
+          <div class="c-dot" data-i="6"></div>
+          <div class="c-dot" data-i="9"></div>
+        </div>
+        <div class="c-arrows">
+          <button class="c-btn" id="c-prev" aria-label="Previous">&#8592;</button>
+          <button class="c-btn" id="c-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DAY SECTIONS -->
+<div id="itinerary">
+
+  <!-- Day 1: Auckland -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 1</div>
+        <p class="day-dest">Auckland</p>
+        <h3>Arrive in Aotearoa</h3>
+        <p class="day-prop">QT Auckland &nbsp;·&nbsp; 1 Night &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">1:20pm</div>
+            <div class="schedule-content">Your flight arrives at Auckland International Airport. A private Mercedes Sprinter will meet the group at the international arrivals hall and transfer you to QT Auckland in Viaduct Harbour, around 30 minutes' drive.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:00pm</div>
+            <div class="schedule-content">Check in at QT Auckland, with time to settle, refresh and rest after the long flight. The hotel sits in the heart of Viaduct Harbour with a Mediterranean-inspired rooftop bar, Chromecast, Nespresso and Bose speakers in every room.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:00pm</div>
+            <div class="schedule-content">Late afternoon stroll along Viaduct Harbour. The northern side has thirty-plus cafés and bars; walk through to Wynyard Quarter and North Wharf for waterfront views, or in the other direction to Britomart's designer shops and laneway eateries.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner at a Harbourview restaurant of your choice. We will share specific recommendations and can make bookings closer to the date.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> None &mdash; private transfer to hotel only</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>QT Auckland (1 night), Deluxe King × 4, breakfast included</li>
+              <li>Private arrival transfer (Mercedes Sprinter) from Auckland International Airport</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/b326f3df-8c60-49bc-b1d8-9a5a9d2398c9.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/f0c9f78e-4795-4adc-8fd8-fdc337586017.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2: Auckland to Rotorua via Hobbiton -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 2</div>
+        <p class="day-dest">Auckland to Rotorua via Hobbiton</p>
+        <h3>Into the Shire</h3>
+        <p class="day-prop">On The Point Rotorua &nbsp;·&nbsp; Night 1 of 2 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">Vehicle pickup at Auckland City: two Toyota Prado 4WDs (Premium 4WD with MAX Damage Waiver included).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:30am</div>
+            <div class="schedule-content">
+              Depart Auckland.
+              <div class="schedule-drive">Auckland to Hobbiton: 2h 15m / 180km</div>
+              Travel south on the Waikato expressway over the Bombay Hills, past lush farmlands and the winding Waikato River through the heart of dairy country. An optional brief stop in Hamilton (~30 mins detour) for the Hamilton Gardens.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:00pm</div>
+            <div class="schedule-content">Lunch at the Green Dragon Inn or Shire's Rest Cafe onsite.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00pm <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content"><strong>Hobbiton Movie Set Signature Tour.</strong> A 2.5-hour guided walking tour through the Shire on the Alexander family sheep farm, where Sir Peter Jackson filmed The Lord of the Rings and The Hobbit. Walk past the colourful Hobbit Hole doors that scatter the hillsides (including Bag End), step inside one of the detailed Hobbit Hole interiors at Bagshot Row, and finish with a complimentary drink at the Green Dragon Inn.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:00pm</div>
+            <div class="schedule-content">
+              Depart Hobbiton.
+              <div class="schedule-drive">Hobbiton to Rotorua: 1h 15m / 76km</div>
+              Reconnect onto the main highway and take the link through Fitzgerald Glade. As you approach Rotorua you'll start to notice the famous geothermal activity, with steam rising from the earth in various parts of the region.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:15pm</div>
+            <div class="schedule-content"><strong>Redwoods Treewalk:</strong> a 30-minute self-paced walk on a 700m suspended walkway through Rotorua's iconic redwood forest. The walkway sits 20 metres above the forest floor at its peak, traversing 28 bridges between 27 majestic 120-year-old redwoods.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">6:30pm</div>
+            <div class="schedule-content">Check in at On The Point. A classic luxury lodge at the end of Kawaha Point with sweeping views across Lake Rotorua, antique-filled lounges and a timber-panelled dining room.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:30pm</div>
+            <div class="schedule-content">Dinner at the lodge or in Rotorua township.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 3h 30m / 256km (Auckland to Rotorua via Hobbiton)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>On The Point (1 of 2 nights), Lake View Lodge × 4, breakfast included</li>
+              <li>Premium 4WD Toyota Prado (Auckland City to Wellington Airport), MAX Damage Waiver included</li>
+              <li>One-way relocation fee (2 vehicles, NZ$220 + GST each)</li>
+              <li>Hobbiton Movie Set Signature Tour</li>
+              <li>Redwoods Treewalk</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/7085fb15-a943-47e4-a5a8-79cd3784cbb1.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/0735c1fc-1dfe-4ac2-af11-a1a15551df73.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3: Rotorua -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 3</div>
+        <p class="day-dest">Rotorua</p>
+        <h3>Wellness, Geothermal Wonder &amp; Māori Culture</h3>
+        <p class="day-prop">On The Point Rotorua &nbsp;·&nbsp; Night 2 of 2 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">Breakfast at the lodge.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:30am</div>
+            <div class="schedule-content">Drive into Rotorua township (~10 mins).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:00am <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content"><strong>Wai Ariki Restorative Journey.</strong> A self-guided 2.5-hour seven-step wellness ritual at the heart of Rotorua, drawing on Ngāti Whakaue traditions to honour body and spirit. Waterfall showers, fire-and-ice rooms, mineral pools, mud lounge and steam cave. Locker, towel and robe provided.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:30pm</div>
+            <div class="schedule-content">Wai Ariki ends. Lunch at the spa cafe or in town.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:00pm</div>
+            <div class="schedule-content">Afternoon at Te Puia geothermal park: 90-minute guided tour through the Te Whakarewarewa Valley to see the Pohutu Geyser (the largest in the southern hemisphere), bubbling mud pools, and the New Zealand Māori Arts and Crafts Institute.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:00pm</div>
+            <div class="schedule-content">Return to the lodge to rest before dinner.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">6:00pm</div>
+            <div class="schedule-content">Drive to Mitai (~10 mins).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">6:30pm <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content"><strong>Mitai Māori Cultural Experience &amp; Dinner.</strong> A 3-hour evening welcome into Māori cultural traditions: traditional waka paddle on the Wai-O-Whiro Stream, glow-worm walk along the bush track, hāngī dinner cooked underground in earth ovens, and a concert featuring the haka.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:30pm</div>
+            <div class="schedule-content">Mitai ends. Return to the lodge.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> ~30 min / 25km local Rotorua</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>On The Point (2 of 2 nights), Lake View Lodge × 4, breakfast included</li>
+              <li>Wai Ariki Restorative Journey (locker, towel, robe)</li>
+              <li>Te Puia geothermal park guided tour (90 min)</li>
+              <li>Mitai Māori Cultural Evening Experience — hāngī dinner included</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/7085fb15-a943-47e4-a5a8-79cd3784cbb1.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/9743ef91-5ab6-4eb3-adbc-eec52004071f.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4: Rotorua to Taupo -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 4</div>
+        <p class="day-dest">Rotorua to Taupō</p>
+        <h3>Steam, Silica and a Lakeside Estate</h3>
+        <p class="day-prop">The Point Villas &nbsp;·&nbsp; Night 1 of 2 &nbsp;·&nbsp; Villa with Breakfast Provisions</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">Breakfast at the lodge, then check out.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:00am</div>
+            <div class="schedule-content">
+              Depart Rotorua south on State Highway 5.
+              <div class="schedule-drive">Rotorua to Taupō: 1h / 82km (longer with stops)</div>
+              A scenic drive south through some of New Zealand's most active geothermal landscape. Recommended stop at Craters of the Moon (~30 mins, walk through bubbling mud pools and steaming vents on a 45-minute boardwalk loop). Other optional stops: Wai-O-Tapu Thermal Wonderland, Wairakei Park, and Huka Falls.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00pm</div>
+            <div class="schedule-content">Arrive in Taupō. Lunch at a lakeside cafe.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:00pm</div>
+            <div class="schedule-content">Check in at <strong>The Point Villas.</strong> A private estate on Whakamoenga Point with exclusive use for the group, comprising two villas across two and three bedrooms. Master bedrooms open onto glassed bathrooms for outdoor bathing. Villa 1 has its own Canadian Cedar outdoor sauna and shower. The estate includes floodlit tennis, croquet, petanque and kayaks. Afternoon at leisure on the lake.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner at the villa (provisions on hand) or in Taupō township.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> ~1h 30m / 100km (Rotorua to Taupō with geothermal stops)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>The Point Villas (1 of 2 nights), Villa One Tatamoana (2BR) + Villa Two Ngahere (3BR), exclusive use of property</li>
+              <li>Breakfast provisions</li>
+              <li>Craters of the Moon entry</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Wai-O-Tapu entry fees if visited</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/5cd91761-3b5f-4c44-9124-63d861acc1c3.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/e9f5af08-9227-404e-9384-171a0e3e1ded.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 5: Taupo Tongariro -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 5</div>
+        <p class="day-dest">Taupō (Tongariro Day Trip)</p>
+        <h3>The Volcanic Plateau</h3>
+        <p class="day-prop">The Point Villas &nbsp;·&nbsp; Night 2 of 2 &nbsp;·&nbsp; Villa with Breakfast Provisions</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">Breakfast at the villa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">
+              Depart for Whakapapa Village at the foot of Tongariro National Park.
+              <div class="schedule-drive">Taupō to Whakapapa: 1h 40m / 110km</div>
+              Drive south along Lake Taupō's eastern shore then west on State Highway 47 through the Tongariro volcanic plateau. The three peaks of Tongariro, Ngauruhoe and Ruapehu rise dramatically from the desert-like landscape; Ngauruhoe was Mount Doom in The Lord of the Rings.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:45am</div>
+            <div class="schedule-content">Arrive Whakapapa Visitor Centre. Pick up a trail map.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00am</div>
+            <div class="schedule-content"><strong>Begin the Taranaki Falls walk:</strong> a 2-hour, 6km loop starting 100m below the visitor centre. The lower track passes through tussock and beech forest with views of Ngauruhoe's symmetrical cone, descending to Wairere Stream and Cascade Falls before reaching Taranaki Falls itself, tumbling 20 metres over a 15,000-year-old andesite lava flow.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00pm</div>
+            <div class="schedule-content">Walk ends. Late lunch at Whakapapa Village or pack a picnic.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:30pm</div>
+            <div class="schedule-content">Depart Whakapapa for Taupō.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:15pm</div>
+            <div class="schedule-content">Arrive back in Taupō. Late afternoon at leisure: Huka Falls if not visited en route, lakefront walk, or rest at the villa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner at the villa or in Taupō.</div>
+          </div>
+        </div>
+
+        <div class="schedule-note">Check the NIWA Tongariro forecast before setting out; pack waterproofs, layers, sturdy boots and plenty of water. Alpine weather can change quickly even in October.</div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 3h 20m / 220km (Taupō to Whakapapa return)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>The Point Villas (2 of 2 nights), breakfast provisions</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/e9f5af08-9227-404e-9384-171a0e3e1ded.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/5cd91761-3b5f-4c44-9124-63d861acc1c3.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 6: Taupo to Nelson via Wellington -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 6</div>
+        <p class="day-dest">Taupō to Nelson via Wellington</p>
+        <h3>Crossing to the South Island</h3>
+        <p class="day-prop">Pīhopa Retreat &nbsp;·&nbsp; Night 1 of 3 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">Breakfast at the villa, then check out and pack up.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">8:30am</div>
+            <div class="schedule-content">
+              Depart Taupō south for Wellington.
+              <div class="schedule-drive">Taupō to Wellington: 4h 30m / 380km</div>
+              Drive south on State Highway 1 through the Central Plateau, past Turangi and along the Desert Road with views of Mt Ruapehu, then through Taihape, Bulls and the Manawatu farmland into Wellington.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:30am</div>
+            <div class="schedule-content">Stop in Bulls for lunch (Bulls Cafe Cuisine for a hearty meal, or Cafe Mode for a lighter option). Roughly the midway point of the drive.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:30pm</div>
+            <div class="schedule-content">Arrive Wellington Airport. Vehicle drop-off.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:40pm</div>
+            <div class="schedule-content">Air NZ NZ5317 departs Wellington for Nelson (45 mins).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:25pm</div>
+            <div class="schedule-content">Arrive Nelson Airport.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:30pm</div>
+            <div class="schedule-content">Vehicle pickup at Nelson Airport: two more Toyota Prado 4WDs for the South Island leg.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">6:00pm</div>
+            <div class="schedule-content">Drive to <strong>Pīhopa Retreat</strong> (~10 mins from airport). Check in. Pīhopa sits on 5.5 acres of park-like gardens on the site of the original Nelson Diocese estate, with six premium suites set among lush plantings.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Pre-dinner drinks and canapés at Pīhopa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">8:00pm</div>
+            <div class="schedule-content">Pīhopa transfer into Nelson township for dinner at a restaurant of your choice.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 4h 30m / 380km (Taupō to Wellington Airport)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Pīhopa Retreat (1 of 3 nights), four King suites (Sutton, Suter, Sadlier, Eaton), pre-dinner drinks &amp; canapés, return transfers to town, breakfast</li>
+              <li>Premium 4WD Toyota Prado (Nelson Airport to Queenstown Airport), MAX Damage Waiver included</li>
+              <li>One-way relocation fee (2 vehicles, NZ$250 + GST each)</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Domestic flight Wellington to Nelson (NZ5317, ~SGD 105 pp)</li>
+              <li>Lunch in Bulls (or en route)</li>
+              <li>Dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/5b1f9396-afbf-406b-9c88-1c8b3cdf780d.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/d41c9ab9-7963-4ff6-a7b7-150fbb015331.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 7: Nelson Abel Tasman -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 7</div>
+        <p class="day-dest">Nelson (Abel Tasman Day)</p>
+        <h3>Catamaran along the Coast</h3>
+        <p class="day-prop">Pīhopa Retreat &nbsp;·&nbsp; Night 2 of 3 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">7:30am</div>
+            <div class="schedule-content">Breakfast at Pīhopa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">
+              Depart for Stephens Bay, Kaiteriteri.
+              <div class="schedule-drive">Nelson to Kaiteriteri: 1h / 60km</div>
+              Drive west along the Tasman Bay coastline, past Mapua and Motueka through orchard country and golden bays, arriving at the gateway to Abel Tasman National Park.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content"><strong>Best Abel Tasman Day Trip:</strong> catamaran along the Abel Tasman National Park coastline past Split Apple Rock, Marahau and out to the Tonga Island seal colony. The skipper adapts the route depending on wildlife and weather. A sheltered lunch stop offers swimming, sea kayaking and short bush walks. Platter lunch, snacks, beer and wine onboard.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:30pm <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content">Return to Stephens Bay. Drive back to Nelson.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:30pm</div>
+            <div class="schedule-content">Arrive back at Pīhopa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">6:00pm</div>
+            <div class="schedule-content">Pre-dinner drinks and canapés at Pīhopa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Pīhopa transfer into town for dinner.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 2h / 120km (Nelson to Kaiteriteri return)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Pīhopa Retreat (2 of 3 nights), pre-dinner drinks &amp; canapés, transfers to town, breakfast</li>
+              <li>Best Abel Tasman Day Trip — platter lunch, snacks, beer &amp; wine, towels, suncream</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/d41c9ab9-7963-4ff6-a7b7-150fbb015331.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/5b1f9396-afbf-406b-9c88-1c8b3cdf780d.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 8: Nelson at leisure -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 8</div>
+        <p class="day-dest">Nelson</p>
+        <h3>Alpine Walk and an Easy Afternoon</h3>
+        <p class="day-prop">Pīhopa Retreat &nbsp;·&nbsp; Night 3 of 3 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">7:30am</div>
+            <div class="schedule-content">Breakfast at Pīhopa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">
+              Depart for Kahurangi National Park.
+              <div class="schedule-drive">Nelson to Flora Car Park: 1h 30m / 90km</div>
+              Drive west then south through Tasman and into the Mount Arthur range, with the road climbing through native bush to the Flora Saddle.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:45am</div>
+            <div class="schedule-content"><strong>Alpine forest hike</strong> from Flora Car Park (1.5 to 2 hours through subalpine forest with 360-degree views over the Tasman and Mount Arthur ranges).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:45pm</div>
+            <div class="schedule-content">Walk ends. Drive back towards Nelson.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:15pm</div>
+            <div class="schedule-content">Late lunch in Motueka or Mapua en route back to Nelson. Afternoon at leisure. Suggested options: Liberty Distillery in Nelson (small-batch gin and whisky tastings); the Great Taste Trail food and wine cycling route; WOW Museum (World of WearableArt and Classic Cars); Botanical Hill walk to the Centre of New Zealand monument.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">6:00pm</div>
+            <div class="schedule-content">Pre-dinner drinks and canapés at Pīhopa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Pīhopa transfer into town for dinner.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> ~3h / 200km (Nelson to Flora Car Park return + local Nelson)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Pīhopa Retreat (3 of 3 nights), pre-dinner drinks &amp; canapés, transfers to town, breakfast</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Activities undertaken during the day</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/5b1f9396-afbf-406b-9c88-1c8b3cdf780d.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/d41c9ab9-7963-4ff6-a7b7-150fbb015331.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 9: Nelson to Blenheim -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 9</div>
+        <p class="day-dest">Nelson to Blenheim</p>
+        <h3>Marlborough Wine Country</h3>
+        <p class="day-prop">The Marlborough &nbsp;·&nbsp; 1 Night &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">Breakfast at Pīhopa, then check out.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">
+              Depart Nelson east on State Highway 6.
+              <div class="schedule-drive">Nelson to Pelorus Bridge: 50 min / 50km</div>
+              The road climbs over the Whangamoa and Rai Saddles through native bush before descending into the Pelorus River valley.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:30am</div>
+            <div class="schedule-content">Quick stop at Pelorus Bridge Scenic Reserve (15 mins). The river-barrel scene from The Hobbit: The Desolation of Smaug was filmed here.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00am</div>
+            <div class="schedule-content">
+              Continue south to Blenheim.
+              <div class="schedule-drive">Pelorus Bridge to Blenheim: 1h 15m / 90km</div>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:15pm</div>
+            <div class="schedule-content">Arrive at <strong>St Clair Family Estate</strong> for a vineyard lunch at the cellar door restaurant. St Clair is one of Marlborough's most awarded producers; lunch sits among the vines with their full range of Sauvignon Blanc, Pinot Gris and Pinot Noir to taste alongside.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:00pm</div>
+            <div class="schedule-content"><strong>Cloudy Bay tasting.</strong> The estate that put Marlborough Sauvignon Blanc on the world map; visit the Shed for a flight of their range.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:30pm</div>
+            <div class="schedule-content">One more winery (choose one): Allan Scott (family-run, casual), Shingle Peak (boutique), or Matua (the original Marlborough Sauvignon Blanc producer).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:00pm</div>
+            <div class="schedule-content">Check in at <strong>The Marlborough.</strong> A grand country estate set in 6.5 hectares of park-like grounds and Sauvignon Blanc vineyards, with ten suites over two levels and an onsite chef team.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">6:30pm</div>
+            <div class="schedule-content">Pre-dinner canapés at the lodge, served from the Chapel Bar or by the outdoor fireplace.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:30pm</div>
+            <div class="schedule-content">Dinner at The Marlborough or in town.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 2h 15m / 140km (Nelson to Blenheim via Pelorus Bridge), plus local winery hops</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>The Marlborough (1 night), Premium Room × 4, breakfast included</li>
+              <li>Pre-dinner canapés</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Winery tasting fees (typically NZD 15-30 pp per estate)</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/9ea80826-a69f-489f-bcf5-9db067058edf.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/ff664cca-b01a-4e98-aadc-50eb7f5aa911.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 10: Blenheim to Kaikoura -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 10</div>
+        <p class="day-dest">Blenheim to Kaikōura</p>
+        <h3>Whales of the Hikurangi Trench</h3>
+        <p class="day-prop">Manakau Lodge &nbsp;·&nbsp; 1 Night &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">Breakfast at The Marlborough, then check out.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:00am</div>
+            <div class="schedule-content">
+              Depart Blenheim south on State Highway 1.
+              <div class="schedule-drive">Blenheim to Kaikōura: 1h 40m / 130km</div>
+              A dramatic coastal drive along the rebuilt SH1, with the Pacific Ocean on your left and the Kaikōura Ranges rising to your right. Watch for fur seal colonies on the rocks.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:30am</div>
+            <div class="schedule-content">Arrive Kaikōura. Drop bags at Manakau Lodge if early.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:00pm</div>
+            <div class="schedule-content">Lunch in town. Pier Hotel for fresh seafood, or Cods &amp; Crayfish Bar for a casual coastal favourite.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:15pm</div>
+            <div class="schedule-content"><strong>Whale Watch Kaikōura, Ocean's Cabin tour.</strong> A 2.5-hour boat tour into the Hikurangi Trench, where the continental shelf drops sharply away to ocean depths and brings sperm whales close to shore. Sightings include resident sperm whales, dusky dolphins, fur seals and seabirds. Ocean's Cabin offers a covered indoor space if the swell picks up.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:00pm</div>
+            <div class="schedule-content">Tour ends. Late afternoon at leisure: walk the Kaikōura Peninsula track to the seal colony at Point Kean, or simply enjoy the coastline.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:30pm</div>
+            <div class="schedule-content">Check in at Manakau Lodge.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner at the lodge or in Kaikōura township.</div>
+          </div>
+        </div>
+
+        <div class="schedule-note">Whale Watch can be cancelled in poor weather. They offer 80% refund if no whales are sighted, 100% refund if cancelled. We will keep an eye on the forecast and adjust if needed.</div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 1h 40m / 130km (Blenheim to Kaikōura)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Manakau Lodge (1 night), breakfast included</li>
+              <li>Whale Watch Kaikōura, Ocean's Cabin</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/7b391a91-f4eb-4125-842d-826cb221f131.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/68c0d5e4-f66c-4e1f-b6b4-843da61fc551.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 11: Kaikoura to Christchurch -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 11</div>
+        <p class="day-dest">Kaikōura to Christchurch</p>
+        <h3>Coastal Drive &amp; Waipara Lunch</h3>
+        <p class="day-prop">The George &nbsp;·&nbsp; Night 1 of 2 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">Breakfast at the lodge, then check out.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:30am</div>
+            <div class="schedule-content">
+              Depart Kaikōura south along the SH1 coastal route, with seal colony viewing at Ohau Point.
+              <div class="schedule-drive">Kaikōura to Waipara: 2h / 140km</div>
+              The coastal drive opens out to the Waipara wine valley, North Canterbury's quieter cousin to Marlborough.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:30am</div>
+            <div class="schedule-content">Arrive Waipara wine valley. Lunch at Pegasus Bay or Black Estate, both with vineyard views.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:30pm</div>
+            <div class="schedule-content">Continue to Christchurch (~45 mins / 50km).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:30pm</div>
+            <div class="schedule-content">Arrive Christchurch. Check in at <strong>The George</strong>, a refined boutique hotel overlooking Hagley Park and the Avon River. Afternoon at leisure: punting on the Avon, Botanic Gardens stroll, the Cardboard Cathedral and Quake City museum.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner in Christchurch.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 2h 45m / 190km (Kaikōura to Christchurch via Waipara)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>The George (1 of 2 nights), breakfast included</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+              <li>Optional activities (gondola, museums, punting)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/9743ef91-5ab6-4eb3-adbc-eec52004071f.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/69149405-d197-4815-aeb6-ce11a3a6715a.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 12: Christchurch at leisure -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 12</div>
+        <p class="day-dest">Christchurch</p>
+        <h3>The Garden City</h3>
+        <p class="day-prop">The George &nbsp;·&nbsp; Night 2 of 2 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">All day</div>
+            <div class="schedule-content">
+              <strong>Day at leisure in Christchurch.</strong> Suggested options:
+              <ul style="margin-top:10px; padding-left:18px; line-height:1.75;">
+                <li>Akaroa day trip (1.5h drive each way), the French settlement on Banks Peninsula with a harbour cruise to spot Hector's dolphins</li>
+                <li>Christchurch Tramway loop and Botanic Gardens stroll</li>
+                <li>Quake City museum and Cardboard Cathedral</li>
+                <li>Cashmere Hills lookout for views over the city to the Southern Alps</li>
+                <li>Christchurch Gondola for panoramic views from the Port Hills</li>
+                <li>International Antarctic Centre near the airport</li>
+              </ul>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner in Christchurch.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> Variable — depends on activities chosen (Akaroa day trip = 3h round trip)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>The George (2 of 2 nights), breakfast included</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Activities undertaken during the day</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/69149405-d197-4815-aeb6-ce11a3a6715a.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/9743ef91-5ab6-4eb3-adbc-eec52004071f.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 13: Christchurch to Tekapo -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 13</div>
+        <p class="day-dest">Christchurch to Lake Tekapo</p>
+        <h3>Into the Mackenzie Country</h3>
+        <p class="day-prop">Peppers Bluewater Lake Tekapo &nbsp;·&nbsp; Night 1 of 2 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">Breakfast at The George, then check out.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">
+              Depart Christchurch south on State Highway 1.
+              <div class="schedule-drive">Christchurch to Geraldine: 2h / 140km</div>
+              Cross the Canterbury Plains south past the Rakaia and Rangitata Rivers towards Geraldine, the gateway to the Mackenzie Country.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:30am</div>
+            <div class="schedule-content">Arrive Geraldine. Coffee or early lunch at Verde Cafe or Talbot Forest Cheese for local produce.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00pm</div>
+            <div class="schedule-content">
+              Continue west on State Highway 79 then 8 towards Tekapo.
+              <div class="schedule-drive">Geraldine to Tekapo: 1h 30m / 110km</div>
+              The road climbs into the Mackenzie Basin, the high country of the South Island. Open tussock landscapes and the snow-capped Southern Alps come into view.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:00pm</div>
+            <div class="schedule-content">Arrive Lake Tekapo. Check in at <strong>Peppers Bluewater.</strong> A modern lodge on the lakefront; the 3-bedroom villa is your base, with the additional couple in a hotel suite next door, both sharing the same pool of facilities. Late afternoon: photo stop at the Church of the Good Shepherd, where the milky turquoise lake meets the snow-capped Southern Alps.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner at Greedy Cow Cafe or Run 76 (lakeside grill).</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 3h 30m / 250km (Christchurch to Tekapo via Geraldine)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Peppers Bluewater Lake Tekapo (1 of 2 nights), 3-bedroom villa + hotel suite, breakfast included</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-optional">
+            <div class="tag-label">+ Optional Extra</div>
+            <ul>
+              <li>Stargazing at Lake Tekapo (Mt John Summit Stargazing Experience): 1h 45m guided observation in the Aoraki Mackenzie International Dark Sky Reserve. NZD 225 pp. Late evening (~9:30pm).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/bc2b29cb-357e-4098-9c17-1751944eb297.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/67dcc188-b6b2-4249-8b7d-5aea77a7af81.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 14: Mt Cook day trip -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 14</div>
+        <p class="day-dest">Tekapo to Mt Cook (Day Trip)</p>
+        <h3>Hooker Valley &amp; Aoraki</h3>
+        <p class="day-prop">Peppers Bluewater Lake Tekapo &nbsp;·&nbsp; Night 2 of 2 &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:00am</div>
+            <div class="schedule-content">Breakfast at the lodge.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:30am</div>
+            <div class="schedule-content">
+              Depart for Aoraki/Mt Cook National Park.
+              <div class="schedule-drive">Tekapo to Mt Cook Village: 1h / 105km</div>
+              Drive along the western shore of Lake Pukaki with Mt Cook rising 3,724m at the head of the lake. Stop at <strong>Peter's Lookout</strong> for the iconic photo of Mt Cook framed by Lake Pukaki, and at the <strong>Mt Cook Salmon Shop</strong> in Twizel for fresh salmon sashimi from the Tekapo canals.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00am</div>
+            <div class="schedule-content">Arrive Aoraki Mt Cook Village. Park at White Horse Hill car park for the Hooker Valley track.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:15am</div>
+            <div class="schedule-content"><strong>Begin Hooker Valley Track:</strong> a 10km return walk, mostly flat with three swing bridges over the Hooker River, taking 3 to 3.5 hours at relaxed pace. The track follows the river up the valley to Hooker Lake at the foot of Mt Cook, with icebergs floating in the meltwater. The classic walk in the national park.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:30pm</div>
+            <div class="schedule-content">Walk ends. Late lunch at the Old Mountaineers' Cafe or the Hermitage Hotel restaurant.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:00pm</div>
+            <div class="schedule-content">Optional shorter walks: Kea Point Track (2km return, 40 mins) or Tasman Glacier View Track (40 mins return).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:30pm</div>
+            <div class="schedule-content">Depart Mt Cook.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Arrive back in Tekapo. Dinner.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 2h / 210km (Tekapo to Mt Cook return)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Peppers Bluewater Lake Tekapo (2 of 2 nights), breakfast included</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Salmon shop snacks</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/67dcc188-b6b2-4249-8b7d-5aea77a7af81.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/bc2b29cb-357e-4098-9c17-1751944eb297.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 15: Tekapo to Wanaka -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 15</div>
+        <p class="day-dest">Tekapo to Wanaka</p>
+        <h3>Over the Lindis Pass</h3>
+        <p class="day-prop">Marina Terrace Apartments &nbsp;·&nbsp; Night 1 of 2 &nbsp;·&nbsp; Self-Catering Apartments</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">Late breakfast at the lodge, then check out.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:00am</div>
+            <div class="schedule-content">
+              Depart Tekapo south.
+              <div class="schedule-drive">Tekapo to Wanaka: 3h / 200km (longer with stops)</div>
+              Cross the Mackenzie Basin past Lake Pukaki and Twizel, climb over the Lindis Pass with golden tussock-covered ranges rolling away in all directions, then descend into the Cromwell Basin and on to Wanaka along the Clutha River. Suggested stops: Lake Pukaki Lookout, Tarras (for the famous Shrek the Sheep statue), Lindis Pass viewpoint, Cromwell historic precinct.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00pm</div>
+            <div class="schedule-content">Lunch en route. Recommended: Black Rabbit Kitchen in Cromwell (modern bistro overlooking the lake) or Tarras Country Cafe.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:00pm</div>
+            <div class="schedule-content">Arrive Wanaka. Late afternoon check in at <strong>Marina Terrace Apartments.</strong> A short walk from the lakefront and Wanaka township; self-catering apartments with full kitchens and ample communal space.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:00pm <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content">For those interested: <strong>Horse riding at Wanaka</strong> (90 min beginner-friendly trek). Alternative slot is Day 17 morning.<br>For everyone else: lakefront walk, photo stop at the Wanaka Tree, or relax at the apartment.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner in Wanaka township.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 3h / 200km (Tekapo to Wanaka via Lindis Pass), plus stops</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Marina Terrace Apartments (1 of 2 nights), self-catering apartments</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-optional">
+            <div class="tag-label">+ Optional Extra</div>
+            <ul>
+              <li>Horse riding at Wanaka (beginner-friendly): cost TBC. Late afternoon slot today, or Day 17 morning.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/d2d41911-13a5-4113-ade6-69f7f2d38c7a.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/8b13fd5c-2e20-4249-bc98-4c3a3459fcaa.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 16: Wanaka full day -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 16</div>
+        <p class="day-dest">Wanaka (Full Day)</p>
+        <h3>Mou Waho, the Lake within the Lake</h3>
+        <p class="day-prop">Marina Terrace Apartments &nbsp;·&nbsp; Night 2 of 2 &nbsp;·&nbsp; Self-Catering Apartments</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">7:30am</div>
+            <div class="schedule-content">Breakfast at the apartment.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content"><strong>Lake Cruise and Mou Waho Island Nature Walk.</strong> A 4-hour eco trip departing from Wanaka. The cruise crosses Lake Wanaka to Mou Waho Island, where a guided walk leads up to Arethusa Pool — a tarn on top of an island in a lake, on an island. The island is a predator-free reserve home to native wildlife including weka, fernbird and tomtit. Note: weather-dependent; Eco Wanaka rebooks for the next day if cancelled.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00pm</div>
+            <div class="schedule-content">Return to Wanaka.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:30pm</div>
+            <div class="schedule-content">Lunch at a lakefront cafe.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">3:00pm</div>
+            <div class="schedule-content">Afternoon splits the group:<br>
+              <strong>For skydivers:</strong> Skydive Wanaka tandem at 15,000ft (full experience around 3 hours including check-in, training, jump, and de-brief).<br>
+              <strong>For everyone else:</strong> relax at the apartment, lakefront walk, photo stop at the Wanaka Tree, Puzzling World illusion park, or the lower section of the Diamond Lake Track.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner at <strong>Kika</strong> (Wanaka's modern seasonal favourite, advance booking essential).</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> Local only — cruise departs from Wanaka lakefront</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>Marina Terrace Apartments (2 of 2 nights)</li>
+              <li>Lake Cruise and Mou Waho Island Nature Walk</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Breakfast (self-catering)</li>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-optional">
+            <div class="tag-label">+ Optional Extra</div>
+            <ul>
+              <li>Tandem Skydive 15,000ft at Skydive Wanaka: NZD 549 pp (3h experience)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/8b13fd5c-2e20-4249-bc98-4c3a3459fcaa.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/d2d41911-13a5-4113-ade6-69f7f2d38c7a.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 17: Wanaka to Queenstown -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 17</div>
+        <p class="day-dest">Wanaka to Queenstown</p>
+        <h3>Over the Crown Range</h3>
+        <p class="day-prop">MajorDomo Matakauri House &nbsp;·&nbsp; Night 1 of 4 &nbsp;·&nbsp; Private Villa</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">9:30am</div>
+            <div class="schedule-content">Breakfast at the apartment, then check out of Marina Terrace Apartments.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:30am <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content"><strong>For some:</strong> Horse riding at Wanaka (90 min beginner-friendly trek). Alternative slot for anyone who missed Day 15.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00am</div>
+            <div class="schedule-content"><strong>For everyone else:</strong> Rippon Vineyard tasting and lakefront tour (~1.5h). One of NZ's most photographed vineyards, with biodynamic wines tasted in a tasting room overlooking Lake Wanaka.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:30pm</div>
+            <div class="schedule-content">Lunch at a lakefront cafe in Wanaka township.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:00pm</div>
+            <div class="schedule-content">
+              Depart Wanaka south over the Crown Range.
+              <div class="schedule-drive">Wanaka to Queenstown via Crown Range: 1h 15m / 70km</div>
+              The Crown Range Road is the highest sealed road in New Zealand, climbing to 1,076m before dropping into the Wakatipu basin. Suggested stops: Cardrona Hotel (the historic 1863 pub), Crown Range Lookout at the summit, optional brief detour through Arrowtown.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:00pm</div>
+            <div class="schedule-content">Arrive Queenstown. Check in at <strong>Matakauri House.</strong> A private MajorDomo villa overlooking Lake Wakatipu with the Remarkables in the distance. Communal indoor and outdoor spaces designed for the group to gather.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner in Queenstown.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 1h 15m / 70km (Wanaka to Queenstown via Crown Range), plus optional Arrowtown detour</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>MajorDomo Matakauri House (1 of 4 nights), private villa</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Rippon Vineyard tasting fee (~NZD 25 pp)</li>
+              <li>Skyline Gondola if visited</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/2811d3bc-e048-4f82-9510-ee48f7fee50f.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/ba1b042d-e1a8-429d-b3ee-6da204928871.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 18: Milford Sound -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 18</div>
+        <p class="day-dest">Queenstown (Milford Sound)</p>
+        <h3>Fly, Cruise, Fly</h3>
+        <p class="day-prop">MajorDomo Matakauri House &nbsp;·&nbsp; Night 2 of 4 &nbsp;·&nbsp; Private Villa</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:30am</div>
+            <div class="schedule-content">Breakfast at the villa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:30am</div>
+            <div class="schedule-content">Transfer to Queenstown Airport (~15 mins).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:30am</div>
+            <div class="schedule-content"><strong>Air Milford Fly/Cruise/Fly to Milford Sound.</strong> A 35-minute scenic flight over the Southern Alps to Milford Aerodrome, a 1h 45m nature cruise on Milford Sound past Mitre Peak, Stirling Falls, Bowen Falls and the resident fur seal colonies, and a 35-minute return flight via the Hollyford Valley. Total around 5 hours door-to-door.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">4:30pm</div>
+            <div class="schedule-content">Return to Queenstown. Late afternoon at leisure.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner in Queenstown.</div>
+          </div>
+        </div>
+
+        <div class="schedule-note">Milford flights are weather-dependent. If poor weather grounds flights, Air Milford typically rebooks for the next day. Worth keeping Day 19 morning flexible just in case.</div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> ~30 min / 20km (airport return only)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>MajorDomo Matakauri House (2 of 4 nights)</li>
+              <li>Air Milford Fly/Cruise/Fly</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/ba1b042d-e1a8-429d-b3ee-6da204928871.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/2811d3bc-e048-4f82-9510-ee48f7fee50f.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 19: Dart River -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 19</div>
+        <p class="day-dest">Queenstown (Dart River)</p>
+        <h3>Glenorchy &amp; the Dart Wilderness</h3>
+        <p class="day-prop">MajorDomo Matakauri House &nbsp;·&nbsp; Night 3 of 4 &nbsp;·&nbsp; Private Villa</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:30am</div>
+            <div class="schedule-content">Breakfast at the villa.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:00am</div>
+            <div class="schedule-content">
+              Depart for Glenorchy.
+              <div class="schedule-drive">Queenstown to Glenorchy: 45 mins / 45km</div>
+              The Glenorchy-Queenstown Road runs along the western edge of Lake Wakatipu, regularly named one of the country's most scenic drives. Glenorchy is the gateway to Mt Aspiring National Park and to some of the country's most cinematic landscapes; much of the Lord of the Rings trilogy was filmed here.
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:00am <span class="schedule-est">(*est.)</span></div>
+            <div class="schedule-content"><strong>Shared Wilderness Jet Boat with Dart River Adventures.</strong> A jet boat run into the Dart River wilderness with Mt Aspiring National Park rising on either side, then a quieter glide through narrow river channels. After the jet: short stop at Paradise (a Lord of the Rings filming location), or the Glenorchy lagoon and pier.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">1:00pm</div>
+            <div class="schedule-content">Lunch in Glenorchy at Glenorchy Cafe or Mrs Woolly's General Store.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">2:30pm</div>
+            <div class="schedule-content">Drive back to Queenstown. Late afternoon at leisure.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner in Queenstown.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> 1h 30m / 90km (Queenstown to Glenorchy return)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>MajorDomo Matakauri House (3 of 4 nights)</li>
+              <li>Shared Wilderness Jet Boat (Dart River Adventures)</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/2811d3bc-e048-4f82-9510-ee48f7fee50f.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/ba1b042d-e1a8-429d-b3ee-6da204928871.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 20: Queenstown at leisure -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 20</div>
+        <p class="day-dest">Queenstown</p>
+        <h3>Final Day in Aotearoa</h3>
+        <p class="day-prop">MajorDomo Matakauri House &nbsp;·&nbsp; Night 4 of 4 &nbsp;·&nbsp; Private Villa</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">All day</div>
+            <div class="schedule-content">
+              <strong>Final full day at leisure to enjoy Queenstown.</strong> Suggested options:
+              <ul style="margin-top:10px; padding-left:18px; line-height:1.75;">
+                <li>Skyline Gondola + luge from the top of Bob's Peak with views over Lake Wakatipu</li>
+                <li>TSS Earnslaw vintage steamship to Walter Peak farm with a gourmet BBQ</li>
+                <li>Bob's Cove Track (1h easy walk along the lakefront)</li>
+                <li>Arrowtown, the historic gold-mining village</li>
+                <li>Wineries in the Gibbston Valley: Gibbston Valley Wines, Amisfield, Peregrine</li>
+                <li>Onsen Hot Pools at Arthurs Point: private cedar tubs overlooking the Shotover Canyon</li>
+              </ul>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">7:00pm</div>
+            <div class="schedule-content">Dinner in Queenstown.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> Variable — depends on activities chosen</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-included">
+            <div class="tag-label">✓ Included</div>
+            <ul>
+              <li>MajorDomo Matakauri House (4 of 4 nights)</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Lunch and dinner</li>
+              <li>Activities undertaken during the day</li>
+              <li>Fuel</li>
+            </ul>
+          </div>
+          <div class="tag-block tag-optional">
+            <div class="tag-label">+ Optional Extra</div>
+            <ul>
+              <li>Onsen Hot Pools (Original Onsen, 2 pax per booking): NZD 175 per couple. Best at sunset for the canyon view.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/ba1b042d-e1a8-429d-b3ee-6da204928871.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/2811d3bc-e048-4f82-9510-ee48f7fee50f.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 21: Depart -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 21</div>
+        <p class="day-dest">Queenstown to Singapore</p>
+        <h3>Haere rā, Aotearoa</h3>
+        <p class="day-prop">Travel Day</p>
+
+        <div class="schedule">
+          <div class="schedule-item">
+            <div class="schedule-time">8:30am</div>
+            <div class="schedule-content">Breakfast at the villa, then check out.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">9:30am</div>
+            <div class="schedule-content">Vehicle drop-off at Queenstown Airport.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:35am</div>
+            <div class="schedule-content">Air NZ NZ614 departs Queenstown for Auckland (1h 50m).</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:25pm</div>
+            <div class="schedule-content">Arrive Auckland. Transfer between terminals.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">5:00pm</div>
+            <div class="schedule-content">Singapore Airlines departs Auckland for Singapore, around 10 hours 25 minutes.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:25pm</div>
+            <div class="schedule-content">Arrive Singapore.</div>
+          </div>
+        </div>
+
+        <div class="drive-total">
+          <svg class="drive-icon" viewBox="0 0 24 24"><path d="M19 17h2v-6c0-1.1-.9-2-2-2h-3V5H3c-1.1 0-2 .9-2 2v10h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5-7.5h-3.5V8h2.5l1 3zm-1.5 7.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span><strong>Driving today</strong> ~15 min / 15km (villa to Queenstown Airport only)</span>
+        </div>
+
+        <div class="tag-blocks">
+          <div class="tag-block tag-excluded">
+            <div class="tag-label">○ Excluded</div>
+            <ul>
+              <li>Domestic flight Queenstown to Auckland (handled separately, around SGD 100 pp)</li>
+              <li>International flight Auckland to Singapore (separate booking)</li>
+              <li>Meals on travel day</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/2811d3bc-e048-4f82-9510-ee48f7fee50f.jpeg');"></div>
+        <div class="day-img" style="background-image: url('https://assets.tourwriter.com/large/ba1b042d-e1a8-429d-b3ee-6da204928871.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#itinerary -->
+
+
+
+<!-- INCLUSIONS & EXCLUSIONS -->
+<section class="section inc-section" id="inclusions">
+  <div class="section-inner">
+    <p class="eyebrow">The Details</p>
+    <h2>Inclusions &amp; Exclusions</h2>
+    <div class="divider"></div>
+    <div class="inc-grid">
+      <div class="inc-col">
+        <h4>Included</h4>
+        <ul class="inc-list">
+          <li><span class="yes">✓</span><span>All accommodation across 10 properties (20 nights total)</span></li>
+          <li><span class="yes">✓</span><span>Daily breakfast where noted (B&amp;B properties + add-ons listed)</span></li>
+          <li><span class="yes">✓</span><span>Pre-dinner drinks &amp; canapés at Pīhopa Retreat and The Marlborough</span></li>
+          <li><span class="yes">✓</span><span>Two Premium 4WD Toyota Prado rentals with MAX Damage Waiver — Auckland → Taupō and Nelson → Queenstown</span></li>
+          <li><span class="yes">✓</span><span>Private arrival transfer (Mercedes Sprinter), Auckland Airport to city</span></li>
+          <li><span class="yes">✓</span><span>Hobbiton Movie Set Signature Tour</span></li>
+          <li><span class="yes">✓</span><span>Redwoods Treewalk</span></li>
+          <li><span class="yes">✓</span><span>Wai Ariki Restorative Journey (2.5 hrs)</span></li>
+          <li><span class="yes">✓</span><span>Mitai Māori Cultural Evening Experience — dinner included</span></li>
+          <li><span class="yes">✓</span><span>Shared Best Abel Tasman Day Trip — lunch &amp; refreshments included</span></li>
+          <li><span class="yes">✓</span><span>Whale Watch Kaikoura — Ocean's Cabin</span></li>
+          <li><span class="yes">✓</span><span>Eco Wanaka Lake Cruise &amp; Island Nature Walk</span></li>
+          <li><span class="yes">✓</span><span>Milford Fly/Cruise/Fly with Air Milford — picnic lunch included</span></li>
+          <li><span class="yes">✓</span><span>Shared Wilderness Jet Boat with Dart River Adventures</span></li>
+        </ul>
+      </div>
+      <div class="inc-col">
+        <h4>Exclusions</h4>
+        <ul class="inc-list">
+          <li><span class="no">–</span><span>International flights, own arrangements</span></li>
+          <li><span class="no">–</span><span>Domestic flights (Taupō–Auckland, Auckland–Nelson, Queenstown–Auckland), own arrangements</span></li>
+          <li><span class="no">–</span><span>Vehicle one-way fees (Auckland–Taupō, Nelson–Queenstown), payable at depot</span></li>
+          <li><span class="no">–</span><span>Optional add-ons (see below)</span></li>
+          <li><span class="no">–</span><span>Lunches, dinners and beverages outside of those noted</span></li>
+          <li><span class="no">–</span><span>Travel insurance</span></li>
+          <li><span class="no">–</span><span>Gratuities and items of a personal nature</span></li>
+        </ul>
+        <h4 style="margin-top: 36px;">Optional Add-Ons</h4>
+        <ul class="inc-list">
+          <li><span class="yes">+</span><span>Summit Stargazing with Dark Sky Project, Tekapo — <strong>NZ$225 per person</strong></span></li>
+          <li><span class="yes">+</span><span>Tandem Skydive 15,000ft, Wanaka — <strong>NZ$549 per person</strong></span></li>
+          <li><span class="yes">+</span><span>The Original Onsen Hot Pools, Queenstown — <strong>NZ$175 per pool (two bathers)</strong></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner" style="max-width: 620px; text-align: center;">
+    <p class="eyebrow">Investment</p>
+    <h2 style="color: var(--green-deep);">Indicative Trip Cost</h2>
+    <div class="divider" style="margin: 20px auto 0;"></div>
+    <span class="price-amount">from SGD 8,000</span>
+    <p class="price-context">per traveller &nbsp;·&nbsp; land only, excluding international flights</p>
+    <span class="price-footnote">Final pricing depends on seasonality, group size and choice of accommodation. This is a sample itinerary, shared to show how a three-week New Zealand self-drive comes together. Every trip we plan is built around your own dates, pace and interests, so the route, properties and cost will shift accordingly. Rates for vehicles, touring and accommodation are based on current operator rates and are subject to change until confirmed.</span>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Outpost Travel</div>
+  <div class="footer-note">Sample Itinerary &nbsp;·&nbsp; New Zealand Self-Drive</div>
+</footer>
+
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const track = document.getElementById('c-track');
+  const cards = track.querySelectorAll('.c-card');
+  const dots  = document.querySelectorAll('.c-dot');
+  const prev  = document.getElementById('c-prev');
+  const next  = document.getElementById('c-next');
+  const dotCards = [0, 3, 6, 9];
+  let idx = 0;
+
+  function dotForCard(n) {
+    if (n <= 2) return 0;
+    if (n <= 5) return 1;
+    if (n <= 8) return 2;
+    return 3;
+  }
+
+  function updateDots(cardIdx) {
+    const di = dotForCard(cardIdx);
+    dots.forEach((d, i) => d.classList.toggle('active', i === di));
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= cards.length) return;
+    idx = n;
+    track.scrollTo({ left: cards[n].offsetLeft, behavior: 'smooth' });
+    updateDots(n);
+  }
+
+  prev.addEventListener('click', () => goTo(idx - 1));
+  next.addEventListener('click', () => goTo(idx + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(dotCards[i])));
+
+  const tlRow = document.querySelector('.tl-row');
+  if (tlRow) {
+    const tlObs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        tlRow.classList.add('tl-visible');
+        tlObs.disconnect();
+      }
+    }, { threshold: 0.25 });
+    tlObs.observe(tlRow);
+  }
+
+  track.addEventListener('scroll', () => {
+    let closest = 0, minD = Infinity;
+    cards.forEach((c, i) => {
+      const d = Math.abs(c.offsetLeft - track.scrollLeft);
+      if (d < minD) { minD = d; closest = i; }
+    });
+    if (closest !== idx) {
+      idx = closest;
+      updateDots(closest);
+    }
+  });
+</script>
+
+</body>
+</html>
