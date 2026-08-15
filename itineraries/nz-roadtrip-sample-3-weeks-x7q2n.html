@@ -51,7 +51,9 @@
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff;
+      text-decoration: none; transition: opacity 0.2s;
     }
+    .nav-logo:hover { opacity: 0.7; }
     .nav-links { display: flex; gap: 32px; }
     .nav-links a {
       color: rgba(255,255,255,0.75); font-size: 0.72rem;
@@ -438,7 +440,9 @@
     .footer-logo {
       font-family: 'Cormorant Garamond', serif; font-size: 1rem;
       letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38);
+      text-decoration: none; transition: color 0.2s;
     }
+    .footer-logo:hover { color: rgba(255,255,255,0.65); }
     .footer-note { font-size: 0.68rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; }
 
     /* HOVER */
@@ -730,7 +734,7 @@
 <body>
 
 <nav id="main-nav">
-  <div class="nav-logo">Outpost Travel</div>
+  <a class="nav-logo" href="https://outposttravel.co/">Outpost Travel</a>
   <div class="nav-links">
     <a href="#outline">Outline</a>
     <a href="#properties">Properties</a>
@@ -2795,7 +2799,7 @@
     <h2 style="color: var(--green-deep);">Indicative Trip Cost</h2>
     <div class="divider" style="margin: 20px auto 0;"></div>
     <span class="price-amount">from SGD 8,000 per pax for 21 days</span>
-    <p class="price-context">Land only, excluding international flights</p>
+    <p class="price-context">Land &amp; included activities, excluding international flights</p>
     <span class="price-footnote">Final pricing depends on seasonality, group size and choice of accommodation. This is a sample itinerary, shared to show how a three-week New Zealand self-drive comes together. Every trip we plan is built around your own dates, pace and interests, so the route, properties and cost will shift accordingly. Rates for vehicles, touring and accommodation are based on current operator rates and are subject to change until confirmed.</span>
   </div>
 </section>
@@ -2803,7 +2807,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Outpost Travel</div>
+  <a class="footer-logo" href="https://outposttravel.co/">Outpost Travel</a>
   <div class="footer-note">Sample Itinerary &nbsp;·&nbsp; New Zealand Self-Drive</div>
 </footer>
 
