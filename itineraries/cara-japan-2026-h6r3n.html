@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Japan · Tokyo, Hakone &amp; Kyoto · Alchemist Travel</title>
+  <meta name="description" content="A bespoke nine-day Japan journey for Cara and family, 16 to 24 October 2026. Tokyo, Hakone and Kyoto. Prepared by Alchemist Travel.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Japan · Tokyo, Hakone &amp; Kyoto">
+  <meta property="og:description" content="A bespoke nine-day Japan journey for a family of four, October 2026.">
+  <meta property="og:site_name" content="Alchemist Travel">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green-deep:  #4A1D12;   /* deep burnt momiji */
+      --green-mid:   #8A3A1E;   /* persimmon, links */
+      --green-light: #B85C33;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --cream:       #FBF7F1;
+      --warm-white:  #FFFFFF;
+      --text-dark:   #1A1A18;
+      --text-mid:    #4A4A45;
+      --text-light:  #7A7A72;
+      --border:      #EADFCF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-dark);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(74,29,18,0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a.active { color: var(--gold); }
+
+    .hero {
+      height: 100vh; min-height: 640px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      background: var(--green-deep);
+      background-size: cover; background-position: center 45%;
+    }
+    .hero-proposal {
+      font-size: 0.92rem; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(4rem, 9vw, 7rem); line-height: 0.95;
+      color: #fff; letter-spacing: 0.03em;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-destinations {
+      margin-top: 28px;
+      font-size: 1.02rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+    .hero-rule {
+      width: 40px; height: 1px; background: rgba(201,168,76,0.5);
+      margin: 32px auto;
+    }
+    .hero-client-meta {
+      margin-top: 14px;
+      font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+    }
+    .hero-brand {
+      position: absolute; bottom: 36px; left: 0; right: 0; text-align: center;
+      font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .photo-caption {
+      position: absolute; bottom: 22px; left: 28px; z-index: 4;
+      max-width: 60%;
+      pointer-events: none;
+    }
+    .photo-caption::before {
+      content: ''; position: absolute;
+      left: -28px; right: -28px; bottom: -22px; top: -28px;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0) 75%);
+      z-index: -1;
+    }
+    .photo-caption .pc-loc {
+      display: block;
+      font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 4px;
+    }
+    .photo-caption .pc-desc {
+      display: block;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.1rem; color: rgba(255,255,255,0.92);
+      line-height: 1.3;
+    }
+    @media (max-width: 600px) {
+      .photo-caption { left: 20px; bottom: 18px; max-width: 78%; }
+      .photo-caption .pc-loc { font-size: 0.7rem; letter-spacing: 0.14em; }
+      .photo-caption .pc-desc { font-size: 0.95rem; }
+    }
+
+    .section { padding: 68px 48px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(2rem, 3.6vw, 2.85rem); line-height: 1.12;
+      color: var(--green-deep); margin-bottom: 20px;
+    }
+    p { font-size: 1rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* OVERVIEW */
+    .overview-section { background: var(--cream); }
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .stats { display: flex; flex-direction: column; gap: 26px; padding-top: 6px; }
+    .stat { border-left: 2px solid var(--gold); padding-left: 22px; }
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1; margin-bottom: 5px;
+    }
+    .stat-l { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); line-height: 1.5; }
+
+    /* TIMELINE */
+    .timeline-section { background: var(--green-deep); padding: 56px 48px; }
+    .timeline-section .eyebrow { color: var(--gold-light); }
+    .timeline-section h2 { color: #fff; margin-bottom: 8px; }
+    .timeline-caption {
+      font-size: 0.88rem; color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em; margin-top: 16px;
+      font-style: italic;
+    }
+
+    .tl-frame { position: relative; margin-top: 44px; }
+    .tl-frame::before, .tl-frame::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
+      pointer-events: none; z-index: 2;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .tl-frame::before {
+      left: 0;
+      background: linear-gradient(to right, var(--green-deep), transparent);
+    }
+    .tl-frame::after {
+      right: 0;
+      background: linear-gradient(to left, var(--green-deep), transparent);
+    }
+    .tl-frame.tl-can-scroll-left::before { opacity: 1; }
+    .tl-frame.tl-can-scroll-right::after { opacity: 1; }
+    .tl-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(74,29,18,0.85);
+      color: rgba(255,255,255,0.85); font-size: 1.4rem; line-height: 1;
+      cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.25s, border-color 0.2s, color 0.2s, background 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .tl-arrow:hover { color: var(--gold); border-color: var(--gold); background: rgba(74,29,18,0.95); }
+    .tl-arrow:disabled { opacity: 0; pointer-events: none; }
+    .tl-arrow-prev { left: -8px; }
+    .tl-arrow-next { right: -8px; }
+    .tl-outer { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .tl-outer::-webkit-scrollbar { display: none; }
+
+    .tl-row {
+      display: flex; align-items: flex-start;
+      min-width: 760px; position: relative;
+      padding-top: 0;
+    }
+    .tl-row::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: calc(16% + 4px);
+      right: calc(16% + 4px);
+      height: 1px;
+      background: rgba(201,168,76,0.22);
+    }
+
+    .tl-stop {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; text-align: center; padding: 0 8px;
+    }
+    .tl-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--gold);
+      position: relative; z-index: 1;
+      flex-shrink: 0;
+      margin-bottom: 18px;
+    }
+    .tl-days {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; color: var(--gold-light);
+      font-weight: 400; letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .tl-country {
+      font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 7px;
+    }
+    .tl-prop {
+      font-size: 0.92rem; color: rgba(255,255,255,0.9);
+      line-height: 1.4;
+    }
+
+    /* DAY SECTIONS */
+    #itinerary .day-section { background: var(--warm-white); }
+    #itinerary .day-section:nth-child(even) { background: var(--cream); }
+
+    .day-grid { display: grid; grid-template-columns: 3fr 2fr; min-height: 460px; }
+    #itinerary .day-section:nth-child(even) .day-grid { grid-template-columns: 2fr 3fr; }
+    #itinerary .day-section:nth-child(even) .day-imgs { order: -1; }
+
+    .day-text {
+      padding: 52px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .day-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400;
+      color: var(--gold);
+      line-height: 1; margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .day-dest {
+      font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .day-text h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.95rem; font-weight: 400;
+      color: var(--green-deep); line-height: 1.1; margin-bottom: 6px;
+    }
+    .day-prop {
+      font-size: 0.88rem; color: var(--text-light); letter-spacing: 0.04em; margin-bottom: 20px;
+    }
+    .day-text p { font-size: 0.94rem; line-height: 1.78; color: var(--text-mid); margin-bottom: 12px; }
+    .day-text p:last-of-type { margin-bottom: 0; }
+    .day-text a { color: var(--green-mid); text-decoration: underline; text-underline-offset: 2px; }
+    .day-text a:hover { color: var(--green-deep); }
+
+    .day-imgs {
+      display: flex; flex-direction: column;
+    }
+    .day-img {
+      flex: 1;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid); min-height: 200px;
+      position: relative;
+    }
+
+    /* WHERE YOU'LL STAY */
+    .stay-section { background: var(--cream); }
+    .stay-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 44px;
+    }
+    .stay-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column;
+    }
+    .stay-img {
+      height: 200px;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+      position: relative;
+    }
+    .stay-img { border-bottom: 1px solid var(--border); }
+    .stay-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+    .stay-loc {
+      font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 9px;
+    }
+    .stay-card h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400;
+      color: var(--green-deep); line-height: 1.2; margin-bottom: 6px;
+    }
+    .stay-nights {
+      font-size: 0.84rem; color: var(--text-light); margin-bottom: 14px;
+      letter-spacing: 0.03em;
+    }
+    .stay-card p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 14px; }
+    .stay-room {
+      margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border);
+      font-size: 0.84rem; color: var(--text-light); line-height: 1.55;
+    }
+    .stay-room strong { color: var(--green-deep); font-weight: 500; }
+    @media (max-width: 900px) {
+      .stay-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* INCLUSIONS */
+    .inc-section { background: var(--green-deep); }
+    .inc-section .eyebrow { color: var(--gold-light); }
+    .inc-section h2 { color: #fff; }
+    .inc-section .divider { background: var(--gold); }
+    .inc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+    .inc-col h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: var(--gold-light); margin-bottom: 22px;
+    }
+    .inc-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .inc-list li {
+      display: flex; gap: 14px;
+      font-size: 0.97rem; color: rgba(255,255,255,0.78); line-height: 1.62;
+    }
+    .yes { color: var(--gold); flex-shrink: 0; font-size: 0.9rem; padding-top: 2px; }
+    .no  { color: rgba(255,255,255,0.3); flex-shrink: 0; font-size: 0.9rem; padding-top: 2px; }
+
+    /* PRICING */
+    .pricing-section { background: var(--warm-white); text-align: center; }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif; font-size: 4.8rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1;
+      display: block; margin-top: 36px;
+    }
+    .price-context {
+      font-size: 0.92rem; color: var(--text-light);
+      letter-spacing: 0.05em; margin-top: 12px;
+    }
+    .price-pp {
+      display: inline-block; margin-top: 20px;
+      font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-light); border: 1px solid var(--border); padding: 9px 22px;
+    }
+    .price-footnote {
+      display: block; margin-top: 22px;
+      font-size: 0.88rem; color: var(--text-light); font-style: italic;
+      max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.75;
+    }
+
+    /* OPTIONAL ENHANCEMENTS */
+    .opt-list {
+      list-style: none; margin: 36px auto 0; max-width: 620px;
+      text-align: left; display: flex; flex-direction: column; gap: 0;
+    }
+    .opt-list li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 24px;
+      padding: 15px 0; border-top: 1px solid var(--border);
+      font-size: 0.95rem; color: var(--text-mid); line-height: 1.6;
+    }
+    .opt-list li:last-child { border-bottom: 1px solid var(--border); }
+    .opt-price {
+      flex-shrink: 0; color: var(--green-deep); font-weight: 500;
+      letter-spacing: 0.03em; font-size: 0.92rem;
+    }
+    .opt-name strong { color: var(--green-deep); font-weight: 500; }
+    .opt-name span { display: block; font-size: 0.87rem; color: var(--text-light); margin-top: 3px; }
+
+    /* CTA */
+    .cta-section { background: var(--cream); padding: 64px 48px; }
+    .cta-eyebrow {
+      font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .cta-body {
+      font-size: 1.05rem; line-height: 1.85; color: var(--text-mid);
+      margin-bottom: 18px;
+    }
+    .cta-sign { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .cta-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      font-weight: 400; color: var(--green-deep); margin-bottom: 6px;
+    }
+    .cta-meta {
+      font-size: 0.92rem; color: var(--text-light); margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+    .cta-meta a {
+      color: var(--green-mid); text-decoration: underline;
+      text-underline-offset: 3px; transition: color 0.2s;
+    }
+    .cta-meta a:hover { color: var(--green-deep); }
+    @media (max-width: 600px) {
+      .cta-section { padding: 60px 22px; }
+      .cta-body { font-size: 1rem; }
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111; padding: 36px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38);
+    }
+    .footer-note { font-size: 0.82rem; color: rgba(255,255,255,0.32); letter-spacing: 0.06em; }
+
+    /* HOVER */
+    .day-img { transition: filter 0.45s ease; filter: contrast(1.08) saturate(1.06); }
+    .day-section:hover .day-imgs .day-img { filter: brightness(1.05) contrast(1.08) saturate(1.06); }
+
+    /* TIMELINE ANIMATION */
+    .tl-row::before {
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    }
+    .tl-row.tl-visible::before { transform: scaleX(1); }
+
+    .tl-stop {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .tl-row.tl-visible .tl-stop:nth-child(1) { transition-delay: 0.30s; }
+    .tl-row.tl-visible .tl-stop:nth-child(2) { transition-delay: 0.42s; }
+    .tl-row.tl-visible .tl-stop:nth-child(3) { transition-delay: 0.54s; }
+    .tl-row.tl-visible .tl-stop { opacity: 1; transform: translateY(0); }
+
+    .tl-dot { transition: transform 0.22s ease, box-shadow 0.22s ease; }
+    .tl-stop:hover .tl-dot {
+      transform: scale(1.55);
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.22);
+    }
+    .tl-prop { transition: color 0.2s ease; }
+    .tl-country { transition: color 0.2s ease; }
+    .tl-stop:hover .tl-country { color: var(--gold-light); }
+    .tl-stop:hover .tl-prop { color: #fff; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .section { padding: 64px 24px; }
+      .timeline-section { padding: 48px 24px; }
+      .overview-grid { grid-template-columns: 1fr; gap: 40px; }
+      .day-grid,
+      #itinerary .day-section:nth-child(even) .day-grid { grid-template-columns: 1fr; }
+      .day-imgs,
+      #itinerary .day-section:nth-child(even) .day-imgs { order: -1; }
+      .day-img { min-height: 220px; }
+      .day-text { padding: 40px 24px; }
+      .inc-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+
+      .hero-brand { white-space: normal; line-height: 1.9; padding: 0 24px; }
+
+      .day-prop  { font-size: 0.92rem; }
+      .price-amount { font-size: 3rem; }
+
+      .opt-list li { flex-direction: column; gap: 6px; }
+
+      .tl-outer { overflow-x: visible; }
+      .tl-arrow, .tl-frame::before, .tl-frame::after { display: none; }
+      .timeline-caption { display: none; }
+      .tl-row {
+        flex-direction: column;
+        align-items: stretch;
+        min-width: 0;
+        padding-left: 24px;
+        gap: 0;
+      }
+      .tl-row::before {
+        top: 5px;
+        left: 4px;
+        right: auto;
+        bottom: 28px;
+        width: 1px;
+        height: auto;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+      }
+      .tl-row.tl-visible::before { transform: scaleY(1); }
+      .tl-stop {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto auto;
+        column-gap: 16px;
+        align-items: start;
+        text-align: left;
+        padding: 0 0 26px 0;
+        position: relative;
+      }
+      .tl-stop:last-child { padding-bottom: 0; }
+      .tl-dot {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        margin-left: -28px;
+        margin-bottom: 0;
+        margin-top: 3px;
+        align-self: start;
+      }
+      .tl-days    { grid-column: 2; }
+      .tl-country { grid-column: 2; }
+      .tl-prop    { grid-column: 2; }
+      .tl-stop { transform: translateX(-10px); }
+      .tl-row.tl-visible .tl-stop { transform: translateX(0); }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 52px 20px; }
+      .timeline-section { padding: 44px 20px; }
+      .day-text { padding: 36px 20px; }
+      .hero h1 { font-size: clamp(3rem, 13vw, 5rem); }
+      .hero-proposal { font-size: 0.78rem; letter-spacing: 0.24em; }
+      .hero-destinations { font-size: 0.85rem; letter-spacing: 0.16em; }
+      .hero-client-meta { font-size: 0.78rem; letter-spacing: 0.14em; }
+      .price-amount { font-size: 2.6rem; }
+      .stat-n { font-size: 1.9rem; }
+    }
+
+    /* DAY NOTE */
+    .schedule-note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+      background: rgba(201,168,76,0.06);
+      border-left: 2px solid rgba(201,168,76,0.4);
+      padding: 13px 18px;
+      margin: 22px 0 0;
+      line-height: 1.7;
+    }
+    .schedule-note strong {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--green-deep);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* DAY FACTS (meals / guide / accommodation, per the operator's own footer) */
+    .day-facts {
+      margin-top: 26px;
+      border-top: 1px solid var(--border);
+    }
+    .fact {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .fact-l {
+      font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+    }
+    .fact-v { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+    .fact-v em { font-style: normal; color: var(--text-light); }
+
+    #itinerary .day-section { min-height: auto; }
+    #itinerary .day-grid { min-height: 0; }
+    #itinerary .day-text { padding: 48px 56px; }
+
+    @media (max-width: 900px) {
+      .fact { grid-template-columns: 1fr; gap: 3px; padding: 11px 0; }
+      #itinerary .day-text { padding: 36px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-logo">Alchemist Travel</div>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#stay">Stays</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#inclusions">Inclusions</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div class="hero" style="background-image: linear-gradient(to bottom, rgba(42,16,8,0.38) 0%, rgba(42,16,8,0.72) 100%), url('images/jp-hero-fuji-chureito.jpg');">
+  <p class="hero-proposal">A Bespoke Japan Journey for Cara &amp; Family</p>
+  <h1><em>Japan</em></h1>
+  <p class="hero-destinations">Tokyo &middot; Hakone &middot; Kyoto</p>
+  <p class="hero-client-meta">16 &ndash; 24 October 2026 &nbsp;&middot;&nbsp; Nine Days &nbsp;&middot;&nbsp; Family of Four</p>
+  <div class="hero-brand">Alchemist Travel &nbsp;&middot;&nbsp; kristin@alchemisttravel.com</div>
+</div>
+
+
+<!-- TRIP OVERVIEW -->
+<section class="section overview-section" id="overview" style="background: var(--warm-white);">
+  <div class="section-inner">
+    <div class="overview-grid">
+      <div>
+        <p class="eyebrow">The Journey</p>
+        <h2>Nine days,<br>three Japans</h2>
+        <div class="divider"></div>
+        <p>Four nights in Tokyo open the trip, long enough to take the city in three passes: the old temple quarter of Asakusa and the shrines, the hypermodern waterfront and its digital art, and a full day left free to follow whatever the four of you have taken a liking to.</p>
+        <p>Then out to Hakone, into the national park at the foot of Mt Fuji, for a single night in a hot-spring ryokan with an open-air bath, a kaiseki dinner and a lake crossing beneath the mountain. From there the bullet train south to Kyoto for three nights, where the golden pavilion, a shogun's castle, the bamboo groves of Arashiyama and an afternoon with sword masters round the trip out.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">8</div>
+          <div class="stat-l">Nights &middot; Tokyo 4, Hakone 1, Kyoto 3</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">4</div>
+          <div class="stat-l">Travellers &middot; two adults, two teens</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">4</div>
+          <div class="stat-l">Guided days &middot; English-speaking guide throughout</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">Oct</div>
+          <div class="stat-l">Autumn &middot; mild days, first colour in the hills</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHERE YOU'LL STAY -->
+<section class="section stay-section" id="stay">
+  <div class="section-inner">
+    <p class="eyebrow">Where you'll stay</p>
+    <h2>Three very different nights</h2>
+    <div class="divider"></div>
+    <p style="max-width: 680px;">A contemporary hotel in Ginza, a hot-spring ryokan in the mountains, and a Parisian maison's hotel on the Kamo river in Kyoto. All three include breakfast. Nothing is held at this stage, so if you would like me to look at alternatives in any of the three, now is the moment.</p>
+
+    <div class="stay-grid">
+      <div class="stay-card">
+        <div class="stay-img" style="background-image: url('images/jp-hotel-gate-tokyo.jpg'); background-position: center 35%;"></div>
+        <div class="stay-body">
+          <div class="stay-loc">Tokyo &middot; Nights 1 to 4</div>
+          <h4>The Gate Hotel Tokyo by Hulic</h4>
+          <div class="stay-nights">Four nights, bed and breakfast</div>
+          <p>A contemporary hotel in Ginza, two minutes' walk from Ginza station and close to Yurakucho, which puts the subway and the main lines within easy reach on the two guided days. There is a rooftop restaurant and terrace on the top floor.</p>
+          <div class="stay-room"><strong>Rooms:</strong> two Classy Twin rooms, one for the adults and one for the kids</div>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="stay-img" style="background-image: url('images/jp-hotel-tenyu-hakone.jpg'); background-position: center;"></div>
+        <div class="stay-body">
+          <div class="stay-loc">Hakone &middot; Night 5</div>
+          <h4>Hakone Kowakien Tenyu</h4>
+          <div class="stay-nights">One night, dinner and breakfast</div>
+          <p>A modern ryokan opened in 2017 on the hillside above the Hakone valley, where every room has its own ceramic open-air hot-spring tub looking out at the ridgelines. Communal baths as well, and a kaiseki dinner included. The one night of the trip where you sleep on tatami.</p>
+          <div class="stay-room"><strong>Room:</strong> one Superior Room with its own open-air bath, 35 sqm, four sharing</div>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="stay-img" style="background-image: url('images/jp-hotel-fauchon-kyoto.jpg'); background-position: center;"></div>
+        <div class="stay-body">
+          <div class="stay-loc">Kyoto &middot; Nights 6 to 8</div>
+          <h4>Fauchon Hotel Kyoto</h4>
+          <div class="stay-nights">Three nights, bed and breakfast</div>
+          <p>The Parisian maison's Kyoto hotel, on the bank of the Kamo river with Higashiyama rising behind it, and about ten minutes' walk from Gion. The pastry-led breakfast is a genuine reason to come down early.</p>
+          <div class="stay-room"><strong>Rooms:</strong> one Superior Twin and one Superior King</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="section-inner">
+    <h2>Journey at a glance</h2>
+    <div class="tl-frame">
+      <button class="tl-arrow tl-arrow-prev" id="tl-prev" aria-label="Scroll left">&#8249;</button>
+      <button class="tl-arrow tl-arrow-next" id="tl-next" aria-label="Scroll right">&#8250;</button>
+    <div class="tl-outer">
+      <div class="tl-row">
+
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 1 &ndash; 5</div>
+          <div class="tl-country">Tokyo</div>
+          <div class="tl-prop">Four nights &middot; The Gate Hotel Tokyo by Hulic</div>
+        </div>
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 5 &ndash; 6</div>
+          <div class="tl-country">Hakone</div>
+          <div class="tl-prop">One night &middot; Hakone Kowakien Tenyu</div>
+        </div>
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 6 &ndash; 9</div>
+          <div class="tl-country">Kyoto</div>
+          <div class="tl-prop">Three nights &middot; Fauchon Hotel Kyoto</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <p class="timeline-caption">Scroll for the full route &middot;</p>
+  </div>
+</div>
+
+
+<!-- DAY SECTIONS -->
+<div id="itinerary">
+
+  <!-- Day 1 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 1</div>
+        <p class="day-dest">Tokyo &middot; Friday, 16 October 2026</p>
+        <h3>Arrival in Tokyo</h3>
+        <p>One of the world&rsquo;s most cutting-edge capitals, Tokyo is a city of contrasts. Famous for its sprawling neon-lit landscape it is also home to expansive parkland, peaceful shrines and temples, and lovingly tended gardens. On the surface, Tokyo is a mix of digital trends and conspicuous consumption, but dig deeper and you will find a city rooted deeply in the traditional culture. Shinto shrines and Buddhist temples stand close to skyscrapers as a reminder of a more contemplative time. At the heart of the hyperactive centre lies the serene Imperial Palace, the home of the ruling emperor that provides a tangible link to the city&rsquo;s historical past. Behind the shopping, entertainment, and commercial emporia you will find quaint wooden houses, private gardens with meticulously clipped bonsai trees and the calm of the Hamarikyu Gardens.</p>
+        <p>Upon arrival at the airport, an English-speaking assistant will meet you on the arrival lobby.</p>
+        <p>A private transfer will take you to your accommodation.</p>
+        <div class="schedule-note"><strong>Notes</strong>You can bring a maximum of one suitcase per person. Additional luggage requires a larger vehicle, quoted at an additional cost. Additional fees are applicable for transfers between 8pm and 7am.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">None</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">None</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Gate Hotel Tokyo by Hulic &middot; Classy Twin (x2)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-shibuya-night.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">TOKYO</span>
+            <span class="pc-desc">The scramble crossing at Shibuya, after dark</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 2 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 2</div>
+        <p class="day-dest">Tokyo &middot; Saturday, 17 October 2026</p>
+        <h3>Full Day Tokyo Highlights Tour</h3>
+        <p>Take a full-day tour of this fascinating city with a local guide. First up is Asakusa, Tokyo&rsquo;s old town where you can soak in the atmosphere of traditional Tokyo. Visit Sensoji, Tokyo&rsquo;s oldest temple and wander down Nakamise, a shopping street that has been providing temple visitors with a variety of traditional, local snacks and tourist souvenirs for centuries.</p>
+        <p>Next, travel to Hamarikyu Garden, an Edo-period Japanese garden surrounded by the Shiodome district&rsquo;s futuristic skyscrapers, a great example of how Japan is the land of contrasts. Here, you will stop for a cup of steaming matcha and Japanese sweets in a tea house on a small island in the park&rsquo;s lake.</p>
+        <p>Later, enjoy a visit to Meiji Shrine, a shrine dedicated to the deified spirit of Emperor Meiji and a popular place for traditional Japanese weddings. Finally, as the sunlight fades, take a walk down the flashy Omotesando shopping street, a broad tree-lined avenue home to flagship stores of some of the world&rsquo;s top fashion brands as well as some fantastic modern architecture.</p>
+        <p>Finish the day with a visit to Shibuya, one of Japan&rsquo;s major shopping and entertainment districts, and home of the famous 5-way &lsquo;scramble crossing&rsquo;.</p>
+        <p>You will make your own way home from Shibuya Station at the end of the tour.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">8 hours &middot; <em>by public transport</em></span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Gate Hotel Tokyo by Hulic &middot; Classy Twin (x2)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-sensoji.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">ASAKUSA</span>
+            <span class="pc-desc">Sensoji, Tokyo&rsquo;s oldest temple</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 3 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 3</div>
+        <p class="day-dest">Tokyo &middot; Sunday, 18 October 2026</p>
+        <h3>Full Day &lsquo;The Future is Tokyo&rsquo; Tour</h3>
+        <p>When the sprawling metropolis of Tokyo ran out of space, city planners inevitably turned to the sea. Odaiba is a man-made island created by massive landfills featuring many hypermodern and strange buildings, memorably described as the result of a pre-schooler&rsquo;s architecture class. Marvelling at the exhibition pavilions, shopping malls, game centres, caf&eacute;s, restaurants, and surrealistic constructions of Odaiba, visitors will undoubtedly feel intrigued by the island&rsquo;s majestic structures that seem to hail from the future rather than the past.</p>
+        <p>Visit teamLab Planets, which, together with now-closed teamLab Borderless, is also affectionately referred to as the &lsquo;Instagram Museum&rsquo;. Inside, projection mapping cleverly melds with human interaction, creating a fantasy world of illusions shaking the very foundations of what art is.</p>
+        <p>Next, visit Small Worlds, a highly interactive museum of hand-built miniature worlds, standing in for the Museum of Emerging Science while it is closed for renovation.</p>
+        <p>Take a ride on Tokyo&rsquo;s monorail back to the mainland and visit Akihabara. Also known as Electric Town, Akihabara is famous for its hundreds of electronic shops selling a mindboggling range of gadgets, gizmos, and similar devices. In recent times, however, Akihabara has become even more famous for its &lsquo;otaku&rsquo; culture. The term otaku is used about those obsessed with cosplay, manga, anime, gaming, or other aspects of Japanese pop-culture, and the many stores of Akihabara cater to all kinds of otaku. Even the nearby Kanda Shrine has an anime twist to its story.</p>
+        <p>This tour will start and end at your accommodation.</p>
+        <div class="schedule-note"><strong>Notes</strong>Due to the high popularity of teamLab Planets, tickets may be unavailable during busy seasons, and tickets are non-refundable once purchased. The Museum of Emerging Science is closed for renovations from 1 October 2026, so you will visit Small Worlds instead.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">8 hours &middot; <em>by public transport</em></span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Gate Hotel Tokyo by Hulic &middot; Classy Twin (x2)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-teamlab.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">TOKYO</span>
+            <span class="pc-desc">teamLab Planets</span>
+          </div>
+        </div>
+        <div class="day-img" style="background-image: url('images/jp-akihabara.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">AKIHABARA</span>
+            <span class="pc-desc">Electric Town</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 4 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 4</div>
+        <p class="day-dest">Tokyo &middot; Monday, 19 October 2026</p>
+        <h3>Day at Leisure</h3>
+        <p>The day is free to spend in Tokyo at your leisure.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">None</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Gate Hotel Tokyo by Hulic &middot; Classy Twin (x2)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-tokyo-yokocho.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">TOKYO</span>
+            <span class="pc-desc">A free day, and a lane worth getting lost in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 5 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 5</div>
+        <p class="day-dest">Tokyo &rarr; Hakone &middot; Tuesday, 20 October 2026</p>
+        <h3>Full Day Hakone Excursion from Tokyo</h3>
+        <p>Hakone is a natural wonderland and is famous for its hot springs, outdoor pursuits and the view of the nearby Mt. Fuji. It is part of the Fuji-Hakone-Izu National Park and is less than 100km from Tokyo, thereby providing a popular weekend destination for city residents keen to escape the frenzy of the capital. Beautiful Hakone has about everything a vacationer could wish for. Besides the towering mountains, lakes and views of Mt. Fuji, it is also blessed with interesting historical sites.</p>
+        <p>Today, leave Tokyo behind as you journey to Hakone, one of the gateways to Mt. Fuji and the surrounding national park.</p>
+        <p>Travel to Hakone to explore the Hakone &lsquo;Loop&rsquo;. The loop can be done in a clockwise or anti-clockwise direction and typically includes a journey up to the Gora area to ride the Hakone Ropeway to the Owakudani volcano crater. Here, you can try the tasty black eggs boiled in water bubbling up from within the volcano itself. Also included in today&rsquo;s arrangements is a cruise across Lake Ashi before checking in to your accommodation in Hakone.</p>
+        <p>On this tour you might be lucky to catch a glimpse of Mt. Fuji, but please note that she is a notoriously shy mountain and the weather needs to be perfectly clear for her to be visible. Visibility is best from November to March.</p>
+        <div class="schedule-note"><strong>Notes</strong>Luggage transfer to Kyoto, one piece per person, is included. The order of places visited may change. Hakone is a very popular destination, and local transportation can get extremely crowded and delay the tour or reduce time spent at each location, especially during weekends and holidays. This is beyond our control, and the private car option for this tour is recommended.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast and dinner</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">10 hours &middot; <em>by public transport</em></span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Hakone Kowakien Tenyu &middot; Superior Room with Open-Air Bath, 35 sqm (quad use)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-fuji-ashi-torii.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">LAKE ASHI</span>
+            <span class="pc-desc">The Hakone Shrine torii, with Fuji behind on a clear day</span>
+          </div>
+        </div>
+        <div class="day-img" style="background-image: url('images/jp-owakudani.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">OWAKUDANI</span>
+            <span class="pc-desc">The ropeway over the crater</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 6 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 6</div>
+        <p class="day-dest">Hakone &rarr; Kyoto &middot; Wednesday, 21 October 2026</p>
+        <h3>Travel to Kyoto</h3>
+        <p>This is a must-see destination in Japan. Kyoto is the nation&rsquo;s former capital and was the residence of the emperor from 794 until 1868. With 2,000 religious buildings, including 1,600 Buddhist temples and 400 Shinto shrines, as well as palaces, gardens and associated architecture, it is one of the best-preserved cities in Japan and has 17 UNESCO World Heritage sites. Kyoto represents the &lsquo;Japan of old&rsquo; and beyond the high-rise skyscrapers built as a monument to progress, the real monument to Japan&rsquo;s historical and cultural past can be found in the city&rsquo;s narrow alleyways where tea houses abound and kimono-clad geisha hurry from elegant function to function.</p>
+        <p>Today your driver will meet you at your hotel and escort you to the train station by private car.</p>
+        <p>Use the included tickets to ride the Shinkansen from Odawara to Kyoto (Standard Class).</p>
+        <p>An English-speaking assistant will meet you at the arrival platform and escort you to your accommodation by private car.</p>
+        <div class="schedule-note"><strong>Notes</strong>You can bring a maximum of one suitcase per person. Additional luggage requires a larger vehicle, quoted at an additional cost.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">None</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Fauchon Hotel Kyoto &middot; Superior Twin (x1), Superior King (x1)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-shinkansen-fuji.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">TOKAIDO LINE</span>
+            <span class="pc-desc">Fuji from the window, if the day is clear</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 7 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 7</div>
+        <p class="day-dest">Kyoto &middot; Thursday, 22 October 2026</p>
+        <h3>Full Day Kyoto and Arashiyama Highlights Tour</h3>
+        <p>From dramatic power struggles that led to almost 200 years of civil war, to the oldest geisha district and its beautifully preserved teahouses, northern Kyoto is rich in history and spectacular architecture.</p>
+        <p>Kinkakuji Temple draws millions of visitors each year, and you will quickly understand why this jewel in the northern hills of Kyoto is one of the country&rsquo;s most visited sites. A far cry from Buddhist austerity, it is covered in real gold leaf, photogenically stunning at any time of the year no matter the weather. The story of the warlord who had this pavilion built will surely capture your mind, too.</p>
+        <p>Visit Nijo Castle, a 17th century castle originally constructed for a shogun, and today a UNESCO World Heritage Site. Marvel at the castle&rsquo;s architecture and unique features such as the intricate sliding doors, chirping nightingale floors and secret chambers.</p>
+        <p>Next, walk through Nishiki Market, which will mesmerise you with rows and stands selling snacks and ingredients for cooking.</p>
+        <p>Lastly, head to the Arashiyama district, a pleasant area in the western outskirts of Kyoto. Arashiyama has been a popular destination since the Heian period (794-1185), when nobles would relax in its natural settings. Take a walk through the famous bamboo groves, which are particularly attractive when a light wind makes the tall bamboo stalks sway gently back and forth. The bamboo has been used at local workshops for centuries to create various products, such as baskets, cups, boxes and mats.</p>
+        <p>This tour will start and end at your accommodation.</p>
+        <div class="schedule-note"><strong>Notes</strong>Nishiki Market is open every day, but about one quarter of the shops are closed on Wednesdays. Your visit falls on a Thursday, so this should not affect you.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">9 hours &middot; <em>by public transport</em></span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Fauchon Hotel Kyoto &middot; Superior Twin (x1), Superior King (x1)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-kinkakuji.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">KYOTO</span>
+            <span class="pc-desc">Kinkakuji, the Golden Pavilion</span>
+          </div>
+        </div>
+        <div class="day-img" style="background-image: url('images/jp-arashiyama-bamboo.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">ARASHIYAMA</span>
+            <span class="pc-desc">The bamboo groves</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 8 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 8</div>
+        <p class="day-dest">Kyoto &middot; Friday, 23 October 2026</p>
+        <h3>Samurai Sword Dance Show and Experience</h3>
+        <p>Learn about the legendary samurai warriors during this exciting tour. You will witness kenbu: a highly stylised sword dance that samurai used to perform as training and to find focus.</p>
+        <p>You can take photos with the sword masters and have a lesson about samurai etiquette using a katana or a folding fan.</p>
+        <p>The kenbu masters will be happy to answer any questions you might have.</p>
+        <p>You will make your own way to and from this experience.</p>
+        <div class="schedule-note"><strong>Notes</strong>This is the shared experience with costume, comprising a 30 to 40 minute show and a 75 minute experience. A 100% cancellation fee applies 5 weeks or less prior to the tour date. The rest of the day is free.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">2 to 3 hours</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Fauchon Hotel Kyoto &middot; Superior Twin (x1), Superior King (x1)</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-yasaka-pagoda.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">HIGASHIYAMA</span>
+            <span class="pc-desc">The lanes below Yasaka pagoda, walkable from the hotel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 9 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 9</div>
+        <p class="day-dest">Kyoto &middot; Saturday, 24 October 2026</p>
+        <h3>Departure from Kyoto</h3>
+        <p>A private transfer will take you from your accommodation to the departure airport.</p>
+        <div class="schedule-note"><strong>Notes</strong>You can bring a maximum of one suitcase per person. Additional luggage requires a larger vehicle, quoted at an additional cost. Additional fees are applicable for transfers between 8pm and 7am.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Guide</span><span class="fact-v">None</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/jp-kyoto-momiji.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">UNTIL NEXT TIME</span>
+            <span class="pc-desc">Japan in late October</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#itinerary -->
+
+
+<!-- INCLUSIONS & EXCLUSIONS -->
+<section class="section inc-section" id="inclusions">
+  <div class="section-inner">
+    <h2>Inclusions &amp; Exclusions</h2>
+    <div class="divider"></div>
+    <div class="inc-grid">
+      <div class="inc-col">
+        <h4>Inclusions</h4>
+        <ul class="inc-list">
+          <li><span class="yes">&#10003;</span><span>Eight nights' accommodation as listed, with breakfast daily</span></li>
+          <li><span class="yes">&#10003;</span><span>Kaiseki dinner at the ryokan in Hakone</span></li>
+          <li><span class="yes">&#10003;</span><span>An English-speaking guide on all four guided days</span></li>
+          <li><span class="yes">&#10003;</span><span>All entry fees for the sights listed in the day-by-day</span></li>
+          <li><span class="yes">&#10003;</span><span>teamLab Planets and Small Worlds tickets, prepaid</span></li>
+          <li><span class="yes">&#10003;</span><span>Samurai kenbu show and experience for four</span></li>
+          <li><span class="yes">&#10003;</span><span>Private airport arrival and departure transfers</span></li>
+          <li><span class="yes">&#10003;</span><span>Shinkansen tickets, Odawara to Kyoto, standard class</span></li>
+          <li><span class="yes">&#10003;</span><span>Luggage forwarding, one piece per person, Tokyo to Kyoto</span></li>
+          <li><span class="yes">&#10003;</span><span>Government tax and service charges</span></li>
+          <li><span class="yes">&#10003;</span><span>All reservations and planning, with support throughout the trip</span></li>
+        </ul>
+      </div>
+      <div class="inc-col">
+        <h4>Exclusions</h4>
+        <ul class="inc-list">
+          <li><span class="no">&ndash;</span><span>International flights and airport taxes</span></li>
+          <li><span class="no">&ndash;</span><span>All lunches, and all dinners other than the ryokan night</span></li>
+          <li><span class="no">&ndash;</span><span>Drinks with any included meal</span></li>
+          <li><span class="no">&ndash;</span><span>Guide, transport and activities on the two free days</span></li>
+          <li><span class="no">&ndash;</span><span>Local accommodation tax and bathing tax, payable at the hotels on check-in or check-out</span></li>
+          <li><span class="no">&ndash;</span><span>Travel and medical insurance, which we strongly recommend</span></li>
+          <li><span class="no">&ndash;</span><span>Optional upgrades and any sightseeing not listed</span></li>
+          <li><span class="no">&ndash;</span><span>Gratuities for guides and drivers, and items of a personal nature</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner" style="max-width: 660px; text-align: center;">
+    <p class="eyebrow">Investment</p>
+    <h2 style="color: var(--green-deep);">Trip cost</h2>
+    <div class="divider" style="margin: 20px auto 0;"></div>
+    <span class="price-amount">SGD 6,500</span>
+    <p class="price-context">per person &nbsp;&middot;&nbsp; family of four &nbsp;&middot;&nbsp; hotels, guides, transfers &amp; experiences</p>
+    <span class="price-pp">Family total &middot; SGD 26,000</span>
+    <span class="price-footnote">Covers everything in the day-by-day and the inclusions above, for four people sharing as listed. International flights, most meals, insurance and local accommodation and bathing taxes are not included. No rooms are held at this stage, so both availability and price are confirmed at the point of booking. Rates hold for 30 days from quotation.</span>
+  </div>
+</section>
+
+
+<!-- OPTIONAL ENHANCEMENTS -->
+<section class="section" style="background: var(--cream);">
+  <div class="section-inner" style="max-width: 760px; text-align: center;">
+    <p class="eyebrow">If you want them</p>
+    <h2>Optional additions</h2>
+    <div class="divider" style="margin: 20px auto 0;"></div>
+    <ul class="opt-list">
+      <li>
+        <span class="opt-name"><strong>The Hakone day by private car</strong><span>Skips the crowded loop transport, and gives you the day back if it rains</span></span>
+        <span class="opt-price">Quoted on request</span>
+      </li>
+      <li>
+        <span class="opt-name"><strong>Green Class on the Shinkansen</strong><span>First class to Kyoto, more space and quieter, for all four</span></span>
+        <span class="opt-price">SGD 235 total</span>
+      </li>
+      <li>
+        <span class="opt-name"><strong>The Kyoto day by private car</strong><span>Kinkakuji, Nijo, Nishiki and Arashiyama without the buses</span></span>
+        <span class="opt-price">SGD 1,200 total</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- NEXT STEPS / CTA -->
+<section class="section cta-section" style="background: var(--warm-white);">
+  <div class="section-inner" style="max-width: 640px; text-align: center;">
+    <p class="cta-eyebrow">Next steps</p>
+    <h2>Ready when you are</h2>
+    <div class="divider" style="margin: 20px auto 28px;"></div>
+    <p class="cta-body">Have a read through with the four of you and tell me what you think, particularly on budget, pace and on the hotels.</p>
+    <p class="cta-body">Once you are happy with the shape, I can come back to you with the deposit details and booking terms.</p>
+    <div class="cta-sign">
+      <p class="cta-name">Kristin Lim</p>
+      <p class="cta-meta">Alchemist Travel</p>
+      <p class="cta-meta"><a href="mailto:kristin@alchemisttravel.com">kristin@alchemisttravel.com</a> &nbsp;&middot;&nbsp; +65 9751 4830</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Alchemist Travel</div>
+  <div class="footer-note">Prepared for Cara &amp; family &middot; August 2026</div>
+</footer>
+
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Active section indicator in nav
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sectionMap = new Map();
+  navLinks.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sectionMap.set(el, a);
+  });
+  if (sectionMap.size) {
+    const navObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = sectionMap.get(entry.target);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sectionMap.forEach((_, el) => navObs.observe(el));
+  }
+
+  // Timeline entrance animation
+  const tlRow = document.querySelector('.tl-row');
+  if (tlRow) {
+    const tlObs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        tlRow.classList.add('tl-visible');
+        tlObs.disconnect();
+      }
+    }, { threshold: 0.25 });
+    tlObs.observe(tlRow);
+  }
+
+  // Journey-at-a-Glance scroll affordances
+  const tlFrame = document.querySelector('.tl-frame');
+  const tlOuter = document.querySelector('.tl-outer');
+  const tlPrev  = document.getElementById('tl-prev');
+  const tlNext  = document.getElementById('tl-next');
+  if (tlFrame && tlOuter && tlPrev && tlNext) {
+    const updateTlState = () => {
+      const max = tlOuter.scrollWidth - tlOuter.clientWidth;
+      const left = tlOuter.scrollLeft;
+      const canLeft  = left > 8;
+      const canRight = left < max - 8;
+      tlFrame.classList.toggle('tl-can-scroll-left', canLeft);
+      tlFrame.classList.toggle('tl-can-scroll-right', canRight);
+      tlPrev.disabled = !canLeft;
+      tlNext.disabled = !canRight;
+      const noScroll = max <= 4;
+      tlPrev.style.display = noScroll ? 'none' : '';
+      tlNext.style.display = noScroll ? 'none' : '';
+      const cap = document.querySelector('.timeline-caption');
+      if (cap) cap.style.display = noScroll ? 'none' : '';
+    };
+    tlOuter.addEventListener('scroll', updateTlState, { passive: true });
+    window.addEventListener('resize', updateTlState);
+    tlPrev.addEventListener('click', () => {
+      tlOuter.scrollBy({ left: -tlOuter.clientWidth * 0.7, behavior: 'smooth' });
+    });
+    tlNext.addEventListener('click', () => {
+      tlOuter.scrollBy({ left:  tlOuter.clientWidth * 0.7, behavior: 'smooth' });
+    });
+    updateTlState();
+  }
+</script>
+
+</body>
+</html>
