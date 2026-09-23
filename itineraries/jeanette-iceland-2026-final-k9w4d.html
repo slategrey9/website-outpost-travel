@@ -252,6 +252,10 @@
       display: flex; flex-direction: column; gap: 12px;
     }
     .book-card.wide { grid-column: 1 / -1; }
+    .book-img {
+      height: 190px; background-size: cover; background-position: center;
+      margin: -28px -28px 2px;
+    }
     .book-eyebrow {
       font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--text-light); margin: 0;
@@ -287,6 +291,7 @@
     }
     @media (max-width: 720px) {
       .book-grid { grid-template-columns: 1fr; }
+      .book-img { height: 160px; }
       .book-row { grid-template-columns: 1fr; gap: 2px; }
     }
 
@@ -586,7 +591,6 @@
     <a href="#flights">Flights</a>
     <a href="#bookings">Bookings</a>
     <a href="#inclusions">Inclusions</a>
-    <a href="#properties">Properties</a>
     <a href="#itinerary">Day by Day</a>
     <a href="#notes">Good to Know</a>
   </div>
@@ -625,7 +629,7 @@
           <td class="cell-day">D1</td>
           <td class="cell-date">7 Oct<small>Wed</small></td>
           <td class="cell-stay">Reykjavík<small>Sand Hotel</small></td>
-          <td class="cell-activity">Arrival, Blue Lagoon soak en route, check in at Sand Hotel</td>
+          <td class="cell-activity">Arrive Keflavík 10:00am · Blue Lagoon soak en route · check in at Sand Hotel</td>
           <td class="cell-transfers">Keflavík → Blue Lagoon → Reykjavík <small style="display:block;color:var(--text-light);font-style:italic;margin-top:4px;">(you book directly, see Your Flights)</small></td>
         </tr>
         <tr>
@@ -706,51 +710,36 @@
 </section>
 
 
-<!-- FLIGHT OPTIONS -->
+<!-- FLIGHTS -->
 <section class="section flight-section" id="flights">
   <div class="section-inner">
     <p class="eyebrow">Your Flights</p>
-    <h2>Homeward confirmed, arrival your way</h2>
+    <h2>Confirmed, both ways</h2>
     <div class="divider"></div>
 
-    <p style="max-width:640px;">Your return flights are booked and confirmed. For the outbound, the two arrival patterns below still apply; send us your flight details once booked and we'll add them here. You'll arrange your own airport → Blue Lagoon → Reykjavík shuttle on arrival day. We'd suggest adding it when you book your Blue Lagoon tickets, so you can pick your own timings and stay as long as you like.</p>
+    <p style="max-width:640px;">Both flights are with British Airways via London. The one piece still in your hands is arrival day: you'll book your own airport &rarr; Blue Lagoon &rarr; Reykjav&iacute;k shuttle. We'd suggest adding it when you book your Blue Lagoon tickets, so you can pick your own timings and stay as long as you like.</p>
 
     <div class="flight-grid">
 
-      <div class="flight-card recommended" style="grid-column: 1 / -1;">
-        <span class="flight-tag">Confirmed · Homeward</span>
-        <p class="flight-airline">British Airways via London · Booking reference DO345Y</p>
-        <p class="flight-time"><strong>BA801</strong> &nbsp;Depart Keflavík <strong>Sat 17 Oct, 10:20am</strong> → Arrive London Heathrow <strong>2:25pm</strong> &nbsp;·&nbsp; 3h 05m, Economy<br><strong>BA11</strong> &nbsp;&nbsp;&nbsp;Depart London Heathrow <strong>Sat 17 Oct, 7:25pm</strong> → Arrive Singapore <strong>Sun 18 Oct, 4:05pm</strong> &nbsp;·&nbsp; 13h 40m, Economy</p>
+      <div class="flight-card recommended">
+        <span class="flight-tag">Confirmed &middot; Outbound</span>
+        <p class="flight-airline">Singapore to Reykjav&iacute;k &middot; Booking reference DNWOWN</p>
+        <p class="flight-time"><strong>BA16</strong> &nbsp;&nbsp;Depart Singapore Changi <strong>Tue 6 Oct, 10:40pm</strong> &rarr; Arrive London Heathrow <strong>Wed 7 Oct, 5:35am</strong> &nbsp;&middot;&nbsp; 13h 55m, Economy<br><strong>BA800</strong> &nbsp;Depart London Heathrow <strong>Wed 7 Oct, 7:55am</strong> &rarr; Arrive Keflav&iacute;k <strong>10:00am</strong> &nbsp;&middot;&nbsp; 3h 05m, Economy</p>
+        <div class="flight-divider"></div>
+        <p class="flight-body">Two hours twenty in London between flights. You land mid-morning, which leaves the whole afternoon for the Blue Lagoon on the way into town. The scheduled shuttle works comfortably from this arrival:</p>
+        <ul class="flight-list">
+          <li>12:30pm shuttle Keflav&iacute;k &rarr; Blue Lagoon (~20 min)</li>
+          <li>4:15pm shuttle Blue Lagoon &rarr; Reykjav&iacute;k (~45 min)</li>
+        </ul>
+        <span class="flight-cost"><strong>To book:</strong> your airport &rarr; Blue Lagoon &rarr; Reykjav&iacute;k shuttle, alongside your Blue Lagoon tickets. If the wait at the airport feels long, most operators offer a private transfer in the same place.</span>
+      </div>
+
+      <div class="flight-card recommended">
+        <span class="flight-tag">Confirmed &middot; Homeward</span>
+        <p class="flight-airline">Reykjav&iacute;k to Singapore &middot; Booking reference DO345Y</p>
+        <p class="flight-time"><strong>BA801</strong> &nbsp;Depart Keflav&iacute;k <strong>Sat 17 Oct, 10:20am</strong> &rarr; Arrive London Heathrow <strong>2:25pm</strong> &nbsp;&middot;&nbsp; 3h 05m, Economy<br><strong>BA11</strong> &nbsp;&nbsp;&nbsp;Depart London Heathrow <strong>Sat 17 Oct, 7:25pm</strong> &rarr; Arrive Singapore <strong>Sun 18 Oct, 4:05pm</strong> &nbsp;&middot;&nbsp; 13h 40m, Economy</p>
         <div class="flight-divider"></div>
         <p class="flight-body">Five hours in London between flights, which is a comfortable connection. Konvin Hotel's 7:00am shuttle has you at the terminal a little over three hours before departure.</p>
-      </div>
-
-      <div class="flight-card">
-        <span class="flight-tag">Arrival · Pattern A</span>
-        <p class="flight-airline">Morning arrival, e.g. British Airways via London</p>
-        <p class="flight-time">Depart Singapore <strong>Tue 6 Oct, 10:40pm</strong><br>Arrive Keflavík <strong>Wed 7 Oct, 10:00am</strong></p>
-        <div class="flight-divider"></div>
-        <p class="flight-body">The scheduled shuttle works comfortably, with sufficient buffer between landing and the next bus:</p>
-        <ul class="flight-list">
-          <li>12:30pm shuttle Keflavík → Blue Lagoon (~20 min)</li>
-          <li>4:15pm shuttle Blue Lagoon → Reykjavík (~45 min)</li>
-        </ul>
-        <p class="flight-body" style="margin-top:4px;">If a 2.5-hour wait at the airport feels too long, most operators also offer a private transfer you can book in the same place.</p>
-        <span class="flight-cost"><strong>Transport:</strong> Book your airport → Blue Lagoon → Reykjavík shuttle directly, alongside your Blue Lagoon tickets.</span>
-      </div>
-
-      <div class="flight-card">
-        <span class="flight-tag">Arrival · Pattern B</span>
-        <p class="flight-airline">Afternoon arrival, e.g. KLM via Amsterdam</p>
-        <p class="flight-time">Depart Singapore <strong>Wed 7 Oct, 12:55am</strong><br>Arrive Keflavík <strong>Wed 7 Oct, 3:25pm</strong></p>
-        <div class="flight-divider"></div>
-        <p class="flight-body">The scheduled shuttle is available:</p>
-        <ul class="flight-list">
-          <li>4:30pm shuttle Keflavík → Blue Lagoon (~20 min)</li>
-          <li>6:15pm or 8:15pm shuttle Blue Lagoon → Reykjavík (~45 min)</li>
-        </ul>
-        <p class="flight-body" style="margin-top:4px;">However the scheduled shuttle is tight, with only about an hour to clear immigration and collect bags before the 4:30pm bus. A private transfer is the easier option here: your driver picks you up at Keflavík, waits at the Blue Lagoon, and continues to Reykjavík when you're ready. You can book either directly alongside your Blue Lagoon tickets.</p>
-        <span class="flight-cost"><strong>Transport:</strong> Book your airport → Blue Lagoon → Reykjavík shuttle directly, alongside your Blue Lagoon tickets.</span>
       </div>
 
     </div>
@@ -762,89 +751,99 @@
 <section class="section book-section" id="bookings">
   <div class="section-inner">
     <p class="eyebrow">Your Bookings</p>
-    <h2>Everything is confirmed</h2>
+    <h2>All bookings are confirmed and paid in full</h2>
     <div class="divider"></div>
-    <p style="max-width:640px;">Each stay, tour and transfer is booked and paid in full through Alchemist Travel, our partner agency, under your names. Keep the reference numbers handy in case you ever need to speak to a property directly.</p>
+    <p style="max-width:640px;">Here are the confirmation numbers and contact details for each one. Everything is booked through Alchemist Travel, our partner agency, under your names. Keep these handy in case you ever need to speak to a property directly.</p>
 
     <div class="book-grid">
 
       <div class="book-card">
-        <p class="book-eyebrow">Reykjavík · Nights 1, 6 &amp; 7</p>
+        <div class="book-img" style="background-image: url('./images/ic-sand-hotel-room.jpg');"></div>
+        <p class="book-eyebrow">Reykjav&iacute;k &middot; Nights 1, 6 &amp; 7</p>
         <p class="book-name">Sand Hotel</p>
-        <p class="book-ref">Ref <strong>87174123</strong> (7–8 Oct) &nbsp;·&nbsp; Ref <strong>87174330</strong> (12–14 Oct)</p>
+        <p class="book-ref">Ref <strong>87174123</strong> (7&ndash;8 Oct) &nbsp;&middot;&nbsp; Ref <strong>87174330</strong> (12&ndash;14 Oct)</p>
         <div class="book-rows">
           <div class="book-row"><span>Room</span><span>Standard Double, one room, two guests</span></div>
-          <div class="book-row"><span>Included</span><span>Breakfast buffet at Sandbar each morning · city lodging tax</span></div>
-          <div class="book-row"><span>Address</span><span>Laugavegur 34, 101 Reykjavík</span></div>
+          <div class="book-row"><span>Included</span><span>Breakfast buffet at Sandbar each morning &middot; city lodging tax</span></div>
+          <div class="book-row"><span>Address</span><span>Laugavegur 34, 101 Reykjav&iacute;k</span></div>
           <div class="book-row"><span>Phone</span><span>+354 519 8090</span></div>
         </div>
-        <p class="book-foot">Two separate bookings for the two stays. We're checking whether the hotel can hold a bag for you between them, so you can travel light to Midgard.</p>
+        <p class="book-foot">Two bookings, one for each stay, in the same room category both times.</p>
       </div>
 
       <div class="book-card">
-        <p class="book-eyebrow">South Iceland · Nights 2, 3 &amp; 4 + Day 6</p>
+        <div class="book-img" style="background-image: url('./images/ic-midgard-exterior.jpg');"></div>
+        <p class="book-eyebrow">South Iceland &middot; Nights 2, 3 &amp; 4 + Day 6</p>
         <p class="book-name">Midgard Adventure</p>
-        <p class="book-ref">Booking ref <strong>17325</strong></p>
+        <p class="book-ref">Ref <strong>17325</strong></p>
         <div class="book-rows">
-          <div class="book-row"><span>Booked</span><span>4-Day Northern Lights Adventure, 8–11 Oct, with <strong>double room upgrade</strong> at Midgard Base Camp · private "Not in Your Guidebook" day, 12 Oct</span></div>
-          <div class="book-row"><span>Pickup</span><span><strong>9:00am, Thu 8 Oct, at Sand Hotel</strong>. Your guide collects you from the lobby.</span></div>
-          <div class="book-row"><span>Included</span><span>All meals from lunch on 8 Oct to lunch on 11 Oct · lunch on the 12 Oct private day · guided activities · Northern Lights evening tour · rooftop sauna and hot tub</span></div>
-          <div class="book-row"><span>Address</span><span>Dufþaksbraut 14, 860 Hvolsvöllur</span></div>
+          <div class="book-row"><span>Tour</span><span>4-Day Northern Lights Adventure, 8&ndash;11 Oct</span></div>
+          <div class="book-row"><span>Private day</span><span>"Not in Your Guidebook", 12 Oct</span></div>
+          <div class="book-row"><span>Room</span><span>Double Room at Midgard Base Camp, upgraded from the dorm</span></div>
+          <div class="book-row"><span>Pickup</span><span><strong>9:00am, Thu 8 Oct, at Sand Hotel</strong>, from the lobby</span></div>
+          <div class="book-row"><span>Included</span><span>All meals from lunch on 8 Oct to lunch on 11 Oct &middot; lunch on 12 Oct &middot; guided activities &middot; Northern Lights evening tour &middot; rooftop sauna and hot tub</span></div>
+          <div class="book-row"><span>Address</span><span>Duf&thorn;aksbraut 14, 860 Hvolsv&ouml;llur</span></div>
           <div class="book-row"><span>Phone</span><span>+354 578 3370</span></div>
         </div>
-        <p class="book-foot">Midgard send a detailed packing list ahead of the tour. Drinks are the only thing not covered at Base Camp.</p>
+        <p class="book-foot">Drinks at Base Camp are the one thing not covered. Settle those locally.</p>
       </div>
 
       <div class="book-card">
-        <p class="book-eyebrow">Hella · Night 5</p>
+        <div class="book-img" style="background-image: url('./images/ic-aurora-igloo-1.jpg');"></div>
+        <p class="book-eyebrow">Hella &middot; Night 5</p>
         <p class="book-name">Aurora Igloo South</p>
-        <p class="book-ref">Ref <strong>87336916</strong> &nbsp;·&nbsp; Igloo <strong>14</strong></p>
+        <p class="book-ref">Ref <strong>87336916</strong> &nbsp;&middot;&nbsp; Igloo <strong>14</strong></p>
         <div class="book-rows">
-          <div class="book-row"><span>Stay</span><span>Sun 11 Oct, one night · check-in from <strong>4:00pm</strong>, check-out by <strong>11:00am</strong></span></div>
-          <div class="book-row"><span>Check-in</span><span>Self check-in. Key box by your igloo's front door, code <strong>7417</strong>. Pull the handle up once, then turn the key left to unlock.</span></div>
-          <div class="book-row"><span>Room</span><span>Private bathroom, king bed with heated mattress, black-out curtains, Nespresso machine, empty mini fridge, wifi. No TV.</span></div>
-          <div class="book-row"><span>Address</span><span>Stekkatún 1, 851 Hella</span></div>
-          <div class="book-row"><span>Phone</span><span>+354 791 1122 (weekdays 9am–5pm) · after hours +354 772 6869</span></div>
+          <div class="book-row"><span>Room</span><span>Igloo 14 &middot; private bathroom, king bed with heated mattress, black-out curtains, Nespresso machine, empty mini fridge, wifi. No TV.</span></div>
+          <div class="book-row"><span>Stay</span><span>Sun 11 Oct, one night</span></div>
+          <div class="book-row"><span>Check-in</span><span>From <strong>4:00pm</strong>, self check-in. Key box by your igloo's front door, code <strong>7417</strong>. Pull the handle up once, then turn the key left to unlock.</span></div>
+          <div class="book-row"><span>Check-out</span><span>By <strong>11:00am</strong>. Leave the key on the desk inside the igloo and close the door behind you.</span></div>
+          <div class="book-row"><span>Address</span><span>Stekkat&uacute;n 1, 851 Hella</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 791 1122 (weekdays 9am&ndash;5pm) &middot; after hours +354 772 6869</span></div>
         </div>
         <p class="book-foot">No restaurant or breakfast on site: bring dinner and something for the morning. See Good to Know for nearby options, including one that delivers.</p>
       </div>
 
       <div class="book-card">
-        <p class="book-eyebrow">West Iceland · Nights 8 &amp; 9</p>
-        <p class="book-name">Hotel Húsafell</p>
+        <div class="book-img" style="background-image: url('./images/ic-husafell-hero.jpg');"></div>
+        <p class="book-eyebrow">West Iceland &middot; Nights 8 &amp; 9</p>
+        <p class="book-name">Hotel H&uacute;safell</p>
         <p class="book-ref">Ref <strong>85794588</strong></p>
         <div class="book-rows">
-          <div class="book-row"><span>Stay</span><span>Wed 14 to Fri 16 Oct, two nights · Standard Room</span></div>
-          <div class="book-row"><span>Included</span><span>Breakfast buffet daily · hotel geothermal pool · <strong>Húsafell Canyon Baths for two</strong>, guided outing with transport from the hotel</span></div>
+          <div class="book-row"><span>Room</span><span>Standard Room</span></div>
+          <div class="book-row"><span>Stay</span><span>Wed 14 to Fri 16 Oct, two nights</span></div>
+          <div class="book-row"><span>Included</span><span>Breakfast buffet daily &middot; hotel geothermal pool &middot; <strong>H&uacute;safell Canyon Baths for two</strong>, guided outing with transport from the hotel</span></div>
           <div class="book-row"><span>Aurora</span><span>Let reception know you'd like a wake-up call if the lights appear overnight</span></div>
-          <div class="book-row"><span>Address</span><span>Húsafell, 311 Borgarnes</span></div>
+          <div class="book-row"><span>Address</span><span>H&uacute;safell, 311 Borgarnes</span></div>
           <div class="book-row"><span>Phone</span><span>+354 435 1551</span></div>
         </div>
         <p class="book-foot">Restaurant open 6:00pm to 9:00pm daily for dinner (not included). We have asked the hotel to confirm your Canyon Baths time slot and will add it here.</p>
       </div>
 
       <div class="book-card">
-        <p class="book-eyebrow">Keflavík · Night 10</p>
+        <div class="book-img" style="background-image: url('./images/ic-konvin-reception.jpg');"></div>
+        <p class="book-eyebrow">Keflav&iacute;k &middot; Night 10</p>
         <p class="book-name">Konvin Hotel</p>
         <p class="book-ref">Ref <strong>87034039</strong></p>
         <div class="book-rows">
-          <div class="book-row"><span>Stay</span><span>Fri 16 Oct, one night · Double Room</span></div>
-          <div class="book-row"><span>Included</span><span>Breakfast for two · <strong>7:00am airport shuttle</strong> for two on 17 Oct, already booked and paid</span></div>
-          <div class="book-row"><span>Address</span><span>Keilisbraut 762, 262 Reykjanesbær · about 10 minutes from the terminal</span></div>
+          <div class="book-row"><span>Room</span><span>Double Room</span></div>
+          <div class="book-row"><span>Stay</span><span>Fri 16 Oct, one night</span></div>
+          <div class="book-row"><span>Included</span><span>Breakfast for two &middot; <strong>7:00am airport shuttle</strong> for two on 17 Oct, already booked and paid</span></div>
+          <div class="book-row"><span>Address</span><span>Keilisbraut 762, 262 Reykjanesb&aelig;r &middot; about 10 minutes from the terminal</span></div>
           <div class="book-row"><span>Phone</span><span>+354 426 5000</span></div>
         </div>
         <p class="book-foot">Nothing to settle at check-in. Breakfast is served early enough for the 7:00am shuttle.</p>
       </div>
 
-      <div class="book-card">
-        <p class="book-eyebrow">Private transfers · Days 8 &amp; 10</p>
+      <div class="book-card wide">
+        <p class="book-eyebrow">Private transfers &middot; Days 8 &amp; 10</p>
         <p class="book-name">Your driver, West Iceland</p>
-        <p class="book-ref">Booking ref <strong>0001009</strong></p>
+        <p class="book-ref">Ref <strong>0001009</strong></p>
         <div class="book-rows">
-          <div class="book-row"><span>Wed 14 Oct</span><span><strong>3:30pm</strong> pickup at Sand Hotel → Hotel Húsafell, approx. 2 hours</span></div>
-          <div class="book-row"><span>Fri 16 Oct</span><span><strong>4:00pm</strong> pickup at Hotel Húsafell → Konvin Hotel, Keflavík, approx. 2.5 hours</span></div>
+          <div class="book-row"><span>Wed 14 Oct</span><span><strong>3:30pm</strong> pickup at Sand Hotel &rarr; Hotel H&uacute;safell, approx. 2 hours</span></div>
+          <div class="book-row"><span>Fri 16 Oct</span><span><strong>4:00pm</strong> pickup at Hotel H&uacute;safell &rarr; Konvin Hotel, Keflav&iacute;k, approx. 2.5 hours</span></div>
           <div class="book-row"><span>Vehicle</span><span>Private Mercedes EQV with an English-speaking driver-guide, just the two of you</span></div>
-          <div class="book-row"><span>Phone</span><span>+354 775 1001 (Þórir)</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 775 1001 (Thorir)</span></div>
         </div>
         <p class="book-foot">Both transfers are paid. Your driver will meet you in the hotel lobby.</p>
       </div>
@@ -896,77 +895,6 @@
 </section>
 
 
-<!-- PROPERTIES CAROUSEL -->
-<div class="properties-section" id="properties">
-  <div class="section-inner">
-    <p class="eyebrow">Where You'll Stay</p>
-    <h2>Five places to call home</h2>
-    <div class="divider"></div>
-    <p class="section-intro">Each property was chosen with real care, balancing boutique character, great locations, and a sense of quiet when you need it.</p>
-
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="track-props">
-
-        <div class="c-card">
-          <div class="c-card-img" style="background-image: url('./images/ic-sand-hotel-room.jpg');"></div>
-          <div class="c-card-body">
-            <p class="c-location">Reykjavík</p>
-            <p class="c-name">Sand Hotel</p>
-            <p class="c-room">Standard Room</p>
-            <span class="c-nights">Nights 1, 6, 7 &nbsp;·&nbsp; B&amp;B</span>
-          </div>
-        </div>
-
-        <div class="c-card">
-          <div class="c-card-img" style="background-image: url('./images/ic-midgard-exterior.jpg');"></div>
-          <div class="c-card-body">
-            <p class="c-location">Hvolsvöllur &nbsp;·&nbsp; South Iceland</p>
-            <p class="c-name">Midgard Base Camp</p>
-            <p class="c-room">Double Room &nbsp;·&nbsp; Rooftop hot tub</p>
-            <span class="c-nights">Nights 2–4 &nbsp;·&nbsp; Full board</span>
-          </div>
-        </div>
-
-        <div class="c-card">
-          <div class="c-card-img" style="background-image: url('./images/ic-aurora-igloo-1.jpg');"></div>
-          <div class="c-card-body">
-            <p class="c-location">Hella &nbsp;·&nbsp; South Iceland</p>
-            <p class="c-name">Aurora Igloo South</p>
-            <p class="c-room">Igloo 14 &nbsp;·&nbsp; private bathroom</p>
-            <span class="c-nights">Night 5 &nbsp;·&nbsp; Room only</span>
-          </div>
-        </div>
-
-        <div class="c-card">
-          <div class="c-card-img" style="background-image: url('./images/ic-husafell-hero.jpg');"></div>
-          <div class="c-card-body">
-            <p class="c-location">West Iceland</p>
-            <p class="c-name">Hotel Húsafell</p>
-            <p class="c-room">Double Room</p>
-            <span class="c-nights">Nights 8–9 &nbsp;·&nbsp; B&amp;B</span>
-          </div>
-        </div>
-
-        <div class="c-card">
-          <div class="c-card-img" style="background-image: url('./images/ic-konvin-reception.jpg');"></div>
-          <div class="c-card-body">
-            <p class="c-location">Keflavík &nbsp;·&nbsp; 10 min from the terminal</p>
-            <p class="c-name">Konvin Hotel</p>
-            <p class="c-room">Double Room &nbsp;·&nbsp; 7am airport shuttle</p>
-            <span class="c-nights">Night 10 &nbsp;·&nbsp; B&amp;B</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="carousel-footer">
-        <button class="c-btn" data-track="track-props" data-dir="-1" aria-label="Previous">&#8592;</button>
-        <button class="c-btn" data-track="track-props" data-dir="1" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!-- DAY-BY-DAY -->
 <section class="itin-section" id="itinerary">
 
@@ -977,7 +905,7 @@
       <div class="day-eyebrow">Day 1</div>
       <div class="day-date">Wed 7 October</div>
       <div class="day-location">Arrival, Blue Lagoon, then Reykjavík</div>
-      <p class="day-desc">Welcome to Iceland. From the airport, you'll travel to the Blue Lagoon, Iceland's most iconic geothermal soak, perfect for easing the long-haul flight out of your shoulders. After your float, you'll continue into Reykjavík and to Sand Hotel. The rest of the afternoon is yours to decompress, settle in, and start to feel the different rhythm of the place. <em>Your transport depends on your arrival time. See <a href="#flights" style="color:var(--opt-b);text-decoration:underline;">Your Flights</a> above for the two patterns.</em></p>
+      <p class="day-desc">Welcome to Iceland. From the airport, you'll travel to the Blue Lagoon, Iceland's most iconic geothermal soak, perfect for easing the long-haul flight out of your shoulders. After your float, you'll continue into Reykjavík and to Sand Hotel. The rest of the afternoon is yours to decompress, settle in, and start to feel the different rhythm of the place. <em>You land at Keflav&iacute;k at 10:00am on BA800. See <a href="#flights" style="color:var(--opt-b);text-decoration:underline;">Your Flights</a> above for suggested shuttle timings.</em></p>
       <p class="day-desc">Sand Hotel will be your home base in Reykjavík. This boutique hotel is a sweet confection by the pâtissiers behind beloved Icelandic bakery Sandholt, which sits right next door. The hotel is centrally located on Reykjavík's main strip, Laugavegur; its neighbours are edgy clothing shops for wannabe Björks, an assortment of global restaurants, and cute cafés. All of the city's main sights are within easy walking distance.</p>
       <p class="day-desc">Each morning, tuck into a Continental breakfast buffet at Sandbar on the ground floor. The morning feast includes house-made granola, rich coffees, and freshly baked breads and pastries from next-door neighbour Sandholt Bakery.</p>
       <div class="day-bullets">
@@ -1018,7 +946,7 @@
       <div class="day-eyebrow">Day 2</div>
       <div class="day-date">Thu 8 October</div>
       <div class="day-location">The Golden Circle &amp; First Night at Midgard</div>
-      <p class="day-desc">Today marks the start of your Midgard Adventure. Your guide collects you from the Sand Hotel lobby at 9:00am, bags and all, and you'll spend the day visiting Iceland's iconic Golden Circle: Þingvellir National Park, where the tectonic plates quietly pull apart, the Geysir geothermal area where Strokkur erupts every few minutes, and Gullfoss, dropping in two thundering tiers into the canyon below. Lunch is at Friðheimar Tomato Farm, a working greenhouse with its own geothermal bakery, where they serve a really good tomato soup alongside fresh-baked bread. By evening you'll arrive at Midgard Base Camp in the heart of South Iceland, home for the next three nights. Dinner is waiting when you are, and afterwards the rooftop hot tub is yours whenever you'd like it.</p>
+      <p class="day-desc">Today marks the start of your Midgard Adventure. Your guide collects you from the Sand Hotel lobby at 9:00am, bags and all, and you'll spend the day visiting Iceland's iconic Golden Circle: Þingvellir National Park, where the tectonic plates quietly pull apart, the Geysir geothermal area where Strokkur erupts every few minutes, and Gullfoss, dropping in two thundering tiers into the canyon below. Lunch is at Friðheimar Tomato Farm, a working greenhouse where they serve a really good tomato soup alongside fresh-baked bread. There is a geothermal bakery stop too, where rye bread is baked in the hot ground and dug out fresh. By evening you'll arrive at Midgard Base Camp in the heart of South Iceland, home for the next three nights. Dinner is waiting when you are, and afterwards the rooftop hot tub is yours whenever you'd like it.</p>
       <div class="day-bullets">
         <div class="day-bullet meal">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
@@ -1039,6 +967,10 @@
         <div class="day-bullet">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           <span>Gullfoss Waterfall</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Geothermal bakery, rye bread baked in the ground</span>
         </div>
         <div class="day-bullet meal">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
@@ -1085,7 +1017,7 @@
         </div>
         <div class="day-bullet">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-          <span>Further South Coast sites &amp; Dyrhólaey peninsula</span>
+          <span>Optional LAVA Centre visit, in your own time</span>
         </div>
         <div class="day-bullet meal">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
@@ -1492,7 +1424,7 @@
           <li><span>Aurora Igloo South, after hours<small>Evenings and weekends</small></span><a href="tel:+3547726869">+354 772 6869</a></li>
           <li><span>Hotel Húsafell<small>West Iceland</small></span><a href="tel:+3544351551">+354 435 1551</a></li>
           <li><span>Konvin Hotel<small>Keflavík</small></span><a href="tel:+3544265000">+354 426 5000</a></li>
-          <li><span>Your driver, 14 &amp; 16 Oct<small>Þórir</small></span><a href="tel:+3547751001">+354 775 1001</a></li>
+          <li><span>Your driver, 14 &amp; 16 Oct<small>Thorir</small></span><a href="tel:+3547751001">+354 775 1001</a></li>
         </ul>
       </div>
 
@@ -1511,10 +1443,9 @@
       <div class="notes-card">
         <h4>Packing</h4>
         <ul>
-          <li>Warm, waterproof outer layers, a hat and gloves, and sturdy hiking boots. Midgard will send their own packing list before the tour, which covers the glacier walk and ice cave.</li>
+          <li>Warm, waterproof outer layers, a hat and gloves, and sturdy hiking boots for the glacier walk and the ice cave.</li>
           <li>Swimwear and a small towel for the Blue Lagoon, Midgard's rooftop hot tub, the Húsafell pool and the Canyon Baths. Towels are provided at the Canyon Baths.</li>
           <li>A head torch or phone torch for the igloo night, and an eye mask if you're a light sleeper under a glass ceiling.</li>
-          <li>Pack light for the Midgard days if you can. We're asking Sand Hotel about holding a bag for you from 8 to 12 October.</li>
         </ul>
       </div>
 
@@ -1537,7 +1468,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Outpost Travel</div>
-  <div class="footer-note">Prepared for Jeanette &amp; Brandon &nbsp;·&nbsp; Confirmed Itinerary &nbsp;·&nbsp; Updated 22 September 2026</div>
+  <div class="footer-note">Prepared for Jeanette &amp; Brandon &nbsp;·&nbsp; Confirmed Itinerary &nbsp;·&nbsp; Updated 23 September 2026</div>
 </footer>
 
 
@@ -1561,7 +1492,6 @@
       });
     });
   }
-  initCarousel('track-props');
 </script>
 
 </body>
