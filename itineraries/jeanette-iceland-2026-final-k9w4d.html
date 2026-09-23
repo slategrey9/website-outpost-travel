@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Iceland · Confirmed Itinerary · Jeanette &amp; Brandon · 7–17 October 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green-deep:  #14301A;
+      --green-mid:   #1E5228;
+      --green-light: #3A8050;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --cream:       #FAF8F3;
+      --warm-white:  #FFFFFF;
+      --text-dark:   #1A1A18;
+      --text-mid:    #4A4A45;
+      --text-light:  #7A7A72;
+      --border:      #E5E0D5;
+      --opt-b:       #2C6B3F;
+      --opt-b-pale:  rgba(44,107,63,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-dark);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(20,48,26,0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-brand {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      height: 80vh; min-height: 540px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      background-color: var(--green-deep);
+      background-image:
+        linear-gradient(to bottom, rgba(10,28,12,0.40) 0%, rgba(10,28,12,0.78) 100%),
+        url('./images/hero-northern-lights.jpg');
+      background-size: cover; background-position: center 55%;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center;
+      font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 28px;
+      padding: 7px 16px;
+      border: 1px solid rgba(232,213,163,0.3);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.05;
+      color: #fff; letter-spacing: 0.02em; max-width: 900px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-rule {
+      width: 40px; height: 1px; background: rgba(201,168,76,0.5);
+      margin: 32px auto;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 300; color: #fff; letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .hero-meta {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── SHARED LAYOUT ── */
+    .section { padding: 88px 48px; }
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem); line-height: 1.12;
+      color: var(--green-deep); margin-bottom: 20px;
+    }
+    p { font-size: 0.95rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* ── CONFIRMATION TABLE ── */
+    .table-section { background: var(--cream); }
+    .itin-table {
+      width: 100%; margin-top: 36px;
+      border-collapse: collapse;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--opt-b);
+      font-size: 0.86rem;
+    }
+    .itin-table thead th {
+      text-align: left; padding: 16px 18px;
+      font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-light); font-weight: 500;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+    }
+    .itin-table .cell-day {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: var(--opt-b);
+      font-weight: 400; min-width: 48px;
+      letter-spacing: 0.04em;
+    }
+    .itin-table tbody td {
+      padding: 18px 18px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55; color: var(--text-mid);
+    }
+    .itin-table tbody tr:last-child td { border-bottom: none; }
+    .itin-table .cell-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem; color: var(--green-deep);
+      white-space: nowrap; min-width: 110px;
+    }
+    .itin-table .cell-date small {
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 0.62rem; color: var(--text-light);
+      letter-spacing: 0.12em; text-transform: uppercase; margin-top: 3px;
+    }
+    .itin-table .cell-stay {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--green-deep); min-width: 160px;
+    }
+    .itin-table .cell-stay small {
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 0.7rem; color: var(--text-light); margin-top: 3px;
+    }
+    .itin-table .cell-transfers {
+      font-size: 0.78rem; color: var(--text-light);
+      min-width: 200px; max-width: 260px;
+    }
+    .itin-table .cell-activity { min-width: 280px; }
+    .itin-table .suggested {
+      display: inline-block; font-size: 0.58rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--opt-b); margin-right: 6px; font-weight: 500;
+    }
+    .table-note {
+      margin-top: 18px; font-size: 0.78rem; color: var(--text-light);
+      font-style: italic; line-height: 1.7;
+    }
+
+    /* ── FLIGHT OPTIONS ── */
+    .flight-section { background: var(--warm-white); }
+    .flight-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      margin-top: 36px;
+    }
+    .flight-card {
+      padding: 32px 28px; background: var(--cream);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .flight-card.recommended { border-top: 2px solid var(--opt-b); }
+    .flight-tag {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-light); padding: 4px 12px;
+      border: 1px solid var(--border); background: var(--warm-white);
+      margin-bottom: 0;
+    }
+    .flight-card.recommended .flight-tag {
+      color: var(--opt-b); border-color: var(--opt-b-pale);
+      background: var(--opt-b-pale);
+    }
+    .flight-airline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; color: var(--green-deep);
+      line-height: 1.2; margin: 0;
+    }
+    .flight-time {
+      font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; margin: 0;
+    }
+    .flight-time strong { color: var(--green-deep); font-weight: 500; }
+    .flight-divider {
+      width: 28px; height: 1px; background: var(--border);
+      margin: 4px 0;
+    }
+    .flight-body {
+      font-size: 0.85rem; line-height: 1.7; color: var(--text-mid); margin: 0;
+    }
+    .flight-list {
+      list-style: none; display: flex; flex-direction: column; gap: 6px;
+      margin-top: 4px;
+    }
+    .flight-list li {
+      font-size: 0.82rem; line-height: 1.55; color: var(--text-mid);
+      padding-left: 18px; position: relative;
+    }
+    .flight-list li::before {
+      content: '·'; position: absolute; left: 4px; color: var(--opt-b);
+      font-size: 1.2rem; line-height: 1; top: 2px;
+    }
+    .flight-cost {
+      margin-top: auto; padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--text-light); letter-spacing: 0.06em;
+    }
+    .flight-cost strong { color: var(--green-deep); font-weight: 500; }
+    @media (max-width: 720px) {
+      .flight-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── BOOKINGS ── */
+    .book-section { background: var(--cream); }
+    .book-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px;
+    }
+    .book-card {
+      padding: 28px 28px 24px; background: var(--warm-white);
+      border: 1px solid var(--border); border-top: 2px solid var(--opt-b);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .book-card.wide { grid-column: 1 / -1; }
+    .book-eyebrow {
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-light); margin: 0;
+    }
+    .book-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; color: var(--green-deep);
+      line-height: 1.2; margin: 0;
+    }
+    .book-ref {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.72rem; letter-spacing: 0.08em; color: var(--opt-b);
+      background: var(--opt-b-pale); padding: 5px 12px; margin: 0;
+    }
+    .book-ref strong { font-weight: 500; }
+    .book-rows { display: flex; flex-direction: column; gap: 7px; margin: 4px 0 0; }
+    .book-row {
+      display: grid; grid-template-columns: 96px 1fr; gap: 12px;
+      font-size: 0.83rem; line-height: 1.6; color: var(--text-mid);
+    }
+    .book-row span:first-child {
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-light); padding-top: 4px;
+    }
+    .book-row span:last-child strong { color: var(--green-deep); font-weight: 500; }
+    .book-foot {
+      margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border);
+      font-size: 0.78rem; line-height: 1.6; color: var(--text-light);
+    }
+    .book-note {
+      margin-top: 28px; max-width: 720px;
+      font-size: 0.82rem; line-height: 1.7; color: var(--text-mid);
+    }
+    @media (max-width: 720px) {
+      .book-grid { grid-template-columns: 1fr; }
+      .book-row { grid-template-columns: 1fr; gap: 2px; }
+    }
+
+    /* ── GOOD TO KNOW ── */
+    .notes-section { background: var(--cream); }
+    .notes-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px;
+    }
+    .notes-card {
+      padding: 28px; background: var(--warm-white); border: 1px solid var(--border);
+    }
+    .notes-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: var(--green-deep); margin-bottom: 14px;
+    }
+    .notes-card p, .notes-card li {
+      font-size: 0.84rem; line-height: 1.7; color: var(--text-mid);
+    }
+    .notes-card p + p, .notes-card ul + p { margin-top: 12px; }
+    .notes-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .notes-card li { padding-left: 18px; position: relative; }
+    .notes-card li::before {
+      content: '·'; position: absolute; left: 4px; color: var(--opt-b);
+      font-size: 1.2rem; line-height: 1; top: 2px;
+    }
+    .notes-card li strong { color: var(--green-deep); font-weight: 500; }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .contact-list li {
+      display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
+      font-size: 0.84rem; color: var(--text-mid); padding: 0; line-height: 1.5;
+    }
+    .contact-list li::before { display: none; }
+    .contact-list li small { display: block; font-size: 0.7rem; color: var(--text-light); }
+    .contact-list li a { color: var(--green-deep); font-weight: 500; white-space: nowrap; }
+    @media (max-width: 720px) {
+      .notes-grid { grid-template-columns: 1fr; }
+      .contact-list li { grid-template-columns: 1fr; gap: 2px; }
+    }
+
+    /* ── INVESTMENT (top placement) ── */
+    .invest-section { background: var(--warm-white); padding: 88px 48px; text-align: center; }
+    .invest-section .section-inner { max-width: 620px; margin: 0 auto; }
+    .price-card {
+      padding: 48px 36px; border: 1px solid var(--border); background: var(--cream);
+      border-top: 2px solid var(--opt-b);
+    }
+    .price-amt {
+      font-family: 'Cormorant Garamond', serif; font-size: 3.2rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1;
+      display: block; margin-bottom: 8px;
+    }
+    .price-unit { font-size: 0.78rem; color: var(--text-light); }
+    .price-total {
+      display: inline-block; margin-top: 16px;
+      font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); border: 1px solid var(--border); padding: 7px 18px;
+      background: var(--warm-white);
+    }
+    .price-terms {
+      display: block; margin-top: 32px;
+      padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--text-mid); line-height: 1.7;
+    }
+    .price-terms strong { color: var(--green-deep); font-weight: 500; }
+    .price-footnote {
+      display: block; margin-top: 28px;
+      font-size: 0.72rem; color: var(--text-light); font-style: italic; line-height: 1.7;
+    }
+
+    /* ── INCLUSIONS ── */
+    .incl-section { background: var(--green-deep); padding: 88px 48px; }
+    .incl-section .eyebrow { color: var(--gold-light); }
+    .incl-section h2 { color: #fff; }
+    .incl-section .divider { background: var(--gold); }
+
+    .incl-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+      margin-top: 48px;
+    }
+    .incl-col h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+      font-weight: 400; color: #fff; margin-bottom: 24px;
+    }
+    .incl-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .incl-list li {
+      font-size: 0.84rem; color: rgba(255,255,255,0.62); line-height: 1.6;
+      padding-left: 22px; position: relative;
+    }
+    .incl-list li::before {
+      position: absolute; left: 0; font-size: 0.9rem;
+    }
+    .incl-list.yes li::before { content: '\2713'; color: var(--gold); }
+    .incl-list.no li::before { content: '\2013'; color: rgba(255,255,255,0.25); }
+
+    /* ── PROPERTIES CAROUSEL ── */
+    .properties-section { background: var(--cream); padding: 88px 48px; }
+    .properties-section .eyebrow { color: var(--gold); }
+    .properties-section h2 { color: var(--green-deep); }
+    .properties-section .section-intro {
+      color: var(--text-mid); max-width: 640px; margin-bottom: 8px;
+    }
+
+    .carousel-wrap { position: relative; margin-top: 44px; }
+    .carousel-track {
+      display: flex; gap: 20px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .c-card {
+      flex: 0 0 280px; scroll-snap-align: start;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .c-card-img {
+      width: 100%; height: 192px; flex-shrink: 0;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+      filter: contrast(1.06) saturate(1.06);
+    }
+    .c-card-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .c-location {
+      font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .c-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: var(--green-deep); line-height: 1.2; margin-bottom: 5px;
+    }
+    .c-room { font-size: 0.75rem; color: var(--text-light); margin-bottom: 14px; }
+    .c-nights {
+      font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--opt-b); border: 1px solid var(--opt-b-pale);
+      padding: 5px 11px; margin-top: auto; width: fit-content;
+      background: var(--opt-b-pale);
+    }
+    .carousel-footer {
+      display: flex; align-items: center; justify-content: flex-end;
+      margin-top: 24px; gap: 12px;
+    }
+    .c-btn {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border); background: none; cursor: pointer;
+      color: var(--text-mid); font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .c-btn:hover { border-color: var(--opt-b); color: var(--opt-b); }
+
+    /* ── DAY-BY-DAY ── */
+    .itin-section { background: var(--warm-white); }
+
+    .day-block {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
+      padding: 80px 48px; max-width: 1220px; margin: 0 auto;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+    }
+    .day-block:last-of-type { border-bottom: none; }
+    .day-block:nth-child(even) { direction: rtl; }
+    .day-block:nth-child(even) > * { direction: ltr; }
+
+    .day-text { display: flex; flex-direction: column; justify-content: flex-start; }
+    .day-ghost {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7.5rem; font-weight: 300; line-height: 0.85;
+      color: rgba(44,107,63,0.07); margin-bottom: -14px;
+      user-select: none;
+    }
+    .day-eyebrow {
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--opt-b); margin-bottom: 8px;
+    }
+    .day-date {
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 6px;
+    }
+    .day-location {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      font-weight: 400; color: var(--green-deep); line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .day-desc {
+      font-size: 0.92rem; line-height: 1.85; color: var(--text-mid);
+      margin-bottom: 24px;
+    }
+
+    .day-bullets {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day-bullet {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.82rem; line-height: 1.58; color: var(--text-mid);
+    }
+    .day-bullet .bi {
+      flex-shrink: 0; width: 16px; height: 16px;
+      margin-top: 3px;
+      color: var(--opt-b);
+    }
+    .day-bullet.meal .bi { color: #B88A3A; }
+    .day-bullet.aurora .bi { color: #5B7BB3; }
+    .day-bullet.transport .bi { color: var(--text-light); }
+    .day-bullet .bi-label {
+      font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-light); font-weight: 500;
+      display: inline-block; margin-right: 10px;
+      padding: 2px 8px;
+      background: var(--cream); border: 1px solid var(--border);
+      vertical-align: 1px;
+    }
+
+    .day-accom {
+      margin-top: 24px; padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    }
+    .day-accom-icon {
+      width: 14px; height: 14px; color: var(--opt-b);
+      flex-shrink: 0; align-self: center;
+    }
+    .day-accom-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.12rem;
+      font-weight: 400; color: var(--green-deep);
+    }
+    .day-accom-basis {
+      font-size: 0.66rem; letter-spacing: 0.06em; color: var(--text-light);
+    }
+    .day-accom-room {
+      font-size: 0.66rem; color: var(--text-light);
+      border: 1px solid var(--border); padding: 3px 10px;
+    }
+
+    .day-imgs {
+      display: flex; flex-direction: column; gap: 16px;
+      position: sticky; top: 90px;
+    }
+    .day-img {
+      height: 280px;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+      filter: contrast(1.1) saturate(1.08);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111; padding: 36px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38);
+    }
+    .footer-note { font-size: 0.68rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      nav.scrolled { padding: 12px 24px; }
+      .nav-links { display: none; }
+      .section { padding: 56px 24px; }
+      .properties-section, .incl-section, .invest-section { padding: 56px 24px; }
+      .book-section, .notes-section { padding: 56px 24px; }
+      .day-block {
+        grid-template-columns: 1fr; gap: 32px; padding: 56px 24px;
+      }
+      .day-block:nth-child(even) { direction: ltr; }
+      .day-imgs { position: static; }
+      .incl-grid { grid-template-columns: 1fr; gap: 36px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .itin-table { font-size: 0.78rem; }
+      .itin-table thead { display: none; }
+      .itin-table tbody td { display: block; padding: 6px 18px; border: none; min-width: 0; max-width: none; white-space: normal; }
+      .itin-table { width: 100%; display: block; }
+      .itin-table tbody { display: block; }
+      body { overflow-x: hidden; }
+      .itin-table tbody td:first-child { padding-top: 18px; }
+      .itin-table tbody td:last-child { padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+    }
+    @media (max-width: 560px) {
+      .day-ghost { font-size: 5rem; }
+      .day-location { font-size: 1.55rem; }
+      .day-img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <span class="nav-brand">Outpost Travel</span>
+  <div class="nav-links">
+    <a href="#summary">Summary</a>
+    <a href="#flights">Flights</a>
+    <a href="#bookings">Bookings</a>
+    <a href="#inclusions">Inclusions</a>
+    <a href="#properties">Properties</a>
+    <a href="#itinerary">Day by Day</a>
+    <a href="#notes">Good to Know</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Confirmed Itinerary</span>
+  <h1>Iceland, <em>October</em> 2026</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-name">Jeanette &amp; Brandon</p>
+  <p class="hero-meta">7 – 17 October 2026 &nbsp;·&nbsp; 10 Nights &nbsp;·&nbsp; 2 Travellers</p>
+</div>
+
+
+<!-- CONFIRMATION TABLE -->
+<section class="section table-section" id="summary">
+  <div class="section-inner">
+    <p class="eyebrow">Your Trip at a Glance</p>
+    <h2>Itinerary Summary</h2>
+    <div class="divider"></div>
+
+    <table class="itin-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Date</th>
+          <th>Location / Stay</th>
+          <th>Activity</th>
+          <th>Transfers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cell-day">D1</td>
+          <td class="cell-date">7 Oct<small>Wed</small></td>
+          <td class="cell-stay">Reykjavík<small>Sand Hotel</small></td>
+          <td class="cell-activity">Arrival, Blue Lagoon soak en route, check in at Sand Hotel</td>
+          <td class="cell-transfers">Keflavík → Blue Lagoon → Reykjavík <small style="display:block;color:var(--text-light);font-style:italic;margin-top:4px;">(you book directly, see Your Flights)</small></td>
+        </tr>
+        <tr>
+          <td class="cell-day">D2</td>
+          <td class="cell-date">8 Oct<small>Thu</small></td>
+          <td class="cell-stay">Midgard Base Camp<small>Hvolsvöllur</small></td>
+          <td class="cell-activity">4-Day Northern Lights Adventure begins · Golden Circle (Þingvellir, Geysir, Gullfoss) · Friðheimar Tomato Farm lunch</td>
+          <td class="cell-transfers">9:00am pickup at Sand Hotel by your Midgard guide</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D3</td>
+          <td class="cell-date">9 Oct<small>Fri</small></td>
+          <td class="cell-stay">Midgard Base Camp</td>
+          <td class="cell-activity">Katla Ice Caves &amp; South Coast · Reynisfjara &amp; basalt columns</td>
+          <td class="cell-transfers">As per Midgard itinerary</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D4</td>
+          <td class="cell-date">10 Oct<small>Sat</small></td>
+          <td class="cell-stay">Midgard Base Camp</td>
+          <td class="cell-activity">Þórsmörk Super Jeep adventure · Eyjafjallajökull views · local Icelandic home visit</td>
+          <td class="cell-transfers">As per Midgard itinerary</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D5</td>
+          <td class="cell-date">11 Oct<small>Sun</small></td>
+          <td class="cell-stay">Aurora Igloo South<small>Hella</small></td>
+          <td class="cell-activity">Sólheimajökull glacier walk · Skógafoss, Seljalandsfoss &amp; Gljúfrabúi waterfalls</td>
+          <td class="cell-transfers">Late afternoon drop-off at Aurora Igloo South by the Midgard team (check-in from 4:00pm)</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D6</td>
+          <td class="cell-date">12 Oct<small>Mon</small></td>
+          <td class="cell-stay">Reykjavík<small>Sand Hotel</small></td>
+          <td class="cell-activity">"Not in Your Guidebook" private tour · hidden canyons, Stóri Dímon, secret forest</td>
+          <td class="cell-transfers">Morning pickup at Aurora Igloo by your Midgard guide · evening drop-off at Sand Hotel</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D7</td>
+          <td class="cell-date">13 Oct<small>Tue</small></td>
+          <td class="cell-stay">Reykjavík<small>Sand Hotel</small></td>
+          <td class="cell-activity"><span class="suggested">Suggested</span>Hallgrímskirkja Church, Harpa Concert Hall, Old Harbour walk, Maritime Museum</td>
+          <td class="cell-transfers">No transfers today</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D8</td>
+          <td class="cell-date">14 Oct<small>Wed</small></td>
+          <td class="cell-stay">Hotel Húsafell<small>West Iceland</small></td>
+          <td class="cell-activity">Slow Reykjavík morning · afternoon transfer west · settle in at Húsafell as the light fades</td>
+          <td class="cell-transfers">3:30pm private transfer, pickup at Sand Hotel → Hotel Húsafell, approx. 2 hrs</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D9</td>
+          <td class="cell-date">15 Oct<small>Thu</small></td>
+          <td class="cell-stay">Hotel Húsafell</td>
+          <td class="cell-activity">Húsafell Canyon Baths (booked for two) · lava-field hiking · Langjökull glacier views · hotel geothermal pool</td>
+          <td class="cell-transfers">No transfers today</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D10</td>
+          <td class="cell-date">16 Oct<small>Fri</small></td>
+          <td class="cell-stay">Keflavík<small>Konvin Hotel</small></td>
+          <td class="cell-activity">Slow Húsafell day: Hraunfossar &amp; Barnafoss, lava-field walk or pool · late afternoon transfer to Keflavík</td>
+          <td class="cell-transfers">4:00pm private transfer, pickup at Hotel Húsafell → Konvin Hotel, approx. 2.5 hrs</td>
+        </tr>
+        <tr>
+          <td class="cell-day">D11</td>
+          <td class="cell-date">17 Oct<small>Sat</small></td>
+          <td class="cell-stay">Departure</td>
+          <td class="cell-activity">Travel home</td>
+          <td class="cell-transfers">7:00am hotel shuttle to Keflavík terminal (booked) · BA801 departs 10:20am</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="table-note">Every stay, tour and transfer above is booked and paid. Reference numbers and contact details are in <a href="#bookings" style="color:var(--opt-b);text-decoration:underline;">Your Bookings</a> below. Your homeward flight departs Keflavík at 10:20am on 17 October, so the final night is at Konvin Hotel, ten minutes from the terminal.</p>
+  </div>
+</section>
+
+
+<!-- FLIGHT OPTIONS -->
+<section class="section flight-section" id="flights">
+  <div class="section-inner">
+    <p class="eyebrow">Your Flights</p>
+    <h2>Homeward confirmed, arrival your way</h2>
+    <div class="divider"></div>
+
+    <p style="max-width:640px;">Your return flights are booked and confirmed. For the outbound, the two arrival patterns below still apply; send us your flight details once booked and we'll add them here. You'll arrange your own airport → Blue Lagoon → Reykjavík shuttle on arrival day. We'd suggest adding it when you book your Blue Lagoon tickets, so you can pick your own timings and stay as long as you like.</p>
+
+    <div class="flight-grid">
+
+      <div class="flight-card recommended" style="grid-column: 1 / -1;">
+        <span class="flight-tag">Confirmed · Homeward</span>
+        <p class="flight-airline">British Airways via London · Booking reference DO345Y</p>
+        <p class="flight-time"><strong>BA801</strong> &nbsp;Depart Keflavík <strong>Sat 17 Oct, 10:20am</strong> → Arrive London Heathrow <strong>2:25pm</strong> &nbsp;·&nbsp; 3h 05m, Economy<br><strong>BA11</strong> &nbsp;&nbsp;&nbsp;Depart London Heathrow <strong>Sat 17 Oct, 7:25pm</strong> → Arrive Singapore <strong>Sun 18 Oct, 4:05pm</strong> &nbsp;·&nbsp; 13h 40m, Economy</p>
+        <div class="flight-divider"></div>
+        <p class="flight-body">Five hours in London between flights, which is a comfortable connection. Konvin Hotel's 7:00am shuttle has you at the terminal a little over three hours before departure.</p>
+      </div>
+
+      <div class="flight-card">
+        <span class="flight-tag">Arrival · Pattern A</span>
+        <p class="flight-airline">Morning arrival, e.g. British Airways via London</p>
+        <p class="flight-time">Depart Singapore <strong>Tue 6 Oct, 10:40pm</strong><br>Arrive Keflavík <strong>Wed 7 Oct, 10:00am</strong></p>
+        <div class="flight-divider"></div>
+        <p class="flight-body">The scheduled shuttle works comfortably, with sufficient buffer between landing and the next bus:</p>
+        <ul class="flight-list">
+          <li>12:30pm shuttle Keflavík → Blue Lagoon (~20 min)</li>
+          <li>4:15pm shuttle Blue Lagoon → Reykjavík (~45 min)</li>
+        </ul>
+        <p class="flight-body" style="margin-top:4px;">If a 2.5-hour wait at the airport feels too long, most operators also offer a private transfer you can book in the same place.</p>
+        <span class="flight-cost"><strong>Transport:</strong> Book your airport → Blue Lagoon → Reykjavík shuttle directly, alongside your Blue Lagoon tickets.</span>
+      </div>
+
+      <div class="flight-card">
+        <span class="flight-tag">Arrival · Pattern B</span>
+        <p class="flight-airline">Afternoon arrival, e.g. KLM via Amsterdam</p>
+        <p class="flight-time">Depart Singapore <strong>Wed 7 Oct, 12:55am</strong><br>Arrive Keflavík <strong>Wed 7 Oct, 3:25pm</strong></p>
+        <div class="flight-divider"></div>
+        <p class="flight-body">The scheduled shuttle is available:</p>
+        <ul class="flight-list">
+          <li>4:30pm shuttle Keflavík → Blue Lagoon (~20 min)</li>
+          <li>6:15pm or 8:15pm shuttle Blue Lagoon → Reykjavík (~45 min)</li>
+        </ul>
+        <p class="flight-body" style="margin-top:4px;">However the scheduled shuttle is tight, with only about an hour to clear immigration and collect bags before the 4:30pm bus. A private transfer is the easier option here: your driver picks you up at Keflavík, waits at the Blue Lagoon, and continues to Reykjavík when you're ready. You can book either directly alongside your Blue Lagoon tickets.</p>
+        <span class="flight-cost"><strong>Transport:</strong> Book your airport → Blue Lagoon → Reykjavík shuttle directly, alongside your Blue Lagoon tickets.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- YOUR BOOKINGS -->
+<section class="section book-section" id="bookings">
+  <div class="section-inner">
+    <p class="eyebrow">Your Bookings</p>
+    <h2>Everything is confirmed</h2>
+    <div class="divider"></div>
+    <p style="max-width:640px;">Each stay, tour and transfer is booked and paid in full through Alchemist Travel, our partner agency, under your names. Keep the reference numbers handy in case you ever need to speak to a property directly.</p>
+
+    <div class="book-grid">
+
+      <div class="book-card">
+        <p class="book-eyebrow">Reykjavík · Nights 1, 6 &amp; 7</p>
+        <p class="book-name">Sand Hotel</p>
+        <p class="book-ref">Ref <strong>87174123</strong> (7–8 Oct) &nbsp;·&nbsp; Ref <strong>87174330</strong> (12–14 Oct)</p>
+        <div class="book-rows">
+          <div class="book-row"><span>Room</span><span>Standard Double, one room, two guests</span></div>
+          <div class="book-row"><span>Included</span><span>Breakfast buffet at Sandbar each morning · city lodging tax</span></div>
+          <div class="book-row"><span>Address</span><span>Laugavegur 34, 101 Reykjavík</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 519 8090</span></div>
+        </div>
+        <p class="book-foot">Two separate bookings for the two stays. We're checking whether the hotel can hold a bag for you between them, so you can travel light to Midgard.</p>
+      </div>
+
+      <div class="book-card">
+        <p class="book-eyebrow">South Iceland · Nights 2, 3 &amp; 4 + Day 6</p>
+        <p class="book-name">Midgard Adventure</p>
+        <p class="book-ref">Booking ref <strong>17325</strong></p>
+        <div class="book-rows">
+          <div class="book-row"><span>Booked</span><span>4-Day Northern Lights Adventure, 8–11 Oct, with <strong>double room upgrade</strong> at Midgard Base Camp · private "Not in Your Guidebook" day, 12 Oct</span></div>
+          <div class="book-row"><span>Pickup</span><span><strong>9:00am, Thu 8 Oct, at Sand Hotel</strong>. Your guide collects you from the lobby.</span></div>
+          <div class="book-row"><span>Included</span><span>All meals from lunch on 8 Oct to lunch on 11 Oct · lunch on the 12 Oct private day · guided activities · Northern Lights evening tour · rooftop sauna and hot tub</span></div>
+          <div class="book-row"><span>Address</span><span>Dufþaksbraut 14, 860 Hvolsvöllur</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 578 3370</span></div>
+        </div>
+        <p class="book-foot">Midgard send a detailed packing list ahead of the tour. Drinks are the only thing not covered at Base Camp.</p>
+      </div>
+
+      <div class="book-card">
+        <p class="book-eyebrow">Hella · Night 5</p>
+        <p class="book-name">Aurora Igloo South</p>
+        <p class="book-ref">Ref <strong>87336916</strong> &nbsp;·&nbsp; Igloo <strong>14</strong></p>
+        <div class="book-rows">
+          <div class="book-row"><span>Stay</span><span>Sun 11 Oct, one night · check-in from <strong>4:00pm</strong>, check-out by <strong>11:00am</strong></span></div>
+          <div class="book-row"><span>Check-in</span><span>Self check-in. Key box by your igloo's front door, code <strong>7417</strong>. Pull the handle up once, then turn the key left to unlock.</span></div>
+          <div class="book-row"><span>Room</span><span>Private bathroom, king bed with heated mattress, black-out curtains, Nespresso machine, empty mini fridge, wifi. No TV.</span></div>
+          <div class="book-row"><span>Address</span><span>Stekkatún 1, 851 Hella</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 791 1122 (weekdays 9am–5pm) · after hours +354 772 6869</span></div>
+        </div>
+        <p class="book-foot">No restaurant or breakfast on site: bring dinner and something for the morning. See Good to Know for nearby options, including one that delivers.</p>
+      </div>
+
+      <div class="book-card">
+        <p class="book-eyebrow">West Iceland · Nights 8 &amp; 9</p>
+        <p class="book-name">Hotel Húsafell</p>
+        <p class="book-ref">Ref <strong>85794588</strong></p>
+        <div class="book-rows">
+          <div class="book-row"><span>Stay</span><span>Wed 14 to Fri 16 Oct, two nights · Standard Room</span></div>
+          <div class="book-row"><span>Included</span><span>Breakfast buffet daily · hotel geothermal pool · <strong>Húsafell Canyon Baths for two</strong>, guided outing with transport from the hotel</span></div>
+          <div class="book-row"><span>Aurora</span><span>Let reception know you'd like a wake-up call if the lights appear overnight</span></div>
+          <div class="book-row"><span>Address</span><span>Húsafell, 311 Borgarnes</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 435 1551</span></div>
+        </div>
+        <p class="book-foot">Restaurant open 6:00pm to 9:00pm daily for dinner (not included). We have asked the hotel to confirm your Canyon Baths time slot and will add it here.</p>
+      </div>
+
+      <div class="book-card">
+        <p class="book-eyebrow">Keflavík · Night 10</p>
+        <p class="book-name">Konvin Hotel</p>
+        <p class="book-ref">Ref <strong>87034039</strong></p>
+        <div class="book-rows">
+          <div class="book-row"><span>Stay</span><span>Fri 16 Oct, one night · Double Room</span></div>
+          <div class="book-row"><span>Included</span><span>Breakfast for two · <strong>7:00am airport shuttle</strong> for two on 17 Oct, already booked and paid</span></div>
+          <div class="book-row"><span>Address</span><span>Keilisbraut 762, 262 Reykjanesbær · about 10 minutes from the terminal</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 426 5000</span></div>
+        </div>
+        <p class="book-foot">Nothing to settle at check-in. Breakfast is served early enough for the 7:00am shuttle.</p>
+      </div>
+
+      <div class="book-card">
+        <p class="book-eyebrow">Private transfers · Days 8 &amp; 10</p>
+        <p class="book-name">Your driver, West Iceland</p>
+        <p class="book-ref">Booking ref <strong>0001009</strong></p>
+        <div class="book-rows">
+          <div class="book-row"><span>Wed 14 Oct</span><span><strong>3:30pm</strong> pickup at Sand Hotel → Hotel Húsafell, approx. 2 hours</span></div>
+          <div class="book-row"><span>Fri 16 Oct</span><span><strong>4:00pm</strong> pickup at Hotel Húsafell → Konvin Hotel, Keflavík, approx. 2.5 hours</span></div>
+          <div class="book-row"><span>Vehicle</span><span>Private Mercedes EQV with an English-speaking driver-guide, just the two of you</span></div>
+          <div class="book-row"><span>Phone</span><span>+354 775 1001 (Þórir)</span></div>
+        </div>
+        <p class="book-foot">Both transfers are paid. Your driver will meet you in the hotel lobby.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- INCLUSIONS & EXCLUSIONS -->
+<section class="incl-section" id="inclusions">
+  <div class="section-inner">
+    <p class="eyebrow">The Details</p>
+    <h2>What's included</h2>
+    <div class="divider"></div>
+
+    <div class="incl-grid">
+      <div class="incl-col">
+        <h4>Inclusions</h4>
+        <ul class="incl-list yes">
+          <li>10 nights' accommodation as confirmed (Sand Hotel × 3, Midgard Base Camp × 3 in an upgraded double room, Aurora Igloo South × 1, Hotel Húsafell × 2, Konvin Hotel × 1)</li>
+          <li>All meals on the 4-day Midgard Northern Lights Adventure (8–11 Oct), including Friðheimar Tomato Farm lunch and traditional lamb dinner</li>
+          <li>Daily breakfast on all days, except at Aurora Igloo</li>
+          <li>Lunch on the private "Not in Your Guidebook" day (12 Oct)</li>
+          <li>Húsafell Canyon Baths for two, guided, with transport from the hotel</li>
+          <li>4-day Midgard Northern Lights Adventure programme (small group, max 16)</li>
+          <li>Golden Circle tour with Friðheimar lunch</li>
+          <li>Katla Ice Caves expedition</li>
+          <li>Þórsmörk 4×4 Super Jeep day tour</li>
+          <li>Sólheimajökull glacier ice walk with guide</li>
+          <li>Private "Not in Your Guidebook" tour (just the two of you, 6–7 hrs)</li>
+          <li>Private transfers: Sand Hotel → Hotel Húsafell (14 Oct), and Hotel Húsafell → Konvin Hotel (16 Oct)</li>
+          <li>Konvin Hotel shuttle to Keflavík terminal at 7:00am on 17 Oct</li>
+        </ul>
+      </div>
+      <div class="incl-col">
+        <h4>Exclusions</h4>
+        <ul class="incl-list no">
+          <li>International flights</li>
+          <li>Travel insurance</li>
+          <li>Blue Lagoon entry fees, plus your airport → Blue Lagoon → Reykjavík shuttle on arrival day (book both together directly, for full flexibility on timings)</li>
+          <li>Lunches and dinners in Reykjavík and Húsafell, and dinner and breakfast at Aurora Igloo</li>
+          <li>Drinks at Midgard Base Camp</li>
+          <li>Personal expenses and gratuities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PROPERTIES CAROUSEL -->
+<div class="properties-section" id="properties">
+  <div class="section-inner">
+    <p class="eyebrow">Where You'll Stay</p>
+    <h2>Five places to call home</h2>
+    <div class="divider"></div>
+    <p class="section-intro">Each property was chosen with real care, balancing boutique character, great locations, and a sense of quiet when you need it.</p>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="track-props">
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-sand-hotel-room.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Reykjavík</p>
+            <p class="c-name">Sand Hotel</p>
+            <p class="c-room">Standard Room</p>
+            <span class="c-nights">Nights 1, 6, 7 &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-midgard-exterior.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Hvolsvöllur &nbsp;·&nbsp; South Iceland</p>
+            <p class="c-name">Midgard Base Camp</p>
+            <p class="c-room">Double Room &nbsp;·&nbsp; Rooftop hot tub</p>
+            <span class="c-nights">Nights 2–4 &nbsp;·&nbsp; Full board</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-aurora-igloo-1.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Hella &nbsp;·&nbsp; South Iceland</p>
+            <p class="c-name">Aurora Igloo South</p>
+            <p class="c-room">Igloo 14 &nbsp;·&nbsp; private bathroom</p>
+            <span class="c-nights">Night 5 &nbsp;·&nbsp; Room only</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-husafell-hero.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">West Iceland</p>
+            <p class="c-name">Hotel Húsafell</p>
+            <p class="c-room">Double Room</p>
+            <span class="c-nights">Nights 8–9 &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-konvin-reception.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Keflavík &nbsp;·&nbsp; 10 min from the terminal</p>
+            <p class="c-name">Konvin Hotel</p>
+            <p class="c-room">Double Room &nbsp;·&nbsp; 7am airport shuttle</p>
+            <span class="c-nights">Night 10 &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-footer">
+        <button class="c-btn" data-track="track-props" data-dir="-1" aria-label="Previous">&#8592;</button>
+        <button class="c-btn" data-track="track-props" data-dir="1" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DAY-BY-DAY -->
+<section class="itin-section" id="itinerary">
+
+  <!-- Day 1: Wed 7 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">1</div>
+      <div class="day-eyebrow">Day 1</div>
+      <div class="day-date">Wed 7 October</div>
+      <div class="day-location">Arrival, Blue Lagoon, then Reykjavík</div>
+      <p class="day-desc">Welcome to Iceland. From the airport, you'll travel to the Blue Lagoon, Iceland's most iconic geothermal soak, perfect for easing the long-haul flight out of your shoulders. After your float, you'll continue into Reykjavík and to Sand Hotel. The rest of the afternoon is yours to decompress, settle in, and start to feel the different rhythm of the place. <em>Your transport depends on your arrival time. See <a href="#flights" style="color:var(--opt-b);text-decoration:underline;">Your Flights</a> above for the two patterns.</em></p>
+      <p class="day-desc">Sand Hotel will be your home base in Reykjavík. This boutique hotel is a sweet confection by the pâtissiers behind beloved Icelandic bakery Sandholt, which sits right next door. The hotel is centrally located on Reykjavík's main strip, Laugavegur; its neighbours are edgy clothing shops for wannabe Björks, an assortment of global restaurants, and cute cafés. All of the city's main sights are within easy walking distance.</p>
+      <p class="day-desc">Each morning, tuck into a Continental breakfast buffet at Sandbar on the ground floor. The morning feast includes house-made granola, rich coffees, and freshly baked breads and pastries from next-door neighbour Sandholt Bakery.</p>
+      <div class="day-bullets">
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          <span><span class="bi-label">Arrive</span>Keflavík International (morning or afternoon, see Your Flights)</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>Keflavík → Blue Lagoon → Reykjavík (shuttle booked by you, alongside your Blue Lagoon tickets)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Blue Lagoon soak en route (entry booked directly by you)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Settle in at Sand Hotel, Laugavegur 34 (ref 87174123) · explore Reykjavík at your own pace</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Sand Hotel</span>
+        <span class="day-accom-basis">Arrival night · B&amp;B</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-reykjavik-aerial.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-sand-hotel-room.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 2: Thu 8 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">2</div>
+      <div class="day-eyebrow">Day 2</div>
+      <div class="day-date">Thu 8 October</div>
+      <div class="day-location">The Golden Circle &amp; First Night at Midgard</div>
+      <p class="day-desc">Today marks the start of your Midgard Adventure. Your guide collects you from the Sand Hotel lobby at 9:00am, bags and all, and you'll spend the day visiting Iceland's iconic Golden Circle: Þingvellir National Park, where the tectonic plates quietly pull apart, the Geysir geothermal area where Strokkur erupts every few minutes, and Gullfoss, dropping in two thundering tiers into the canyon below. Lunch is at Friðheimar Tomato Farm, a working greenhouse with its own geothermal bakery, where they serve a really good tomato soup alongside fresh-baked bread. By evening you'll arrive at Midgard Base Camp in the heart of South Iceland, home for the next three nights. Dinner is waiting when you are, and afterwards the rooftop hot tub is yours whenever you'd like it.</p>
+      <div class="day-bullets">
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Breakfast</span>Included at Sand Hotel before pickup</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Pickup</span>9:00am at Sand Hotel, with your Midgard guide (booking ref 17325)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Þingvellir National Park (UNESCO)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Geysir Geothermal Area &amp; Strokkur</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Gullfoss Waterfall</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Lunch</span>Friðheimar Tomato Farm &amp; Geothermal Bakery (included)</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Dinner</span>Evening meal at Midgard restaurant (included)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span>Rooftop hot tub and Northern Lights watch</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Midgard Base Camp</span>
+        <span class="day-accom-basis">Night 1 of 3 · Full board</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-gullfoss.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-midgard-exterior.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 3: Fri 9 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">3</div>
+      <div class="day-eyebrow">Day 3</div>
+      <div class="day-date">Fri 9 October</div>
+      <div class="day-location">Katla Ice Caves &amp; the South Coast</div>
+      <p class="day-desc">This morning the Midgard team takes you to Katla, Iceland's most powerful subglacial volcano, for an ice cave expedition beneath the glacier. The walls of the cave shift from black volcanic ash to translucent blue ice, and your guide will explain how the whole thing changes season to season. In the afternoon, you'll head to Reynisfjara where the Atlantic crashes against the basalt columns and the famous sea stacks rise from the black sand, with further stops along the south coast as time allows. Back at Midgard for dinner, and another evening under the dancing skies.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Katla Ice Caves expedition beneath the glacier</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Reynisfjara Black Sand Beach &amp; basalt columns</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Further South Coast sites &amp; Dyrhólaey peninsula</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Meals</span>Breakfast at Midgard, lunch on the south coast, dinner at Midgard (all included)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span>Another evening of Northern Lights watching from Midgard</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Midgard Base Camp</span>
+        <span class="day-accom-basis">Night 2 of 3 · Full board</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-ice-cave.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-reynisfjara.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 4: Sat 10 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">4</div>
+      <div class="day-eyebrow">Day 4</div>
+      <div class="day-date">Sat 10 October</div>
+      <div class="day-location">Super Jeep Into Þórsmörk</div>
+      <p class="day-desc">A real favourite. Modified 4×4 Super Jeeps ford glacial rivers to reach Þórsmörk Mountain Reserve, a highland nature area so remote it can only be accessed with specialist vehicles. You'll spend the whole day in the reserve: wide river crossings, volcanic ridgelines, views across to Eyjafjallajökull volcano (the one that famously grounded European air travel in 2010), and the kind of quiet that only exists where there are no roads. Midgard also include a visit to a local Icelandic home along the way, which is always a highlight. Back at base for a traditional lamb dinner, and one more night of aurora watching to close out your time at Midgard.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>4×4 Super Jeep Adventure to Þórsmörk Mountain Reserve</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Eyjafjallajökull volcano views</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Visit to a local Icelandic home</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Meals</span>Breakfast at Midgard, packed lunchboxes in the field, traditional Icelandic lamb dinner at Midgard (all included)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span>Final Northern Lights night at Midgard</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Midgard Base Camp</span>
+        <span class="day-accom-basis">Night 3 of 3 · Full board</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-thorsmork-summer-2.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-thorsmork-summer-3.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 5: Sun 11 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">5</div>
+      <div class="day-eyebrow">Day 5</div>
+      <div class="day-date">Sun 11 October</div>
+      <div class="day-location">Glacier Walk &amp; South Coast Waterfalls</div>
+      <p class="day-desc">The final day of your Midgard Adventure. You'll start with a guided hike on Sólheimajökull Glacier, crampons on, moving quietly between crevasses as your guide explains how the glacier has shifted over the years. Stop by the glacier lagoon afterwards, then three of Iceland's most beautiful waterfalls in one afternoon: Skógafoss thundering down from a grassy ridge, Seljalandsfoss where a path takes you right behind the cascade, and the hidden Gljúfrabúi tucked into a narrow canyon that most visitors walk straight past. In the late afternoon, you'll say your goodbyes to the Midgard team, who drop you at Aurora Igloo South, a glass-ceiling igloo with private bathroom, designed for Northern Lights viewing from the comfort of your bed. Check-in is self-service from 4:00pm: you're in Igloo 14, and the key is in the box by your door (code 7417). There's no restaurant on site, so pick up dinner and something for the morning before you arrive, or order in from Árhús in Hella, which delivers. Your igloo has an empty fridge and a Nespresso machine.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hike on Sólheimajökull Glacier</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Sólheimajökull Glacier Lagoon</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Skógafoss Waterfall</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Seljalandsfoss, walk behind the falls</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hidden Gljúfrabúi Waterfall</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Meals</span>Breakfast and lunch with Midgard (included). No dinner or breakfast at Aurora Igloo: bring your own, or order in from Árhús (+354 449 9999).</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Check-in</span>From 4:00pm, self check-in · Igloo 14 · key box code 7417 (ref 87336916)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span>Northern Lights viewing from your bed through the glass ceiling</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Aurora Igloo South</span>
+        <span class="day-accom-basis">Night 5 · Room only</span>
+        <span class="day-accom-room">Igloo 14 · private bathroom</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-seljalandsfoss.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-aurora-igloo-1.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 6: Mon 12 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">6</div>
+      <div class="day-eyebrow">Day 6</div>
+      <div class="day-date">Mon 12 October</div>
+      <div class="day-location">Private "Not in Your Guidebook" Adventure</div>
+      <p class="day-desc">Wake up under the glass ceiling for one more look at the sky, and then step into what might be the most personal day of the whole trip. The Midgard team calls this their "Not in Your Guidebook" adventure, and they mean it literally: most of the places you'll visit aren't mentioned in any guidebook. These are the places the Midgard guides go on their own days off, where you're unlikely to see anyone other than a local traveller or a farmer. It's a truly local experience that only Midgard offers.</p>
+      <p class="day-desc">The area is in and around Fljótshlíð, the "hill by the river", a beautiful and peaceful stretch of countryside where many of the Icelandic Sagas took place. Depending on what the day calls for, your guide might take you to the small canyons and favourite playgrounds underneath Mt. Þórólfsfell, the 120-metre summit of Stóri Dímon for the view (or a walk around its base for hidden corners), rivers and hidden waterfalls around Mt. Þríhyrningur, and one of Iceland's few small forests where a farmer lived to 100 and an old well still stands. Taking a sip from that well is Midgard's way of staying young, and they say it could become yours too. Lunch is with your guide along the way. In the evening you'll be dropped at Sand Hotel for two nights in Reykjavík.</p>
+      <div class="day-bullets">
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>Morning pickup at Aurora Igloo by your Midgard guide (check-out by 11:00am) · evening drop-off at Sand Hotel</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Private adventure, just the two of you with a Midgard guide (6–7 hrs)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hidden canyons under Mt. Þórólfsfell</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Stóri Dímon summit (120m) for panoramic views</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hidden waterfalls &amp; caves around Mt. Þríhyrningur</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Secret forest &amp; a sip from the hundred-year-old farmer's well</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Lunch</span>Included, with your guide</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Sand Hotel</span>
+        <span class="day-accom-basis">Night 1 of 2 · B&amp;B · ref 87174330</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-guidebook-1.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-guidebook-3.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 7: Tue 13 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">7</div>
+      <div class="day-eyebrow">Day 7</div>
+      <div class="day-date">Tue 13 October</div>
+      <div class="day-location">Reykjavík at Leisure</div>
+      <p class="day-desc">A full free day in the capital, which means it's whatever you want it to be. A few suggestions: Hallgrímskirkja Church, whose architecture echoes the basalt columns you'll have seen at Reynisfjara. Harpa Concert Hall on the harbour, all geometric glass and shifting colour. A walk around the Old Harbour, the historic working edge of the city, still home to fishing boats and whale-watching operators. And the Reykjavík Maritime Museum, which sits right on the harbour and tells the story of Iceland's relationship with the sea. If you'd like us to book a restaurant for you for the evening, just say the word.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hallgrímskirkja Church &amp; observation tower</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Harpa Concert Hall</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Old Harbour walk</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Reykjavík Maritime Museum</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Breakfast</span>Included at Sand Hotel</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Dinner</span>Restaurant reservation available on request</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Sand Hotel</span>
+        <span class="day-accom-basis">Night 2 of 2 · B&amp;B</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-hallgrimskirkja.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-reykjavik-aerial.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 8: Wed 14 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">8</div>
+      <div class="day-eyebrow">Day 8</div>
+      <div class="day-date">Wed 14 October</div>
+      <div class="day-location">West to Húsafell</div>
+      <p class="day-desc">A leisurely morning in Reykjavík and a last walk through the city. Your driver meets you in the Sand Hotel lobby at 3:30pm for the private transfer west to Hotel Húsafell, about two hours through the lava fields, arriving as the light softens. Hraunfossar and Barnafoss are five minutes from the hotel, a long line of springs emerging directly from the lava field and cascading into the river below. Settle in, walk out into the surrounding nature, or simply sit by the fire and watch the light shift.</p>
+      <p class="day-desc">Tucked away from the city with very little light pollution, the hotel sits in one of the best spots in West Iceland for Northern Lights, and you'll have a good chance of seeing them from the comfort of your room or the lounge. If the aurora appears after you've turned in for the night, the hotel offers complimentary wake-up calls so you don't miss it.</p>
+      <div class="day-bullets">
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Breakfast</span>Included at Sand Hotel before checkout</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>3:30pm pickup at Sand Hotel → Hotel Húsafell, private Mercedes EQV, approx. 2 hrs (ref 0001009)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hraunfossar &amp; Barnafoss lava waterfalls, 5 min away (a good one for the morning of Day 9 or 10 given the later arrival)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Slow afternoon at the hotel and surrounding nature</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span>Northern Lights viewing from the hotel · ask reception for a wake-up call if the aurora appears overnight</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Dinner</span>Hotel restaurant, 6:00pm to 9:00pm (not included)</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Hotel Húsafell</span>
+        <span class="day-accom-basis">Night 1 of 2 · B&amp;B · ref 85794588</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-husafell-hero.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-husafell-2.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 9: Thu 15 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">9</div>
+      <div class="day-eyebrow">Day 9</div>
+      <div class="day-date">Thu 15 October</div>
+      <div class="day-location">Slow Days, Hot Pools</div>
+      <p class="day-desc">This is the day we've been building up to. No schedule, no agenda, nowhere you need to be. The surrounding lava fields have hiking trails right from the hotel, perfect for a morning walk out toward the Langjökull glacier views. The one fixed point is the Húsafell Canyon Baths, which we've booked for the two of you: a set of soaking pools built into the canyon itself using locally sourced stone, reached by a short drive from the hotel and an easy guided walk down into the gorge, with Langifoss waterfall on the way. The outing runs about an hour and three quarters, with transport, guide and towels included. Bring swimwear, hiking boots and warm waterproof layers. Before or after, the hotel's own geothermal pool is right on the grounds. Settle in for a long evening by the fire and one last Húsafell dinner.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hiking trails from the hotel through the lava fields</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Views toward Langjökull glacier</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span><strong style="font-weight:500;color:var(--green-deep);">Húsafell Canyon Baths, booked for two</strong> · approx. 1 hr 45 min, transport from the hotel, guide and towels included · we are confirming your time slot</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Bring swimwear, hiking boots and warm waterproof layers (swimsuits can be rented at the hotel pool)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hotel Húsafell's own geothermal pool, on the grounds</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Breakfast</span>Included at Hotel Húsafell</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Hotel Húsafell</span>
+        <span class="day-accom-basis">Night 2 of 2 · B&amp;B</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-husafell-restaurant.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-husafell-aurora.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 10: Fri 16 Oct, transfer to airport hotel -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">10</div>
+      <div class="day-eyebrow">Day 10</div>
+      <div class="day-date">Fri 16 October</div>
+      <div class="day-location">West, Then South to Keflavík</div>
+      <p class="day-desc">A full, slow day at Húsafell to close out the West Iceland chapter. An unhurried breakfast looking out over the valley, a last walk through the lava fields or out to Hraunfossar, a last dip in the geothermal pool. Your driver meets you at the hotel at 4:00pm for the private transfer back across the lava fields and south to Keflavík, arriving at Konvin Hotel in the early evening. Breakfast and tomorrow's 7:00am airport shuttle are already arranged, so there's nothing to sort out at check-in. A short, quiet evening close to the terminal, so the journey home can begin gently.</p>
+      <div class="day-bullets">
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Breakfast</span>Included at Hotel Húsafell before checkout</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Slow day at Hotel Húsafell: final walk or pool dip before the 4:00pm pickup</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>4:00pm pickup at Hotel Húsafell → Konvin Hotel, private Mercedes EQV, approx. 2.5 hrs (ref 0001009)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Check in to Konvin Hotel (ref 87034039) · confirm the 7:00am shuttle at reception · quiet evening before departure</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Konvin Hotel</span>
+        <span class="day-accom-basis">Night 10 · B&amp;B · ref 87034039</span>
+        <span class="day-accom-room">Double Room · Keflavík</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-husafell-pool.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-konvin-reception.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 11: Sat 17 Oct -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">11</div>
+      <div class="day-eyebrow">Day 11</div>
+      <div class="day-date">Sat 17 October</div>
+      <div class="day-location">Homeward</div>
+      <p class="day-desc">The trip is complete. After an early breakfast, check out of Konvin Hotel and take the 7:00am hotel shuttle to Keflavík terminal, ten minutes away, for BA801 to London at 10:20am. You have five hours at Heathrow before BA11 to Singapore, landing at 4:05pm on Sunday 18 October. We hope you'll leave a little lighter than you arrived, with the quiet of Húsafell and the warmth of the Midgard team tucked somewhere in your memory for a long time.</p>
+      <div class="day-bullets">
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Breakfast</span>Early breakfast at Konvin Hotel before checkout (included)</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Shuttle</span>7:00am Konvin Hotel shuttle to Keflavík terminal, ~10 min (booked)</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          <span><span class="bi-label">Depart</span>BA801 Keflavík 10:20am → London Heathrow 2:25pm · BA11 London 7:25pm → Singapore 4:05pm Sun 18 Oct (ref DO345Y)</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-konvin-room.jpg');"></div>
+      <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&amp;fit=crop&amp;w=1400&amp;q=80');"></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- GOOD TO KNOW -->
+<section class="section notes-section" id="notes">
+  <div class="section-inner">
+    <p class="eyebrow">Good to Know</p>
+    <h2>Before you go</h2>
+    <div class="divider"></div>
+
+    <div class="notes-grid">
+
+      <div class="notes-card">
+        <h4>Who to call</h4>
+        <ul class="contact-list">
+          <li><span>Kristin, Outpost Travel<small>First call for anything, any time</small></span><a href="https://wa.me/6597514830">+65 9751 4830</a></li>
+          <li><span>Emergency services in Iceland<small>Police, ambulance, rescue</small></span><a href="tel:112">112</a></li>
+          <li><span>Sand Hotel<small>Reykjavík</small></span><a href="tel:+3545198090">+354 519 8090</a></li>
+          <li><span>Midgard Adventure<small>Base Camp, Hvolsvöllur</small></span><a href="tel:+3545783370">+354 578 3370</a></li>
+          <li><span>Aurora Igloo South<small>Weekdays 9am to 5pm</small></span><a href="tel:+3547911122">+354 791 1122</a></li>
+          <li><span>Aurora Igloo South, after hours<small>Evenings and weekends</small></span><a href="tel:+3547726869">+354 772 6869</a></li>
+          <li><span>Hotel Húsafell<small>West Iceland</small></span><a href="tel:+3544351551">+354 435 1551</a></li>
+          <li><span>Konvin Hotel<small>Keflavík</small></span><a href="tel:+3544265000">+354 426 5000</a></li>
+          <li><span>Your driver, 14 &amp; 16 Oct<small>Þórir</small></span><a href="tel:+3547751001">+354 775 1001</a></li>
+        </ul>
+      </div>
+
+      <div class="notes-card">
+        <h4>Aurora Igloo night, 11 October</h4>
+        <p>There's no restaurant, breakfast or shop at the igloos, so plan the evening before you arrive. It's worth asking your Midgard guide about a quick stop in Hella on the way, or order in once you're settled:</p>
+        <ul>
+          <li><strong>Árhús</strong>, Hella · Nordic restaurant, delivers to the igloos · daily 2pm to 10pm · +354 449 9999</li>
+          <li><strong>Stracta Bistro</strong>, Hella · daily 12pm to 10pm, takeaway available · +354 531 8010</li>
+          <li><strong>Hekla Street Food</strong>, Hella · 5:30pm to 8pm, closed Tuesdays · takeaway</li>
+          <li><strong>Kanslarinn</strong>, Hella · Sunday 5:30pm to 9:30pm · takeaway</li>
+        </ul>
+        <p>Your igloo has an empty fridge and a Nespresso machine, so a simple breakfast for the morning is easy. Check-in is self-service from 4:00pm (Igloo 14, key box code 7417); check-out by 11:00am, leaving the key on the table.</p>
+      </div>
+
+      <div class="notes-card">
+        <h4>Packing</h4>
+        <ul>
+          <li>Warm, waterproof outer layers, a hat and gloves, and sturdy hiking boots. Midgard will send their own packing list before the tour, which covers the glacier walk and ice cave.</li>
+          <li>Swimwear and a small towel for the Blue Lagoon, Midgard's rooftop hot tub, the Húsafell pool and the Canyon Baths. Towels are provided at the Canyon Baths.</li>
+          <li>A head torch or phone torch for the igloo night, and an eye mask if you're a light sleeper under a glass ceiling.</li>
+          <li>Pack light for the Midgard days if you can. We're asking Sand Hotel about holding a bag for you from 8 to 12 October.</li>
+        </ul>
+      </div>
+
+      <div class="notes-card">
+        <h4>What you're arranging yourselves</h4>
+        <ul>
+          <li><strong>Blue Lagoon entry and transfers</strong> on 7 October. Book your entry time and the airport → Blue Lagoon → Reykjavík shuttle together on the Blue Lagoon site, matched to your arrival. Send us the flight details and we'll sense-check the timings.</li>
+          <li><strong>Dinners</strong> in Reykjavík (7, 12, 13 Oct), at the igloo (11 Oct) and at Húsafell (14, 15 Oct). If you'd like a restaurant booked in Reykjavík, just say the word.</li>
+          <li><strong>Travel insurance</strong>, if not already in place.</li>
+          <li><strong>Drinks</strong> at Midgard Base Camp are paid locally.</li>
+        </ul>
+        <p>Bookings are held under the names Jeanette Chan and Brandon Yew. If a property asks, they are made through Alchemist Travel, our partner agency in Singapore.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Outpost Travel</div>
+  <div class="footer-note">Prepared for Jeanette &amp; Brandon &nbsp;·&nbsp; Confirmed Itinerary &nbsp;·&nbsp; Updated 22 September 2026</div>
+</footer>
+
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  function initCarousel(trackId) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const cardWidth = () => {
+      const card = track.querySelector('.c-card');
+      return card ? card.offsetWidth + 20 : 300;
+    };
+    document.querySelectorAll(`.c-btn[data-track="${trackId}"]`).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = parseInt(btn.dataset.dir);
+        track.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' });
+      });
+    });
+  }
+  initCarousel('track-props');
+</script>
+
+</body>
+</html>
