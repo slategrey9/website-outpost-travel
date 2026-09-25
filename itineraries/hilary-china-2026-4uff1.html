@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>China, A Christmas Adventure · Alchemist Travel</title>
+  <meta name="description" content="A bespoke thirteen-day China journey for Hilary and family, 18 to 30 December 2026. Chengdu, Qingcheng Mountain, Xi'an and Beijing. Prepared by Alchemist Travel.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="China, A Christmas Adventure">
+  <meta property="og:description" content="A bespoke thirteen-day China journey for a family of four, December 2026.">
+  <meta property="og:site_name" content="Alchemist Travel">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green-deep:  #4A1418;   /* imperial red, deep */
+      --green-mid:   #7C2B28;
+      --green-light: #A8443A;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --cream:       #FAF6F0;
+      --warm-white:  #FFFFFF;
+      --text-dark:   #1A1A18;
+      --text-mid:    #4A4A45;
+      --text-light:  #7A7A72;
+      --border:      #E8DFD0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-dark);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(74,20,24,0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a.active { color: var(--gold); }
+
+    .hero {
+      height: 78vh; min-height: 560px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      background: var(--green-deep);
+      background-size: cover; background-position: center 45%;
+    }
+    .hero-proposal {
+      font-size: 0.92rem; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(4rem, 9vw, 7rem); line-height: 0.95;
+      color: #fff; letter-spacing: 0.03em;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-destinations {
+      margin-top: 28px;
+      font-size: 1.02rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+    .hero-rule {
+      width: 40px; height: 1px; background: rgba(201,168,76,0.5);
+      margin: 32px auto;
+    }
+    .hero-client-meta {
+      margin-top: 14px;
+      font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+    }
+    .hero-brand {
+      position: absolute; bottom: 36px; left: 0; right: 0; text-align: center;
+      font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .photo-caption {
+      position: absolute; bottom: 22px; left: 28px; z-index: 4;
+      max-width: 60%;
+      pointer-events: none;
+    }
+    .photo-caption::before {
+      content: ''; position: absolute;
+      left: -28px; right: -28px; bottom: -22px; top: -28px;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0) 75%);
+      z-index: -1;
+    }
+    .photo-caption .pc-loc {
+      display: block;
+      font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 4px;
+    }
+    .photo-caption .pc-desc {
+      display: block;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1.1rem; color: rgba(255,255,255,0.92);
+      line-height: 1.3;
+    }
+    @media (max-width: 600px) {
+      .photo-caption { left: 20px; bottom: 18px; max-width: 78%; }
+      .photo-caption .pc-loc { font-size: 0.7rem; letter-spacing: 0.14em; }
+      .photo-caption .pc-desc { font-size: 0.95rem; }
+    }
+
+    .section { padding: 56px 48px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(2rem, 3.6vw, 2.85rem); line-height: 1.12;
+      color: var(--green-deep); margin-bottom: 20px;
+    }
+    p { font-size: 1rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* OVERVIEW */
+    .overview-section { background: var(--cream); }
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .stats { display: flex; flex-direction: column; gap: 26px; padding-top: 6px; }
+    .stat { border-left: 2px solid var(--gold); padding-left: 22px; }
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1; margin-bottom: 5px;
+    }
+    .stat-l { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); line-height: 1.5; }
+
+    /* TIMELINE */
+    .timeline-section { background: var(--green-deep); padding: 56px 48px; }
+    .timeline-section .eyebrow { color: var(--gold-light); }
+    .timeline-section h2 { color: #fff; margin-bottom: 8px; }
+    .timeline-caption {
+      font-size: 0.88rem; color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em; margin-top: 16px;
+      font-style: italic;
+    }
+
+    .tl-frame { position: relative; margin-top: 44px; }
+    .tl-frame::before, .tl-frame::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
+      pointer-events: none; z-index: 2;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .tl-frame::before {
+      left: 0;
+      background: linear-gradient(to right, var(--green-deep), transparent);
+    }
+    .tl-frame::after {
+      right: 0;
+      background: linear-gradient(to left, var(--green-deep), transparent);
+    }
+    .tl-frame.tl-can-scroll-left::before { opacity: 1; }
+    .tl-frame.tl-can-scroll-right::after { opacity: 1; }
+    .tl-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(74,20,24,0.85);
+      color: rgba(255,255,255,0.85); font-size: 1.4rem; line-height: 1;
+      cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.25s, border-color 0.2s, color 0.2s, background 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .tl-arrow:hover { color: var(--gold); border-color: var(--gold); background: rgba(74,20,24,0.95); }
+    .tl-arrow:disabled { opacity: 0; pointer-events: none; }
+    .tl-arrow-prev { left: -8px; }
+    .tl-arrow-next { right: -8px; }
+    .tl-outer { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .tl-outer::-webkit-scrollbar { display: none; }
+
+    .tl-row {
+      display: flex; align-items: flex-start;
+      min-width: 760px; position: relative;
+      padding-top: 0;
+    }
+    .tl-row::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: calc(12.5% + 4px);
+      right: calc(12.5% + 4px);
+      height: 1px;
+      background: rgba(201,168,76,0.22);
+    }
+
+    .tl-stop {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; text-align: center; padding: 0 8px;
+    }
+    .tl-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--gold);
+      position: relative; z-index: 1;
+      flex-shrink: 0;
+      margin-bottom: 18px;
+    }
+    .tl-days {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; color: var(--gold-light);
+      font-weight: 400; letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .tl-country {
+      font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 7px;
+    }
+    .tl-prop {
+      font-size: 0.92rem; color: rgba(255,255,255,0.9);
+      line-height: 1.4;
+    }
+
+    /* DAY SECTIONS */
+    #itinerary .day-section { background: var(--warm-white); }
+    #itinerary .day-section:nth-child(even) { background: var(--cream); }
+
+    .day-grid { display: grid; grid-template-columns: 3fr 2fr; min-height: 460px; }
+    #itinerary .day-section:nth-child(even) .day-grid { grid-template-columns: 2fr 3fr; }
+    #itinerary .day-section:nth-child(even) .day-imgs { order: -1; }
+
+    .day-text {
+      padding: 52px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .day-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400;
+      color: var(--gold);
+      line-height: 1; margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .day-dest {
+      font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .day-text h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.95rem; font-weight: 400;
+      color: var(--green-deep); line-height: 1.1; margin-bottom: 6px;
+    }
+    .day-prop {
+      font-size: 0.88rem; color: var(--text-light); letter-spacing: 0.04em; margin-bottom: 20px;
+    }
+    .day-text p { font-size: 0.94rem; line-height: 1.78; color: var(--text-mid); margin-bottom: 12px; }
+    .day-text p:last-of-type { margin-bottom: 0; }
+    .day-text a { color: var(--green-mid); text-decoration: underline; text-underline-offset: 2px; }
+    .day-text a:hover { color: var(--green-deep); }
+
+    .day-imgs {
+      display: flex; flex-direction: column;
+    }
+    .day-img {
+      flex: 1;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid); min-height: 200px;
+      position: relative;
+    }
+
+    /* WHERE YOU'LL STAY */
+    .stay-section { background: var(--cream); }
+    .stay-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 44px;
+    }
+    .stay-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column;
+    }
+    .stay-img {
+      height: 200px;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+      position: relative;
+    }
+    .stay-img { border-bottom: 1px solid var(--border); }
+    .stay-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+    .stay-loc {
+      font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 9px;
+    }
+    .stay-card h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400;
+      color: var(--green-deep); line-height: 1.2; margin-bottom: 6px;
+    }
+    .stay-nights {
+      font-size: 0.84rem; color: var(--text-light); margin-bottom: 14px;
+      letter-spacing: 0.03em;
+    }
+    .stay-card p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 14px; }
+    .stay-room {
+      margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border);
+      font-size: 0.84rem; color: var(--text-light); line-height: 1.55;
+    }
+    .stay-room strong { color: var(--green-deep); font-weight: 500; }
+    @media (max-width: 900px) {
+      .stay-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* INCLUSIONS */
+    .inc-section { background: var(--green-deep); }
+    .inc-section .eyebrow { color: var(--gold-light); }
+    .inc-section h2 { color: #fff; }
+    .inc-section .divider { background: var(--gold); }
+    .inc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+    .inc-col h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: var(--gold-light); margin-bottom: 22px;
+    }
+    .inc-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .inc-list li {
+      display: flex; gap: 14px;
+      font-size: 0.97rem; color: rgba(255,255,255,0.78); line-height: 1.62;
+    }
+    .yes { color: var(--gold); flex-shrink: 0; font-size: 0.9rem; padding-top: 2px; }
+    .no  { color: rgba(255,255,255,0.3); flex-shrink: 0; font-size: 0.9rem; padding-top: 2px; }
+
+    /* PRICING */
+    .pricing-section { background: var(--warm-white); text-align: center; }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif; font-size: 4.8rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1;
+      display: block; margin-top: 36px;
+    }
+    .price-context {
+      font-size: 0.92rem; color: var(--text-light);
+      letter-spacing: 0.05em; margin-top: 12px;
+    }
+    .price-pp {
+      display: inline-block; margin-top: 20px;
+      font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-light); border: 1px solid var(--border); padding: 9px 22px;
+    }
+    .price-footnote {
+      display: block; margin-top: 22px;
+      font-size: 0.88rem; color: var(--text-light); font-style: italic;
+      max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.75;
+    }
+
+    /* OPTIONAL ENHANCEMENTS */
+    .opt-list {
+      list-style: none; margin: 36px auto 0; max-width: 620px;
+      text-align: left; display: flex; flex-direction: column; gap: 0;
+    }
+    .opt-list li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 24px;
+      padding: 15px 0; border-top: 1px solid var(--border);
+      font-size: 0.95rem; color: var(--text-mid); line-height: 1.6;
+    }
+    .opt-list li:last-child { border-bottom: 1px solid var(--border); }
+    .opt-price {
+      flex-shrink: 0; color: var(--green-deep); font-weight: 500;
+      letter-spacing: 0.03em; font-size: 0.92rem;
+    }
+    .opt-name strong { color: var(--green-deep); font-weight: 500; }
+    .opt-name span { display: block; font-size: 0.87rem; color: var(--text-light); margin-top: 3px; }
+
+    /* CTA */
+    .cta-section { background: var(--cream); padding: 64px 48px; }
+    .cta-eyebrow {
+      font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .cta-body {
+      font-size: 1.05rem; line-height: 1.85; color: var(--text-mid);
+      margin-bottom: 18px;
+    }
+    .cta-sign { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .cta-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      font-weight: 400; color: var(--green-deep); margin-bottom: 6px;
+    }
+    .cta-meta {
+      font-size: 0.92rem; color: var(--text-light); margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+    .cta-meta a {
+      color: var(--green-mid); text-decoration: underline;
+      text-underline-offset: 3px; transition: color 0.2s;
+    }
+    .cta-meta a:hover { color: var(--green-deep); }
+    @media (max-width: 600px) {
+      .cta-section { padding: 60px 22px; }
+      .cta-body { font-size: 1rem; }
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111; padding: 36px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38);
+    }
+    .footer-note { font-size: 0.82rem; color: rgba(255,255,255,0.32); letter-spacing: 0.06em; }
+
+    /* HOVER */
+    .day-img { transition: filter 0.45s ease; filter: contrast(1.08) saturate(1.06); }
+    .day-section:hover .day-imgs .day-img { filter: brightness(1.05) contrast(1.08) saturate(1.06); }
+
+    /* TIMELINE ANIMATION */
+    .tl-row::before {
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    }
+    .tl-row.tl-visible::before { transform: scaleX(1); }
+
+    .tl-stop {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .tl-row.tl-visible .tl-stop:nth-child(1) { transition-delay: 0.30s; }
+    .tl-row.tl-visible .tl-stop:nth-child(2) { transition-delay: 0.42s; }
+    .tl-row.tl-visible .tl-stop:nth-child(3) { transition-delay: 0.54s; }
+    .tl-row.tl-visible .tl-stop:nth-child(4) { transition-delay: 0.66s; }
+    .tl-row.tl-visible .tl-stop { opacity: 1; transform: translateY(0); }
+
+    .tl-dot { transition: transform 0.22s ease, box-shadow 0.22s ease; }
+    .tl-stop:hover .tl-dot {
+      transform: scale(1.55);
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.22);
+    }
+    .tl-prop { transition: color 0.2s ease; }
+    .tl-country { transition: color 0.2s ease; }
+    .tl-stop:hover .tl-country { color: var(--gold-light); }
+    .tl-stop:hover .tl-prop { color: #fff; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .section { padding: 64px 24px; }
+      .timeline-section { padding: 48px 24px; }
+      .overview-grid { grid-template-columns: 1fr; gap: 40px; }
+      .day-grid,
+      #itinerary .day-section:nth-child(even) .day-grid { grid-template-columns: 1fr; }
+      .day-imgs,
+      #itinerary .day-section:nth-child(even) .day-imgs { order: -1; }
+      .day-img { min-height: 220px; }
+      .day-text { padding: 40px 24px; }
+      .inc-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+
+      .hero-brand { white-space: normal; line-height: 1.9; padding: 0 24px; }
+
+      .day-prop  { font-size: 0.92rem; }
+      .price-amount { font-size: 3rem; }
+
+      .opt-list li { flex-direction: column; gap: 6px; }
+
+      .tl-outer { overflow-x: visible; }
+      .tl-arrow, .tl-frame::before, .tl-frame::after { display: none; }
+      .timeline-caption { display: none; }
+      .tl-row {
+        flex-direction: column;
+        align-items: stretch;
+        min-width: 0;
+        padding-left: 24px;
+        gap: 0;
+      }
+      .tl-row::before {
+        top: 5px;
+        left: 4px;
+        right: auto;
+        bottom: 28px;
+        width: 1px;
+        height: auto;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+      }
+      .tl-row.tl-visible::before { transform: scaleY(1); }
+      .tl-stop {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto auto;
+        column-gap: 16px;
+        align-items: start;
+        text-align: left;
+        padding: 0 0 26px 0;
+        position: relative;
+      }
+      .tl-stop:last-child { padding-bottom: 0; }
+      .tl-dot {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        margin-left: -28px;
+        margin-bottom: 0;
+        margin-top: 3px;
+        align-self: start;
+      }
+      .tl-days    { grid-column: 2; }
+      .tl-country { grid-column: 2; }
+      .tl-prop    { grid-column: 2; }
+      .tl-stop { transform: translateX(-10px); }
+      .tl-row.tl-visible .tl-stop { transform: translateX(0); }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 52px 20px; }
+      .timeline-section { padding: 44px 20px; }
+      .day-text { padding: 36px 20px; }
+      .hero h1 { font-size: clamp(3rem, 13vw, 5rem); }
+      .hero-proposal { font-size: 0.78rem; letter-spacing: 0.24em; }
+      .hero-destinations { font-size: 0.85rem; letter-spacing: 0.16em; }
+      .hero-client-meta { font-size: 0.78rem; letter-spacing: 0.14em; }
+      .price-amount { font-size: 2.6rem; }
+      .stat-n { font-size: 1.9rem; }
+    }
+
+    /* DAY NOTE */
+    .schedule-note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+      background: rgba(201,168,76,0.06);
+      border-left: 2px solid rgba(201,168,76,0.4);
+      padding: 13px 18px;
+      margin: 22px 0 0;
+      line-height: 1.7;
+    }
+    .schedule-note strong {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--green-deep);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* DAY FACTS (meals / guide / accommodation, per the operator's own footer) */
+    .day-facts {
+      margin-top: 26px;
+      border-top: 1px solid var(--border);
+    }
+    .fact {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .fact-l {
+      font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+    }
+    .fact-v { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+    .fact-v em { font-style: normal; color: var(--text-light); }
+
+    #itinerary .day-section { min-height: auto; }
+    #itinerary .day-grid { min-height: 0; }
+    #itinerary .day-text { padding: 48px 56px; }
+
+    @media (max-width: 900px) {
+      .fact { grid-template-columns: 1fr; gap: 3px; padding: 11px 0; }
+      #itinerary .day-text { padding: 36px 22px; }
+    }
+  
+    /* China quote additions */
+    .day-num { font-size: 1.25rem; margin-bottom: 8px; }
+    .day-text p strong { font-weight: 500; color: var(--green-deep); }
+    .day-grid.solo, #itinerary .day-section:nth-child(even) .day-grid.solo { grid-template-columns: 1fr; }
+    .day-grid.solo .day-text { max-width: 820px; }
+    .hero h1 { font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.02; }
+    .day-lead { font-size: 1.02rem !important; color: var(--text-dark) !important; line-height: 1.75 !important; margin-bottom: 18px !important; }
+
+    /* Hotel photo carousel */
+    .stay-carousel { position: relative; border-bottom: 1px solid var(--border); background: var(--green-mid); }
+    .sc-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
+    .sc-track::-webkit-scrollbar { display: none; }
+    .sc-slide { flex: 0 0 100%; scroll-snap-align: start; position: relative; margin: 0; }
+    .sc-slide img { display: block; width: 100%; height: clamp(220px, 24vw, 300px); object-fit: cover; }
+    .sc-slide figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 16px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.02rem; color: rgba(255,255,255,0.95);
+    }
+    .sc-btn {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.45); border-radius: 50%;
+      background: rgba(74,20,24,0.55); color: #fff; font-size: 1.3rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .sc-btn:hover { background: rgba(74,20,24,0.85); }
+    .sc-btn:disabled { opacity: 0; pointer-events: none; }
+    .sc-prev { left: 10px; } .sc-next { right: 10px; }
+    .sc-dots { position: absolute; right: 14px; bottom: 14px; display: flex; gap: 6px; z-index: 2; }
+    .sc-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.45); transition: background 0.2s; }
+    .sc-dots span.on { background: var(--gold-light); }
+    .stay-kids { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); margin-bottom: 14px; }
+    .stay-kids strong { color: var(--green-deep); font-weight: 500; }
+  </style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-logo">Alchemist Travel</div>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#stay">Stays</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#inclusions">Inclusions</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div class="hero" style="background-image: linear-gradient(to bottom, rgba(40,10,12,0.40) 0%, rgba(40,10,12,0.74) 100%), url('images/cn-forbidden-city-courtyard.jpg');">
+  <h1><em>China</em>,<br>A Christmas Adventure</h1>
+  <p class="hero-destinations">Chengdu &middot; Qingcheng Mountain &middot; Xi&rsquo;an &middot; Beijing</p>
+  <p class="hero-client-meta">18 &ndash; 30 December 2026 &nbsp;&middot;&nbsp; Thirteen Days &nbsp;&middot;&nbsp; Hilary &amp; Family</p>
+  <div class="hero-brand">Alchemist Travel &nbsp;&middot;&nbsp; kristin@alchemisttravel.com</div>
+</div>
+
+
+<!-- TRIP OVERVIEW -->
+<section class="section overview-section" id="overview" style="background: var(--warm-white);">
+  <div class="section-inner">
+    <div class="overview-grid">
+      <div>
+        <h2>Thirteen days,<br>four stops</h2>
+        <div class="divider"></div>
+        <p>Chengdu provides a gentle start, with pandas, teahouses and temples, followed by two nights at Qingcheng Mountain. Xi&rsquo;an makes a particularly atmospheric base for Christmas, with the Terracotta Warriors and the ancient City Wall. Beijing is the final stop, with the Forbidden City, the hutongs and the Great Wall at Mutianyu.</p>
+        <p>Most days have one or two main visits and are intentionally designed with your toddlers in mind, with ample downtime to unwind at the hotel. You&rsquo;ll get around in a private vehicle with your own driver and guide, while the journeys from Chengdu to Xi&rsquo;an (around 3 to 3.5 hours) and from Xi&rsquo;an to Beijing (around 4.5 to 5 hours) are by high-speed train.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">12</div>
+          <div class="stat-l">Nights &middot; Chengdu 3, Qingcheng 2, Xi&rsquo;an 3, Beijing 4</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">4</div>
+          <div class="stat-l">Travellers &middot; two adults, two children</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">2</div>
+          <div class="stat-l">High-speed train journeys &middot; first class</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHERE YOU'LL STAY -->
+<section class="section stay-section" id="stay">
+  <div class="section-inner">
+    <h2>Where you&rsquo;ll stay</h2>
+    <div class="divider"></div>
+    <p style="max-width: 720px;">Each of the four properties offers a refined and luxurious stay, while reflecting the local culture and heritage of its city. All four have a heated indoor pool.</p>
+
+    <div class="stay-grid">
+      <div class="stay-card">
+          <div class="stay-carousel">
+            <div class="sc-track">
+              <figure class="sc-slide"><img src="images/cn-hotel-upperhouse-facade.jpg" alt="The Qing Dynasty entrance on Bitieshi Street" loading="lazy"><figcaption>The Qing Dynasty entrance on Bitieshi Street</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-upperhouse-lobby.jpg" alt="The lounge in the restored arrival building" loading="lazy"><figcaption>The lounge in the restored arrival building</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-upperhouse-pool.jpg" alt="The 25-metre indoor heated pool" loading="lazy"><figcaption>The 25-metre indoor heated pool</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-upperhouse-room.jpg" alt="Studio 70" loading="lazy"><figcaption>Studio 70</figcaption></figure>
+            </div>
+            <button class="sc-btn sc-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="sc-btn sc-next" aria-label="Next photo">&#8250;</button>
+            <div class="sc-dots"></div>
+          </div>
+        <div class="stay-body">
+          <div class="stay-loc">Chengdu &middot; Nights 1 to 3</div>
+          <h4>Upper House Chengdu</h4>
+          <div class="stay-nights">Three nights, bed and breakfast &middot; 18 to 21 December</div>
+          <p>Formerly The Temple House, Upper House Chengdu sits right in the centre of the city, within Taikoo Li, Chengdu&rsquo;s open-air shopping and dining quarter of restored heritage lanes and international boutiques, beside the 1,000-year-old Daci Temple and a few minutes&rsquo; walk from Chunxi Road station. You arrive through a restored Qing Dynasty courtyard building that once housed scholars and translators, which opens onto a calm, landscaped courtyard hotel of timber, bamboo and stone. Dining includes Mi Xun Teahouse, awarded a MICHELIN star for its plant-based Sichuan cuisine, and Tivano, an Italian restaurant with a wood-fired oven and garden terrace.</p>
+          <p class="stay-kids"><strong>For the little ones:</strong> high chairs in the restaurants, and the pedestrianised lanes of Taikoo Li right outside the door.</p>
+          <div class="stay-room"><strong>Room:</strong> Studio 70, with one extra bed</div>
+        </div>
+      </div>
+
+      <div class="stay-card">
+          <div class="stay-carousel">
+            <div class="sc-track">
+              <figure class="sc-slide"><img src="images/cn-hotel-sixsenses-facade.jpg" alt="Qing You Hall" loading="lazy"><figcaption>Qing You Hall</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-sixsenses-lobby.jpg" alt="The Square, the resort&rsquo;s caf&eacute; and market" loading="lazy"><figcaption>The Square, the resort&rsquo;s caf&eacute; and market</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-sixsenses-pool.jpg" alt="The indoor heated pool" loading="lazy"><figcaption>The indoor heated pool</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-sixsenses-room.jpg" alt="A Six Senses Suite" loading="lazy"><figcaption>A Six Senses Suite</figcaption></figure>
+            </div>
+            <button class="sc-btn sc-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="sc-btn sc-next" aria-label="Next photo">&#8250;</button>
+            <div class="sc-dots"></div>
+          </div>
+        <div class="stay-body">
+          <div class="stay-loc">Qingcheng Mountain &middot; Nights 4 to 5</div>
+          <h4>Six Senses Qing Cheng Mountain</h4>
+          <div class="stay-nights">Two nights, bed and breakfast &middot; 21 to 23 December</div>
+          <p>Located an hour outside of Chengdu, the Six Senses Qing Cheng Mountain offers travellers a contemporary escape into Sichuan&rsquo;s stunning Taoist mountainside. The hotel offers traditional Chinese villas and modern suites set against a backdrop of bamboo-laden slopes. With nature at their doorstep, guests can enjoy a peaceful hike nearby or stay in with options on-site like a Sichuan cooking class and tai chi lesson.</p>
+          <p class="stay-kids"><strong>For the little ones:</strong> the Grow With Six Senses Kids&rsquo; Club, Happy Farm sessions where children help plant local vegetables and herbs and collect eggs from the farm, children&rsquo;s cooking classes, movie afternoons and board games.</p>
+          <div class="stay-room"><strong>Room:</strong> Six Senses Suite</div>
+        </div>
+      </div>
+
+      <div class="stay-card">
+          <div class="stay-carousel">
+            <div class="sc-track">
+              <figure class="sc-slide"><img src="images/cn-hotel-sofitel-facade.jpg" alt="The 1953 building" loading="lazy"><figcaption>The 1953 building</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-sofitel-lobby.jpg" alt="The 1953 Lobby Lounge" loading="lazy"><figcaption>The 1953 Lobby Lounge</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-sofitel-pool.jpg" alt="The indoor heated pool" loading="lazy"><figcaption>The indoor heated pool</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-sofitel-room.jpg" alt="Grand Premium Room" loading="lazy"><figcaption>Grand Premium Room</figcaption></figure>
+            </div>
+            <button class="sc-btn sc-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="sc-btn sc-next" aria-label="Next photo">&#8250;</button>
+            <div class="sc-dots"></div>
+          </div>
+        <div class="stay-body">
+          <div class="stay-loc">Xi&rsquo;an &middot; Nights 6 to 8</div>
+          <h4>Sofitel Legend People&rsquo;s Grand Hotel Xi&rsquo;an</h4>
+          <div class="stay-nights">Three nights, bed and breakfast &middot; 23 to 26 December</div>
+          <p>Ideally situated inside the city walls, a mere ten-minute drive from such key historical sites as the Bell Tower, Drum Tower, and Great Mosque, the Sofitel Legend is a modern escape where you can recharge after long days of exploring the ancient capital. Set in the landmark 1953 People&rsquo;s Grand Hotel among 40,000 square metres of gardens, it now has just 71 spacious rooms and suites, decorated with luxurious art deco flair. Dine at the on-site restaurant Dolce Vita, which serves authentic Italian food with fresh ingredients.</p>
+          <p class="stay-kids"><strong>For the little ones:</strong> a separate children&rsquo;s pool beside the main indoor pool, and a kids&rsquo; menu and booster seats at Dolce Vita.</p>
+          <div class="stay-room"><strong>Room:</strong> Grand Premium Room</div>
+        </div>
+      </div>
+
+      <div class="stay-card">
+          <div class="stay-carousel">
+            <div class="sc-track">
+              <figure class="sc-slide"><img src="images/cn-hotel-peninsula-facade.jpg" alt="The entrance on Goldfish Lane" loading="lazy"><figcaption>The entrance on Goldfish Lane</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-peninsula-lobby.jpg" alt="The lobby" loading="lazy"><figcaption>The lobby</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-peninsula-pool.jpg" alt="The indoor heated pool" loading="lazy"><figcaption>The indoor heated pool</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-peninsula-room.jpg" alt="Deluxe Suite" loading="lazy"><figcaption>Deluxe Suite</figcaption></figure>
+              <figure class="sc-slide"><img src="images/cn-hotel-peninsula-kids.jpg" alt="A room set up for young guests" loading="lazy"><figcaption>A room set up for young guests</figcaption></figure>
+            </div>
+            <button class="sc-btn sc-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="sc-btn sc-next" aria-label="Next photo">&#8250;</button>
+            <div class="sc-dots"></div>
+          </div>
+        <div class="stay-body">
+          <div class="stay-loc">Beijing &middot; Nights 9 to 12</div>
+          <h4>The Peninsula Beijing</h4>
+          <div class="stay-nights">Four nights, bed and breakfast &middot; 26 to 30 December</div>
+          <p>The only all-suite hotel in the capital, The Peninsula Beijing sits a short stroll from Tiananmen Square, the Forbidden City, and the bustling Wangfujing shopping street. Even the smallest suites average over 65 square metres, a contender for the largest rooms in all of China. The Peninsula accents its modern decor with traditional Chinese elements and unsurpassed service to create an experience at the apex of modern, global luxury.</p>
+          <p class="stay-kids"><strong>For the little ones:</strong> the Kid&rsquo;s Passport Adventure, a playful journey through the hotel&rsquo;s most iconic spaces with interactive questions and guided exploration (daily 10am to 6pm, booked 24 hours ahead). Rooms can be set up for children with mini robes and slippers and Peninsula Bear toys, and over the festive season the hotel typically hosts children&rsquo;s activities such as cake decorating and visits from Santa.</p>
+          <div class="stay-room"><strong>Room:</strong> Deluxe Suite</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="section-inner">
+    <h2>Journey at a glance</h2>
+    <div class="tl-frame">
+      <button class="tl-arrow tl-arrow-prev" id="tl-prev" aria-label="Scroll left">&#8249;</button>
+      <button class="tl-arrow tl-arrow-next" id="tl-next" aria-label="Scroll right">&#8250;</button>
+    <div class="tl-outer">
+      <div class="tl-row">
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 1 &ndash; 4</div>
+          <div class="tl-country">Chengdu</div>
+          <div class="tl-prop">Three nights &middot; Upper House Chengdu</div>
+        </div>
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 4 &ndash; 6</div>
+          <div class="tl-country">Qingcheng Mountain</div>
+          <div class="tl-prop">Two nights &middot; Six Senses Qing Cheng Mountain</div>
+        </div>
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 6 &ndash; 9</div>
+          <div class="tl-country">Xi&rsquo;an</div>
+          <div class="tl-prop">Three nights &middot; Sofitel Legend People&rsquo;s Grand</div>
+        </div>
+        <div class="tl-stop">
+          <div class="tl-dot"></div>
+          <div class="tl-days">Days 9 &ndash; 13</div>
+          <div class="tl-country">Beijing</div>
+          <div class="tl-prop">Four nights &middot; The Peninsula Beijing</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <p class="timeline-caption">Scroll for the full route &middot;</p>
+  </div>
+</div>
+
+
+<!-- DAY SECTIONS -->
+<div id="itinerary">
+
+  <!-- Day 1 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 1 &middot; Friday, 18 December</div>
+        <h3>Arrival in Chengdu</h3>
+        <p class="day-prop">Chengdu</p>
+        <p class="day-lead">Today marks the start of your adventure. Take the day to settle into Chengdu, and if you arrive early, explore Taikoo Li, the vibrant shopping district the hotel sits in.</p>
+        <p><strong>Airport meet and greet.</strong> Your local guide will meet you in the arrival hall with your private vehicle on standby to take you to your hotel.</p>
+        <p><strong>First stop: Chengdu.</strong> There is a popular saying: &ldquo;Once you arrive in Chengdu, you never want to leave.&rdquo; Spend even a few days here and it is easy to understand why. In Sichuan&rsquo;s laid-back capital, life unfolds over cups of jasmine tea, lively mahjong games, bubbling hot pot, and shaded park paths. Yet Chengdu is more than slow living. It is a dynamic city of students, artists, entrepreneurs, and food lovers, where old teahouses sit alongside creative neighbourhoods and contemporary restaurants. Home to the beloved giant panda and some of China&rsquo;s boldest flavours, Chengdu offers a warm, vivid introduction to Sichuan&rsquo;s culture, creativity, and famously unhurried way of life.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">None</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Upper House Chengdu &middot; Studio 70 + extra bed</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-chengdu-anshun-bridge.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">CHENGDU</span>
+            <span class="pc-desc">Anshun Bridge at dusk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 2 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 2 &middot; Saturday, 19 December</div>
+        <h3>Panda Base, Kung Fu Tea and the Kuanzhai Alleys</h3>
+        <p class="day-prop">Chengdu</p>
+        <p class="day-lead">In the morning, get up close to the pandas that call Chengdu home. In the afternoon, immerse yourself in the city&rsquo;s culture with a kung fu tea performance and a stroll down the Kuanzhai Alleys.</p>
+        <p><strong>Chengdu Panda Base.</strong> Despite making their way into zoos around the world as diplomatic gifts from China in the 1970s, the best place to see everybody&rsquo;s favourite black and white bears is in their hometown, Chengdu. In the Chengdu Panda Breeding Center, you will learn about the diet, reproduction, and conservation of these adorable creatures, and have plenty of opportunities to watch them do what they do best: eat, sleep, and roll around.</p>
+        <p><strong>Kung Fu tea performance.</strong> China&rsquo;s traditions of tea and kung fu are almost as old as the country itself. It is the marriage of the two, in the form of kung fu tea, that is much newer and wholly unique to Chengdu. Gaze in awe as the performer carries out a series of dazzling movements inspired by tai chi and kung fu, all culminating in the tea landing artfully in the cup. Then, awaken your inner tea master as you try your hand at gracefully pouring your own cup before tasting the fruits of your labour. After the performance, wander through the park for the ultimate people-watching experience, watching the locals as they dance their cares away or enjoy a roaring game of mahjong.</p>
+        <p><strong>Kuanzhai Alleys.</strong> The Kuanzhai Alleys are a dynamic collision of traditional architecture and modern culture, where Qing Dynasty buildings play host to some of Chengdu&rsquo;s best coffee shops, bars, galleries and boutiques. Rub shoulders with locals who love to roam these quirky lanes on their day off and tuck into some of the city&rsquo;s traditional snacks.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Upper House Chengdu &middot; Studio 70 + extra bed</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-chengdu-panda.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">CHENGDU</span>
+            <span class="pc-desc">The giant pandas, in their hometown</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 3 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 3 &middot; Sunday, 20 December</div>
+        <h3>Qingyang, Wuhou and Wenshu Temples</h3>
+        <p class="day-prop">Chengdu</p>
+        <p class="day-lead">Today, visit three of the region&rsquo;s most historically significant temples, then spend the rest of your Sunday unwinding at the hotel or exploring at your own pace.</p>
+        <p><strong>Qingyang Temple.</strong> Qingyang Taoist Temple is the birthplace of Lao Zi, the founding father of Taoism, which promotes the principle of wuwei, &ldquo;do nothing.&rdquo; Hidden throughout the grounds, under the open sky, nestled amidst the leaves, are small idols to different Taoist deities. Discovering them is discovering both the temple and Taoist thought.</p>
+        <p><strong>Wuhou Temple.</strong> Wuhou Temple is the resting place of Zhuge Liang, one of the most famous military strategists in China. The Martial Marquis of Shu during the Three Kingdoms period (220&ndash;280 AD), Zhuge Liang&rsquo;s wit and tact have rendered him immortal in military tales, and statues around the temple celebrate his life and accomplishments. After your visit, make your way to the local teahouses and shops lining the nearby Jinli street.</p>
+        <p><strong>Wenshu Monastery.</strong> Wenshu Monastery is one of China&rsquo;s largest and most well-preserved buildings of its kind. Its sloping roofs, upwardly flicked at the corners, towering colonnades, and incense-perfumed halls date back over 1,000 years. Your exploration of this working historical holy site allows you to experience the tranquil atmosphere and observe the daily rituals of monks and nuns, offering a glimpse into the spiritual life of the monastery.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Upper House Chengdu &middot; Studio 70 + extra bed</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-chengdu-wenshu-hall.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">WENSHU MONASTERY</span>
+            <span class="pc-desc">One of the monastery halls</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 4 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 4 &middot; Monday, 21 December</div>
+        <h3>Red Panda Forest Park and on to Qingcheng Mountain</h3>
+        <p class="day-prop">Chengdu &rarr; Qingcheng Mountain</p>
+        <p class="day-lead">Meet the red pandas in the forests of Dujiangyan, then continue into the mountains for two nights at Six Senses.</p>
+        <p><strong>Drive to Qingcheng Mountain.</strong> The ride from Chengdu to Qingcheng Mountain will take around 2 hours.</p>
+        <p><strong>Red Panda Forest Park.</strong> Nestled in the lush surroundings of Dujiangyan, the Red Panda Forest Park is a specialised conservation and education centre dedicated to the protection and breeding of red pandas. Rather than a traditional zoo, the park offers visitors the chance to observe these charming animals in naturalistic forest settings and learn about their behaviour, conservation, and daily lives. It is a particularly engaging experience for families and wildlife enthusiasts, with opportunities for closer encounters under the guidance of the park&rsquo;s professional staff.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Six Senses Qing Cheng Mountain &middot; Six Senses Suite</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-red-panda.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">DUJIANGYAN</span>
+            <span class="pc-desc">A red panda</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 5 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 5 &middot; Tuesday, 22 December</div>
+        <h3>Qingcheng Mountain*</h3>
+        <p class="day-prop">Qingcheng Mountain</p>
+        <p class="day-lead">Qingcheng Mountain is one of the birthplaces of Taoism. Known as &ldquo;the most peaceful and secluded under heaven&rdquo;, it is where Zhang Daoling founded the Way of the Celestial Masters in the 2nd century AD, and it is now a UNESCO World Heritage Site together with the nearby Dujiangyan irrigation system.</p>
+        <p><strong>Explore.</strong> Ride the cable car up the mountain, the views opening up as it falls away, then walk along the trail to explore the temples on the mountain.</p>
+        <p><strong>Remainder of the day at the hotel.</strong></p>
+        <div class="schedule-note"><strong>*Note</strong>The itinerary for this day is to be confirmed.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Six Senses Qing Cheng Mountain &middot; Six Senses Suite</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-qingcheng-cable-car.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">QINGCHENG MOUNTAIN</span>
+            <span class="pc-desc">The cable car up the mountain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 6 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 6 &middot; Wednesday, 23 December</div>
+        <h3>High-Speed Train to Xi&rsquo;an</h3>
+        <p class="day-prop">Qingcheng Mountain &rarr; Chengdu &rarr; Xi&rsquo;an</p>
+        <p class="day-lead">A travel day, from the mountains back to Chengdu and on by high-speed train to Xi&rsquo;an, China&rsquo;s ancient capital. The train takes around 3 to 3.5 hours.</p>
+        <p><strong>High-speed train to Xi&rsquo;an.</strong> Your guide and private chauffeur will escort you to the train station and help you check in for your train. Upon arriving in Xi&rsquo;an, your local guide will meet you in the arrival hall with your private vehicle on standby to take you to your hotel.</p>
+        <p><strong>Next stop: Xi&rsquo;an.</strong> Though Beijing has stolen the thunder as China&rsquo;s new capital, its history and prestige are nothing compared to the old capital of Xi&rsquo;an, where emperors ruled China for thousands of years. Home of the treasured Terracotta Warriors, the eastern end of the Silk Road, and a history that stretches longer than the Great Wall, Xi&rsquo;an epitomises traditional Chinese culture.</p>
+        <div class="schedule-note"><strong>Train tickets</strong>This proposal is based on First Class seats. Tickets are typically released 15 days before departure, and Business or Premium First Class may sometimes only be made available 1 to 2 days in advance. Tickets are purchased as soon as they are released; if the preferred class sells out, the next best option is secured and any fare difference refunded if applicable.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Sofitel Legend People&rsquo;s Grand Hotel Xi&rsquo;an &middot; Grand Premium Room</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-xian-drum-tower-night.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">XI&rsquo;AN</span>
+            <span class="pc-desc">The old capital, after dark</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 7 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 7 &middot; Thursday, 24 December</div>
+        <h3>The Terracotta Warriors</h3>
+        <p class="day-prop">Xi&rsquo;an &middot; Christmas Eve</p>
+        <p class="day-lead">Christmas Eve begins with one of the world&rsquo;s great archaeological finds, followed by a quiet afternoon at the hotel before Christmas Eve dinner.</p>
+        <p><strong>The Terracotta Warriors.</strong> In 1974, while digging a well in the vast countryside outside of Xi&rsquo;an, a group of farmers made a legendary discovery. They struck a chamber containing 8,000 soldiers belonging to China&rsquo;s fearsome first emperor, a terracotta army buried beneath the earth to guard his tomb for eternity. Less than an hour outside the city, you&rsquo;ll spend two hours coming face-to-face with row upon row of these ancient guardians, an experience no trip to China is complete without.</p>
+        <p><strong>Remainder of the day at leisure.</strong> Spend the afternoon at the hotel, and end the day with a Christmas dinner on Christmas Eve.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Sofitel Legend People&rsquo;s Grand Hotel Xi&rsquo;an &middot; Grand Premium Room</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-xian-terracotta.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">XI&rsquo;AN</span>
+            <span class="pc-desc">The Terracotta Warriors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 8 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 8 &middot; Friday, 25 December</div>
+        <h3>City Wall, Dumpling Making and the Wild Goose Pagodas</h3>
+        <p class="day-prop">Xi&rsquo;an &middot; Christmas Day</p>
+        <p class="day-lead">Spend Christmas Day walking the ancient City Wall, making dumplings for lunch, and visiting the Wild Goose Pagodas.</p>
+        <p><strong>Traverse Xi&rsquo;an&rsquo;s ancient City Wall.</strong> Ascending to an imperious height of 12 metres, the only way in or out of downtown Xi&rsquo;an is to pass through cavernous openings in the oldest, largest, and best-preserved city wall in China. Without a doubt, the best way to experience the fortifications is by walking on top of them. Keep your head on a swivel while making the circuit, taking full advantage of the commanding views of the ancient city within and the modern metropolis outside.</p>
+        <p><strong>Art you can eat: dumpling making.</strong> Xi&rsquo;an claims to be the birthplace of Chinese dumplings, and whether or not that&rsquo;s true, local chefs have elevated the humble staple to the most sophisticated culinary heights. Head to Xi&rsquo;an&rsquo;s most popular dumpling restaurant, where these little hand-pinched dough parcels of ground meat and vegetables are crafted into all shapes and sizes, from walnuts to roses, and have a go yourself at making everybody&rsquo;s favourite Chinese snack.</p>
+        <p><strong>Wild Goose Pagodas.</strong> Standing proudly beyond the city walls are the handsome Wild Goose Pagodas, imaginatively named Big and Small for reasons which don&rsquo;t need explaining. Reportedly modelled on the pagodas of India as seen by an 8th-century itinerant monk, these two structures are not only among the oldest in Xi&rsquo;an but important symbols of a city whose architecture is heavily influenced by styles from as far afield as Beijing and Iran.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast and lunch</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">Sofitel Legend People&rsquo;s Grand Hotel Xi&rsquo;an &middot; Grand Premium Room</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-xian-dumplings.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">XI&rsquo;AN</span>
+            <span class="pc-desc">Hand-pinched dumplings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 9 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 9 &middot; Saturday, 26 December</div>
+        <h3>High-Speed Train to Beijing</h3>
+        <p class="day-prop">Xi&rsquo;an &rarr; Beijing</p>
+        <p class="day-lead">Travel by high-speed train to Beijing, your final stop, with the rest of the day to settle in at The Peninsula. The train takes around 4.5 to 5 hours.</p>
+        <p><strong>High-speed train to Beijing.</strong> Your guide and private chauffeur will escort you to the train station and help you check in for your train. Upon arriving in Beijing, your local guide will meet you in the arrival hall with your private vehicle on standby to take you to your hotel.</p>
+        <p><strong>Next stop: Beijing.</strong> Hong Kong may be modern and Xi&rsquo;an may have a long history, but Beijing is a mix of both. Serving as China&rsquo;s capital since the Yuan dynasty (1279&ndash;1368 AD), Beijing&rsquo;s past, present and future are forced together in the crowded neighbourhoods and streets of the city.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Peninsula Beijing &middot; Deluxe Suite</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-forbidden-city-door.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">BEIJING</span>
+            <span class="pc-desc">A gate in the Forbidden City</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 10 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 10 &middot; Sunday, 27 December</div>
+        <h3>The Forbidden City and the Hutongs</h3>
+        <p class="day-prop">Beijing</p>
+        <p class="day-lead">Two sides of Beijing: the imperial splendour of the Forbidden City, and the hutong lanes where everyday local life carries on.</p>
+        <p><strong>The Forbidden City.</strong> Step inside the Forbidden City, a massive imperial palace once home to China&rsquo;s emperors and the geographic centre of this endless metropolis. The gates were shut to all but the royal household and their entourage of eunuchs and concubines for 600 years until, in 1924, a powerful warlord gave the last emperor just three hours to leave.</p>
+        <p><strong>Into the hutongs.</strong> Ask the residents of Beijing&rsquo;s hutong alleyways, the crisscrossing mazes of courtyards and alleyways which make up the heart of the city, and they&rsquo;ll tell you that anyone who lives further out isn&rsquo;t really a Beijinger. You&rsquo;ll see elders whiling away the night with a game of Chinese chess or mahjong, shopkeepers selling traditional snacks like jianbing (pancakes) and baozi (steamed buns), and hear calls announcing the arrival of the knife sharpener or cardboard collector. It is in these ancient neighbourhoods where the capital&rsquo;s distinct culture was generated, and where it continues to thrive today.</p>
+        <div class="schedule-note"><strong>Note</strong>The Forbidden City visit is not flexible after confirmation, as pre-booking is required.</div>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Peninsula Beijing &middot; Deluxe Suite</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-forbidden-city-courtyard.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">BEIJING</span>
+            <span class="pc-desc">The Forbidden City</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 11 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 11 &middot; Monday, 28 December</div>
+        <h3>The Great Wall at Mutianyu</h3>
+        <p class="day-prop">Beijing</p>
+        <p class="day-lead">A day trip to one of the best-preserved sections of the Great Wall, with a gondola up and the option of a toboggan ride down.</p>
+        <p>Rising from the sea in the east before extending 5,000 miles to the deserts of China&rsquo;s far west, this is arguably the greatest man-made wonder on earth: the Great Wall. Head to the stunning Ming Dynasty ruins outside Beijing, where lonely guards far from home once kept a weary watch over the lands beyond.</p>
+        <p>One of the best-preserved sections of the Ming Dynasty Great Wall can be found at Mutianyu, a stretch of immense brickwork snaking through rugged terrain two hours north of Beijing. With gondola access up and the option of either a gondola or toboggan ride down, you can decide how long you wish to hike along this stunning section of the wall.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Peninsula Beijing &middot; Deluxe Suite</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-great-wall-mutianyu.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">MUTIANYU</span>
+            <span class="pc-desc">The Great Wall</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 12 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 12 &middot; Tuesday, 29 December</div>
+        <h3>The Temple of Heaven and the Summer Palace</h3>
+        <p class="day-prop">Beijing</p>
+        <p class="day-lead">A final day of sightseeing, from the Temple of Heaven in the morning to the gardens and lake of the Summer Palace.</p>
+        <p><strong>The Temple of Heaven.</strong> Once the place where the Ming and Qing emperors came to pray for good harvests, the Temple of Heaven is crowned by the triple-roofed Hall of Prayer for Good Harvests, set within a vast, tree-lined park. Explore the grounds, discovering the temple&rsquo;s architecture, history, and its most secluded people-watching spots, where locals gather in the mornings for tai chi, dancing and games of cards.</p>
+        <p><strong>The Summer Palace.</strong> Live an afternoon of royal splendour just 30 minutes from Beijing at the Summer Palace, whose regal pathways and pavilions were built by the Empress Dowager Cixi, a former concubine who went on to become the most powerful woman in China. Unwind with a leisurely stroll around the garden&rsquo;s centrepiece, Kunming Lake.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+          <div class="fact"><span class="fact-l">Accommodation</span><span class="fact-v">The Peninsula Beijing &middot; Deluxe Suite</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-beijing-temple-of-heaven.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">TEMPLE OF HEAVEN</span>
+            <span class="pc-desc">The Hall of Prayer for Good Harvests</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Day 13 -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">Day 13 &middot; Wednesday, 30 December</div>
+        <h3>Departure from Beijing</h3>
+        <p class="day-prop">Beijing</p>
+        <p>Your guide will escort you to the airport and help you check in for your flight home.</p>
+        <div class="day-facts">
+          <div class="fact"><span class="fact-l">Meals included</span><span class="fact-v">Breakfast</span></div>
+        </div>
+      </div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('images/cn-flight-home.jpg');">
+          <div class="photo-caption">
+            <span class="pc-loc">UNTIL NEXT TIME</span>
+            <span class="pc-desc">The flight home</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#itinerary -->
+
+
+<!-- INCLUSIONS & EXCLUSIONS -->
+<section class="section inc-section" id="inclusions">
+  <div class="section-inner">
+    <h2>Inclusions &amp; Exclusions</h2>
+    <div class="divider"></div>
+    <div class="inc-grid">
+      <div class="inc-col">
+        <h4>Inclusions</h4>
+        <ul class="inc-list">
+          <li><span class="yes">&#10003;</span><span>Twelve nights&rsquo; accommodation as listed, with breakfast daily</span></li>
+          <li><span class="yes">&#10003;</span><span>Services of an English-speaking guide, as noted in the itinerary</span></li>
+          <li><span class="yes">&#10003;</span><span>All on-ground transfers in a private 7-seater minivan, with in-transport refreshments</span></li>
+          <li><span class="yes">&#10003;</span><span>Airport transfers on arrival and departure</span></li>
+          <li><span class="yes">&#10003;</span><span>High-speed train tickets, First Class: Chengdu to Xi&rsquo;an and Xi&rsquo;an to Beijing</span></li>
+          <li><span class="yes">&#10003;</span><span>All admission fees and experiences, as noted in the itinerary</span></li>
+          <li><span class="yes">&#10003;</span><span>All meals as noted in the itinerary, and drinking water</span></li>
+          <li><span class="yes">&#10003;</span><span>Government taxes and service charges</span></li>
+        </ul>
+      </div>
+      <div class="inc-col">
+        <h4>Exclusions</h4>
+        <ul class="inc-list">
+          <li><span class="no">&ndash;</span><span>International flights and relevant taxes</span></li>
+          <li><span class="no">&ndash;</span><span>Chinese tourist visa, where required</span></li>
+          <li><span class="no">&ndash;</span><span>Travel and medical insurance</span></li>
+          <li><span class="no">&ndash;</span><span>Alcohol, and meals not included in the itinerary</span></li>
+          <li><span class="no">&ndash;</span><span>Excursions and activities not included in the itinerary</span></li>
+          <li><span class="no">&ndash;</span><span>Expenses of a personal nature, such as minibar, telecommunications and laundry</span></li>
+          <li><span class="no">&ndash;</span><span>Discretionary gratuities for guides and drivers</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner" style="max-width: 660px; text-align: center;">
+    <h2 style="color: var(--green-deep);">Trip cost</h2>
+    <div class="divider" style="margin: 20px auto 0;"></div>
+    <span class="price-amount">USD 19,400</span>
+    <p class="price-context">family of four &nbsp;&middot;&nbsp; hotels, guides, transfers, trains &amp; experiences</p>
+    <span class="price-pp">Approx. SGD 24,900</span>
+    <span class="price-footnote">Covers everything in the day-by-day and the inclusions above, for two adults and two children sharing as listed. The trip is priced in USD, so the SGD figure is a guide only. No reservations are held at this stage, so availability and price are confirmed at the point of booking. Prices are valid for 30 days from quotation.</span>
+  </div>
+</section>
+
+
+<!-- NEXT STEPS / CTA -->
+<section class="section cta-section" style="background: var(--cream);">
+  <div class="section-inner" style="max-width: 640px; text-align: center;">
+    <h2>Next steps</h2>
+    <div class="divider" style="margin: 20px auto 28px;"></div>
+    <p class="cta-body">Have a read through and let me know what you think, particularly on pace and on the hotels.</p>
+    <p class="cta-body">Once you are happy with the shape, I can come back to you with the deposit details and booking terms.</p>
+    <div class="cta-sign">
+      <p class="cta-name">Kristin Lim</p>
+      <p class="cta-meta">Alchemist Travel</p>
+      <p class="cta-meta"><a href="mailto:kristin@alchemisttravel.com">kristin@alchemisttravel.com</a> &nbsp;&middot;&nbsp; +65 9751 4830</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Alchemist Travel</div>
+  <div class="footer-note">Prepared for Hilary &amp; family &middot; September 2026</div>
+</footer>
+
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Active section indicator in nav
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sectionMap = new Map();
+  navLinks.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sectionMap.set(el, a);
+  });
+  if (sectionMap.size) {
+    const navObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = sectionMap.get(entry.target);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sectionMap.forEach((_, el) => navObs.observe(el));
+  }
+
+  // Timeline entrance animation
+  const tlRow = document.querySelector('.tl-row');
+  if (tlRow) {
+    const tlObs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        tlRow.classList.add('tl-visible');
+        tlObs.disconnect();
+      }
+    }, { threshold: 0.25 });
+    tlObs.observe(tlRow);
+  }
+
+  // Journey-at-a-Glance scroll affordances
+  const tlFrame = document.querySelector('.tl-frame');
+  const tlOuter = document.querySelector('.tl-outer');
+  const tlPrev  = document.getElementById('tl-prev');
+  const tlNext  = document.getElementById('tl-next');
+  if (tlFrame && tlOuter && tlPrev && tlNext) {
+    const updateTlState = () => {
+      const max = tlOuter.scrollWidth - tlOuter.clientWidth;
+      const left = tlOuter.scrollLeft;
+      const canLeft  = left > 8;
+      const canRight = left < max - 8;
+      tlFrame.classList.toggle('tl-can-scroll-left', canLeft);
+      tlFrame.classList.toggle('tl-can-scroll-right', canRight);
+      tlPrev.disabled = !canLeft;
+      tlNext.disabled = !canRight;
+      const noScroll = max <= 4;
+      tlPrev.style.display = noScroll ? 'none' : '';
+      tlNext.style.display = noScroll ? 'none' : '';
+      const cap = document.querySelector('.timeline-caption');
+      if (cap) cap.style.display = noScroll ? 'none' : '';
+    };
+    tlOuter.addEventListener('scroll', updateTlState, { passive: true });
+    window.addEventListener('resize', updateTlState);
+    tlPrev.addEventListener('click', () => {
+      tlOuter.scrollBy({ left: -tlOuter.clientWidth * 0.7, behavior: 'smooth' });
+    });
+    tlNext.addEventListener('click', () => {
+      tlOuter.scrollBy({ left:  tlOuter.clientWidth * 0.7, behavior: 'smooth' });
+    });
+    updateTlState();
+  }
+
+  // Hotel photo carousels
+  document.querySelectorAll('.stay-carousel').forEach(c => {
+    const track = c.querySelector('.sc-track');
+    const slides = track.querySelectorAll('.sc-slide');
+    const prev = c.querySelector('.sc-prev'), next = c.querySelector('.sc-next');
+    const dots = c.querySelector('.sc-dots');
+    slides.forEach(() => dots.appendChild(document.createElement('span')));
+    const idx = () => Math.round(track.scrollLeft / track.clientWidth);
+    const update = () => {
+      const i = idx();
+      [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+      prev.disabled = i <= 0; next.disabled = i >= slides.length - 1;
+    };
+    prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth }));
+    next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth }));
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+</script>
+
+</body>
+</html>
