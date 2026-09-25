@@ -639,6 +639,41 @@
     .sc-dots span.on { background: var(--gold-light); }
     .stay-kids { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); margin-bottom: 14px; }
     .stay-kids strong { color: var(--green-deep); font-weight: 500; }
+      /* ITINERARY IN BRIEF */
+    .brief-section { background: var(--cream); }
+    .ib-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .ib-group th {
+      text-align: left; font-weight: 400; padding: 30px 0 12px;
+      border-bottom: 1px solid var(--gold);
+    }
+    .ib-group:first-child th { padding-top: 6px; }
+    .ib-city {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+      color: var(--green-deep); margin-right: 14px;
+    }
+    .ib-stay { font-size: 0.85rem; letter-spacing: 0.04em; color: var(--text-light); }
+    .ib-table tr:not(.ib-group) { cursor: pointer; transition: background .2s; }
+    .ib-table tr:not(.ib-group):hover { background: rgba(201,168,76,0.08); }
+    .ib-table td { padding: 13px 0; border-bottom: 1px solid var(--border); vertical-align: baseline; }
+    .ib-day { width: 190px; white-space: nowrap; }
+    .ib-day a {
+      color: var(--green-deep); text-decoration: none; font-weight: 500;
+      font-size: 0.95rem; margin-right: 10px;
+    }
+    .ib-day span { font-size: 0.88rem; color: var(--text-light); }
+    .ib-hl { font-size: 0.97rem; color: var(--text-mid); line-height: 1.6; padding-left: 12px !important; }
+    .ib-note { font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-top: 18px; }
+    .daybyday-head { background: var(--warm-white); padding: 56px 56px 0; }
+    .daybyday-head .section-inner { max-width: none; }
+    .daybyday-head h2 { margin-bottom: 0; }
+    @media (max-width: 900px) {
+      .ib-table td { display: block; border-bottom: none; padding: 0; }
+      .ib-table tr:not(.ib-group) { display: block; padding: 12px 0; border-bottom: 1px solid var(--border); }
+      .ib-hl { padding: 3px 0 0 !important; }
+      .ib-group th { display: block; padding-top: 26px; }
+      .ib-city { display: block; margin: 0 0 2px; }
+      .daybyday-head { padding: 44px 22px 0; }
+    }
   </style>
 </head>
 <body>
@@ -835,11 +870,46 @@
 </div>
 
 
+<!-- ITINERARY IN BRIEF -->
+<section class="section brief-section" id="brief">
+  <div class="section-inner">
+    <h2>Itinerary in brief</h2>
+    <table class="ib-table">
+      <tbody>
+        <tr class="ib-group"><th colspan="2"><span class="ib-city">Chengdu</span><span class="ib-stay">Three nights &middot; Upper House Chengdu</span></th></tr>
+        <tr onclick="location.hash='day-1'"><td class="ib-day"><a href="#day-1">Day 1</a><span>Fri, 18 Dec</span></td><td class="ib-hl">Arrive in Chengdu. Airport meet and greet, then settle in, with Taikoo Li on the doorstep</td></tr>
+        <tr onclick="location.hash='day-2'"><td class="ib-day"><a href="#day-2">Day 2</a><span>Sat, 19 Dec</span></td><td class="ib-hl">Chengdu Panda Base, a kung fu tea performance and the Kuanzhai Alleys</td></tr>
+        <tr onclick="location.hash='day-3'"><td class="ib-day"><a href="#day-3">Day 3</a><span>Sun, 20 Dec</span></td><td class="ib-hl">Qingyang, Wuhou and Wenshu Temples, then an afternoon at leisure</td></tr>
+        <tr class="ib-group"><th colspan="2"><span class="ib-city">Qingcheng Mountain</span><span class="ib-stay">Two nights &middot; Six Senses Qing Cheng Mountain</span></th></tr>
+        <tr onclick="location.hash='day-4'"><td class="ib-day"><a href="#day-4">Day 4</a><span>Mon, 21 Dec</span></td><td class="ib-hl">Red Panda Forest Park in Dujiangyan, then on to Qingcheng Mountain</td></tr>
+        <tr onclick="location.hash='day-5'"><td class="ib-day"><a href="#day-5">Day 5</a><span>Tue, 22 Dec</span></td><td class="ib-hl">Qingcheng Mountain and its Taoist temples*</td></tr>
+        <tr class="ib-group"><th colspan="2"><span class="ib-city">Xi&rsquo;an</span><span class="ib-stay">Three nights &middot; Sofitel Legend People&rsquo;s Grand Hotel Xi&rsquo;an</span></th></tr>
+        <tr onclick="location.hash='day-6'"><td class="ib-day"><a href="#day-6">Day 6</a><span>Wed, 23 Dec</span></td><td class="ib-hl">High-speed train from Chengdu to Xi&rsquo;an (around 3 to 3.5 hours)</td></tr>
+        <tr onclick="location.hash='day-7'"><td class="ib-day"><a href="#day-7">Day 7</a><span>Thu, 24 Dec</span></td><td class="ib-hl">The Terracotta Warriors, then a quiet afternoon before Christmas Eve</td></tr>
+        <tr onclick="location.hash='day-8'"><td class="ib-day"><a href="#day-8">Day 8</a><span>Fri, 25 Dec</span></td><td class="ib-hl">Christmas Day: the City Wall, dumpling making and the Wild Goose Pagodas</td></tr>
+        <tr class="ib-group"><th colspan="2"><span class="ib-city">Beijing</span><span class="ib-stay">Four nights &middot; The Peninsula Beijing</span></th></tr>
+        <tr onclick="location.hash='day-9'"><td class="ib-day"><a href="#day-9">Day 9</a><span>Sat, 26 Dec</span></td><td class="ib-hl">High-speed train from Xi&rsquo;an to Beijing (around 4.5 to 5 hours)</td></tr>
+        <tr onclick="location.hash='day-10'"><td class="ib-day"><a href="#day-10">Day 10</a><span>Sun, 27 Dec</span></td><td class="ib-hl">The Forbidden City and the hutongs</td></tr>
+        <tr onclick="location.hash='day-11'"><td class="ib-day"><a href="#day-11">Day 11</a><span>Mon, 28 Dec</span></td><td class="ib-hl">The Great Wall at Mutianyu</td></tr>
+        <tr onclick="location.hash='day-12'"><td class="ib-day"><a href="#day-12">Day 12</a><span>Tue, 29 Dec</span></td><td class="ib-hl">The Temple of Heaven and the Summer Palace</td></tr>
+        <tr onclick="location.hash='day-13'"><td class="ib-day"><a href="#day-13">Day 13</a><span>Wed, 30 Dec</span></td><td class="ib-hl">Transfer to the airport for your flight home</td></tr>
+      </tbody>
+    </table>
+    <p class="ib-note">*The itinerary for this day is to be confirmed.</p>
+  </div>
+</section>
+
+<div class="daybyday-head">
+  <div class="section-inner">
+    <h2>Day by day</h2>
+  </div>
+</div>
+
 <!-- DAY SECTIONS -->
 <div id="itinerary">
 
   <!-- Day 1 -->
-  <div class="day-section">
+  <div class="day-section" id="day-1">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 1 &middot; Friday, 18 December</div>
@@ -866,7 +936,7 @@
 
 
   <!-- Day 2 -->
-  <div class="day-section">
+  <div class="day-section" id="day-2">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 2 &middot; Saturday, 19 December</div>
@@ -894,7 +964,7 @@
 
 
   <!-- Day 3 -->
-  <div class="day-section">
+  <div class="day-section" id="day-3">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 3 &middot; Sunday, 20 December</div>
@@ -922,7 +992,7 @@
 
 
   <!-- Day 4 -->
-  <div class="day-section">
+  <div class="day-section" id="day-4">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 4 &middot; Monday, 21 December</div>
@@ -949,7 +1019,7 @@
 
 
   <!-- Day 5 -->
-  <div class="day-section">
+  <div class="day-section" id="day-5">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 5 &middot; Tuesday, 22 December</div>
@@ -977,7 +1047,7 @@
 
 
   <!-- Day 6 -->
-  <div class="day-section">
+  <div class="day-section" id="day-6">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 6 &middot; Wednesday, 23 December</div>
@@ -1005,7 +1075,7 @@
 
 
   <!-- Day 7 -->
-  <div class="day-section">
+  <div class="day-section" id="day-7">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 7 &middot; Thursday, 24 December</div>
@@ -1032,7 +1102,7 @@
 
 
   <!-- Day 8 -->
-  <div class="day-section">
+  <div class="day-section" id="day-8">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 8 &middot; Friday, 25 December</div>
@@ -1060,7 +1130,7 @@
 
 
   <!-- Day 9 -->
-  <div class="day-section">
+  <div class="day-section" id="day-9">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 9 &middot; Saturday, 26 December</div>
@@ -1087,7 +1157,7 @@
 
 
   <!-- Day 10 -->
-  <div class="day-section">
+  <div class="day-section" id="day-10">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 10 &middot; Sunday, 27 December</div>
@@ -1115,7 +1185,7 @@
 
 
   <!-- Day 11 -->
-  <div class="day-section">
+  <div class="day-section" id="day-11">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 11 &middot; Monday, 28 December</div>
@@ -1142,7 +1212,7 @@
 
 
   <!-- Day 12 -->
-  <div class="day-section">
+  <div class="day-section" id="day-12">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 12 &middot; Tuesday, 29 December</div>
@@ -1169,7 +1239,7 @@
 
 
   <!-- Day 13 -->
-  <div class="day-section">
+  <div class="day-section" id="day-13">
     <div class="day-grid">
       <div class="day-text">
         <div class="day-num">Day 13 &middot; Wednesday, 30 December</div>
@@ -1233,10 +1303,10 @@
 <!-- PRICING -->
 <section class="section pricing-section" id="pricing">
   <div class="section-inner" style="max-width: 660px; text-align: center;">
-    <h2 style="color: var(--green-deep);">Trip cost</h2>
+    <h2 style="color: var(--green-deep);">Your investment</h2>
     <div class="divider" style="margin: 20px auto 0;"></div>
     <span class="price-amount">USD 19,400</span>
-    <p class="price-context">family of four &nbsp;&middot;&nbsp; hotels, guides, transfers, trains &amp; experiences</p>
+    <p class="price-context">family of four &nbsp;&middot;&nbsp; 5-star hotels, private driver &amp; guides, airport transfers, high-speed trains &amp; experiences</p>
     <span class="price-pp">Approx. SGD 24,900</span>
     <span class="price-footnote">Covers everything in the day-by-day and the inclusions above, for two adults and two children sharing as listed. The trip is priced in USD, so the SGD figure is a guide only. No reservations are held at this stage, so availability and price are confirmed at the point of booking. Prices are valid for 30 days from quotation.</span>
   </div>
