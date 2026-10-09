@@ -1,31 +1,49 @@
-<!-- outposttravel.co — v3 -->
 <!DOCTYPE html>
+<!-- outposttravel.co — v4 (site-v2 branch) -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Outpost Travel — Luxury Travel Concierge</title>
-  <meta name="description" content="Hotel perks you can't get online. Complex itineraries, flawlessly handled." />
+  <title>Outpost Travel | Hotels and Tailor-Made Journeys</title>
+  <meta name="description" content="Hotel stays with Virtuoso perks, and tailor-made journeys for families, celebrations and places worth the effort. Singapore-based, planning worldwide." />
+  <link rel="canonical" href="https://outposttravel.co/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Outpost Travel" />
-  <meta property="og:title" content="Outpost Travel — Luxury Travel Concierge" />
-  <meta property="og:description" content="Hotel perks you can't get online. Complex itineraries, flawlessly handled." />
+  <meta property="og:title" content="Outpost Travel | Hotels and Tailor-Made Journeys" />
+  <meta property="og:description" content="Hotel stays with Virtuoso perks, and tailor-made journeys for families, celebrations and places worth the effort. Singapore-based, planning worldwide." />
   <meta property="og:url" content="https://outposttravel.co/" />
   <meta property="og:image" content="https://outposttravel.co/images/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Outpost Travel — luxury travel concierge" />
+  <meta property="og:image:alt" content="Outpost Travel, the effortless way to go further" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Outpost Travel — Luxury Travel Concierge" />
-  <meta name="twitter:description" content="Hotel perks you can't get online. Complex itineraries, flawlessly handled." />
+  <meta name="twitter:title" content="Outpost Travel | Hotels and Tailor-Made Journeys" />
+  <meta name="twitter:description" content="Hotel stays with Virtuoso perks, and tailor-made journeys for families, celebrations and places worth the effort. Singapore-based, planning worldwide." />
   <meta name="twitter:image" content="https://outposttravel.co/images/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Outpost Travel",
+    "url": "https://outposttravel.co/",
+    "logo": "https://outposttravel.co/favicon.svg",
+    "image": "https://outposttravel.co/images/og-image.jpg",
+    "description": "Hotel stays with Virtuoso perks, and tailor-made journeys for families, celebrations and places worth the effort.",
+    "email": "hello@outposttravel.co",
+    "telephone": "+65 9751 4830",
+    "founder": { "@type": "Person", "name": "Kristin Lim" },
+    "areaServed": "Worldwide",
+    "address": { "@type": "PostalAddress", "addressLocality": "Singapore", "addressCountry": "SG" },
+    "sameAs": ["https://www.instagram.com/outposttravelco/"]
+  }
+  </script>
   <style>
 
     /* =====================
@@ -702,6 +720,192 @@
     }
 
     /* =====================
+       VIRTUOSO PERKS
+    ===================== */
+    .perks {
+      background-color: var(--navy);
+      padding: 104px 52px 72px;
+      color: var(--cream);
+    }
+    .perks-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .perks-intro h2 {
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+    .perks-intro p {
+      font-weight: 300;
+      font-size: 0.92rem;
+      color: rgba(246,241,232,0.66);
+      line-height: 1.85;
+      max-width: 400px;
+      margin-bottom: 16px;
+    }
+    .perks-list { list-style: none; border-top: 1px solid rgba(246,241,232,0.12); }
+    .perks-list li {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(246,241,232,0.12);
+    }
+    .perks-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      line-height: 1.3;
+    }
+    .perks-list strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.3rem;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .perks-list span.perks-detail {
+      font-weight: 300;
+      font-size: 0.84rem;
+      color: rgba(246,241,232,0.58);
+    }
+    .perks-note {
+      font-weight: 300;
+      font-size: 0.74rem;
+      color: rgba(246,241,232,0.45);
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    /* =====================
+       RECENTLY PLANNED — PROOF
+    ===================== */
+    .proof {
+      background-color: var(--cream-mid);
+      padding: 104px 52px;
+    }
+    .proof-inner { max-width: 1100px; margin: 0 auto; }
+    .proof-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--sand);
+    }
+    .proof-header h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); color: var(--navy); }
+    .proof-header p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 300px;
+      text-align: right;
+      line-height: 1.5;
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0 48px;
+    }
+    .proof-card { display: flex; flex-direction: column; }
+    .proof-where {
+      font-weight: 500;
+      font-size: 0.63rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .proof-card h3 {
+      font-size: 1.45rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .proof-card p {
+      font-weight: 300;
+      font-size: 0.86rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .proof-card .text-link { margin-top: auto; }
+
+    /* =====================
+       JOURNAL TEASER
+    ===================== */
+    .journal-teaser {
+      background-color: var(--cream);
+      padding: 104px 52px;
+      border-top: 1px solid var(--sand);
+    }
+    .journal-teaser-inner { max-width: 1100px; margin: 0 auto; }
+    .journal-teaser-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .journal-teaser-header h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); color: var(--navy); }
+    .journal-teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .jt-card {
+      position: relative;
+      overflow: hidden;
+      height: 340px;
+      display: block;
+    }
+    .jt-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 2s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .jt-card:hover img { transform: scale(1.05); }
+    .jt-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(18,24,36,0.82) 0%, rgba(18,24,36,0.1) 60%, transparent 100%);
+    }
+    .jt-text {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 24px;
+      z-index: 1;
+      color: var(--cream);
+    }
+    .jt-tag {
+      display: inline-block;
+      font-weight: 500;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: rgba(246,241,232,0.88);
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .jt-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      line-height: 1.2;
+    }
+
+    /* =====================
        DESTINATIONS — EDITORIAL GRID
     ===================== */
     .destinations {
@@ -1108,11 +1312,16 @@
       .process { padding: 88px 40px; }
       .destinations { padding: 88px 40px; }
       .footer { padding: 64px 40px 36px; }
+      .perks { padding: 88px 40px 64px; }
+      .perks-inner { gap: 48px; }
+      .proof, .journal-teaser { padding: 88px 40px; }
+      .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 48px; }
     }
 
     @media (max-width: 900px) {
       /* Process: 2x2 on tablet */
       .process-steps { grid-template-columns: repeat(2, 1fr); gap: 48px 0; }
+      .process-step::after { display: none; }
       .process-step { border-right: none; padding-right: 0; }
       .process-step:not(:first-child) { padding-left: 0; }
       .process-step:nth-child(odd) { padding-right: 32px; border-right: 1px solid var(--sand); }
@@ -1179,6 +1388,18 @@
       .dest-card:nth-child(4) { grid-column: auto; }
       .dest-card:nth-child(5) { grid-column: auto; }
 
+      /* Perks, proof, journal */
+      .perks { padding: 72px 24px 56px; }
+      .perks-inner { grid-template-columns: 1fr; gap: 40px; }
+      .proof { padding: 72px 24px; }
+      .proof-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .proof-header p { text-align: left; }
+      .proof-grid { grid-template-columns: 1fr; gap: 40px; }
+      .journal-teaser { padding: 72px 20px; }
+      .journal-teaser-header { flex-direction: column; align-items: flex-start; }
+      .journal-teaser-grid { grid-template-columns: 1fr; }
+      .jt-card { height: 64vw; min-height: 240px; }
+
       /* Lead */
       .lead-ctas { flex-direction: column; align-items: center; }
 
@@ -1199,6 +1420,7 @@
     }
 
   </style>
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
 
@@ -1206,7 +1428,9 @@
   <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&#x2715;</button>
     <a href="about.html">About</a>
+    <a href="journal/">Journal</a>
     <a href="faq.html">FAQ</a>
+    <a href="https://www.instagram.com/outposttravelco/" class="mobile-nav-ig" target="_blank" rel="noopener noreferrer">Instagram @outposttravelco</a>
     <a href="start-planning.html" class="mobile-nav-cta">Start Planning</a>
   </div>
 
@@ -1214,6 +1438,7 @@
   <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
     <div class="nav-left">
       <a href="about.html">About</a>
+      <a href="journal/">Journal</a>
       <a href="faq.html">FAQ</a>
     </div>
     <a href="index.html" class="nav-logo" aria-label="Outpost Travel — home">
@@ -1221,6 +1446,7 @@
       <span class="nav-logo-travel">TRAVEL</span>
     </a>
     <div class="nav-right">
+      <a href="https://www.instagram.com/outposttravelco/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Outpost Travel on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
       <a href="https://wa.me/6597514830" class="nav-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         WhatsApp
@@ -1239,13 +1465,13 @@
     <div class="hero-content">
       <div class="hero-pre" data-animate>
         <span class="hero-rule" aria-hidden="true"></span>
-        <span class="eyebrow">Luxury Travel Concierge</span>
+        <span class="eyebrow">Hotels &middot; Tailor-made journeys &middot; Expeditions</span>
       </div>
       <h1 id="hero-heading" data-animate>Travel the way<br>it should feel</h1>
-      <p class="hero-sub" data-animate>Hotel perks you won't find online. Complex itineraries, handled down to the last detail.</p>
+      <p class="hero-sub" data-animate>Virtuoso perks at the hotels you'd choose anyway. Bigger journeys, handled down to the last detail.</p>
       <div class="hero-ctas" data-animate>
-        <a href="start-planning.html" class="btn-gold">Plan a Trip</a>
-        <a href="start-planning.html" class="btn-outline-light">Book a Hotel</a>
+        <a href="start-planning.html?type=trip" class="btn-gold">Plan a Trip</a>
+        <a href="start-planning.html?type=hotel" class="btn-outline-light">Book a Hotel</a>
       </div>
     </div>
     <span class="hero-caption" aria-hidden="true">Where the curious go</span>
@@ -1257,7 +1483,7 @@
       <p class="reframe-intro" data-animate>Outpost is for travellers who care about the details: for people who bring intention to everything they do, and want the same brought to their journeys.</p>
       <span class="eyebrow" data-animate>A Better Way to Travel</span>
       <p class="reframe-label" id="reframe-heading" data-animate>Exceptional hotels. Beautifully planned journeys. Every detail, handled.</p>
-      <p data-animate>For hotel bookings, there's no fee to you. The hotels pay us a commission. Through our preferred partnerships, your stay comes with benefits you won't find booking direct: room upgrades, daily breakfast, hotel credits, early check-in, late checkout.</p>
+      <p data-animate>For hotel bookings, there's no fee to you. The hotels pay us a commission. As a Virtuoso member with preferred partnerships across the major luxury groups, your stay comes with benefits you won't find booking direct: room upgrades, daily breakfast, hotel credits, early check-in, late checkout.</p>
       <p data-animate>For the bigger trips: multigenerational adventures, milestone celebrations, destinations that reward proper planning. We take care of everything end to end. The kind of trip that looks effortless because someone made sure it was.</p>
     </div>
   </section>
@@ -1281,10 +1507,11 @@
           <li>No fees to you. The hotels pay us directly</li>
           <li>Room upgrades, daily breakfast, and hotel credits</li>
           <li>Early check-in and late checkout where available</li>
-          <li>Preferred partner access at Aman, Shangri-La, Hyatt, Hilton, and more</li>
+          <li>Virtuoso amenities, plus preferred access with Four Seasons, Shangri-La, Hyatt, Hilton, and more</li>
+          <li>You still earn hotel loyalty points at most major chains</li>
         </ul>
         <div class="service-panel-ctas" data-animate>
-          <a href="start-planning.html" class="text-link">Fill out our online form &rarr;</a>
+          <a href="start-planning.html?type=hotel" class="text-link">Send us your hotel request &rarr;</a>
           <a href="https://wa.me/6597514830?text=Hi%20Kristin%2C%20I%27d%20like%20to%20book%20a%20discovery%20call." class="text-link" target="_blank" rel="noopener noreferrer">Book a discovery call &rarr;</a>
         </div>
       </div>
@@ -1304,12 +1531,102 @@
         <p data-animate>For bigger journeys: multigenerational travel, milestone celebrations, remote destinations, anything with real complexity. We work by consultation, taking the time to understand how you travel, what matters most, and what you'd rather not think about.</p>
         <p data-animate>Every detail researched and cared for. Every moving part anticipated, long before it becomes a problem.</p>
         <div class="service-panel-ctas" data-animate>
-          <a href="start-planning.html" class="text-link">Fill out our online form &rarr;</a>
+          <a href="start-planning.html?type=trip" class="text-link">Tell us about your trip &rarr;</a>
           <a href="https://wa.me/6597514830?text=Hi%20Kristin%2C%20I%27d%20like%20to%20book%20a%20discovery%20call." class="text-link" target="_blank" rel="noopener noreferrer">Book a discovery call &rarr;</a>
         </div>
       </div>
     </div>
 
+  </section>
+
+  <!-- VIRTUOSO PERKS -->
+  <section class="perks" aria-labelledby="perks-heading">
+    <div class="perks-inner">
+      <div class="perks-intro" data-animate>
+        <span class="eyebrow">Virtuoso Member</span>
+        <h2 id="perks-heading">What booking<br>with us adds</h2>
+        <p>Outpost is a member of Virtuoso, the travel network the world's best hotels reserve their most generous benefits for. Book through us and they come with your stay, usually at the same rate you'd pay booking direct.</p>
+        <p>You still earn loyalty points at most major chains, and you have someone in your corner if anything changes.</p>
+        <a href="start-planning.html?type=hotel" class="text-link">Send us your hotel request &rarr;</a>
+      </div>
+      <div data-animate class="delay-1">
+        <ul class="perks-list">
+          <li><span class="perks-num">i.</span><div><strong>Daily breakfast for two</strong><span class="perks-detail">Every morning of your stay.</span></div></li>
+          <li><span class="perks-num">ii.</span><div><strong>A hotel credit, usually USD 100</strong><span class="perks-detail">For the spa, dining or the bar, once per stay.</span></div></li>
+          <li><span class="perks-num">iii.</span><div><strong>Upgrade on arrival</strong><span class="perks-detail">Subject to availability, and we ask every time.</span></div></li>
+          <li><span class="perks-num">iv.</span><div><strong>Early check-in, late checkout</strong><span class="perks-detail">Requested ahead, so the room's ready when you are.</span></div></li>
+          <li><span class="perks-num">v.</span><div><strong>Recognition on arrival</strong><span class="perks-detail">The hotel knows who you are, and what you're celebrating.</span></div></li>
+        </ul>
+        <p class="perks-note">Typical Virtuoso amenities. Exact benefits vary by hotel and are confirmed in writing with every quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS MARQUEE -->
+  <div class="marquee-section" aria-label="Virtuoso member, with preferred partner programmes including Four Seasons Preferred Partner, Dorchester Collection Diamond Club, Leading Hotels of the World, Shangri-La Luxury Circle, Hyatt Privé, Hilton For Luxury, IHG Destined, Accor Preferred, Design Hotels, Anantara and Aman">
+    <p class="marquee-eyebrow">Virtuoso member &middot; Preferred partner programmes</p>
+    <div class="marquee-track-wrap">
+      <div class="marquee-track" aria-hidden="true">
+        <div class="marquee-item">Four Seasons Preferred Partner<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Dorchester Collection Diamond Club<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Leading Hotels of the World<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Shangri-La Luxury Circle<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Hyatt Priv&eacute;<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Hilton For Luxury<span class="marquee-dot"></span></div>
+        <div class="marquee-item">IHG Destined<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Accor Preferred<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Design Hotels<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Anantara<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Aman<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Four Seasons Preferred Partner<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Dorchester Collection Diamond Club<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Leading Hotels of the World<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Shangri-La Luxury Circle<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Hyatt Priv&eacute;<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Hilton For Luxury<span class="marquee-dot"></span></div>
+        <div class="marquee-item">IHG Destined<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Accor Preferred<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Design Hotels<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Anantara<span class="marquee-dot"></span></div>
+        <div class="marquee-item">Aman<span class="marquee-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECENTLY PLANNED -->
+  <section class="proof" aria-labelledby="proof-heading">
+    <div class="proof-inner">
+      <div class="proof-header" data-animate>
+        <div>
+          <span class="eyebrow">Recently Planned</span>
+          <h2 id="proof-heading">A few trips from this year</h2>
+        </div>
+        <p>Names kept private. The details, as they happened.</p>
+      </div>
+      <div class="proof-grid">
+        <article class="proof-card" data-animate>
+          <span class="proof-where">Japan &middot; Family of four</span>
+          <h3>A first time in Japan, with two teenagers</h3>
+          <p>Tokyo, a night in Hakone and Kyoto to finish. Days built around what a 12 and a 13 year old would actually remember, with one parent flying in partway through.</p>
+        </article>
+        <article class="proof-card delay-1" data-animate>
+          <span class="proof-where">Iceland &middot; Couple</span>
+          <h3>A slow, nature-first October</h3>
+          <p>No driving and no rushing. Guided days on glaciers and black-sand beaches, a super-jeep into Th&oacute;rsm&ouml;rk, rural lodges, and a final night in an aurora igloo.</p>
+        </article>
+        <article class="proof-card delay-2" data-animate>
+          <span class="proof-where">Thailand &middot; Toddler and baby</span>
+          <h3>An island week, third trip together</h3>
+          <p>A returning family on Koh Yao Yai in Phang Nga Bay. Boat and van transfers timed around flights, with every handover confirmed by the hotel before they landed.</p>
+        </article>
+        <article class="proof-card delay-3" data-animate>
+          <span class="proof-where">New Zealand &middot; Sample journey</span>
+          <h3>Three weeks by road</h3>
+          <p>Our self-drive route through both islands, the way we'd plan it for you: hotels, drive times and the stops worth pulling over for.</p>
+          <a href="itineraries/nz-roadtrip-sample-3-weeks-x7q2n" class="text-link">See the sample itinerary &rarr;</a>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- FOUNDER — ASYMMETRIC FEATURE -->
@@ -1339,17 +1656,17 @@
           <h3>Tell us about your trip</h3>
           <p>Share your destination, dates, who's travelling, and what you're hoping for. Hotel stay or full journey, we'll take it from there.</p>
         </div>
-        <div class="process-step" data-animate delay-1>
+        <div class="process-step delay-1" data-animate>
           <span class="process-num">2.</span>
           <h3>We do the quiet work</h3>
           <p>Hotels, operators, logistics. We come back with a clear recommendation, not an overwhelming list of options.</p>
         </div>
-        <div class="process-step" data-animate delay-2>
+        <div class="process-step delay-2" data-animate>
           <span class="process-num">3.</span>
           <h3>We finalise the details</h3>
           <p>Itinerary, budget, specifics. Once you're happy, we handle every booking and arrangement from our end.</p>
         </div>
-        <div class="process-step" data-animate delay-3>
+        <div class="process-step delay-3" data-animate>
           <span class="process-num">4.</span>
           <h3>All you do is arrive</h3>
           <p>We're in the background before and during your trip. Everything's been thought through. You just show up and take it in.</p>
@@ -1357,31 +1674,6 @@
       </div>
     </div>
   </section>
-
-  <!-- PARTNERS MARQUEE -->
-  <div class="marquee-section" aria-label="Our preferred hotel partners">
-    <p class="marquee-eyebrow">Preferred Partners</p>
-    <div class="marquee-track-wrap">
-      <div class="marquee-track" aria-hidden="true">
-        <div class="marquee-item">Shangri-La Luxury Circle<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Hilton For Luxury<span class="marquee-dot"></span></div>
-        <div class="marquee-item">IHG Destined<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Design Hotels<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Accor Preferred by Hera<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Hyatt Prive<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Anantara Journeys<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Aman<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Shangri-La Luxury Circle<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Hilton For Luxury<span class="marquee-dot"></span></div>
-        <div class="marquee-item">IHG Destined<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Design Hotels<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Accor Preferred by Hera<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Hyatt Prive<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Anantara Journeys<span class="marquee-dot"></span></div>
-        <div class="marquee-item">Aman<span class="marquee-dot"></span></div>
-      </div>
-    </div>
-  </div>
 
   <!-- DESTINATIONS — EDITORIAL GRID -->
   <section class="destinations" aria-labelledby="dest-heading">
@@ -1450,6 +1742,33 @@
     </div>
   </section>
 
+  <!-- JOURNAL TEASER -->
+  <section class="journal-teaser" aria-labelledby="journal-teaser-heading">
+    <div class="journal-teaser-inner">
+      <div class="journal-teaser-header" data-animate>
+        <div>
+          <span class="eyebrow">The Journal &middot; Coming Soon</span>
+          <h2 id="journal-teaser-heading">Shortlists worth saving</h2>
+        </div>
+        <a href="journal/" class="text-link">Visit the Journal &rarr;</a>
+      </div>
+      <div class="journal-teaser-grid">
+        <a href="journal/" class="jt-card" data-animate>
+          <img src="images/maldives.jpg" alt="A boat on a turquoise lagoon" loading="lazy" />
+          <div class="jt-text"><span class="jt-tag">Coming soon</span><div class="jt-title">Toddler-friendly places that still feel like a holiday</div></div>
+        </a>
+        <a href="journal/" class="jt-card delay-1" data-animate>
+          <img src="images/amankora-punakha-pool.jpg" alt="Pool terrace at a private lodge in Bhutan" loading="lazy" />
+          <div class="jt-text"><span class="jt-tag">Coming soon</span><div class="jt-title">Private estates and villas for the whole family</div></div>
+        </a>
+        <a href="journal/" class="jt-card delay-2" data-animate>
+          <img src="images/safari.jpg" alt="Savanna at golden hour" loading="lazy" />
+          <div class="jt-text"><span class="jt-tag">Coming soon</span><div class="jt-title">First safaris with children: where, when and how</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- BRAINSTORM STRIP -->
   <section class="brainstorm" aria-label="Open to ideas">
     <div class="brainstorm-inner" data-animate>
@@ -1469,11 +1788,11 @@
       <div class="faq-preview-grid">
         <div class="faq-preview-item" data-animate>
           <h3>Is there a fee?</h3>
-          <p>For hotel bookings, no. The hotels pay us a commission and you still get the VIP perks. For end-to-end trip planning, we access trade rates through a trusted network of ground suppliers; our margin is built into the trip cost, and overall pricing stays competitive.</p>
+          <p>For hotel bookings, no. The hotels pay us a commission and you still get the Virtuoso perks. For end-to-end trip planning, we access trade rates through a trusted network of ground suppliers; our margin is built into the trip cost, and overall pricing stays competitive.</p>
         </div>
         <div class="faq-preview-item" data-animate delay-1>
           <h3>What budget should I plan for?</h3>
-          <p>Hotels typically from USD 150 to 300 per night, depending on region. End-to-end journeys from USD 300 to 500 per person per day, excluding flights. We'll always be straightforward about what's achievable.</p>
+          <p>Hotels from around USD 150 a night in Southeast Asia, and from USD 300 in most other places. End-to-end journeys usually start from USD 300 to 500 per person per day, excluding flights. We'll always be straightforward about what's achievable.</p>
         </div>
         <div class="faq-preview-item" data-animate delay-2>
           <h3>What happens on a discovery call?</h3>
@@ -1511,28 +1830,30 @@
       <div class="footer-subscribe">
         <span class="footer-eyebrow">The Monthly Dispatch</span>
         <p>One destination. One hotel worth knowing. One reason to go now. Straight to your inbox, once a month.</p>
-        <form class="footer-form" name="newsletter" netlify netlify-honeypot="bot-field" aria-label="Newsletter signup">
+        <form class="footer-form js-newsletter" name="newsletter" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Newsletter signup">
           <input type="hidden" name="form-name" value="newsletter" />
-          <input type="text" name="bot-field" style="display:none" />
+          <input type="hidden" name="source" value="footer: index" />
+          <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
           <input type="email" name="email" placeholder="Your email address" aria-label="Email address" autocomplete="email" required />
           <button type="submit">Subscribe</button>
         </form>
+        <p class="form-status" role="status" aria-live="polite"></p>
         <p class="footer-micro">No spam. Unsubscribe any time.</p>
       </div>
       <div class="footer-info">
         <ul class="footer-nav-inline" role="list">
           <li><a href="about.html">About</a></li>
+          <li><a href="journal/">Journal</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="start-planning.html">Start Planning</a></li>
         </ul>
         <div class="footer-socials">
-          <a href="https://wa.me/6597514830" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          </a>
+          <a href="https://wa.me/6597514830" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          <a href="https://www.instagram.com/outposttravelco/" class="footer-ig" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg>@outposttravelco</a>
           <a href="mailto:hello@outposttravel.co" class="footer-email">hello@outposttravel.co</a>
         </div>
         <p class="footer-location">Singapore-based, working with curious travellers worldwide.</p>
-        <div class="footer-affil">Independent affiliate of <a href="https://www.alchemisttravel.com/" target="_blank" rel="noopener noreferrer" style="color:inherit; border-bottom:1px solid rgba(246,241,232,0.18); transition:color 0.2s ease;" onmouseover="this.style.color='#B8956A'" onmouseout="this.style.color='inherit'">Alchemist Travel</a> &middot; Serandipians member</div>
+        <div class="footer-affil"><a href="https://www.virtuoso.com/" target="_blank" rel="noopener noreferrer">Virtuoso</a>&reg; member &middot; Independent affiliate of <a href="https://www.alchemisttravel.com/" target="_blank" rel="noopener noreferrer">Alchemist Travel</a></div>
         <p class="footer-tagline">The effortless way to go further.</p>
       </div>
     </div>
@@ -1595,5 +1916,6 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
   </script>
 
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

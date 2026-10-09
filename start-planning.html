@@ -501,6 +501,40 @@
       white-space: nowrap;
     }
     .btn-submit:hover { background-color: var(--gold-dark); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+    .form-error {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: #9A3D25;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+    .form-error:empty { display: none; }
+    .form-error a { color: inherit; border-bottom: 1px solid currentColor; }
+    .field-group input:invalid.touched,
+    .field-group input.is-invalid { border-color: #C0694F; }
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .field-group .check-row input[type="checkbox"] {
+      -webkit-appearance: checkbox;
+      appearance: auto;
+      width: 18px; height: 18px;
+      padding: 0;
+      margin-top: 3px;
+      border: none;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+    }
     .form-privacy {
       font-family: 'Jost', sans-serif;
       font-weight: 300;
@@ -686,6 +720,7 @@
     }
 
   </style>
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
 
@@ -693,7 +728,9 @@
   <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&#x2715;</button>
     <a href="about.html">About</a>
+    <a href="journal/">Journal</a>
     <a href="faq.html">FAQ</a>
+    <a href="https://www.instagram.com/outposttravelco/" class="mobile-nav-ig" target="_blank" rel="noopener noreferrer">Instagram @outposttravelco</a>
     <a href="start-planning.html" class="mobile-nav-cta">Start Planning</a>
   </div>
 
@@ -701,6 +738,7 @@
   <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
     <div class="nav-left">
       <a href="about.html">About</a>
+      <a href="journal/">Journal</a>
       <a href="faq.html">FAQ</a>
     </div>
     <a href="index.html" class="nav-logo" aria-label="Outpost Travel — home">
@@ -708,6 +746,7 @@
       <span class="nav-logo-travel">TRAVEL</span>
     </a>
     <div class="nav-right">
+      <a href="https://www.instagram.com/outposttravelco/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Outpost Travel on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
       <a href="https://wa.me/6597514830" class="nav-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         WhatsApp
@@ -767,6 +806,7 @@
         id="planningForm"
         name="start-planning"
         method="POST"
+        action="/thanks.html"
         netlify
         netlify-honeypot="bot-field"
         aria-label="Start planning your trip"
@@ -1006,8 +1046,26 @@
               autocomplete="tel"
             />
           </div>
+          <div class="field-group" data-animate delay-1>
+            <label for="contact-source">How did you hear about us?</label>
+            <select id="contact-source" name="referral_source">
+              <option value="" selected></option>
+              <option>A friend or past client</option>
+              <option>Instagram</option>
+              <option>Google search</option>
+              <option>A wedding or event partner</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field-group" data-animate delay-1>
+            <label class="check-row" for="contact-dispatch">
+              <input type="checkbox" id="contact-dispatch" name="newsletter_optin" value="Yes" />
+              <span>Send me The Monthly Dispatch too: one destination, one hotel worth knowing, once a month.</span>
+            </label>
+          </div>
           <div class="form-submit" data-animate delay-2>
-            <button type="submit" class="btn-submit">Send enquiry</button>
+            <button type="submit" class="btn-submit" id="submitBtn">Send enquiry</button>
+            <p class="form-error" id="formError" role="alert"></p>
             <p class="form-privacy">We'll only use your details to get back to you about your trip.</p>
             <p class="form-thankyou">We appreciate you taking the time to complete this form.</p>
           </div>
@@ -1038,15 +1096,17 @@
         <div class="footer-right-stack">
           <ul class="footer-nav-inline" role="list">
             <li><a href="about.html">About</a></li>
+            <li><a href="journal/">Journal</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
           <a href="mailto:hello@outposttravel.co" class="footer-email">hello@outposttravel.co</a>
+          <a href="https://www.instagram.com/outposttravelco/" class="footer-ig" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg>@outposttravelco</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Outpost Travel</span>
-        <span>Independent affiliate of Alchemist Travel &middot; Serandipians member</span>
+        <span class="footer-affil"><a href="https://www.virtuoso.com/" target="_blank" rel="noopener noreferrer">Virtuoso</a>&reg; member &middot; Independent affiliate of <a href="https://www.alchemisttravel.com/" target="_blank" rel="noopener noreferrer">Alchemist Travel</a></span>
       </div>
     </footer>
 
@@ -1098,37 +1158,72 @@
     radioHotel.addEventListener('change', () => showSection('hotel'));
     radioTrip.addEventListener('change',  () => showSection('trip'));
 
-    /* Default: show Trip Planning on load */
-    showSection('trip');
+    /* Default: Trip Planning, unless the link asked for a hotel (?type=hotel).
+       ?dest=... prefills the destination, e.g. from a Journal article. */
+    const params = new URLSearchParams(window.location.search);
+    const startType = params.get('type') === 'hotel' ? 'hotel' : 'trip';
+    (startType === 'hotel' ? radioHotel : radioTrip).checked = true;
+    showSection(startType);
+    if (params.get('dest')) {
+      document.getElementById(startType + '-destination').value = params.get('dest').slice(0, 120);
+    }
 
     /* Netlify form submission */
     const form = document.getElementById('planningForm');
     const formSuccess = document.getElementById('formSuccess');
 
+    const submitBtn = document.getElementById('submitBtn');
+    const formError = document.getElementById('formError');
+    const errorFallback = 'Please try again, or reach us on <a href="https://wa.me/6597514830" target="_blank" rel="noopener noreferrer">WhatsApp</a> or at <a href="mailto:hello@outposttravel.co">hello@outposttravel.co</a>.';
+
+    /* The form is novalidate so we control the styling, which means the
+       browser no longer blocks empty required fields on its own. Check them
+       here before anything is sent, or enquiries arrive with no contact. */
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      formError.innerHTML = '';
 
-      const data = new FormData(form);
+      const required = form.querySelectorAll('[required]:not(:disabled)');
+      let firstInvalid = null;
+      required.forEach(el => {
+        const bad = !el.checkValidity();
+        el.classList.toggle('is-invalid', bad);
+        if (bad && !firstInvalid) firstInvalid = el;
+      });
+      if (firstInvalid) {
+        formError.textContent = firstInvalid.type === 'email' && firstInvalid.value
+          ? 'Please check your email address so we can reply.'
+          : 'Please add your name and email so we can get back to you.';
+        firstInvalid.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
 
       try {
         const res = await fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(data).toString()
+          body: new URLSearchParams(new FormData(form)).toString()
         });
+        if (!res.ok) throw new Error('Status ' + res.status);
 
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('waAside').style.display = 'none';
-          formSuccess.classList.add('visible');
-          formSuccess.focus();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          alert('Something went wrong. Please try again or message us on WhatsApp.');
-        }
+        form.style.display = 'none';
+        document.getElementById('waAside').style.display = 'none';
+        formSuccess.classList.add('visible');
+        formSuccess.setAttribute('tabindex', '-1');
+        formSuccess.focus();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } catch {
-        alert('Something went wrong. Please try again or message us on WhatsApp.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send enquiry';
+        formError.innerHTML = 'Something went wrong sending your enquiry. ' + errorFallback;
       }
+    });
+
+    form.querySelectorAll('[required]').forEach(el => {
+      el.addEventListener('input', () => el.classList.remove('is-invalid'));
     });
 
     /* Mobile nav */
@@ -1150,5 +1245,6 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
   </script>
 
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

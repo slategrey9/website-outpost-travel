@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found | Outpost Travel</title>
+  <meta name="description" content="This page has wandered off." />
+  <meta name="robots" content="noindex" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Outpost Travel" />
+  <meta property="og:title" content="Page not found | Outpost Travel" />
+  <meta property="og:description" content="This page has wandered off." />
+  <meta property="og:image" content="https://outposttravel.co/images/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/base.css" />
+  <style>
+
+    .simple {
+      min-height: 72vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: calc(var(--nav-h) + 72px) 24px 96px;
+      text-align: center;
+    }
+    .simple-inner { max-width: 560px; }
+    .simple h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 300; color: var(--navy); margin-bottom: 18px; }
+    .simple p { font-weight: 300; font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
+    .simple-links { display: flex; gap: 14px 28px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+
+  </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&#x2715;</button>
+    <a href="/about.html">About</a>
+    <a href="/journal/">Journal</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="https://www.instagram.com/outposttravelco/" class="mobile-nav-ig" target="_blank" rel="noopener noreferrer">Instagram @outposttravelco</a>
+    <a href="/start-planning.html" class="mobile-nav-cta">Start Planning</a>
+  </div>
+
+  <nav class="nav nav--solid" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-left">
+      <a href="/about.html">About</a>
+      <a href="/journal/">Journal</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <a href="/index.html" class="nav-logo" aria-label="Outpost Travel, home">
+      <span class="nav-logo-outpost">OUTPOST</span>
+      <span class="nav-logo-travel">TRAVEL</span>
+    </a>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/outposttravelco/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Outpost Travel on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://wa.me/6597514830" class="nav-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="/start-planning.html" class="nav-cta">Start Planning</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="simple">
+    <div class="simple-inner">
+      <span class="eyebrow">Off the map</span>
+      <h1>This page has wandered off.</h1>
+      <p>The link may be old, or the page may have moved. Everything else is right where you left it.</p>
+      <div class="simple-links">
+        <a href="/" class="btn-gold">Back to the homepage</a>
+        <a href="/start-planning.html" class="text-link">Start planning &rarr;</a>
+        <a href="/journal/" class="text-link">The Journal &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-subscribe">
+        <span class="footer-eyebrow">The Monthly Dispatch</span>
+        <p>One destination. One hotel worth knowing. One reason to go now. Straight to your inbox, once a month.</p>
+        <form class="footer-form js-newsletter" name="newsletter" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Newsletter signup">
+          <input type="hidden" name="form-name" value="newsletter" />
+          <input type="hidden" name="source" value="footer: off the map" />
+          <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <input type="email" name="email" placeholder="Your email address" aria-label="Email address" autocomplete="email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="footer-micro">No spam. Unsubscribe any time.</p>
+      </div>
+      <div class="footer-info">
+        <ul class="footer-nav-inline" role="list">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/journal/">Journal</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/start-planning.html">Start Planning</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://wa.me/6597514830" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          <a href="https://www.instagram.com/outposttravelco/" class="footer-ig" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg>@outposttravelco</a>
+          <a href="mailto:hello@outposttravel.co" class="footer-email">hello@outposttravel.co</a>
+        </div>
+        <p class="footer-location">Singapore-based, working with curious travellers worldwide.</p>
+        <div class="footer-affil"><a href="https://www.virtuoso.com/" target="_blank" rel="noopener noreferrer">Virtuoso</a>&reg; member &middot; Independent affiliate of <a href="https://www.alchemisttravel.com/" target="_blank" rel="noopener noreferrer">Alchemist Travel</a></div>
+        <p class="footer-tagline">The effortless way to go further.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Outpost Travel</span>
+      <a href="/privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    const mainNav = document.getElementById('mainNav');
+    function updateNav() { mainNav.classList.toggle('nav--scrolled', window.scrollY > 48); }
+    updateNav();
+    window.addEventListener('scroll', updateNav, { passive: true });
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    hamburgerBtn.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    mobileNavClose.addEventListener('click', closeMobileNav);
+    mobileNav.addEventListener('click', e => { if (e.target === mobileNav) closeMobileNav(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+  </script>
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>
