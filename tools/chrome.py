@@ -63,8 +63,7 @@ def newsletter_form(source, extra_class=""):
         <p class="form-status" role="status" aria-live="polite"></p>'''
 
 
-AFFIL = ('<a href="https://www.virtuoso.com/" target="_blank" rel="noopener noreferrer">Virtuoso</a>&reg; member'
-         ' &middot; Independent affiliate of '
+AFFIL = ('A proud independent affiliate of '
          '<a href="https://www.alchemisttravel.com/" target="_blank" rel="noopener noreferrer">Alchemist Travel</a>')
 
 
@@ -85,13 +84,10 @@ def footer(source, p=""):
           <li><a href="{p}start-planning.html">Start Planning</a></li>
         </ul>
         <div class="footer-socials">
-          <a href="https://wa.me/6597514830" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">{WA_SVG}</a>
           <a href="{IG_URL}" class="footer-ig" target="_blank" rel="noopener noreferrer">{IG_SVG}@{IG_HANDLE}</a>
           <a href="mailto:hello@outposttravel.co" class="footer-email">hello@outposttravel.co</a>
         </div>
-        <p class="footer-location">Singapore-based, working with curious travellers worldwide.</p>
         <div class="footer-affil">{AFFIL}</div>
-        <p class="footer-tagline">The effortless way to go further.</p>
       </div>
     </div>
     <div class="footer-bottom">
