@@ -690,57 +690,9 @@
       color: rgba(246,241,232,0.68);
       line-height: 1.85;
     }
-    .partners-progs {
-      list-style: none;
-      max-width: 980px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px 48px;
-    }
-    .prog {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      height: 56px;
-    }
-    .prog img {
-      height: var(--h, 30px);
-      width: auto;
-      max-width: 46%;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
-    }
-    .prog-rule { width: 1px; align-self: stretch; background: rgba(246,241,232,0.35); }
-    .prog-name {
-      font-weight: 400;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(246,241,232,0.88);
-      line-height: 1.5;
-      max-width: 120px;
-    }
-    .partners-sub {
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: rgba(246,241,232,0.6);
-      margin: 64px 0 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      max-width: 980px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .partners-sub::before, .partners-sub::after { content: ""; flex: 1; height: 1px; background: rgba(246,241,232,0.12); }
     .partners-grid {
       list-style: none;
-      max-width: 980px;
+      max-width: 1060px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -751,8 +703,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: calc(100% / 7);
-      height: 60px;
+      width: calc(100% / 6);
+      height: 80px;
       padding: 0 10px;
     }
     .partners-grid img {
@@ -761,18 +713,10 @@
       max-width: 100%;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.78;
+      opacity: 0.88;
       transition: opacity 0.3s ease;
     }
     .partners-grid li:hover img { opacity: 1; }
-    .logo-type {
-      font-family: 'Jost', sans-serif;
-      font-weight: 400;
-      font-size: 0.86rem;
-      letter-spacing: 0.32em;
-      color: rgba(246,241,232,0.82);
-      white-space: nowrap;
-    }
     .partners-foot { max-width: 760px; margin: 56px auto 0; text-align: center; }
     .partners-programmes {
       font-family: 'Cormorant Garamond', serif;
@@ -1321,7 +1265,6 @@
       .destinations { padding: 88px 40px; }
       .footer { padding: 64px 40px 36px; }
       .partners { padding: 88px 40px 80px; }
-      .partners-progs { grid-template-columns: repeat(2, 1fr); }
       .partners-grid li { width: 25%; }
       .journal-teaser { padding: 88px 40px; }
       .proof { padding: 88px 40px 48px; }
@@ -1402,15 +1345,9 @@
       /* Perks, proof, journal */
       .partners { padding: 72px 24px 64px; }
       .partners-head { margin-bottom: 44px; }
-      .partners-progs { grid-template-columns: 1fr; gap: 28px; }
-      .prog { justify-content: flex-start; padding-left: 12%; height: 44px; }
-      .prog img { height: calc(var(--h, 30px) * 0.85); width: 38%; max-width: 38%; object-position: right center; }
-      .prog-name { max-width: none; }
-      .partners-sub { margin: 48px 0 24px; }
       .partners-grid { gap: 26px 0; }
-      .partners-grid li { width: 33.333%; height: 50px; }
-      .partners-grid img { height: calc(var(--h, 30px) * 0.72); }
-      .logo-type { font-size: 0.68rem; letter-spacing: 0.24em; }
+      .partners-grid li { width: 33.333%; height: 62px; padding: 0 6px; }
+      .partners-grid img { height: calc(var(--h, 30px) * 0.8); }
       .proof { padding: 72px 24px 40px; }
       .proof-grid { grid-template-columns: 1fr; gap: 44px; }
       .proof-img img { height: 300px; }
@@ -1562,30 +1499,25 @@
         <h2 id="partners-heading">More enjoyment out of<br>the hotels you already love</h2>
         <p>Book through us and your stay comes with Virtuoso benefits: typically daily breakfast for two, a USD 100 hotel credit, a priority upgrade where available, and early check-in or late checkout.</p>
       </div>
-      <ul class="partners-progs" role="list" data-animate aria-label="Preferred partner programmes">
-        <li class="prog"><img src="images/partners/four-seasons.svg" alt="Four Seasons" style="--h:36px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Preferred Partner</span></li>
-        <li class="prog"><img src="images/partners/shangri-la.svg" alt="Shangri-La" style="--h:36px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Luxury Circle</span></li>
-        <li class="prog"><img src="images/partners/hyatt.svg" alt="Hyatt" style="--h:22px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Hyatt Priv&eacute;</span></li>
-        <li class="prog"><img src="images/partners/hilton.svg" alt="Hilton" style="--h:26px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Hilton for Luxury</span></li>
-        <li class="prog"><img src="images/partners/ihg.svg" alt="IHG Hotels &amp; Resorts" style="--h:20px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">IHG Destined</span></li>
-        <li class="prog"><img src="images/partners/accor.svg" alt="Accor" style="--h:34px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Accor Preferred</span></li>
-      </ul>
-      <p class="partners-sub" data-animate>Including stays at</p>
       <ul class="partners-grid" role="list" data-animate aria-label="Hotel brands">
-        <li><img src="images/partners/waldorf.svg" alt="Waldorf Astoria" style="--h:54px" loading="lazy" /></li>
-        <li><img src="images/partners/conrad.svg" alt="Conrad" style="--h:26px" loading="lazy" /></li>
-        <li><span class="logo-type" role="img" aria-label="Six Senses">SIX SENSES</span></li>
-        <li><img src="images/partners/regent.png" alt="Regent" style="--h:20px" loading="lazy" /></li>
-        <li><img src="images/partners/intercontinental.svg" alt="InterContinental" style="--h:34px" loading="lazy" /></li>
-        <li><img src="images/partners/kimpton.png" alt="Kimpton" style="--h:17px" loading="lazy" /></li>
-        <li><img src="images/partners/hotel-indigo.svg" alt="Hotel Indigo" style="--h:32px" loading="lazy" /></li>
-        <li><img src="images/partners/raffles.svg" alt="Raffles" style="--h:40px" loading="lazy" /></li>
-        <li><img src="images/partners/sofitel.svg" alt="Sofitel" style="--h:13px" loading="lazy" /></li>
-        <li><img src="images/partners/banyan-tree.svg" alt="Banyan Tree" style="--h:14px" loading="lazy" /></li>
-        <li><img src="images/partners/aman.svg" alt="Aman" style="--h:19px" loading="lazy" /></li>
-        <li><img src="images/partners/anantara.png" alt="Anantara" style="--h:34px" loading="lazy" /></li>
-        <li><img src="images/partners/lhw.svg" alt="The Leading Hotels of the World" style="--h:42px" loading="lazy" /></li>
-        <li><img src="images/partners/design-hotels.svg" alt="Design Hotels" style="--h:14px" loading="lazy" /></li>
+        <li><img src="images/partners/four-seasons.svg" alt="Four Seasons" style="--h:52px" loading="lazy" /></li>
+        <li><img src="images/partners/aman.svg" alt="Aman" style="--h:23px" loading="lazy" /></li>
+        <li><img src="images/partners/shangri-la.svg" alt="Shangri-La" style="--h:58px" loading="lazy" /></li>
+        <li><img src="images/partners/six-senses.png" alt="Six Senses" style="--h:60px" loading="lazy" /></li>
+        <li><img src="images/partners/waldorf.svg" alt="Waldorf Astoria" style="--h:74px" loading="lazy" /></li>
+        <li><img src="images/partners/raffles.svg" alt="Raffles" style="--h:50px" loading="lazy" /></li>
+        <li><img src="images/partners/conrad.svg" alt="Conrad" style="--h:38px" loading="lazy" /></li>
+        <li><img src="images/partners/regent.png" alt="Regent" style="--h:24px" loading="lazy" /></li>
+        <li><img src="images/partners/intercontinental.svg" alt="InterContinental" style="--h:50px" loading="lazy" /></li>
+        <li><img src="images/partners/sofitel.svg" alt="Sofitel" style="--h:16px" loading="lazy" /></li>
+        <li><img src="images/partners/banyan-tree.svg" alt="Banyan Tree" style="--h:17px" loading="lazy" /></li>
+        <li><img src="images/partners/hyatt.svg" alt="Hyatt" style="--h:25px" loading="lazy" /></li>
+        <li><img src="images/partners/alila.svg" alt="Alila" style="--h:27px" loading="lazy" /></li>
+        <li><img src="images/partners/kimpton.png" alt="Kimpton" style="--h:21px" loading="lazy" /></li>
+        <li><img src="images/partners/hotel-indigo.svg" alt="Hotel Indigo" style="--h:42px" loading="lazy" /></li>
+        <li><img src="images/partners/anantara.png" alt="Anantara" style="--h:50px" loading="lazy" /></li>
+        <li><img src="images/partners/lhw.svg" alt="The Leading Hotels of the World" style="--h:58px" loading="lazy" /></li>
+        <li><img src="images/partners/design-hotels.svg" alt="Design Hotels" style="--h:17px" loading="lazy" /></li>
       </ul>
       <div class="partners-foot" data-animate>
         <p class="partners-note">You still earn your hotel loyalty points. Benefits vary by hotel and are confirmed with every quote.</p>
