@@ -174,9 +174,9 @@
     .nav.nav--scrolled .nav-logo-outpost { color: var(--text); }
     .nav-logo-travel {
       font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      font-size: 0.65rem;
-      letter-spacing: 0.44em;
+      font-weight: 400;
+      font-size: 0.74rem;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
       color: rgba(246,241,232,0.7);
       margin-top: 4px;

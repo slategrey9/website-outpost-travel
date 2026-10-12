@@ -244,8 +244,8 @@ def journal():
     body = f'''  <header class="j-hero" aria-labelledby="journal-heading">
     <div class="j-hero-bg" role="img" aria-label="Northern lights over a still fjord"></div>
     <div class="j-hero-content">
-      <span class="eyebrow" data-animate>The Journal</span>
-      <h1 id="journal-heading" data-animate>Shortlists<br>worth saving</h1>
+      <span class="eyebrow" data-animate>Coming Soon</span>
+      <h1 id="journal-heading" data-animate>The Journal</h1>
       <p data-animate>Where to go, where to stay, and how to make it work: for families, celebrations and the curious. The first pieces are on their way.</p>
     </div>
   </header>
@@ -253,9 +253,9 @@ def journal():
   <section class="j-soon on-light" aria-labelledby="soon-heading">
     <div class="j-soon-inner">
       <div data-animate>
-        <span class="eyebrow">Coming Soon</span>
+        <span class="eyebrow">The Dispatch</span>
         <h2 id="soon-heading">Be the first to read it</h2>
-        <p>New shortlists go to The Monthly Dispatch first. One destination, one hotel worth knowing, one reason to go now. Once a month, nothing more.</p>
+        <p>New pieces go to The Dispatch first, along with the hotels and destinations worth knowing. Only when there's something worth sending.</p>
       </div>
       <div data-animate class="delay-1">
         {newsletter_form("journal: coming soon")}
@@ -290,7 +290,7 @@ def journal():
     </div>
   </section>'''
     return page(p="../", title="The Journal | Outpost Travel",
-                description="Shortlists worth saving: toddler-friendly places, private estates, first safaris, honeymoons and more. Coming soon from Outpost Travel.",
+                description="Coming soon: toddler-friendly places, private estates, first safaris, honeymoons and more. Coming soon from Outpost Travel.",
                 canonical="https://outposttravel.co/journal/", body=body, styles=JOURNAL_STYLES,
                 active="journal", source="footer: journal")
 
@@ -330,7 +330,7 @@ def simple(*, title, eyebrow, heading, paras, links, canonical=None, robots="noi
 THANKS = simple(
     title="Thank you | Outpost Travel", eyebrow="Received", heading="Thank you. We'll be in touch.",
     paras=["Your message has reached us. If you sent an enquiry, Kristin will reply within 24 hours, usually much sooner.",
-           "If you subscribed to The Monthly Dispatch, the next one will find you."],
+           "If you subscribed to The Dispatch, the next one will find you."],
     links=['        <a href="/" class="btn-gold">Back to the homepage</a>',
            '        <a href="https://wa.me/6597514830" class="text-link" target="_blank" rel="noopener noreferrer">Chat on WhatsApp &rarr;</a>'])
 

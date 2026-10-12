@@ -71,8 +71,8 @@ def footer(source, p=""):
     return f'''<footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-subscribe">
-        <span class="footer-eyebrow">The Monthly Dispatch</span>
-        <p>One destination. One hotel worth knowing. One reason to go now. Straight to your inbox, once a month.</p>
+        <span class="footer-eyebrow">The Dispatch</span>
+        <p>The hotels and destinations worth knowing, and the occasional reason to go now. Straight to your inbox, every so often.</p>
         {newsletter_form(source)}
         <p class="footer-micro">No spam. Unsubscribe any time.</p>
       </div>
