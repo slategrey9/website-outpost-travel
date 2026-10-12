@@ -97,3 +97,4 @@
   text-transform: uppercase;
   padding: 11px 22px !important;
 }
+.j-badge, .jt-tag, .a-draft { border-radius: 2px !important; }
