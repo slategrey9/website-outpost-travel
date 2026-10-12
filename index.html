@@ -604,7 +604,7 @@
        PROCESS — TYPOGRAPHIC COLUMNS
     ===================== */
     .process {
-      padding: 104px 52px;
+      padding: 64px 52px 104px;
       background-color: var(--cream-mid);
     }
     .process-inner { max-width: 1100px; margin: 0 auto; }
@@ -690,31 +690,89 @@
       color: rgba(246,241,232,0.68);
       line-height: 1.85;
     }
-    .partners-grid {
+    .partners-progs {
       list-style: none;
-      max-width: 880px;
+      max-width: 980px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 40px 36px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 48px;
+    }
+    .prog {
+      display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 18px;
+      height: 56px;
+    }
+    .prog img {
+      height: var(--h, 30px);
+      width: auto;
+      max-width: 46%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .prog-rule { width: 1px; align-self: stretch; background: rgba(246,241,232,0.35); }
+    .prog-name {
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(246,241,232,0.88);
+      line-height: 1.5;
+      max-width: 120px;
+    }
+    .partners-sub {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(246,241,232,0.6);
+      margin: 64px 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .partners-sub::before, .partners-sub::after { content: ""; flex: 1; height: 1px; background: rgba(246,241,232,0.12); }
+    .partners-grid {
+      list-style: none;
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px 0;
     }
     .partners-grid li {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 64px;
+      width: calc(100% / 7);
+      height: 60px;
+      padding: 0 10px;
     }
     .partners-grid img {
-      height: calc(var(--h, 40px) * 0.8);
+      height: var(--h, 30px);
       width: auto;
       max-width: 100%;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.82;
+      opacity: 0.78;
       transition: opacity 0.3s ease;
     }
     .partners-grid li:hover img { opacity: 1; }
+    .logo-type {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 0.86rem;
+      letter-spacing: 0.32em;
+      color: rgba(246,241,232,0.82);
+      white-space: nowrap;
+    }
     .partners-foot { max-width: 760px; margin: 56px auto 0; text-align: center; }
     .partners-programmes {
       font-family: 'Cormorant Garamond', serif;
@@ -736,7 +794,7 @@
     ===================== */
     .proof {
       background-color: var(--cream-mid);
-      padding: 104px 52px;
+      padding: 104px 52px 56px;
     }
     .proof-inner { max-width: 1100px; margin: 0 auto; }
     .proof-header { margin-bottom: 44px; }
@@ -782,7 +840,7 @@
       line-height: 1.8;
     }
     .proof-foot {
-      margin-top: 56px;
+      margin-top: 48px;
       text-align: center;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -1259,12 +1317,14 @@
       .service-panel-text { padding: 56px 52px; }
       .founder-left,
       .founder-right { padding: 72px 56px; }
-      .process { padding: 88px 40px; }
+      .process { padding: 56px 40px 88px; }
       .destinations { padding: 88px 40px; }
       .footer { padding: 64px 40px 36px; }
       .partners { padding: 88px 40px 80px; }
-      .partners-grid { grid-template-columns: repeat(4, 1fr); }
-      .proof, .journal-teaser { padding: 88px 40px; }
+      .partners-progs { grid-template-columns: repeat(2, 1fr); }
+      .partners-grid li { width: 25%; }
+      .journal-teaser { padding: 88px 40px; }
+      .proof { padding: 88px 40px 48px; }
       .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 28px; }
       .proof-img img { height: clamp(260px, 40vw, 380px); }
     }
@@ -1320,7 +1380,7 @@
       .founder-bio { max-width: 100%; }
 
       /* Process */
-      .process { padding: 72px 20px; }
+      .process { padding: 48px 20px 72px; }
       .process-header { flex-direction: column; gap: 10px; }
       .process-header p { text-align: left; max-width: 100%; }
       .process-steps { grid-template-columns: 1fr; gap: 44px; }
@@ -1342,10 +1402,16 @@
       /* Perks, proof, journal */
       .partners { padding: 72px 24px 64px; }
       .partners-head { margin-bottom: 44px; }
-      .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 24px; }
-      .partners-grid li { height: 52px; }
-      .partners-grid img { height: calc(var(--h, 40px) * 0.62); }
-      .proof { padding: 72px 24px; }
+      .partners-progs { grid-template-columns: 1fr; gap: 28px; }
+      .prog { justify-content: flex-start; padding-left: 12%; height: 44px; }
+      .prog img { height: calc(var(--h, 30px) * 0.85); width: 38%; max-width: 38%; object-position: right center; }
+      .prog-name { max-width: none; }
+      .partners-sub { margin: 48px 0 24px; }
+      .partners-grid { gap: 26px 0; }
+      .partners-grid li { width: 33.333%; height: 50px; }
+      .partners-grid img { height: calc(var(--h, 30px) * 0.72); }
+      .logo-type { font-size: 0.68rem; letter-spacing: 0.24em; }
+      .proof { padding: 72px 24px 40px; }
       .proof-grid { grid-template-columns: 1fr; gap: 44px; }
       .proof-img img { height: 300px; }
       .journal-teaser { padding: 72px 20px; }
@@ -1494,19 +1560,32 @@
       <div class="partners-head" data-animate>
         <span class="eyebrow">Preferred Hotel Partners</span>
         <h2 id="partners-heading">More enjoyment out of<br>the hotels you already love</h2>
-        <p>Book through us and your stay comes with Virtuoso benefits: typically daily breakfast for two, a USD 100 hotel credit, an upgrade when available, and early check-in or late checkout.</p>
+        <p>Book through us and your stay comes with Virtuoso benefits: typically daily breakfast for two, a USD 100 hotel credit, a priority upgrade where available, and early check-in or late checkout.</p>
       </div>
-      <ul class="partners-grid" role="list" data-animate>
-        <li><img src="images/partners/four-seasons.svg" alt="Four Seasons" style="--h:44px" loading="lazy" /></li>
-        <li><img src="images/partners/dorchester.png" alt="Dorchester Collection" style="--h:50px" loading="lazy" /></li>
-        <li><img src="images/partners/shangri-la.svg" alt="Shangri-La" style="--h:46px" loading="lazy" /></li>
-        <li><img src="images/partners/hyatt.svg" alt="Hyatt" style="--h:28px" loading="lazy" /></li>
-        <li><img src="images/partners/hilton.svg" alt="Hilton" style="--h:48px" loading="lazy" /></li>
-        <li><img src="images/partners/ihg.svg" alt="IHG Hotels &amp; Resorts" style="--h:24px" loading="lazy" /></li>
-        <li><img src="images/partners/accor.svg" alt="Accor" style="--h:44px" loading="lazy" /></li>
-        <li><img src="images/partners/anantara.png" alt="Anantara" style="--h:40px" loading="lazy" /></li>
-        <li><img src="images/partners/lhw.svg" alt="The Leading Hotels of the World" style="--h:52px" loading="lazy" /></li>
-        <li><img src="images/partners/design-hotels.svg" alt="Design Hotels" style="--h:17px" loading="lazy" /></li>
+      <ul class="partners-progs" role="list" data-animate aria-label="Preferred partner programmes">
+        <li class="prog"><img src="images/partners/four-seasons.svg" alt="Four Seasons" style="--h:36px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Preferred Partner</span></li>
+        <li class="prog"><img src="images/partners/shangri-la.svg" alt="Shangri-La" style="--h:36px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Luxury Circle</span></li>
+        <li class="prog"><img src="images/partners/hyatt.svg" alt="Hyatt" style="--h:22px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Hyatt Priv&eacute;</span></li>
+        <li class="prog"><img src="images/partners/hilton.svg" alt="Hilton" style="--h:26px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Hilton for Luxury</span></li>
+        <li class="prog"><img src="images/partners/ihg.svg" alt="IHG Hotels &amp; Resorts" style="--h:20px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">IHG Destined</span></li>
+        <li class="prog"><img src="images/partners/accor.svg" alt="Accor" style="--h:34px" loading="lazy" /><span class="prog-rule" aria-hidden="true"></span><span class="prog-name">Accor Preferred</span></li>
+      </ul>
+      <p class="partners-sub" data-animate>Including stays at</p>
+      <ul class="partners-grid" role="list" data-animate aria-label="Hotel brands">
+        <li><img src="images/partners/waldorf.svg" alt="Waldorf Astoria" style="--h:54px" loading="lazy" /></li>
+        <li><img src="images/partners/conrad.svg" alt="Conrad" style="--h:26px" loading="lazy" /></li>
+        <li><span class="logo-type" role="img" aria-label="Six Senses">SIX SENSES</span></li>
+        <li><img src="images/partners/regent.png" alt="Regent" style="--h:20px" loading="lazy" /></li>
+        <li><img src="images/partners/intercontinental.svg" alt="InterContinental" style="--h:34px" loading="lazy" /></li>
+        <li><img src="images/partners/kimpton.png" alt="Kimpton" style="--h:17px" loading="lazy" /></li>
+        <li><img src="images/partners/hotel-indigo.svg" alt="Hotel Indigo" style="--h:32px" loading="lazy" /></li>
+        <li><img src="images/partners/raffles.svg" alt="Raffles" style="--h:40px" loading="lazy" /></li>
+        <li><img src="images/partners/sofitel.svg" alt="Sofitel" style="--h:13px" loading="lazy" /></li>
+        <li><img src="images/partners/banyan-tree.svg" alt="Banyan Tree" style="--h:14px" loading="lazy" /></li>
+        <li><img src="images/partners/aman.svg" alt="Aman" style="--h:19px" loading="lazy" /></li>
+        <li><img src="images/partners/anantara.png" alt="Anantara" style="--h:34px" loading="lazy" /></li>
+        <li><img src="images/partners/lhw.svg" alt="The Leading Hotels of the World" style="--h:42px" loading="lazy" /></li>
+        <li><img src="images/partners/design-hotels.svg" alt="Design Hotels" style="--h:14px" loading="lazy" /></li>
       </ul>
       <div class="partners-foot" data-animate>
         <p class="partners-note">You still earn your hotel loyalty points. Benefits vary by hotel and are confirmed with every quote.</p>
@@ -1552,13 +1631,13 @@
         <article class="proof-card delay-2" data-animate>
           <div class="proof-img"><img src="images/proof-koh-yao-yai.jpg" alt="Anantara Koh Yao Yai from the air, Phang Nga Bay" loading="lazy" /></div>
           <span class="proof-where">Thailand &middot; Toddler and baby</span>
-          <h3>A long weekend getaway, hotelgetaway, hotel-only</h3>#8209;only</h3>
+          <h3>A long weekend getaway, hotel&#8209;only</h3>
           <p>Koh Yao Yai, a quieter, less travelled alternative to Phuket, chosen with a toddler and a baby in mind to celebrate a wedding anniversary. Boat and van transfers timed around their flights.</p>
         </article>
         <article class="proof-card delay-3" data-animate>
           <div class="proof-img"><img src="images/proof-new-zealand.jpg" alt="The road along Lake Pukaki towards Aoraki Mount Cook, New Zealand" loading="lazy" /></div>
           <span class="proof-where">New Zealand &middot; Group of 8 friends</span>
-          <h3>3 weeks exploring New Zealand, selfNew Zealand, self-driven</h3>#8209;driven</h3>
+          <h3>3 weeks exploring New Zealand, self&#8209;driven</h3>
           <p>Both islands by road for a group of friends: hotels, drive times, and the stops worth pulling over for, with a milestone birthday along the way.</p>
         </article>
       </div>
@@ -1572,7 +1651,6 @@
     <div class="process-inner">
       <div class="process-header" data-animate>
         <h2 id="process-heading">How it works</h2>
-        <p>Simple from your side.<br>That's the whole point.</p>
       </div>
       <div class="process-steps">
         <div class="process-step" data-animate>
