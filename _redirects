@@ -1,0 +1,11 @@
+# Old homepage drafts and archive copies: send visitors to the live homepage
+/index-v1.html   /   301
+/index-v2.html   /   301
+/index-v3.html   /   301
+/archive/*       /   301
+
+# Never serve working files, even though they sit in the repo
+/journal/_drafts/*  /404.html  404!
+/tools/*            /404.html  404!
+/README.md          /404.html  404!
+/.impeccable.md     /404.html  404!

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Journal | Outpost Travel</title>
+  <meta name="description" content="Coming soon: toddler-friendly places, private estates, first safaris, honeymoons and more. Coming soon from Outpost Travel." />
+  <link rel="canonical" href="https://outposttravel.co/journal/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Outpost Travel" />
+  <meta property="og:title" content="The Journal | Outpost Travel" />
+  <meta property="og:description" content="Coming soon: toddler-friendly places, private estates, first safaris, honeymoons and more. Coming soon from Outpost Travel." />
+  <meta property="og:image" content="https://outposttravel.co/images/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../assets/base.css" />
+  <style>
+
+    .j-hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .j-hero-bg {
+      position: absolute; inset: 0;
+      background: url('../images/hero.jpg') center 40% / cover no-repeat;
+    }
+    .j-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(18,24,36,0.82) 0%, rgba(18,24,36,0.5) 55%, rgba(18,24,36,0.2) 100%);
+    }
+    .j-hero-content {
+      position: relative; z-index: 1;
+      padding: 0 56px 80px;
+      max-width: 760px;
+    }
+    .j-hero .eyebrow { color: rgba(246,241,232,0.7); }
+    .j-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 1.3rem;
+    }
+    .j-hero p {
+      font-weight: 300;
+      font-size: 1rem;
+      color: rgba(246,241,232,0.72);
+      max-width: 460px;
+      line-height: 1.75;
+    }
+    .j-soon {
+      background: var(--cream-mid);
+      padding: 72px 52px;
+      border-bottom: 1px solid var(--sand);
+    }
+    .j-soon-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .j-soon h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--navy); margin-bottom: 12px; }
+    .j-soon p { font-weight: 300; font-size: 0.9rem; color: var(--text-mid); line-height: 1.8; }
+    .j-soon .footer-form input {
+      background: #fff;
+      border-color: var(--sand);
+      color: var(--text);
+    }
+    .j-soon .footer-form input::placeholder { color: var(--text-light); }
+    .j-soon .footer-form input:focus { border-color: var(--gold); }
+    .j-soon .form-micro { font-weight: 300; font-size: 0.72rem; color: var(--text-light); margin-top: 6px; }
+    .j-list { background: var(--cream); padding: 96px 52px 104px; }
+    .j-list-inner { max-width: 1100px; margin: 0 auto; }
+    .j-list-header {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+      padding-bottom: 24px; margin-bottom: 44px; border-bottom: 1px solid var(--sand);
+    }
+    .j-list-header h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); color: var(--navy); }
+    .j-topics { font-weight: 300; font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-light); }
+    .j-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 32px; }
+    .j-card-img { height: 260px; overflow: hidden; margin-bottom: 20px; position: relative; }
+    .j-card-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.92); }
+    .j-badge {
+      position: absolute; top: 14px; left: 14px;
+      font-weight: 500; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      background: rgba(246,241,232,0.92); color: var(--navy);
+      padding: 5px 11px; border-radius: 100px;
+    }
+    .j-cat {
+      display: block; font-weight: 500; font-size: 0.62rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .j-card h3 { font-size: 1.5rem; color: var(--navy); line-height: 1.2; margin-bottom: 10px; }
+    .j-card p { font-weight: 300; font-size: 0.86rem; color: var(--text-mid); line-height: 1.75; }
+    .j-ask {
+      background: var(--cream-mid); padding: 72px 52px; text-align: center;
+      border-top: 1px solid var(--sand);
+    }
+    .j-ask h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); color: var(--navy); margin-bottom: 12px; }
+    .j-ask p { font-weight: 300; font-size: 0.9rem; color: var(--text-mid); margin: 0 auto 24px; max-width: 520px; line-height: 1.8; }
+    .j-ask-links { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+    @media (max-width: 1100px) {
+      .j-hero-content { padding: 0 40px 72px; }
+      .j-soon, .j-ask { padding: 64px 40px; }
+      .j-list { padding: 80px 40px; }
+      .j-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .j-hero { min-height: 70vh; }
+      .j-hero-content { padding: 0 24px 56px; }
+      .j-soon, .j-ask { padding: 56px 20px; }
+      .j-soon-inner { grid-template-columns: 1fr; gap: 28px; }
+      .j-list { padding: 64px 20px; }
+      .j-list-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .j-grid { grid-template-columns: 1fr; gap: 44px; }
+      .j-card-img { height: 58vw; }
+    }
+
+  </style>
+  <link rel="stylesheet" href="../assets/site.css?v=4" />
+</head>
+<body>
+
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&#x2715;</button>
+    <a href="../about.html">About</a>
+    <a href="../journal/">Journal</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="https://www.instagram.com/outposttravelco/" class="mobile-nav-ig" target="_blank" rel="noopener noreferrer">Instagram @outposttravelco</a>
+    <a href="../start-planning.html" class="mobile-nav-cta">Start Planning</a>
+  </div>
+
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-left">
+      <a href="../about.html">About</a>
+      <a href="../journal/" class="active">Journal</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+    <a href="../index.html" class="nav-logo" aria-label="Outpost Travel, home">
+      <span class="nav-logo-outpost">OUTPOST</span>
+      <span class="nav-logo-travel">TRAVEL</span>
+    </a>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/outposttravelco/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Outpost Travel on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://wa.me/6597514830" class="nav-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="../start-planning.html" class="nav-cta">Start Planning</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="j-hero" aria-labelledby="journal-heading">
+    <div class="j-hero-bg" role="img" aria-label="Northern lights over a still fjord"></div>
+    <div class="j-hero-content">
+      <span class="eyebrow" data-animate>Coming Soon</span>
+      <h1 id="journal-heading" data-animate>The Journal</h1>
+      <p data-animate>Where to go, where to stay, and how to make it work: for families, celebrations and the curious. The first pieces are on their way.</p>
+    </div>
+  </header>
+
+  <section class="j-soon on-light" aria-labelledby="soon-heading">
+    <div class="j-soon-inner">
+      <div data-animate>
+        <span class="eyebrow">The Dispatch</span>
+        <h2 id="soon-heading">Be the first to read it</h2>
+        <p>New pieces go to The Dispatch first, along with the hotels and destinations worth knowing. Only when there's something worth sending.</p>
+      </div>
+      <div data-animate class="delay-1">
+        <form class="footer-form js-newsletter" name="newsletter" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Newsletter signup">
+          <input type="hidden" name="form-name" value="newsletter" />
+          <input type="hidden" name="source" value="journal: coming soon" />
+          <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <input type="email" name="email" placeholder="Your email address" aria-label="Email address" autocomplete="email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="form-micro">No spam. Unsubscribe any time. See our <a href="../privacy.html" style="border-bottom:1px solid var(--sand)">privacy policy</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-list" aria-labelledby="works-heading">
+    <div class="j-list-inner">
+      <div class="j-list-header" data-animate>
+        <div>
+          <span class="eyebrow">In the Works</span>
+          <h2 id="works-heading">What we're writing</h2>
+        </div>
+        <p class="j-topics">Families &middot; Stays &middot; Celebrations &middot; Ideas</p>
+      </div>
+      <div class="j-grid">
+        <article class="j-card" data-animate>
+          <div class="j-card-img">
+            <img src="../images/maldives.jpg" alt="A boat on a turquoise lagoon" loading="lazy" />
+            <span class="j-badge">Coming soon</span>
+          </div>
+          <span class="j-cat">Families</span>
+          <h3>Toddler-friendly places that still feel like a holiday</h3>
+          <p>Short transfers, proper kids' clubs, and somewhere for the adults to exhale.</p>
+        </article>
+        <article class="j-card" data-animate>
+          <div class="j-card-img">
+            <img src="../images/amankora-punakha-pool.jpg" alt="Pool terrace at a private lodge in Bhutan" loading="lazy" />
+            <span class="j-badge">Coming soon</span>
+          </div>
+          <span class="j-cat">Stays</span>
+          <h3>Private estates and villas for the whole family</h3>
+          <p>Whole-house buyouts and villas with a chef, for when everyone's coming.</p>
+        </article>
+        <article class="j-card" data-animate>
+          <div class="j-card-img">
+            <img src="../images/safari.jpg" alt="Savanna at golden hour" loading="lazy" />
+            <span class="j-badge">Coming soon</span>
+          </div>
+          <span class="j-cat">Families</span>
+          <h3>First safaris with children: where, when and how</h3>
+          <p>Malaria-free options, family tents, and which camps welcome younger guests.</p>
+        </article>
+        <article class="j-card" data-animate>
+          <div class="j-card-img">
+            <img src="../images/capella-lord-howe-hero.jpg" alt="Aerial view of Lord Howe Island" loading="lazy" />
+            <span class="j-badge">Coming soon</span>
+          </div>
+          <span class="j-cat">Celebrations</span>
+          <h3>Where to honeymoon, month by month</h3>
+          <p>Twelve months, twelve places at their best. Plan backwards from the date.</p>
+        </article>
+        <article class="j-card" data-animate>
+          <div class="j-card-img">
+            <img src="../images/service-hotel-bookings.jpg" alt="Wooden boathouse on an alpine lake" loading="lazy" />
+            <span class="j-badge">Coming soon</span>
+          </div>
+          <span class="j-cat">Families</span>
+          <h3>Three generations, one trip: hotels that get it right</h3>
+          <p>Connecting rooms, step-free paths and a pool the grandparents will actually use.</p>
+        </article>
+        <article class="j-card" data-animate>
+          <div class="j-card-img">
+            <img src="../images/amankora-paro-lodge.jpg" alt="Lodge in the Paro valley, Bhutan" loading="lazy" />
+            <span class="j-badge">Coming soon</span>
+          </div>
+          <span class="j-cat">Ideas</span>
+          <h3>Why a human still books your holiday</h3>
+          <p>Notes from the world's biggest luxury travel show, on judgement, light switches and AI.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-ask" aria-labelledby="ask-heading">
+    <div data-animate>
+      <h2 id="ask-heading">A question you'd like answered?</h2>
+      <p>Tell us what you're trying to figure out. If it's useful to you, it's probably useful to someone else, and we'll write it up.</p>
+      <div class="j-ask-links">
+        <a href="mailto:hello@outposttravel.co?subject=An%20idea%20for%20the%20Journal" class="text-link">Email us &rarr;</a>
+        <a href="https://www.instagram.com/outposttravelco/" class="text-link" target="_blank" rel="noopener noreferrer">Follow @outposttravelco &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-subscribe">
+        <span class="footer-eyebrow">The Dispatch</span>
+        <p>The hotels and destinations worth knowing, and the occasional reason to go now. Straight to your inbox, every so often.</p>
+        <form class="footer-form js-newsletter" name="newsletter" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Newsletter signup">
+          <input type="hidden" name="form-name" value="newsletter" />
+          <input type="hidden" name="source" value="footer: journal" />
+          <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <input type="email" name="email" placeholder="Your email address" aria-label="Email address" autocomplete="email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="footer-micro">No spam. Unsubscribe any time.</p>
+      </div>
+      <div class="footer-info">
+        <ul class="footer-nav-inline" role="list">
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../journal/">Journal</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a href="../start-planning.html">Start Planning</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/outposttravelco/" class="footer-ig" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg>@outposttravelco</a>
+          <a href="mailto:hello@outposttravel.co" class="footer-email">hello@outposttravel.co</a>
+        </div>
+        <div class="footer-affil">A proud independent affiliate of <a href="https://www.alchemisttravel.com/" target="_blank" rel="noopener noreferrer">Alchemist Travel</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Outpost Travel</span>
+      <a href="../privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    const mainNav = document.getElementById('mainNav');
+    function updateNav() { mainNav.classList.toggle('nav--scrolled', window.scrollY > 48); }
+    updateNav();
+    window.addEventListener('scroll', updateNav, { passive: true });
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    hamburgerBtn.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    mobileNavClose.addEventListener('click', closeMobileNav);
+    mobileNav.addEventListener('click', e => { if (e.target === mobileNav) closeMobileNav(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+  </script>
+  <script src="../assets/site.js" defer></script>
+</body>
+</html>

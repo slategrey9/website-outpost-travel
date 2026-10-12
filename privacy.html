@@ -100,9 +100,9 @@
     }
     .nav-logo-travel {
       font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      font-size: 0.42rem;
-      letter-spacing: 0.44em;
+      font-weight: 400;
+      font-size: 0.74rem;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
       color: var(--text-light);
       margin-top: 4px;
@@ -433,6 +433,7 @@
     }
 
   </style>
+  <link rel="stylesheet" href="assets/site.css?v=4" />
 </head>
 <body>
 
@@ -440,7 +441,9 @@
   <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&#x2715;</button>
     <a href="about.html">About</a>
+    <a href="journal/">Journal</a>
     <a href="faq.html">FAQ</a>
+    <a href="https://www.instagram.com/outposttravelco/" class="mobile-nav-ig" target="_blank" rel="noopener noreferrer">Instagram @outposttravelco</a>
     <a href="start-planning.html" class="mobile-nav-cta">Start Planning</a>
   </div>
 
@@ -448,6 +451,7 @@
   <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
     <div class="nav-left">
       <a href="about.html">About</a>
+      <a href="journal/">Journal</a>
       <a href="faq.html">FAQ</a>
     </div>
     <a href="index.html" class="nav-logo" aria-label="Outpost Travel — home">
@@ -455,6 +459,7 @@
       <span class="nav-logo-travel">TRAVEL</span>
     </a>
     <div class="nav-right">
+      <a href="https://www.instagram.com/outposttravelco/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Outpost Travel on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></a>
       <a href="start-planning.html" class="nav-cta">Start Planning</a>
       <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -467,7 +472,7 @@
 
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="privacy-last-updated">Last updated: April 2026</p>
+    <p class="privacy-last-updated">Last updated: October 2026</p>
 
     <p>Outpost Travel takes your privacy seriously. This policy explains what personal information we collect, how we use it, and how we protect it. We keep it straightforward — because that's how we work.</p>
 
@@ -480,7 +485,7 @@
     <p>We collect personal information in the following ways:</p>
 
     <ul>
-      <li><strong>When you contact us</strong> — via WhatsApp or email, you may share your name, contact details, travel preferences, and trip details. We collect what you choose to share.</li>
+      <li><strong>When you contact us</strong> — via our website enquiry form, WhatsApp or email, you may share your name, contact details, travel preferences, and trip details. We collect what you choose to share.</li>
       <li><strong>When you subscribe to our newsletter</strong> — we collect your email address.</li>
       <li><strong>When we make bookings on your behalf</strong> — we may collect additional details (such as passport information or dietary requirements) as needed to complete your reservation. This information is shared only with the relevant hotels or suppliers.</li>
     </ul>
@@ -509,6 +514,7 @@
     <ul>
       <li><strong>Hotels and travel suppliers</strong> — only what is required to complete a booking</li>
       <li><strong>Alchemist Travel</strong> — our host agency, for booking fulfilment purposes</li>
+      <li><strong>Netlify</strong> — our website host, which receives and stores enquiry form and newsletter sign-ups on our behalf</li>
       <li><strong>Email marketing platform</strong> — if you have subscribed to our newsletter, your email address is stored with our email service provider</li>
     </ul>
 
@@ -559,32 +565,30 @@
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-subscribe">
-        <span class="footer-eyebrow">Stay Inspired</span>
-        <p>Destination guides, travel inspiration, and the occasional unmissable offer. Straight to your inbox.</p>
-        <form class="footer-form" name="newsletter" netlify netlify-honeypot="bot-field" aria-label="Newsletter signup">
+        <span class="footer-eyebrow">The Dispatch</span>
+        <p>The hotels and destinations worth knowing, and the occasional reason to go now. Straight to your inbox, every so often.</p>
+        <form class="footer-form js-newsletter" name="newsletter" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" aria-label="Newsletter signup">
           <input type="hidden" name="form-name" value="newsletter" />
-          <input type="text" name="bot-field" style="display:none" />
+          <input type="hidden" name="source" value="footer: privacy" />
+          <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
           <input type="email" name="email" placeholder="Your email address" aria-label="Email address" autocomplete="email" required />
           <button type="submit">Subscribe</button>
         </form>
-        <p class="footer-micro">No spam. Just good travel.</p>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="footer-micro">No spam. Unsubscribe any time.</p>
       </div>
       <div class="footer-info">
         <ul class="footer-nav-inline" role="list">
           <li><a href="about.html">About</a></li>
+          <li><a href="journal/">Journal</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="start-planning.html">Start Planning</a></li>
         </ul>
         <div class="footer-socials">
-          <a href="https://wa.me/6597514830" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-          </a>
-          <a href="mailto:kristin@outposttravel.co" class="footer-social-link" aria-label="Email">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
+          <a href="https://www.instagram.com/outposttravelco/" class="footer-ig" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg>@outposttravelco</a>
+          <a href="mailto:hello@outposttravel.co" class="footer-email">hello@outposttravel.co</a>
         </div>
-        <div class="footer-affil">Independent affiliate of Alchemist Travel &middot; Serandipians member</div>
-        <p class="footer-tagline">The effortless way to go further.</p>
+        <div class="footer-affil">A proud independent affiliate of <a href="https://www.alchemisttravel.com/" target="_blank" rel="noopener noreferrer">Alchemist Travel</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -613,5 +617,6 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
   </script>
 
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

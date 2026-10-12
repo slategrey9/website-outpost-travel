@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /journal/_drafts/
+Disallow: /tools/
+
+Sitemap: https://outposttravel.co/sitemap.xml

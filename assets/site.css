@@ -1,0 +1,100 @@
+/* Outpost Travel — shared additions (v2).
+   Page-specific styles stay inline in each page; this file holds the pieces
+   every page now shares: Instagram link, newsletter states, credentials line. */
+
+.form-status {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  min-height: 0;
+  margin-top: 4px;
+}
+.form-status:empty { display: none; }
+.form-status.is-success { color: #D9C3A1; font-size: 0.9rem; }
+.form-status.is-error { color: #E8B4A0; }
+.form-status a { color: inherit; border-bottom: 1px solid currentColor; }
+
+/* Newsletter forms on light backgrounds (journal page) */
+.on-light .form-status.is-success { color: #1C2533; }
+.on-light .form-status.is-error { color: #9A3D25; }
+
+.footer-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  color: rgba(246,241,232,0.62);
+  transition: color 0.2s ease;
+}
+.footer-ig:hover { color: #B8956A; }
+.footer-ig svg { flex-shrink: 0; }
+
+/* Raise the faintest footer text to readable contrast (was 0.2 opacity) */
+.footer-micro { color: rgba(246,241,232,0.45) !important; }
+.footer-bottom span,
+.footer-bottom a { color: rgba(246,241,232,0.5) !important; }
+.footer-bottom a:hover { color: rgba(246,241,232,0.8) !important; }
+.footer-affil a { color: inherit; border-bottom: 1px solid rgba(246,241,232,0.2); }
+.footer-affil a:hover { color: #B8956A; }
+
+.nav-ig {
+  display: flex;
+  align-items: center;
+  color: rgba(246,241,232,0.6);
+  transition: color 0.2s ease;
+}
+.nav-ig:hover { color: #B8956A; }
+.nav.nav--scrolled .nav-ig,
+.nav.nav--solid .nav-ig { color: #5C5248; }
+@media (max-width: 768px) { .nav-ig { display: none; } }
+
+.mobile-nav-ig {
+  font-family: 'Jost', sans-serif !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.08em !important;
+  color: rgba(246,241,232,0.55) !important;
+}
+
+/* Fix: delay classes were written as bare attributes; these restore them */
+[data-animate][delay-1] { transition-delay: 0.12s; }
+[data-animate][delay-2] { transition-delay: 0.24s; }
+[data-animate][delay-3] { transition-delay: 0.36s; }
+
+/* Buttons: squared, uppercase, tracked (replaces pill shapes site-wide) */
+.btn-gold, .btn-outline-light, .btn-submit, .nav-cta, .mobile-nav-cta,
+.footer-form button, .footer-form input {
+  border-radius: 2px !important;
+}
+.btn-gold, .btn-outline-light, .btn-submit {
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase;
+  padding: 16px 34px !important;
+}
+.btn-submit { padding: 17px 40px !important; }
+.btn-outline-light { font-weight: 400 !important; }
+.btn-gold:hover, .btn-submit:hover { transform: none !important; }
+.nav-cta {
+  font-size: 0.64rem !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase;
+  padding: 10px 20px !important;
+}
+.mobile-nav-cta {
+  font-size: 0.74rem !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase;
+  padding: 15px 34px !important;
+}
+.footer-form button {
+  font-size: 0.66rem !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase;
+  padding: 11px 22px !important;
+}
+.j-badge, .jt-tag, .a-draft { border-radius: 2px !important; }
