@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Iceland, October 2026 · Jeanette &amp; Partner · Outpost Travel</title>
+  <title>Iceland, October 2026 · Jeanette &amp; Brandon · Outpost Travel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -127,6 +127,34 @@
       font-size: 0.98rem; line-height: 1.88; color: var(--text-mid); margin-bottom: 16px;
     }
     .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* ── PROPOSAL QUICK BUTTONS ── */
+    .proposal-buttons {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .proposal-btn {
+      flex: 1 1 0; min-width: 180px;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-align: center; color: var(--text-mid);
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      transition: transform 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+    }
+    .proposal-btn::before {
+      content: ''; display: inline-block;
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .proposal-btn.a::before { background: var(--opt-a); }
+    .proposal-btn.b::before { background: var(--opt-b); }
+    .proposal-btn.c::before { background: var(--opt-c); }
+    .proposal-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(20,48,26,0.06); }
+    .proposal-btn.a:hover { border-color: var(--opt-a); color: var(--opt-a); }
+    .proposal-btn.b:hover { border-color: var(--opt-b); color: var(--opt-b); }
+    .proposal-btn.c:hover { border-color: var(--opt-c); color: var(--opt-c); }
 
     /* ── OPTION SPREADS ── */
     .options-wrap { padding: 32px 48px 96px; }
@@ -374,7 +402,7 @@
   <p class="hero-eyebrow">Iceland &nbsp;·&nbsp; October 2026</p>
   <h1>Three ways into <em>Iceland</em></h1>
   <div class="hero-rule"></div>
-  <p class="hero-name">Jeanette &amp; Partner</p>
+  <p class="hero-name">Jeanette &amp; Brandon</p>
   <p class="hero-meta">October 2026 &nbsp;·&nbsp; 10–11 Nights &nbsp;·&nbsp; 2 Travellers</p>
   <div class="hero-scroll">Choose your journey</div>
 </div>
@@ -388,6 +416,12 @@
     <div class="divider"></div>
     <p>October is a wonderful time to visit Iceland. The evenings grow long, the first Northern Lights of the season begin to dance across the sky, and the countryside eases into its quiet winter rhythm. It's a season that rewards stillness and attention in equal measure, and it's a real joy to be putting something together for you.</p>
     <p>We've shaped three journeys for you, each with its own feel and pace, so you can see which one sits closest to the trip you're imagining. Take your time browsing, and click through to any option that catches your eye for the full day-by-day, property notes, and everything that's included.</p>
+
+    <div class="proposal-buttons">
+      <a href="#option-a" class="proposal-btn a">Option A · Guided Classic</a>
+      <a href="#option-b" class="proposal-btn b">Option B · Immersive Retreat</a>
+      <a href="#option-c" class="proposal-btn c">Option C · Yours Alone</a>
+    </div>
   </div>
 </section>
 
@@ -605,7 +639,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Outpost Travel</div>
-  <div class="footer-note">Prepared for Jeanette &amp; Partner &nbsp;·&nbsp; 2026</div>
+  <div class="footer-note">Prepared for Jeanette &amp; Brandon &nbsp;·&nbsp; 2026</div>
 </footer>
 
 

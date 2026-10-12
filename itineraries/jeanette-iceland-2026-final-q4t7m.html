@@ -180,6 +180,67 @@
       font-style: italic; line-height: 1.7;
     }
 
+    /* ── FLIGHT OPTIONS ── */
+    .flight-section { background: var(--warm-white); }
+    .flight-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      margin-top: 36px;
+    }
+    .flight-card {
+      padding: 32px 28px; background: var(--cream);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .flight-card.recommended { border-top: 2px solid var(--opt-b); }
+    .flight-tag {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-light); padding: 4px 12px;
+      border: 1px solid var(--border); background: var(--warm-white);
+      margin-bottom: 0;
+    }
+    .flight-card.recommended .flight-tag {
+      color: var(--opt-b); border-color: var(--opt-b-pale);
+      background: var(--opt-b-pale);
+    }
+    .flight-airline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; color: var(--green-deep);
+      line-height: 1.2; margin: 0;
+    }
+    .flight-time {
+      font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; margin: 0;
+    }
+    .flight-time strong { color: var(--green-deep); font-weight: 500; }
+    .flight-divider {
+      width: 28px; height: 1px; background: var(--border);
+      margin: 4px 0;
+    }
+    .flight-body {
+      font-size: 0.85rem; line-height: 1.7; color: var(--text-mid); margin: 0;
+    }
+    .flight-list {
+      list-style: none; display: flex; flex-direction: column; gap: 6px;
+      margin-top: 4px;
+    }
+    .flight-list li {
+      font-size: 0.82rem; line-height: 1.55; color: var(--text-mid);
+      padding-left: 18px; position: relative;
+    }
+    .flight-list li::before {
+      content: '·'; position: absolute; left: 4px; color: var(--opt-b);
+      font-size: 1.2rem; line-height: 1; top: 2px;
+    }
+    .flight-cost {
+      margin-top: auto; padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--text-light); letter-spacing: 0.06em;
+    }
+    .flight-cost strong { color: var(--green-deep); font-weight: 500; }
+    @media (max-width: 720px) {
+      .flight-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── INVESTMENT (top placement) ── */
     .invest-section { background: var(--warm-white); padding: 88px 48px; text-align: center; }
     .invest-section .section-inner { max-width: 620px; margin: 0 auto; }
@@ -433,6 +494,7 @@
   <span class="nav-brand">Outpost Travel</span>
   <div class="nav-links">
     <a href="#summary">Summary</a>
+    <a href="#flights">Flights</a>
     <a href="#investment">Investment</a>
     <a href="#inclusions">Inclusions</a>
     <a href="#properties">Properties</a>
@@ -473,8 +535,8 @@
           <td class="cell-day">D1</td>
           <td class="cell-date">7 Oct<small>Wed</small></td>
           <td class="cell-stay">Reykjavík<small>Sand Hotel</small></td>
-          <td class="cell-activity">Arrival, free afternoon to settle in</td>
-          <td class="cell-transfers">Flybus from Keflavík to Reykjavík</td>
+          <td class="cell-activity">Arrival, Blue Lagoon soak en route, check in at Sand Hotel</td>
+          <td class="cell-transfers">Keflavík → Blue Lagoon → Reykjavík <small style="display:block;color:var(--text-light);font-style:italic;margin-top:4px;">(shuttle or private, see Your Arrival)</small></td>
         </tr>
         <tr>
           <td class="cell-day">D2</td>
@@ -529,27 +591,69 @@
           <td class="cell-day">D9</td>
           <td class="cell-date">15 Oct<small>Thu</small></td>
           <td class="cell-stay">Hotel Húsafell</td>
-          <td class="cell-activity"><span class="suggested">Suggested</span>Hiking trails through the lava fields · Langjökull glacier views · long read by the fire</td>
+          <td class="cell-activity"><span class="suggested">Suggested</span>Lava-field hiking · Langjökull glacier views · Húsafell Canyon Baths and/or hotel geothermal pool</td>
           <td class="cell-transfers">—</td>
         </tr>
         <tr>
           <td class="cell-day">D10</td>
           <td class="cell-date">16 Oct<small>Fri</small></td>
-          <td class="cell-stay">Hotel Húsafell</td>
-          <td class="cell-activity"><span class="suggested">Suggested</span>Húsafell Canyon Baths (guided walk to Langifoss en route) &amp;/or hotel geothermal pool</td>
-          <td class="cell-transfers">—</td>
+          <td class="cell-stay">Airport Hotel<small>Konvin Hotel or similar</small></td>
+          <td class="cell-activity">Slow Húsafell morning, then transfer to Keflavík area. Rest at airport hotel before departure.</td>
+          <td class="cell-transfers">Private transfer Hotel Húsafell → Keflavík, ~2 hrs</td>
         </tr>
         <tr>
           <td class="cell-day">D11</td>
           <td class="cell-date">17 Oct<small>Sat</small></td>
-          <td class="cell-stay">Departure or airport hotel<small>depending on flight time</small></td>
-          <td class="cell-activity">Travel home, or quiet final night near Keflavík before an early flight*<br><small style="display:block;margin-top:6px;font-size:0.72rem;color:var(--text-light);font-style:italic;">*Extra night in Reykjavík or Keflavík (near airport) available for SGD 300</small></td>
-          <td class="cell-transfers">Private transfer Hotel Húsafell → Keflavík airport</td>
+          <td class="cell-stay">Departure</td>
+          <td class="cell-activity">Travel home</td>
+          <td class="cell-transfers">Short transfer airport hotel → Keflavík terminal</td>
         </tr>
       </tbody>
     </table>
 
-    <p class="table-note">Final night (17 October) depends on your departure flight. If you fly out the same day, we'll transfer you straight to Keflavík. If your flight is early on 18 October, we'll arrange a quiet night at an airport hotel near Keflavík.</p>
+    <p class="table-note">Departure flight: 17 October, 10:20am from Keflavík. Final night (16 October) is at an airport hotel near Keflavík for a calm, unhurried start the next morning.</p>
+  </div>
+</section>
+
+
+<!-- FLIGHT OPTIONS -->
+<section class="section flight-section" id="flights">
+  <div class="section-inner">
+    <p class="eyebrow">Your Arrival</p>
+    <h2>Two flight options</h2>
+    <div class="divider"></div>
+
+    <div class="flight-grid">
+
+      <div class="flight-card">
+        <span class="flight-tag">Option A</span>
+        <p class="flight-airline">Morning arrival · British Airways via London</p>
+        <p class="flight-time">Depart Singapore <strong>Tue 6 Oct, 10:40pm</strong><br>Arrive Keflavík <strong>Wed 7 Oct, 10:00am</strong></p>
+        <div class="flight-divider"></div>
+        <p class="flight-body">The scheduled shuttle works comfortably, with sufficient buffer between landing and the next bus:</p>
+        <ul class="flight-list">
+          <li>12:30pm shuttle Keflavík → Blue Lagoon (~20 min)</li>
+          <li>4:15pm shuttle Blue Lagoon → Reykjavík (~45 min)</li>
+        </ul>
+        <p class="flight-body" style="margin-top:4px;">If a 2.5-hour wait at the airport feels too long, a private transfer is also an option (+SGD 150 per person).</p>
+        <span class="flight-cost"><strong>Transport:</strong> Scheduled shuttle, included in quoted price &nbsp;·&nbsp; OR private transfer (+SGD 150 per person)</span>
+      </div>
+
+      <div class="flight-card">
+        <span class="flight-tag">Option B</span>
+        <p class="flight-airline">Afternoon arrival · KLM via Amsterdam</p>
+        <p class="flight-time">Depart Singapore <strong>Wed 7 Oct, 12:55am</strong><br>Arrive Keflavík <strong>Wed 7 Oct, 3:25pm</strong></p>
+        <div class="flight-divider"></div>
+        <p class="flight-body">The scheduled shuttle is available:</p>
+        <ul class="flight-list">
+          <li>4:30pm shuttle Keflavík → Blue Lagoon (~20 min)</li>
+          <li>6:15pm or 8:15pm shuttle Blue Lagoon → Reykjavík (~45 min)</li>
+        </ul>
+        <p class="flight-body" style="margin-top:4px;">However the scheduled shuttle is tight, with only about an hour to clear immigration and collect bags before the 4:30pm bus. A private transfer is the easier option — your driver picks you up at Keflavík, waits 2–3 hours at the Blue Lagoon (time for a light bite or dinner), and continues to Reykjavík when you're ready.</p>
+        <span class="flight-cost"><strong>Transport:</strong> Scheduled shuttle, included in quoted price &nbsp;·&nbsp; OR private transfer (+SGD 150 per person)</span>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -583,7 +687,7 @@
       <div class="incl-col">
         <h4>Inclusions</h4>
         <ul class="incl-list yes">
-          <li>10 nights' accommodation as specified (Sand Hotel × 3, Midgard Base Camp × 3, Aurora Igloo South × 1, Hotel Húsafell × 3)</li>
+          <li>10 nights' accommodation as specified (Sand Hotel × 3, Midgard Base Camp × 3, Aurora Igloo South × 1, Hotel Húsafell × 2, Keflavík airport hotel × 1)</li>
           <li>All meals on the 4-day Midgard Northern Lights Adventure (8–11 Oct), including Friðheimar Tomato Farm lunch and traditional lamb dinner</li>
           <li>Daily breakfast on all days, except at Aurora Igloo</li>
           <li>4-day Midgard Northern Lights Adventure programme (small group, max 16)</li>
@@ -592,7 +696,7 @@
           <li>Þórsmörk 4×4 Super Jeep day tour</li>
           <li>Sólheimajökull glacier ice walk with guide</li>
           <li>Private "Not in Your Guidebook" tour (just the two of you, 6–7 hrs)</li>
-          <li>Flybus airport arrival transfer</li>
+          <li>Scheduled shuttle bus from Keflavík via Blue Lagoon to Reykjavík on arrival day</li>
           <li>Private transfers: Reykjavík → Hotel Húsafell, and Hotel Húsafell → Keflavík</li>
         </ul>
       </div>
@@ -601,8 +705,9 @@
         <ul class="incl-list no">
           <li>International flights</li>
           <li>Travel insurance</li>
+          <li>Blue Lagoon entry fees (book directly on arrival day)</li>
+          <li>Private transfer Keflavík → Blue Lagoon → Reykjavík (+SGD 150 per person, optional)</li>
           <li>Lunches and dinners in Reykjavík, Húsafell, and dinner at Aurora Igloo</li>
-          <li>Extra night on Day 11 if staying an additional day (SGD 300)</li>
           <li>Personal expenses and gratuities</li>
         </ul>
       </div>
@@ -615,7 +720,7 @@
 <div class="properties-section" id="properties">
   <div class="section-inner">
     <p class="eyebrow">Where You'll Stay</p>
-    <h2>Four places to call home</h2>
+    <h2>Five places to call home</h2>
     <div class="divider"></div>
     <p class="section-intro">Each property was chosen with real care, balancing boutique character, great locations, and a sense of quiet when you need it.</p>
 
@@ -658,7 +763,17 @@
             <p class="c-location">West Iceland</p>
             <p class="c-name">Hotel Húsafell</p>
             <p class="c-room">Double Room</p>
-            <span class="c-nights">Nights 8–10 &nbsp;·&nbsp; B&amp;B</span>
+            <span class="c-nights">Nights 8–9 &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-konvin-reception.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Near Keflavík airport</p>
+            <p class="c-name">Konvin Hotel or similar</p>
+            <p class="c-room">Double Room</p>
+            <span class="c-nights">Night 10 &nbsp;·&nbsp; B&amp;B</span>
           </div>
         </div>
 
@@ -681,22 +796,26 @@
       <div class="day-ghost">1</div>
       <div class="day-eyebrow">Day 1</div>
       <div class="day-date">Wed 7 October</div>
-      <div class="day-location">Arrival in Reykjavík</div>
-      <p class="day-desc">Welcome to Iceland. Your flight lands at Keflavík around midday, and a Flybus transfer brings you into Reykjavík and to Sand Hotel. The afternoon is yours to decompress after the long flight, settle in, and start to feel the different rhythm of the place.</p>
+      <div class="day-location">Arrival, Blue Lagoon, then Reykjavík</div>
+      <p class="day-desc">Welcome to Iceland. From the airport, you'll travel to the Blue Lagoon — Iceland's most iconic geothermal soak, perfect for easing the long-haul flight out of your shoulders. After your float, you'll continue into Reykjavík and to Sand Hotel. The rest of the afternoon is yours to decompress, settle in, and start to feel the different rhythm of the place. <em>Your transport depends on which arrival flight you choose — see <a href="#flights" style="color:var(--opt-b);text-decoration:underline;">Your Arrival</a> above for the two options.</em></p>
       <p class="day-desc">Sand Hotel will be your home base in Reykjavík. This boutique hotel is a sweet confection by the pâtissiers behind beloved Icelandic bakery Sandholt, which sits right next door. The hotel is centrally located on Reykjavík's main strip, Laugavegur; its neighbours are edgy clothing shops for wannabe Björks, an assortment of global restaurants, and cute cafés. All of the city's main sights are within easy walking distance.</p>
       <p class="day-desc">Each morning, tuck into a Continental breakfast buffet at Sandbar on the ground floor. The morning feast includes house-made granola, rich coffees, and freshly baked breads and pastries from next-door neighbour Sandholt Bakery.</p>
       <div class="day-bullets">
         <div class="day-bullet transport">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-          <span><span class="bi-label">Arrive</span>Keflavík International around midday</span>
+          <span><span class="bi-label">Arrive</span>Keflavík International (10:00am or 3:25pm, see Your Arrival)</span>
         </div>
         <div class="day-bullet transport">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          <span><span class="bi-label">Transfer</span>Flybus to Reykjavík, approx. 45 min</span>
+          <span><span class="bi-label">Transfer</span>Keflavík → Blue Lagoon → Reykjavík (scheduled shuttle or private transfer, depending on flight)</span>
         </div>
         <div class="day-bullet">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-          <span>Settle in and explore Reykjavík at your own pace</span>
+          <span>Blue Lagoon soak en route (entry booked directly by you)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Settle in at Sand Hotel · explore Reykjavík at your own pace</span>
         </div>
       </div>
       <div class="day-accom">
@@ -1029,7 +1148,7 @@
       <div class="day-accom">
         <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
         <span class="day-accom-name">Hotel Húsafell</span>
-        <span class="day-accom-basis">Night 1 of 3 · B&amp;B</span>
+        <span class="day-accom-basis">Night 1 of 2 · B&amp;B</span>
         <span class="day-accom-room">Double Room</span>
       </div>
     </div>
@@ -1045,8 +1164,8 @@
       <div class="day-ghost">9</div>
       <div class="day-eyebrow">Day 9</div>
       <div class="day-date">Thu 15 October</div>
-      <div class="day-location">Slowing Down at Húsafell</div>
-      <p class="day-desc">This is the day we've been building up to. No schedule, no agenda, nowhere you need to be. The surrounding lava fields have hiking trails right from the hotel, perfect for a morning walk out toward the Langjökull glacier views. In the afternoon, continue exploring on foot, or return to the hotel for a long read by the fire. The hotel restaurant, with floor-to-ceiling windows looking out across the valley, is a quiet pleasure of an evening. This is the part of the trip designed for you to breathe.</p>
+      <div class="day-location">Slow Days, Hot Pools</div>
+      <p class="day-desc">This is the day we've been building up to. No schedule, no agenda, nowhere you need to be. The surrounding lava fields have hiking trails right from the hotel, perfect for a morning walk out toward the Langjökull glacier views. In the afternoon, choose between the Hotel Húsafell Geothermal Pool right on the hotel grounds, or the Húsafell Canyon Baths — a set of soaking pools built into the canyon itself using locally sourced stone, with a guided walk to Langifoss waterfall en route. Both are wonderful; if you can't choose, you don't have to, do both. Settle in for a long evening by the fire and one last Húsafell dinner.</p>
       <div class="day-bullets">
         <div class="day-bullet">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
@@ -1056,37 +1175,6 @@
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           <span>Views toward Langjökull glacier</span>
         </div>
-        <div class="day-bullet">
-          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-          <span>Long read by the fire, at your own pace</span>
-        </div>
-        <div class="day-bullet meal">
-          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
-          <span><span class="bi-label">Breakfast</span>Included at Hotel Húsafell</span>
-        </div>
-      </div>
-      <div class="day-accom">
-        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
-        <span class="day-accom-name">Hotel Húsafell</span>
-        <span class="day-accom-basis">Night 2 of 3 · B&amp;B</span>
-        <span class="day-accom-room">Double Room</span>
-      </div>
-    </div>
-    <div class="day-imgs">
-      <div class="day-img" style="background-image: url('./images/ic-husafell-restaurant.jpg');"></div>
-      <div class="day-img" style="background-image: url('./images/ic-husafell-aurora.jpg');"></div>
-    </div>
-  </div>
-
-  <!-- Day 10: Fri 16 Oct -->
-  <div class="day-block">
-    <div class="day-text">
-      <div class="day-ghost">10</div>
-      <div class="day-eyebrow">Day 10</div>
-      <div class="day-date">Fri 16 October</div>
-      <div class="day-location">A Day for the Baths</div>
-      <p class="day-desc">Today is for soaking. You have a wonderful choice to make: the Hotel Húsafell Geothermal Pool right on the hotel grounds, or the Húsafell Canyon Baths, a short walk away through the surrounding nature. The canyon baths are the real highlight here, a set of soaking pools built into the canyon itself using locally sourced stone, with temperatures ranging from 30 to 41°C. A guided walk takes you to the two-tiered Langifoss waterfall first, then down to the baths for a serene soak in the canyon. Both options are genuinely wonderful, and if you can't choose, you don't have to, do both.</p>
-      <div class="day-bullets">
         <div class="day-bullet">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           <span>Húsafell Canyon Baths, pools built into the canyon</span>
@@ -1107,13 +1195,52 @@
       <div class="day-accom">
         <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
         <span class="day-accom-name">Hotel Húsafell</span>
-        <span class="day-accom-basis">Night 3 of 3 · B&amp;B</span>
+        <span class="day-accom-basis">Night 2 of 2 · B&amp;B</span>
         <span class="day-accom-room">Double Room</span>
       </div>
     </div>
     <div class="day-imgs">
-      <div class="day-img" style="background-image: url('./images/ic-canyon-baths-1.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-husafell-restaurant.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-husafell-aurora.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 10: Fri 16 Oct — transfer to airport hotel -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">10</div>
+      <div class="day-eyebrow">Day 10</div>
+      <div class="day-date">Fri 16 October</div>
+      <div class="day-location">West, Then South to Keflavík</div>
+      <p class="day-desc">A leisurely Húsafell morning to close out the West Iceland chapter. One last walk through the lava fields, one last dip in the geothermal pool, one last unhurried breakfast looking out over the valley. After checkout, your private transfer brings you back across the lava fields and south to the Keflavík area, where you'll check in to an airport hotel for the final night. A short, quiet evening close to the terminal, so tomorrow's journey home can begin gently.</p>
+      <div class="day-bullets">
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Breakfast</span>Included at Hotel Húsafell before checkout</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Slow morning at Hotel Húsafell — final walk or pool dip</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>Private transfer Hotel Húsafell → Keflavík area, approx. 2 hrs</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Check in to airport hotel · quiet evening before departure</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Konvin Hotel or similar</span>
+        <span class="day-accom-basis">Night 10 · B&amp;B</span>
+        <span class="day-accom-room">Double Room near Keflavík</span>
+      </div>
+    </div>
+    <div class="day-imgs">
       <div class="day-img" style="background-image: url('./images/ic-husafell-pool.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-konvin-reception.jpg');"></div>
     </div>
   </div>
 
@@ -1123,29 +1250,25 @@
       <div class="day-ghost">11</div>
       <div class="day-eyebrow">Day 11</div>
       <div class="day-date">Sat 17 October</div>
-      <div class="day-location">Homeward, or Pre-Departure Rest</div>
-      <p class="day-desc">A leisurely morning at Húsafell, one last walk, one last dip in the pool, and then a private transfer to Keflavík airport. Depending on your flight time, you'll either head straight home today, or settle in for a quiet final night at an airport hotel near Keflavík before an early flight on 18 October. Either way, we hope you'll leave a little lighter than you arrived, with the quiet of Húsafell and the warmth of the Midgard team tucked somewhere in your memory for a long time.</p>
+      <div class="day-location">Homeward</div>
+      <p class="day-desc">The trip is complete. After an early breakfast, check out of the airport hotel and catch a 7am shuttle to Keflavík terminal (10 min away) for your flight home. We hope you'll leave a little lighter than you arrived, with the quiet of Húsafell and the warmth of the Midgard team tucked somewhere in your memory for a long time.</p>
       <div class="day-bullets">
         <div class="day-bullet meal">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
-          <span><span class="bi-label">Breakfast</span>Included at Hotel Húsafell before checkout</span>
+          <span><span class="bi-label">Breakfast</span>Early breakfast at the airport hotel before checkout</span>
         </div>
         <div class="day-bullet transport">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          <span><span class="bi-label">Transfer</span>Private transfer Hotel Húsafell → Keflavík airport</span>
-        </div>
-        <div class="day-bullet">
-          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-          <span>Slow morning at Hotel Húsafell</span>
+          <span><span class="bi-label">Shuttle</span>7am shuttle to Keflavík terminal, ~10 min</span>
         </div>
         <div class="day-bullet transport">
           <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-          <span><span class="bi-label">Depart</span>Same-day flight from Keflavík, or quiet airport-hotel night before an early 18 Oct departure</span>
+          <span><span class="bi-label">Depart</span>10:20am flight from Keflavík</span>
         </div>
       </div>
     </div>
     <div class="day-imgs">
-      <div class="day-img" style="background-image: url('./images/hero-northern-lights.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-konvin-room.jpg');"></div>
       <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&amp;fit=crop&amp;w=1400&amp;q=80');"></div>
     </div>
   </div>

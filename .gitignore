@@ -28,3 +28,6 @@ website-copy-master.md
 
 # OS
 .DS_Store
+
+# Local Netlify folder
+.netlify

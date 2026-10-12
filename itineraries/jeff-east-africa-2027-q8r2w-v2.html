@@ -250,7 +250,7 @@
     #itinerary .day-section:nth-child(even) { background: var(--cream); }
 
     .day-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
-    #itinerary .day-section:nth-child(even) .day-img { order: -1; }
+    #itinerary .day-section:nth-child(even) .day-imgs { order: -1; }
 
     .day-text {
       padding: 72px 56px;
@@ -315,9 +315,13 @@
     .inc-row:last-child { margin-bottom: 0; }
     .inc-tick { color: var(--gold); flex-shrink: 0; font-size: 0.75rem; margin-top: 3px; }
 
+    .day-imgs {
+      display: flex; flex-direction: column;
+    }
     .day-img {
+      flex: 1;
       background-size: cover; background-position: center;
-      background-color: var(--green-mid); min-height: 400px;
+      background-color: var(--green-mid); min-height: 290px;
     }
 
     /* ── INCLUSIONS SECTION ── */
@@ -374,11 +378,11 @@
     /* ── HOVER STATES ── */
     .c-card { transition: border-color 0.25s ease; }
     .c-card:hover { border-color: rgba(201,168,76,0.42); }
-    .c-card-img { transition: filter 0.35s ease; }
-    .c-card:hover .c-card-img { filter: brightness(1.08); }
+    .c-card-img { transition: filter 0.35s ease; filter: contrast(1.1) saturate(1.08); }
+    .c-card:hover .c-card-img { filter: brightness(1.08) contrast(1.1) saturate(1.08); }
 
-    .day-img { transition: filter 0.45s ease; }
-    .day-section:hover .day-img { filter: brightness(1.06); }
+    .day-img { transition: filter 0.45s ease; filter: contrast(1.1) saturate(1.08); }
+    .day-section:hover .day-imgs .day-img { filter: brightness(1.06) contrast(1.1) saturate(1.08); }
 
     /* ── REFERENCES ── */
     .ref-section { background: var(--cream); border-top: 1px solid var(--border); }
@@ -457,8 +461,9 @@
       .timeline-section { padding: 48px 24px; }
       .overview-grid { grid-template-columns: 1fr; gap: 40px; }
       .day-grid { grid-template-columns: 1fr; }
-      #itinerary .day-section:nth-child(even) .day-img { order: 0; }
-      .day-img { min-height: 260px; order: -1; }
+      #itinerary .day-section:nth-child(even) .day-imgs { order: 0; }
+      .day-imgs { order: -1; }
+      .day-img { min-height: 200px; }
       .day-text { padding: 40px 24px; }
       .inc-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
@@ -548,6 +553,7 @@
       .stat-n { font-size: 1.9rem; }
       .ref-num { font-size: 1.2rem; }
     }
+
   </style>
 </head>
 <body>
@@ -598,7 +604,7 @@
 
         <!-- 2. Asilia Erebero Hills -->
         <div class="c-card">
-          <div class="c-card-img" style="background-image: url('https://www.asiliaafrica.com/wp-content/smush-webp/2024/09/Erebero-Hills-Asilia-Africa-800x800.jpg.webp');"></div>
+          <div class="c-card-img" style="background-image: url('https://www.asiliaafrica.com/wp-content/smush-webp/2024/04/Asilia-Africa-Naboisho-Camp-Double-Room-800x800.jpg.webp');"></div>
           <div class="c-card-body">
             <p class="c-location">Bwindi, Uganda</p>
             <p class="c-name">Asilia Erebero Hills</p>
@@ -620,7 +626,7 @@
 
         <!-- 4. The Highlands -->
         <div class="c-card">
-          <div class="c-card-img" style="background-image: url('https://www.chaloafrica.com/wp-content/uploads/2017/07/The-Highlands-Dome2.jpg');"></div>
+          <div class="c-card-img" style="background-image: url('https://www.asiliaafrica.com/wp-content/uploads/2024/04/Asilia_Camp-Lodges_Highlands_Camp-Carousel9.jpg');"></div>
           <div class="c-card-body">
             <p class="c-location">Ngorongoro, Tanzania</p>
             <p class="c-name">The Highlands</p>
@@ -770,7 +776,10 @@
           </div>
         </div>
       </div>
-      <div class="day-img" style="background-image: url('https://www.andbeyond.com/wp-content/uploads/sites/5/Kenya-Uganda-No5BoutiqueHotel-15.jpg');"></div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://www.andbeyond.com/wp-content/uploads/sites/5/Kenya-Uganda-No5BoutiqueHotel-15.jpg');"></div>
+        <div class="day-img" style="background-image: url('https://www.andbeyond.com/wp-content/uploads/sites/5/Kenya-Uganda-No5BoutiqueHotel-6.jpg');"></div>
+      </div>
     </div>
   </div>
 
@@ -815,7 +824,10 @@
           </div>
         </div>
       </div>
-      <div class="day-img" style="background-image: url('gorilla-bwindi_1766963996463.jpg'); background-position: center top;"></div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('gorilla-bwindi_1766963996463.jpg');"></div>
+        <div class="day-img" style="background-image: url('https://www.asiliaafrica.com/wp-content/smush-webp/2024/04/Asilia-Africa-Naboisho-Camp-Double-Room-800x800.jpg.webp');"></div>
+      </div>
     </div>
   </div>
 
@@ -861,7 +873,10 @@
           </div>
         </div>
       </div>
-      <div class="day-img" style="background-image: url('https://www.happymomentstours.com/wp-content/uploads/2023/12/the_great_wildebeest_migration_1666860802.jpg');"></div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://www.happymomentstours.com/wp-content/uploads/2023/12/the_great_wildebeest_migration_1666860802.jpg');"></div>
+        <div class="day-img" style="background-image: url('https://www.asiliaafrica.com/wp-content/uploads/2024/04/Asilia_Camp-Lodges_Olakira_Camp-Carousel5.jpg');"></div>
+      </div>
     </div>
   </div>
 
@@ -905,7 +920,10 @@
           </div>
         </div>
       </div>
-      <div class="day-img" style="background-image: url('https://www.chaloafrica.com/wp-content/uploads/2017/07/The-Highlands-Dome2.jpg');"></div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://www.andbeyond.com/wp-content/uploads/sites/5/The-Highlands-dome-exterior.jpg');"></div>
+        <div class="day-img" style="background-image: url('https://www.asiliaafrica.com/wp-content/uploads/2024/04/Asilia_Camp-Lodges_Highlands_Camp-Carousel9.jpg');"></div>
+      </div>
     </div>
   </div>
 
@@ -946,7 +964,10 @@
           </div>
         </div>
       </div>
-      <div class="day-img" style="background-image: url('https://cdn.audleytravel.com/1050/750/79/525713-zanzibar-palace-hotel-stone-town.webp');"></div>
+      <div class="day-imgs">
+        <div class="day-img" style="background-image: url('https://cdn.audleytravel.com/1050/750/79/525713-zanzibar-palace-hotel-stone-town.webp');"></div>
+        <div class="day-img" style="background-image: url('https://cdn.audleytravel.com/1050/750/79/525712-sultana-room-zanzibar-palace-hotel-stone-town.webp');"></div>
+      </div>
     </div>
   </div>
 
