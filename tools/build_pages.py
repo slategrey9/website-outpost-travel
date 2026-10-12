@@ -85,7 +85,7 @@ def page(*, p, title, description, canonical, body, styles, active=None, solid=F
   <style>
 {styles}
   </style>
-  <link rel="stylesheet" href="{p}assets/site.css" />
+  <link rel="stylesheet" href="{p}assets/site.css?v=3" />
 </head>
 <body>
 
