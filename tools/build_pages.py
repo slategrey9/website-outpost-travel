@@ -81,11 +81,11 @@ def page(*, p, title, description, canonical, body, styles, active=None, solid=F
   <meta name="twitter:card" content="summary_large_image" />
   {FONTS}
   <link rel="icon" href="{p}favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="{p}assets/base.css" />
+  <link rel="stylesheet" href="{p}assets/base.css?v=5" />
   <style>
 {styles}
   </style>
-  <link rel="stylesheet" href="{p}assets/site.css?v=4" />
+  <link rel="stylesheet" href="{p}assets/site.css?v=5" />
 </head>
 <body>
 

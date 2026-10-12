@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>East Africa, July 2027 — Jeff &amp; Dixie Ang — Alchemist Travel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green-deep:  #14301A;
+      --green-mid:   #1E5228;
+      --green-light: #3A8050;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --cream:       #FAF8F3;
+      --warm-white:  #FFFFFF;
+      --text-dark:   #1A1A18;
+      --text-mid:    #4A4A45;
+      --text-light:  #7A7A72;
+      --border:      #E5E0D5;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-dark);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(20,48,26,0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      height: 100vh; min-height: 640px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      background: var(--green-deep);
+      background-image:
+        linear-gradient(to bottom, rgba(10,28,12,0.42) 0%, rgba(10,28,12,0.72) 100%),
+        url('https://www.easytravel.co.tz/wp-content/uploads/2022/02/Serengeti-Plains-Hills-Tanzania.jpg');
+      background-size: cover; background-position: center 40%;
+    }
+    .hero-proposal {
+      font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(4rem, 9vw, 7rem); line-height: 0.95;
+      color: #fff; letter-spacing: 0.03em;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-destinations {
+      margin-top: 22px;
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .hero-rule {
+      width: 40px; height: 1px; background: rgba(201,168,76,0.5);
+      margin: 32px auto;
+    }
+    .hero-client-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem; font-weight: 300; color: #fff; letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .hero-client-meta {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .hero-brand {
+      position: absolute; bottom: 36px; left: 0; right: 0; text-align: center;
+      font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+    }
+
+    /* ── SHARED LAYOUT ── */
+    .section { padding: 88px 48px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem); line-height: 1.12;
+      color: var(--green-deep); margin-bottom: 20px;
+    }
+    p { font-size: 0.95rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* ── CAROUSEL ── */
+    .carousel-section { background: var(--green-deep); padding: 80px 48px; }
+    .carousel-section .eyebrow { color: var(--gold-light); }
+    .carousel-section h2 { color: #fff; }
+
+    .carousel-wrap { position: relative; margin-top: 44px; }
+    .carousel-track {
+      display: flex; gap: 20px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .c-card {
+      flex: 0 0 290px; scroll-snap-align: start;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .c-card-img {
+      width: 100%; height: 195px; flex-shrink: 0;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+    }
+    .c-card-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .c-location {
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 7px;
+    }
+    .c-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: #fff; line-height: 1.2; margin-bottom: 6px;
+    }
+    .c-room { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-bottom: 14px; }
+    .c-nights {
+      display: inline-flex; align-items: center;
+      font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,0.28); padding: 5px 11px;
+      margin-top: auto; width: fit-content;
+    }
+
+    .carousel-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 26px;
+    }
+    .c-dots { display: flex; gap: 8px; }
+    .c-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.18); cursor: pointer; transition: background 0.2s;
+    }
+    .c-dot.active { background: var(--gold); }
+    .c-arrows { display: flex; gap: 10px; }
+    .c-btn {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255,255,255,0.18); background: none; cursor: pointer;
+      color: rgba(255,255,255,0.65); font-size: 0.95rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .c-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── OVERVIEW ── */
+    .overview-section { background: var(--cream); }
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .stats { display: flex; flex-direction: column; gap: 26px; padding-top: 6px; }
+    .stat { border-left: 2px solid var(--gold); padding-left: 22px; }
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1; margin-bottom: 5px;
+    }
+    .stat-l { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
+
+    /* ── DAY SECTIONS ── */
+    #itinerary .day-section { background: var(--warm-white); }
+    #itinerary .day-section:nth-child(even) { background: var(--cream); }
+
+    .day-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 540px; }
+
+    /* Flip image to left on even sections */
+    #itinerary .day-section:nth-child(even) .day-img { order: -1; }
+
+    .day-text {
+      padding: 72px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .day-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 3.5rem;
+      font-weight: 300; color: rgba(20,48,26,0.07); line-height: 1; margin-bottom: -2px;
+    }
+    .day-dest {
+      font-size: 0.61rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px; margin-top: 14px;
+    }
+    .day-text h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.95rem; font-weight: 400;
+      color: var(--green-deep); line-height: 1.1; margin-bottom: 5px;
+    }
+    .day-prop {
+      font-size: 0.73rem; color: var(--text-light); letter-spacing: 0.05em; margin-bottom: 20px;
+    }
+    .day-text p { font-size: 0.92rem; line-height: 1.85; color: var(--text-mid); }
+    .day-hls { margin-top: 22px; display: flex; flex-direction: column; gap: 8px; }
+    .day-hl {
+      display: flex; gap: 12px; align-items: baseline;
+      font-size: 0.82rem; color: var(--text-mid); line-height: 1.5;
+    }
+    .day-hl::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+    .day-img {
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+      min-height: 400px;
+    }
+
+    /* ── INCLUSIONS ── */
+    .inc-section { background: var(--green-deep); }
+    .inc-section .eyebrow { color: var(--gold-light); }
+    .inc-section h2 { color: #fff; }
+    .inc-section .divider { background: var(--gold); }
+    .inc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+    .inc-col h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: var(--gold-light); margin-bottom: 22px;
+    }
+    .inc-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .inc-list li {
+      display: flex; gap: 14px;
+      font-size: 0.87rem; color: rgba(255,255,255,0.72); line-height: 1.62;
+    }
+    .yes { color: var(--gold); flex-shrink: 0; font-size: 0.8rem; padding-top: 2px; }
+    .no  { color: rgba(255,255,255,0.25); flex-shrink: 0; font-size: 0.8rem; padding-top: 2px; }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--warm-white); text-align: center; }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif; font-size: 4.8rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1;
+      display: block; margin-top: 36px;
+    }
+    .price-context {
+      font-size: 0.82rem; color: var(--text-light);
+      letter-spacing: 0.06em; margin-top: 10px;
+    }
+    .price-pp {
+      display: inline-block; margin-top: 18px;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); border: 1px solid var(--border); padding: 8px 20px;
+    }
+    .price-footnote {
+      display: block; margin-top: 18px;
+      font-size: 0.78rem; color: var(--text-light); font-style: italic;
+      max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.75;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111; padding: 36px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38);
+    }
+    .footer-note { font-size: 0.68rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .section { padding: 64px 24px; }
+      .carousel-section { padding: 64px 24px; }
+      .overview-grid { grid-template-columns: 1fr; gap: 40px; }
+      .day-grid { grid-template-columns: 1fr; }
+      #itinerary .day-section:nth-child(even) .day-img { order: 0; }
+      .day-img { min-height: 280px; order: -1; }
+      .day-text { padding: 48px 24px; }
+      .inc-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">Alchemist Travel</div>
+  <div class="nav-links">
+    <a href="#properties">Properties</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#inclusions">Inclusions</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-proposal">East Africa &nbsp;·&nbsp; Luxury Travel Proposal</p>
+  <h1>East <em>Africa</em></h1>
+  <p class="hero-destinations">Uganda &nbsp;·&nbsp; Tanzania &nbsp;·&nbsp; Zanzibar</p>
+  <div class="hero-rule"></div>
+  <p class="hero-client-name">Jeff &amp; Dixie Ang</p>
+  <p class="hero-client-meta">1–13 July 2027 &nbsp;·&nbsp; 13 Days &nbsp;·&nbsp; 2 Pax</p>
+  <div class="hero-brand">Alchemist Travel &nbsp;·&nbsp; kristin@alchemisttravel.com</div>
+</div>
+
+
+<!-- PROPERTIES CAROUSEL -->
+<div class="carousel-section" id="properties">
+  <div class="section-inner">
+    <p class="eyebrow">Your Accommodation</p>
+    <h2>Five properties, three countries</h2>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="c-track">
+
+        <!-- 1. No. 5 Boutique Hotel Entebbe -->
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://www.andbeyond.com/wp-content/uploads/sites/5/Kenya-Uganda-No5BoutiqueHotel-6.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Entebbe, Uganda</p>
+            <p class="c-name">No. 5 Boutique Hotel</p>
+            <p class="c-room">Luxury Twin Room</p>
+            <span class="c-nights">1 Night &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+        <!-- 2. Asilia Erebero Hills -->
+        <!-- IMAGE: Discover Africa CDN -->
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://cdn.discoverafrica.com/wp-content/uploads/2025/01/10173847/erebero_hills_main_area_view1-1800x1080.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Bwindi, Uganda</p>
+            <p class="c-name">Asilia Erebero Hills</p>
+            <p class="c-room">Double/Twin Room</p>
+            <span class="c-nights">3 Nights &nbsp;·&nbsp; Full Board</span>
+          </div>
+        </div>
+
+        <!-- 3. Olakira Migration Camp -->
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://www.asiliaafrica.com/wp-content/uploads/2024/04/Asilia_Camp-Lodges_Olakira_Camp-Carousel5.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Northern Serengeti, Tanzania</p>
+            <p class="c-name">Olakira Migration Camp</p>
+            <p class="c-room">Standard Tent</p>
+            <span class="c-nights">3 Nights &nbsp;·&nbsp; Full Board</span>
+          </div>
+        </div>
+
+        <!-- 4. The Highlands -->
+        <!-- IMAGE: Chalo Africa CDN -->
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://www.chaloafrica.com/wp-content/uploads/2017/07/The-Highlands-Dome2.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Ngorongoro, Tanzania</p>
+            <p class="c-name">The Highlands</p>
+            <p class="c-room">Suite</p>
+            <span class="c-nights">3 Nights &nbsp;·&nbsp; Full Board</span>
+          </div>
+        </div>
+
+        <!-- 5. Zanzibar Palace Hotel -->
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('https://cdn.audleytravel.com/1050/750/79/525712-sultana-room-zanzibar-palace-hotel-stone-town.webp');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Stone Town, Zanzibar</p>
+            <p class="c-name">Zanzibar Palace Hotel</p>
+            <p class="c-room">Luxury Room, Rosewood</p>
+            <span class="c-nights">2 Nights &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+      </div><!-- end track -->
+
+      <div class="carousel-footer">
+        <div class="c-dots" id="c-dots">
+          <div class="c-dot active" data-i="0"></div>
+          <div class="c-dot" data-i="1"></div>
+          <div class="c-dot" data-i="2"></div>
+          <div class="c-dot" data-i="3"></div>
+          <div class="c-dot" data-i="4"></div>
+        </div>
+        <div class="c-arrows">
+          <button class="c-btn" id="c-prev" aria-label="Previous">&#8592;</button>
+          <button class="c-btn" id="c-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- TRIP OVERVIEW -->
+<section class="section overview-section">
+  <div class="section-inner">
+    <div class="overview-grid">
+      <div>
+        <p class="eyebrow">The Journey</p>
+        <h2>13 days across<br>East Africa</h2>
+        <div class="divider"></div>
+        <p>This itinerary brings together two of the most extraordinary wildlife experiences on the planet: mountain gorilla trekking in the ancient Bwindi Impenetrable Forest, and the Great Migration in the northern Serengeti at peak river-crossing season.</p>
+        <p>The journey moves from Uganda into Tanzania — from the quiet intimacy of the forest to the vast, open drama of the plains — before closing with two nights on the Zanzibar coast. All safari camps are operated by Asilia Africa, with private transfers and internal flights throughout.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">13</div>
+          <div class="stat-l">Days &amp; 12 nights</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Countries: Uganda, Tanzania &amp; Zanzibar</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">5</div>
+          <div class="stat-l">Properties</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">July</div>
+          <div class="stat-l">Peak season for gorillas and the migration</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DAY SECTIONS -->
+<div id="itinerary">
+
+  <!-- Day 1: Entebbe -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">01</div>
+        <p class="day-dest">Thursday, 1 July &nbsp;·&nbsp; Entebbe, Uganda</p>
+        <h3>Arrival in Entebbe</h3>
+        <p class="day-prop">No. 5 Boutique Hotel &nbsp;·&nbsp; 1 Night &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+        <p>Your journey begins with an arrival night in Entebbe on the northern shore of Lake Victoria. A private transfer from the airport brings you to No. 5 Boutique Hotel, where you settle in before an early departure to Bwindi the following morning.</p>
+        <div class="day-hls">
+          <div class="day-hl">Private transfer from Entebbe International Airport (EBB)</div>
+          <div class="day-hl">Early departure the next morning — 06:00 transfer to airport</div>
+        </div>
+      </div>
+      <div class="day-img" style="background-image: url('https://www.andbeyond.com/wp-content/uploads/sites/5/Kenya-Uganda-No5BoutiqueHotel-15.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Days 2–4: Bwindi -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">02–04</div>
+        <p class="day-dest">Friday–Sunday, 2–4 July &nbsp;·&nbsp; Bwindi, Uganda</p>
+        <h3>Asilia Erebero Hills</h3>
+        <p class="day-prop">3 Nights &nbsp;·&nbsp; Full Board</p>
+        <p>A short flight from Entebbe brings you into Kihihi, at the edge of the Bwindi Impenetrable Forest. Erebero Hills is Asilia's newest Uganda property, set deep in mountain gorilla country. Your trekking permit is included for Day 3 — and the option to go again on Day 4 is available at an additional cost.</p>
+        <div class="day-hls">
+          <div class="day-hl">Aerolink Uganda: Entebbe (EBB) → Kihihi, 07:00 (shared light aircraft)</div>
+          <div class="day-hl">Gorilla trek — Day 3, Saturday 3 July (1 permit per person included)</div>
+          <div class="day-hl">Batwa Community Experience and nature walk</div>
+          <div class="day-hl">1 × 30-minute massage per person included</div>
+          <div class="day-hl">Optional second gorilla trek on Day 4 (USD 800 per person)</div>
+        </div>
+      </div>
+      <!-- IMAGE: Discover Africa CDN -->
+      <div class="day-img" style="background-image: url('https://cdn.discoverafrica.com/wp-content/uploads/2025/01/10173847/erebero_hills_main_area_view1-1800x1080.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Days 5–7: Serengeti -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">05–07</div>
+        <p class="day-dest">Monday–Wednesday, 5–7 July &nbsp;·&nbsp; Northern Serengeti, Tanzania</p>
+        <h3>Olakira Migration Camp</h3>
+        <p class="day-prop">3 Nights &nbsp;·&nbsp; Full Board</p>
+        <p>A cross-border hop — back through Entebbe and on to Kogatende in the northern Serengeti — brings you into Tanzania at peak migration season. Olakira follows the herds each year, and in July that means positioning close to the Mara River as the wildebeest begin to build for the crossings.</p>
+        <div class="day-hls">
+          <div class="day-hl">Aerolink: Kihihi → Entebbe (08:35), then Auric Air: Entebbe → Kogatende (12:15)</div>
+          <div class="day-hl">Scheduled open vehicle game drives, mornings and evenings</div>
+          <div class="day-hl">Mara River access — July is peak river-crossing season</div>
+          <div class="day-hl">All Serengeti park and camping fees included</div>
+        </div>
+      </div>
+      <!-- IMAGE: Known working migration image -->
+      <div class="day-img" style="background-image: url('https://www.happymomentstours.com/wp-content/uploads/2023/12/the_great_wildebeest_migration_1666860802.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Days 8–10: Ngorongoro -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">08–10</div>
+        <p class="day-dest">Thursday–Saturday, 8–10 July &nbsp;·&nbsp; Ngorongoro, Tanzania</p>
+        <h3>The Highlands</h3>
+        <p class="day-prop">3 Nights &nbsp;·&nbsp; Full Board</p>
+        <p>A morning flight south brings you to the Ngorongoro Highlands, where The Highlands sits on the conservation area rim overlooking the caldera. Game drives, volcanic crater hikes, and the option of a descent into the Ngorongoro Crater itself make for a layered final act before the coast.</p>
+        <div class="day-hls">
+          <div class="day-hl">Auric Air: Kogatende → Lake Manyara (LKY), 10:20 (shared light aircraft)</div>
+          <div class="day-hl">Scheduled game drives and Olmoti and Empakaai Crater hikes included</div>
+          <div class="day-hl">Optional: Ngorongoro Crater descent (USD 70 pp) and Maasai cultural visit (USD 30 pp)</div>
+          <div class="day-hl">All Ngorongoro park and concession fees included</div>
+        </div>
+      </div>
+      <!-- IMAGE: Chalo Africa CDN -->
+      <div class="day-img" style="background-image: url('https://www.chaloafrica.com/wp-content/uploads/2017/07/The-Highlands-Dome2.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Days 11–13: Zanzibar -->
+  <div class="day-section">
+    <div class="day-grid">
+      <div class="day-text">
+        <div class="day-num">11–13</div>
+        <p class="day-dest">Sunday–Tuesday, 11–13 July &nbsp;·&nbsp; Zanzibar</p>
+        <h3>Zanzibar Palace Hotel</h3>
+        <p class="day-prop">2 Nights &nbsp;·&nbsp; Bed &amp; Breakfast</p>
+        <p>A midday flight delivers you to Zanzibar by mid-afternoon. Two nights at Zanzibar Palace Hotel in Stone Town offer a natural wind-down after the intensity of the safari: the spice-scented alleys of the old town, the coast, the slower rhythm of the Swahili shoreline. A private transfer brings you to the airport on Day 13.</p>
+        <div class="day-hls">
+          <div class="day-hl">Auric Air: Lake Manyara → Zanzibar (ZNZ), 12:00 (shared light aircraft)</div>
+          <div class="day-hl">Private road transfer on arrival and departure (Zantours)</div>
+          <div class="day-hl">Day 13: Transfer to Abeid Amani Karume International Airport (ZNZ)</div>
+        </div>
+      </div>
+      <div class="day-img" style="background-image: url('https://cdn.audleytravel.com/1050/750/79/525713-zanzibar-palace-hotel-stone-town.webp');"></div>
+    </div>
+  </div>
+
+</div><!-- /#itinerary -->
+
+
+<!-- INCLUSIONS & EXCLUSIONS -->
+<section class="section inc-section" id="inclusions">
+  <div class="section-inner">
+    <p class="eyebrow">The Details</p>
+    <h2>Inclusions &amp; Exclusions</h2>
+    <div class="divider"></div>
+    <div class="inc-grid">
+      <div class="inc-col">
+        <h4>Included</h4>
+        <ul class="inc-list">
+          <li><span class="yes">✓</span><span>All accommodation — full board at all safari camps; bed and breakfast in Entebbe and Zanzibar</span></li>
+          <li><span class="yes">✓</span><span>All internal flights and airstrip transfers throughout</span></li>
+          <li><span class="yes">✓</span><span>Private road transfers on arrival and departure</span></li>
+          <li><span class="yes">✓</span><span>1 gorilla trekking permit per person (Bwindi, Day 3)</span></li>
+          <li><span class="yes">✓</span><span>Batwa Community Experience, Bwindi</span></li>
+          <li><span class="yes">✓</span><span>Olmoti and Empakaai Crater hikes, Ngorongoro</span></li>
+          <li><span class="yes">✓</span><span>All park entry, camping and concession fees</span></li>
+          <li><span class="yes">✓</span><span>All Asilia conservation and conservancy charges</span></li>
+          <li><span class="yes">✓</span><span>All house beverages, excluding champagne and premium wines</span></li>
+          <li><span class="yes">✓</span><span>1 × 30-min massage per person at Erebero Hills</span></li>
+          <li><span class="yes">✓</span><span>Emergency Support Cover</span></li>
+        </ul>
+      </div>
+      <div class="inc-col">
+        <h4>Not Included</h4>
+        <ul class="inc-list">
+          <li><span class="no">–</span><span>International flights</span></li>
+          <li><span class="no">–</span><span>Second gorilla trek permit, if desired: USD 800 per person</span></li>
+          <li><span class="no">–</span><span>Ngorongoro Crater descent: USD 70 per person</span></li>
+          <li><span class="no">–</span><span>Maasai cultural visit at The Highlands: USD 30 per person</span></li>
+          <li><span class="no">–</span><span>Flying doctors and medical evacuation insurance (strongly recommended)</span></li>
+          <li><span class="no">–</span><span>Champagne and premium wines</span></li>
+          <li><span class="no">–</span><span>Gratuities</span></li>
+          <li><span class="no">–</span><span>Items of a personal nature</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner" style="max-width: 560px; text-align: center;">
+    <p class="eyebrow">Investment</p>
+    <h2 style="color: var(--green-deep);">Total Trip Cost</h2>
+    <div class="divider" style="margin: 20px auto 0;"></div>
+    <span class="price-amount">USD 37,000</span>
+    <p class="price-context">2 travellers &nbsp;·&nbsp; land only, excluding international flights</p>
+    <span class="price-pp">USD 18,500 per person</span>
+    <span class="price-footnote">Prices are quoted in USD and based on confirmed availability at the time of booking.</span>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Alchemist Travel</div>
+  <div class="footer-note">Prepared for Jeff &amp; Dixie Ang &nbsp;·&nbsp; 2026</div>
+</footer>
+
+
+<script>
+  // Nav
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Carousel
+  const track  = document.getElementById('c-track');
+  const cards  = track.querySelectorAll('.c-card');
+  const dots   = document.querySelectorAll('.c-dot');
+  const prev   = document.getElementById('c-prev');
+  const next   = document.getElementById('c-next');
+  let idx = 0;
+
+  function goTo(n) {
+    if (n < 0 || n >= cards.length) return;
+    idx = n;
+    track.scrollTo({ left: cards[n].offsetLeft, behavior: 'smooth' });
+    dots.forEach((d, i) => d.classList.toggle('active', i === n));
+  }
+
+  prev.addEventListener('click', () => goTo(idx - 1));
+  next.addEventListener('click', () => goTo(idx + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+
+  track.addEventListener('scroll', () => {
+    let closest = 0, minD = Infinity;
+    cards.forEach((c, i) => {
+      const d = Math.abs(c.offsetLeft - track.scrollLeft);
+      if (d < minD) { minD = d; closest = i; }
+    });
+    if (closest !== idx) {
+      idx = closest;
+      dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+    }
+  });
+</script>
+
+</body>
+</html>

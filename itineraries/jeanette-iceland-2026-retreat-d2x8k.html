@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Option B · The Immersive Retreat · Iceland Oct 2026 · Jeanette &amp; Brandon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --green-deep:  #14301A;
+      --green-mid:   #1E5228;
+      --green-light: #3A8050;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --cream:       #FAF8F3;
+      --warm-white:  #FFFFFF;
+      --text-dark:   #1A1A18;
+      --text-mid:    #4A4A45;
+      --text-light:  #7A7A72;
+      --border:      #E5E0D5;
+      --opt-b:       #2C6B3F;
+      --opt-b-pale:  rgba(44,107,63,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--text-dark);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(20,48,26,0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold-light); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      height: 100vh; min-height: 680px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      background-color: var(--green-deep);
+      background-image:
+        linear-gradient(to bottom, rgba(10,28,12,0.40) 0%, rgba(10,28,12,0.78) 100%),
+        url('./images/hero-northern-lights.jpg');
+      background-size: cover; background-position: center 55%;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 28px;
+      padding: 7px 16px;
+      border: 1px solid rgba(232,213,163,0.3);
+    }
+    .hero-tag::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(140,220,160,0.95);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(3rem, 7.4vw, 5.8rem); line-height: 1.02;
+      color: #fff; letter-spacing: 0.02em; max-width: 900px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-rule {
+      width: 40px; height: 1px; background: rgba(201,168,76,0.5);
+      margin: 36px auto;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem; font-weight: 300; color: #fff; letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .hero-meta {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 0; right: 0; text-align: center;
+      font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .hero-scroll::after {
+      content: ''; display: block; width: 1px; height: 24px;
+      background: rgba(201,168,76,0.4); margin: 14px auto 0;
+    }
+
+    /* ── SHARED LAYOUT ── */
+    .section { padding: 96px 48px; }
+    .section-inner { max-width: 1120px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem); line-height: 1.12;
+      color: var(--green-deep); margin-bottom: 20px;
+    }
+    p { font-size: 0.95rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin: 20px 0 32px; }
+
+    /* ── INTRO + STATS ── */
+    .intro-section { background: var(--cream); }
+    .intro-inner { max-width: 820px; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+      margin-top: 52px;
+    }
+    .stat-block {
+      padding: 28px 22px; background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--opt-b);
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.4rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    /* ── PROPERTIES CAROUSEL ── */
+    .properties-section { background: var(--green-deep); padding: 96px 48px; }
+    .properties-section .eyebrow { color: var(--gold-light); }
+    .properties-section h2 { color: #fff; }
+    .properties-section .section-intro {
+      color: rgba(255,255,255,0.55); max-width: 640px; margin-bottom: 8px;
+    }
+
+    .carousel-wrap { position: relative; margin-top: 52px; }
+    .carousel-track {
+      display: flex; gap: 20px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .c-card {
+      flex: 0 0 280px; scroll-snap-align: start;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .c-card-img {
+      width: 100%; height: 192px; flex-shrink: 0;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+      filter: contrast(1.06) saturate(1.06);
+    }
+    .c-card-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .c-location {
+      font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .c-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400;
+      color: #fff; line-height: 1.2; margin-bottom: 5px;
+    }
+    .c-room { font-size: 0.75rem; color: rgba(255,255,255,0.42); margin-bottom: 14px; }
+    .c-nights {
+      font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold-light); border: 1px solid rgba(201,168,76,0.28);
+      padding: 5px 11px; margin-top: auto; width: fit-content;
+    }
+
+    .carousel-footer {
+      display: flex; align-items: center; justify-content: flex-end;
+      margin-top: 24px; gap: 12px;
+    }
+    .c-btn {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(255,255,255,0.18); background: none; cursor: pointer;
+      color: rgba(255,255,255,0.7); font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .c-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── DAY-BY-DAY ── */
+    .itin-section { background: var(--warm-white); }
+
+    .day-block {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
+      padding: 88px 48px; max-width: 1220px; margin: 0 auto;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+    }
+    .day-block:last-of-type { border-bottom: none; }
+    .day-block:nth-child(even) { direction: rtl; }
+    .day-block:nth-child(even) > * { direction: ltr; }
+
+    .day-text { display: flex; flex-direction: column; justify-content: flex-start; }
+    .day-ghost {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7.5rem; font-weight: 300; line-height: 0.85;
+      color: rgba(44,107,63,0.07); margin-bottom: -14px;
+      user-select: none;
+    }
+    .day-eyebrow {
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--opt-b); margin-bottom: 8px;
+    }
+    .day-date {
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 6px;
+    }
+    .day-location {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      font-weight: 400; color: var(--green-deep); line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .day-desc {
+      font-size: 0.92rem; line-height: 1.85; color: var(--text-mid);
+      margin-bottom: 24px;
+    }
+
+    /* bullet groups */
+    .day-bullets {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day-bullet {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.82rem; line-height: 1.58; color: var(--text-mid);
+    }
+    .day-bullet .bi {
+      flex-shrink: 0; width: 16px; height: 16px;
+      margin-top: 3px;
+      color: var(--opt-b);
+    }
+    .day-bullet.meal .bi { color: #B88A3A; }
+    .day-bullet.aurora .bi { color: #5B7BB3; }
+    .day-bullet.transport .bi { color: var(--text-light); }
+    .day-bullet .bi-label {
+      font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-light); font-weight: 500;
+      display: inline-block; margin-right: 10px;
+      padding: 2px 8px;
+      background: var(--cream); border: 1px solid var(--border);
+      vertical-align: 1px;
+    }
+
+    /* optional block */
+    .day-optional {
+      margin-top: 4px; padding: 18px 22px;
+      background: var(--opt-b-pale);
+      border-left: 2px solid var(--opt-b);
+    }
+    .day-optional-title {
+      font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--opt-b); margin-bottom: 8px; font-weight: 500;
+    }
+    .day-optional p {
+      font-size: 0.82rem; line-height: 1.7; color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .day-optional p:last-child { margin-bottom: 0; }
+
+    /* accommodation footer */
+    .day-accom {
+      margin-top: 24px; padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    }
+    .day-accom-icon {
+      width: 14px; height: 14px; color: var(--opt-b);
+      flex-shrink: 0; align-self: center;
+    }
+    .day-accom-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.12rem;
+      font-weight: 400; color: var(--green-deep);
+    }
+    .day-accom-basis {
+      font-size: 0.66rem; letter-spacing: 0.06em; color: var(--text-light);
+    }
+    .day-accom-room {
+      font-size: 0.66rem; color: var(--text-light);
+      border: 1px solid var(--border); padding: 3px 10px;
+    }
+
+    .day-imgs {
+      display: flex; flex-direction: column; gap: 16px;
+      position: sticky; top: 90px;
+    }
+    .day-img {
+      height: 290px;
+      background-size: cover; background-position: center;
+      background-color: var(--green-mid);
+      filter: contrast(1.1) saturate(1.08);
+    }
+
+    /* ── INCLUSIONS ── */
+    .incl-section { background: var(--green-deep); padding: 96px 48px; }
+    .incl-section .eyebrow { color: var(--gold-light); }
+    .incl-section h2 { color: #fff; }
+    .incl-section .divider { background: var(--gold); }
+
+    .incl-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+      margin-top: 52px;
+    }
+    .incl-col h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+      font-weight: 400; color: #fff; margin-bottom: 24px;
+    }
+    .incl-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .incl-list li {
+      font-size: 0.84rem; color: rgba(255,255,255,0.62); line-height: 1.6;
+      padding-left: 22px; position: relative;
+    }
+    .incl-list li::before {
+      position: absolute; left: 0; font-size: 0.9rem;
+    }
+    .incl-list.yes li::before { content: '\2713'; color: var(--gold); }
+    .incl-list.no li::before { content: '\2013'; color: rgba(255,255,255,0.25); }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--cream); padding: 96px 48px; text-align: center; }
+    .pricing-section .section-inner { max-width: 560px; margin: 0 auto; }
+    .price-card {
+      padding: 52px 36px; border: 1px solid var(--border); background: var(--warm-white);
+      border-top: 2px solid var(--opt-b);
+    }
+    .price-tag {
+      font-size: 0.57rem; letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 5px 14px; display: inline-block; margin-bottom: 24px;
+      background: var(--opt-b-pale); color: var(--opt-b);
+    }
+    .price-amt {
+      font-family: 'Cormorant Garamond', serif; font-size: 3.2rem;
+      font-weight: 300; color: var(--green-deep); line-height: 1;
+      display: block; margin-bottom: 8px;
+    }
+    .price-from {
+      font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.06em;
+      display: block; margin-bottom: 4px;
+    }
+    .price-unit { font-size: 0.78rem; color: var(--text-light); }
+    .price-total {
+      display: inline-block; margin-top: 16px;
+      font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); border: 1px solid var(--border); padding: 7px 18px;
+    }
+    .price-footnote {
+      display: block; margin-top: 36px;
+      font-size: 0.75rem; color: var(--text-light); font-style: italic; line-height: 1.75;
+    }
+
+    /* ── NEXT STEPS ── */
+    .next-section {
+      background: var(--green-deep); padding: 88px 48px; text-align: center; color: #fff;
+    }
+    .next-section .eyebrow { color: var(--gold-light); }
+    .next-section h2 { color: #fff; }
+    .next-section .divider { background: var(--gold); margin: 20px auto 32px; }
+    .next-section p { color: rgba(255,255,255,0.6); max-width: 560px; margin: 0 auto 32px; }
+    .next-actions {
+      display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    }
+    .next-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 15px 28px; background: var(--gold); color: var(--green-deep);
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 500;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .next-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .next-cta.ghost {
+      background: transparent; color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .next-cta.ghost:hover {
+      background: rgba(255,255,255,0.06); color: #fff;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111; padding: 36px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.38);
+    }
+    .footer-note { font-size: 0.68rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; }
+
+    /* ── ROUTE MAP ── */
+    .route-section {
+      background: var(--cream); padding: 96px 48px;
+    }
+    .route-inner {
+      max-width: 900px; margin: 0 auto; text-align: center;
+    }
+    .route-inner .eyebrow { margin-bottom: 14px; }
+    .route-inner h2 { margin-bottom: 20px; }
+    .route-inner .divider { margin: 20px auto 32px; }
+    .route-inner .section-intro {
+      max-width: 640px; margin: 0 auto 48px;
+    }
+    .route-map-container {
+      width: 100%;
+      height: 520px;
+      max-width: 840px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      background: var(--cream);
+    }
+    .route-map-container .leaflet-tile-pane {
+      filter: saturate(0.35) sepia(0.12) brightness(1.04) contrast(0.95);
+    }
+    #route-map {
+      background: var(--cream);
+      font-family: 'Inter', sans-serif;
+    }
+    .route-map-container .leaflet-control-attribution {
+      font-size: 0.5rem;
+      background: rgba(250,248,243,0.85);
+      color: var(--text-light);
+    }
+    .route-map-container .leaflet-control-attribution a {
+      color: var(--text-light);
+    }
+    .route-pin {
+      width: 30px; height: 30px;
+      background: #2C6B3F;
+      border: 2.5px solid #C9A84C;
+      border-radius: 50%;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .route-waypoint {
+      width: 10px; height: 10px;
+      background: rgba(44,107,63,0.4);
+      border: 1.5px solid rgba(44,107,63,0.6);
+      border-radius: 50%;
+    }
+    .route-map-container .leaflet-tooltip {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      background: rgba(250,248,243,0.94);
+      border: 1px solid var(--border);
+      border-radius: 0;
+      padding: 7px 11px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+    .route-map-container .leaflet-tooltip::before {
+      border-right-color: var(--border);
+    }
+    .route-map-container .leaflet-tooltip-left::before {
+      border-left-color: var(--border);
+      border-right-color: transparent;
+    }
+    .route-map-container .leaflet-tooltip-top::before {
+      border-top-color: var(--border);
+      border-right-color: transparent;
+    }
+    .tt-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--green-deep);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .tt-sub {
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .route-caption {
+      margin-top: 32px;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      nav.scrolled { padding: 12px 24px; }
+      .nav-links { display: none; }
+      .section { padding: 64px 24px; }
+      .properties-section, .incl-section, .pricing-section, .next-section, .route-section { padding: 64px 24px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .day-block {
+        grid-template-columns: 1fr; gap: 36px; padding: 64px 24px;
+      }
+      .day-block:nth-child(even) { direction: ltr; }
+      .day-imgs { position: static; }
+      .incl-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .stat-block { padding: 20px 16px; }
+      .day-ghost { font-size: 5rem; }
+      .day-location { font-size: 1.55rem; }
+      .day-img { height: 220px; }
+      .route-map-container { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-back" href="./jeanette-iceland-2026-overview-n8k3w.html">
+    <span>←</span> Back to all options
+  </a>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#properties">Properties</a>
+    <a href="#route">Route</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#inclusions">Inclusions</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Option B · Our Pick</span>
+  <h1>The Immersive <em>Retreat</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-name">Jeanette &amp; Brandon</p>
+  <p class="hero-meta">7 – 18 October 2026 &nbsp;·&nbsp; 11 Nights &nbsp;·&nbsp; 2 Travellers</p>
+  <div class="hero-scroll">The full itinerary</div>
+</div>
+
+
+<!-- INTRO + STATS -->
+<section class="section intro-section" id="overview">
+  <div class="section-inner intro-inner">
+    <p class="eyebrow">The Journey</p>
+    <h2>A boutique, unhurried way into Iceland.</h2>
+    <div class="divider"></div>
+    <p>This is the journey we keep coming back to for you. It's built around Midgard Adventure, a boutique, family-run operator in South Iceland with a warmth and personality that larger tour companies don't quite match. You'll spend four days with their small group (maximum 16), exploring the south coast at Midgard's gentle, considered pace, followed by a private day just for the two of you with the Midgard team, taking you into corners of the country that most visitors never see.</p>
+    <p>From there, you'll head west to Hotel Húsafell, surrounded by lava fields and glacier views, for three unhurried nights. This is the part of the trip we've designed with you in mind, with plenty of room to breathe, reflect, and meditate. Two final nights in Reykjavik round everything off before you fly home, giving you time to settle back into the city's creative energy.</p>
+
+    <div class="stats-grid">
+      <div class="stat-block">
+        <div class="stat-num">11</div>
+        <div class="stat-label">Nights</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Properties</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Touring Days</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Travellers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PROPERTIES CAROUSEL -->
+<div class="properties-section" id="properties">
+  <div class="section-inner">
+    <p class="eyebrow">Where You'll Stay</p>
+    <h2>Four places to call home</h2>
+    <div class="divider"></div>
+    <p class="section-intro">Each property was chosen with real care, balancing boutique character, great locations, and a sense of quiet when you need it.</p>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="track-props">
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-ion-city.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Reykjavik &nbsp;·&nbsp; Design Hotels</p>
+            <p class="c-name">ION City Hotel</p>
+            <p class="c-room">Standard Room</p>
+            <span class="c-nights">Nights 1, 9–10 &nbsp;·&nbsp; Room only</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-midgard-exterior.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">Hvolsvöllur &nbsp;·&nbsp; South Iceland</p>
+            <p class="c-name">Midgard Base Camp</p>
+            <p class="c-room">Double Room &nbsp;·&nbsp; Rooftop hot tub</p>
+            <span class="c-nights">Nights 2–4 &nbsp;·&nbsp; Full board</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-aurora-igloo-1.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">South Iceland</p>
+            <p class="c-name">Aurora Igloo South</p>
+            <p class="c-room">Igloo with private bathroom</p>
+            <span class="c-nights">Night 5 &nbsp;·&nbsp; Room only</span>
+          </div>
+        </div>
+
+        <div class="c-card">
+          <div class="c-card-img" style="background-image: url('./images/ic-husafell-hero.jpg');"></div>
+          <div class="c-card-body">
+            <p class="c-location">West Iceland</p>
+            <p class="c-name">Hotel Húsafell</p>
+            <p class="c-room">Double Room</p>
+            <span class="c-nights">Nights 6–8 &nbsp;·&nbsp; B&amp;B</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-footer">
+        <button class="c-btn" data-track="track-props" data-dir="-1" aria-label="Previous">&#8592;</button>
+        <button class="c-btn" data-track="track-props" data-dir="1" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ROUTE MAP -->
+<section class="route-section" id="route">
+  <div class="route-inner">
+    <p class="eyebrow">The Route</p>
+    <h2>How the journey unfolds</h2>
+    <div class="divider"></div>
+    <p class="section-intro">South Iceland's raw coast and glacier valleys first, then west to the quiet lava fields of Húsafell, before circling back to Reykjavik.</p>
+
+    <div class="route-map-container" id="route-map"></div>
+
+    <p class="route-caption">4 properties · 11 nights · a south-to-west loop through Iceland's quieter side</p>
+  </div>
+</section>
+
+
+<!-- DAY-BY-DAY -->
+<section class="itin-section" id="itinerary">
+
+  <!-- Day 1: Wed 7 Oct, Arrival -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">1</div>
+      <div class="day-eyebrow">Day 1</div>
+      <div class="day-date">Wed 7 October</div>
+      <div class="day-location">Arrival in Reykjavik</div>
+      <p class="day-desc">Welcome to Iceland. Your flight lands at Keflavik around midday, and a Flybus transfer brings you into Reykjavik and to the ION City Hotel, a Design Hotels property right in the heart of the city. The afternoon is yours to decompress after the long flight, settle in, and start to feel the different rhythm of the place.</p>
+      <div class="day-bullets">
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          <span><span class="bi-label">Arrive</span>Keflavik International around midday</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>Flybus transfer to Reykjavik, approx. 45 min</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Settle in and explore Reykjavik at your own pace</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">ION City Hotel</span>
+        <span class="day-accom-basis">Night 1 · Room only</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-reykjavik-aerial.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-ion-city.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 2: Thu 8 Oct, Golden Circle → Midgard -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">2</div>
+      <div class="day-eyebrow">Day 2</div>
+      <div class="day-date">Thu 8 October</div>
+      <div class="day-location">The Golden Circle &amp; First Night at Midgard</div>
+      <p class="day-desc">Today marks the start of your Midgard Adventure. You'll be picked up from your Reykjavik hotel at 9am and spend the day visiting Iceland's iconic Golden Circle: Þingvellir National Park, where the tectonic plates quietly pull apart, the Geysir geothermal area where Strokkur erupts every few minutes, and Gullfoss, dropping in two thundering tiers into the canyon below. Lunch is at Friðheimar Tomato Farm, a working greenhouse with its own geothermal bakery, where they serve a really good tomato soup alongside fresh-baked bread. By evening you'll arrive at Midgard Base Camp in the heart of South Iceland, home for the next three nights. Dinner is waiting when you are, and afterwards the rooftop hot tub is yours whenever you'd like it.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Þingvellir National Park (UNESCO)</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Geysir Geothermal Area &amp; Strokkur</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Gullfoss Waterfall</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Lunch</span> Friðheimar Tomato Farm &amp; Geothermal Bakery (included)</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Dinner</span> Evening meal at Midgard restaurant (included)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span> Rooftop hot tub and Northern Lights watch</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Midgard Base Camp</span>
+        <span class="day-accom-basis">Night 1 of 3 · Full board</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-gullfoss.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-midgard-exterior.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 3: Fri 9 Oct, Katla + Reynisfjara -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">3</div>
+      <div class="day-eyebrow">Day 3</div>
+      <div class="day-date">Fri 9 October</div>
+      <div class="day-location">Katla Ice Caves &amp; the South Coast</div>
+      <p class="day-desc">This morning the Midgard team takes you to Katla, Iceland's most powerful subglacial volcano, for an ice cave expedition beneath the glacier. It's a really special experience: the walls of the cave shift from black volcanic ash to translucent blue ice, and your guide will explain how the whole thing changes season to season. In the afternoon, you'll head to Reynisfjara where the Atlantic crashes against the basalt columns and the famous sea stacks rise from the black sand, with further stops along the south coast as time allows. Back at Midgard for dinner, and another evening under the dancing skies.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Katla Ice Caves expedition beneath the glacier</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Reynisfjara Black Sand Beach &amp; basalt columns</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Further South Coast sites &amp; Dyrhólaey peninsula</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Meals</span> Breakfast at Midgard, lunch at a local restaurant on the south coast, dinner at Midgard (all included)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span> Another evening of Northern Lights watching from Midgard</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Midgard Base Camp</span>
+        <span class="day-accom-basis">Night 2 of 3 · Full board</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-ice-cave.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-reynisfjara.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 4: Sat 10 Oct, Thorsmork Super Jeep -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">4</div>
+      <div class="day-eyebrow">Day 4</div>
+      <div class="day-date">Sat 10 October</div>
+      <div class="day-location">Super Jeep Into Þórsmörk</div>
+      <p class="day-desc">A real favourite. Modified 4×4 Super Jeeps ford glacial rivers to reach Þórsmörk Mountain Reserve, a highland nature area so remote it can only be accessed with specialist vehicles. You'll spend the whole day in the reserve: wide river crossings, volcanic ridgelines, views across to Eyjafjallajökull volcano (the one that famously grounded European air travel in 2010), and the kind of quiet that only exists where there are no roads. Midgard also include a visit to a local Icelandic home along the way, which is always a highlight. Back at base for a traditional lamb dinner, and one more night of aurora watching to close out your time at Midgard.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>4×4 Super Jeep Adventure to Þórsmörk Mountain Reserve</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Eyjafjallajökull volcano views</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Visit to a local Icelandic home</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Meals</span> Breakfast at Midgard, packed lunchboxes in the field, traditional Icelandic lamb dinner back at Midgard (all included)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span> Final Northern Lights night at Midgard</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Midgard Base Camp</span>
+        <span class="day-accom-basis">Night 3 of 3 · Full board</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-thorsmork-summer-2.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-thorsmork-summer-3.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 5: Sun 11 Oct, Midgard Day 4 Glacier + Waterfalls → Aurora Igloo -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">5</div>
+      <div class="day-eyebrow">Day 5</div>
+      <div class="day-date">Sun 11 October</div>
+      <div class="day-location">Glacier Walk &amp; South Coast Waterfalls</div>
+      <p class="day-desc">The final day of your Midgard Adventure. You'll start with a guided hike on Sólheimajökull Glacier, crampons on, moving quietly between crevasses as your guide explains how the glacier has shifted over the years. Stop by the glacier lagoon afterwards, then three of Iceland's most beautiful waterfalls in one afternoon: Skógafoss thundering down from a grassy ridge, Seljalandsfoss where a path takes you right behind the cascade, and the hidden Gljúfrabúi tucked into a narrow canyon that most visitors walk straight past. In the evening, you'll say your goodbyes to the Midgard team and transfer to Aurora Igloo South, a glass-ceiling igloo with private bathroom, designed for Northern Lights viewing from the comfort of your bed.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hike on Sólheimajökull Glacier</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Sólheimajökull Glacier Lagoon</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Skógafoss Waterfall</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Seljalandsfoss, walk behind the falls</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hidden Gljúfrabúi Waterfall</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Meals</span> Farewell breakfast at Midgard (included)</span>
+        </div>
+        <div class="day-bullet aurora">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span><span class="bi-label">Aurora</span> Northern Lights viewing from your bed through the glass ceiling</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Aurora Igloo South</span>
+        <span class="day-accom-basis">Night 5 · Room only</span>
+        <span class="day-accom-room">Igloo with private bathroom</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-seljalandsfoss.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-aurora-igloo-1.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 6: Mon 12 Oct, Private Hidden Iceland tour + transfer to Husafell -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">6</div>
+      <div class="day-eyebrow">Day 6</div>
+      <div class="day-date">Mon 12 October</div>
+      <div class="day-location">Private "Not in Your Guidebook" Adventure, then West to Húsafell</div>
+      <p class="day-desc">Wake up under the glass ceiling for one more look at the sky, and then step into what might be the most personal day of the whole trip. The Midgard team calls this their "Not in Your Guidebook" adventure, and they mean it literally: most of the places you'll visit aren't mentioned in any guidebook. These are the places the Midgard guides go on their own days off, where you're unlikely to see anyone other than a local traveller or a farmer. It's a truly local experience that only Midgard offers.</p>
+      <p class="day-desc">The area is in and around Fljótshlíð, the "hill by the river", a beautiful and peaceful stretch of countryside where many of the Icelandic Sagas took place. Depending on what the day calls for, your guide might take you to the small canyons and favourite playgrounds underneath Mt. Þórólfsfell, the 120-metre summit of Stóri Dímon for the view (or a walk around its base for hidden corners), rivers and hidden waterfalls around Mt. Þríhyrningur, and one of Iceland's few small forests where a farmer lived to 100 and an old well still stands. Taking a sip from that well is Midgard's way of staying young, and they say it could become yours too. In the afternoon, a private transfer takes you west to Hotel Húsafell for three unhurried nights.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Private adventure, just the two of you with a Midgard guide</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hidden canyons under Mt. Þórólfsfell</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Stóri Dímon summit (120m) for panoramic views</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hidden waterfalls &amp; caves around Mt. Þríhyrningur</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Secret forest &amp; a sip from the hundred-year-old farmer's well</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span> Private transfer from South Iceland to Hotel Húsafell, approx. 3 hrs</span>
+        </div>
+      </div>
+      <div class="day-optional">
+        <div class="day-optional-title">Optional Add-On · +SGD 2,000 for 2</div>
+        <p><strong>Snæfellsnes Peninsula day tour en route to Húsafell.</strong> If you'd like to see a little more on the way west, we can add a guided day tour of the Snæfellsnes Peninsula, often called "Iceland in miniature": the iconic Kirkjufell mountain, the coastal cliffs of Arnarstapi, and the glaciated peak of Snæfellsjökull. Adds a longer day but covers the one part of the country not otherwise included in this itinerary.</p>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Hotel Húsafell</span>
+        <span class="day-accom-basis">Night 1 of 3 · B&amp;B</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-guidebook-1.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-guidebook-3.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 7: Tue 13 Oct, Husafell leisure -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">7</div>
+      <div class="day-eyebrow">Day 7</div>
+      <div class="day-date">Tue 13 October</div>
+      <div class="day-location">Slowing Down at Húsafell</div>
+      <p class="day-desc">This is the day we've been building up to. No schedule, no agenda, nowhere you need to be. Hraunfossar and Barnafoss are five minutes from the hotel, a long line of springs emerging directly from the lava field and cascading into the river below. The surrounding lava fields have hiking trails right from the hotel, perfect for a morning walk out toward the Langjökull glacier views. In the afternoon, continue exploring on foot, or return to the hotel for a long read by the fire. This is the part of the trip designed for you to breathe.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hraunfossar &amp; Barnafoss lava waterfalls, 5 min away</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hiking trails from the hotel through the lava fields</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Views toward Langjökull glacier</span>
+        </div>
+      </div>
+      <div class="day-optional">
+        <div class="day-optional-title">Optional Add-On</div>
+        <p><strong>Into the Glacier ice cave tour.</strong> A guided expedition into a man-made tunnel carved deep inside the Langjökull ice cap, one of the more unusual experiences in Iceland. We can arrange this as a half-day add-on if you'd like.</p>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Hotel Húsafell</span>
+        <span class="day-accom-basis">Night 2 of 3 · B&amp;B</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-husafell-2.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-husafell-3.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 8: Wed 14 Oct, Husafell leisure 2 -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">8</div>
+      <div class="day-eyebrow">Day 8</div>
+      <div class="day-date">Wed 14 October</div>
+      <div class="day-location">A Day for the Baths</div>
+      <p class="day-desc">Today is for soaking. You have a wonderful choice to make: the Hotel Húsafell Geothermal Pool right on the hotel grounds, or the Húsafell Canyon Baths, a short walk away through the surrounding nature. The canyon baths are the real highlight here, a set of soaking pools built into the canyon itself using locally sourced stone, with temperatures ranging from 30 to 41°C. A guided walk takes you to the two-tiered Langifoss waterfall first, then down to the baths for a serene soak in the canyon. Both options are genuinely wonderful, and if you can't choose, you don't have to, do both. If you're feeling up to it, add in an easy afternoon walk before settling down for dinner.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Húsafell Canyon Baths, pools built into the canyon</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Guided walk to Langifoss waterfall en route to the baths</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Alternatively, or additionally: Hotel Húsafell's own geothermal pool</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Hotel Húsafell</span>
+        <span class="day-accom-basis">Night 3 of 3 · B&amp;B</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-canyon-baths-1.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-husafell-pool.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 9: Thu 15 Oct, Return to Reykjavik -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">9</div>
+      <div class="day-eyebrow">Day 9</div>
+      <div class="day-date">Thu 15 October</div>
+      <div class="day-location">Back to the City</div>
+      <p class="day-desc">A leisurely morning at Húsafell, one last walk, one last dip in the pool, and then a private transfer back to Reykjavik, about two and a half hours through the lava fields. You'll arrive with the afternoon still ahead. Check back into ION City Hotel, and take some time to wander. Two nights in Reykjavik to close the trip, at whatever rhythm feels right.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Slow morning at Hotel Húsafell</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Afternoon wander in Reykjavik</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>Private transfer Húsafell to Reykjavik, approx. 2.5 hrs</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">ION City Hotel</span>
+        <span class="day-accom-basis">Night 1 of 2 · Room only</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-reykjavik-view.jpg');"></div>
+      <div class="day-img" style="background-image: url('https://softervolumes.com/wp-content/uploads/2021/04/Ion-City-Hotel-Iceland-01.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 10: Fri 16 Oct, Reykjavik leisure -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">10</div>
+      <div class="day-eyebrow">Day 10</div>
+      <div class="day-date">Fri 16 October</div>
+      <div class="day-location">Reykjavik at Leisure</div>
+      <p class="day-desc">A full free day in the capital, which means it's whatever you want it to be. A few suggestions: Hallgrímskirkja church, whose architecture echoes the basalt columns you'll have seen at Reynisfjara. Harpa Concert Hall on the harbour, all geometric glass and shifting colour. Sundhöllin, the city's oldest geothermal pool, open late and worth a visit on a crisp October afternoon. And if you'd like us to book a restaurant for you for the evening, just say the word and we'll sort it out.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Hallgrímskirkja church &amp; observation tower</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Harpa Concert Hall &amp; the harbour walk</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Sundhöllin geothermal pool</span>
+        </div>
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Laugavegur for food &amp; design shopping</span>
+        </div>
+        <div class="day-bullet meal">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20M8 2v7a3 3 0 0 1-5 0V2M16 11V2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3v8"/></svg>
+          <span><span class="bi-label">Dinner</span> Restaurant reservation available on request</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">ION City Hotel</span>
+        <span class="day-accom-basis">Night 2 of 2 · Room only</span>
+        <span class="day-accom-room">Standard Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-hallgrimskirkja.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-reykjavik-aerial.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 11: Sat 17 Oct, Airport hotel -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">11</div>
+      <div class="day-eyebrow">Day 11</div>
+      <div class="day-date">Sat 17 October</div>
+      <div class="day-location">Pre-Departure</div>
+      <p class="day-desc">One last morning in Reykjavik, one last coffee, one last look at the harbour. Then a short private transfer to an airport hotel near Keflavik, about 45 minutes south of the city. A quiet final night, close to the terminal, so you're not rushing in the dark for an early flight the next morning.</p>
+      <div class="day-bullets">
+        <div class="day-bullet">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>Free morning in Reykjavik</span>
+        </div>
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span><span class="bi-label">Transfer</span>Private transfer to airport hotel, approx. 45 min</span>
+        </div>
+      </div>
+      <div class="day-accom">
+        <svg class="day-accom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v13"/><path d="M3 11h18"/><path d="M7 15h2"/></svg>
+        <span class="day-accom-name">Keflavik Airport Hotel</span>
+        <span class="day-accom-basis">Night 11 · Room only</span>
+        <span class="day-accom-room">Double Room</span>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/ic-reykjavik-view.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-northern-lights.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Day 12: Sun 18 Oct, Depart -->
+  <div class="day-block">
+    <div class="day-text">
+      <div class="day-ghost">12</div>
+      <div class="day-eyebrow">Day 12</div>
+      <div class="day-date">Sun 18 October</div>
+      <div class="day-location">Homeward</div>
+      <p class="day-desc">The 11 nights are complete. Check out of the airport hotel and take the short shuttle to the terminal for your flight home. We hope you'll leave a little lighter than you arrived, with the quiet of Húsafell and the warmth of the Midgard team tucked somewhere in your memory for a long time.</p>
+      <div class="day-bullets">
+        <div class="day-bullet transport">
+          <svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          <span><span class="bi-label">Depart</span>International flight from Keflavik</span>
+        </div>
+      </div>
+    </div>
+    <div class="day-imgs">
+      <div class="day-img" style="background-image: url('./images/hero-northern-lights.jpg');"></div>
+      <div class="day-img" style="background-image: url('./images/ic-midgard-aurora.jpg');"></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- INCLUSIONS & EXCLUSIONS -->
+<section class="incl-section" id="inclusions">
+  <div class="section-inner">
+    <p class="eyebrow">The Details</p>
+    <h2>What's included</h2>
+    <div class="divider"></div>
+
+    <div class="incl-grid">
+      <div class="incl-col">
+        <h4>Included</h4>
+        <ul class="incl-list yes">
+          <li>11 nights accommodation as specified</li>
+          <li>Full board (breakfast, lunch, dinner) during 3 nights at Midgard</li>
+          <li>4-day Midgard Adventure Northern Lights programme (small group)</li>
+          <li>Golden Circle tour including Friðheimar Tomato Farm lunch</li>
+          <li>Katla ice cave expedition with Midgard guides</li>
+          <li>4×4 Super Jeep Þórsmörk day tour with Midgard</li>
+          <li>Sólheimajökull glacier ice walk with guide</li>
+          <li>Private Hidden Iceland tour (6–7 hrs, just the two of you)</li>
+          <li>Aurora Igloo South overnight stay</li>
+          <li>Húsafell Canyon Baths guided walk</li>
+        </ul>
+      </div>
+      <div class="incl-col">
+        <h4>Not Included</h4>
+        <ul class="incl-list no">
+          <li>International flights</li>
+          <li>Travel insurance</li>
+          <li>Optional Snæfellsnes Peninsula day tour en route to Húsafell (+SGD 2,000 for 2)</li>
+          <li>Optional Into the Glacier ice cave tour at Húsafell</li>
+          <li>Personal expenses and gratuities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner">
+    <p class="eyebrow" style="text-align: center;">Investment</p>
+    <h2 style="text-align: center;">Your journey, estimated</h2>
+    <div class="divider" style="margin: 20px auto 0;"></div>
+
+    <div class="price-card" style="margin-top: 48px;">
+      <span class="price-tag">Option B · Immersive Retreat</span>
+      <span class="price-from">from</span>
+      <span class="price-amt">SGD 7,700</span>
+      <p class="price-unit">per person</p>
+      <span class="price-total">from SGD 15,400 for 2 travellers</span>
+    </div>
+
+    <span class="price-footnote">Land only, excluding international airfare. Estimate based on current availability and exchange rates at the time of writing. Final pricing may vary by +/- SGD 500 depending on the transfers confirmed for the finalised itinerary. Final pricing will be confirmed once we've settled on a direction and checked live availability together. <strong>Pricing valid until 15 May 2026.</strong></span>
+  </div>
+</section>
+
+
+<!-- NEXT STEPS -->
+<section class="next-section">
+  <p class="eyebrow">Next Steps</p>
+  <h2>Over to you</h2>
+  <div class="divider"></div>
+  <p>Take your time with the full itinerary, and let us know any thoughts, questions, or bits you'd like to tweak. We'll check back in with you at the end of the week to see where you're leaning.</p>
+  <div class="next-actions">
+    <a class="next-cta" href="mailto:kristin@outposttravel.co?subject=Iceland%20October%202026%20%7C%20Option%20B">
+      Share your thoughts <span>→</span>
+    </a>
+    <a class="next-cta ghost" href="./jeanette-iceland-2026-overview-n8k3w.html">
+      <span>←</span> Back to all options
+    </a>
+  </div>
+  <p style="margin-top: 40px; font-size: 0.72rem; color: rgba(255,255,255,0.4); font-style: italic;">Want to read more about the Midgard Northern Lights Adventure? <a href="https://midgardadventure.is/tours/northern-lights-adventure/" target="_blank" rel="noopener" style="color: var(--gold-light); text-decoration: underline;">View the operator's tour page →</a></p>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Outpost Travel</div>
+  <div class="footer-note">Prepared for Jeanette &amp; Brandon &nbsp;·&nbsp; Option B &nbsp;·&nbsp; 2026</div>
+</footer>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Carousel
+  function initCarousel(trackId) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const cardWidth = () => {
+      const card = track.querySelector('.c-card');
+      return card ? card.offsetWidth + 20 : 300;
+    };
+    document.querySelectorAll(`.c-btn[data-track="${trackId}"]`).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = parseInt(btn.dataset.dir);
+        track.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' });
+      });
+    });
+  }
+  initCarousel('track-props');
+
+  // ── Route Map ──
+  const routeMap = L.map('route-map', {
+    zoomControl: false,
+    scrollWheelZoom: false,
+    dragging: false,
+    doubleClickZoom: false,
+    touchZoom: false,
+    boxZoom: false,
+    keyboard: false
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    maxZoom: 19
+  }).addTo(routeMap);
+
+  const properties = [
+    { lat: 64.148, lng: -21.940, num: 1, name: 'ION City Hotel', sub: 'Reykjavik · Nights 1, 9–10', dir: 'left' },
+    { lat: 63.752, lng: -20.224, num: 2, name: 'Midgard Base Camp', sub: 'Hvolsvöllur · Nights 2–4', dir: 'left' },
+    { lat: 63.838, lng: -20.390, num: 3, name: 'Aurora Igloo South', sub: 'South Iceland · Night 5', dir: 'right' },
+    { lat: 64.700, lng: -20.880, num: 4, name: 'Hotel Húsafell', sub: 'West Iceland · Nights 6–8', dir: 'right' }
+  ];
+
+  const waypoints = [
+    { lat: 64.310, lng: -20.300, label: 'Golden Circle' },
+    { lat: 63.993, lng: -22.610, label: 'Keflavik' }
+  ];
+
+  // Route line — outbound + return loop
+  const routeCoords = [
+    [63.993, -22.610],  // Keflavik
+    [64.148, -21.940],  // Reykjavik
+    [64.310, -20.300],  // Golden Circle
+    [63.752, -20.224],  // Midgard
+    [63.838, -20.390],  // Aurora Igloo
+    [64.700, -20.880],  // Húsafell
+    [64.148, -21.940],  // Return to Reykjavik
+    [63.993, -22.610]   // Keflavik depart
+  ];
+
+  L.polyline(routeCoords, {
+    color: '#2C6B3F',
+    weight: 2.5,
+    dashArray: '8 5',
+    opacity: 0.65,
+    lineCap: 'round',
+    lineJoin: 'round'
+  }).addTo(routeMap);
+
+  // Waypoint markers
+  waypoints.forEach(function(w) {
+    var icon = L.divIcon({ className: '', html: '<div class="route-waypoint"></div>', iconSize: [10, 10], iconAnchor: [5, 5] });
+    var m = L.marker([w.lat, w.lng], { icon: icon, interactive: false }).addTo(routeMap);
+    m.bindTooltip(w.label, {
+      permanent: true, direction: 'top', className: '', offset: [0, -8],
+      opacity: 0.6
+    });
+  });
+
+  // Property pins
+  properties.forEach(function(p) {
+    var icon = L.divIcon({ className: '', html: '<div class="route-pin">' + p.num + '</div>', iconSize: [30, 30], iconAnchor: [15, 15] });
+    var m = L.marker([p.lat, p.lng], { icon: icon, interactive: false }).addTo(routeMap);
+    m.bindTooltip('<span class="tt-name">' + p.name + '</span><span class="tt-sub">' + p.sub + '</span>', {
+      permanent: true,
+      direction: p.dir,
+      offset: p.dir === 'left' ? [-18, 0] : [18, 0],
+      className: ''
+    });
+  });
+
+  // Fit to show all of Iceland with route prominent
+  routeMap.fitBounds([
+    [63.3, -24.5],
+    [66.5, -13.5]
+  ], { padding: [20, 20] });
+</script>
+
+</body>
+</html>

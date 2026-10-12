@@ -134,7 +134,7 @@ if __name__ == "__main__":
         else:
             html = sub_once(r'<footer class="footer" role="contentinfo">.*?</footer>', footer(source), html, name)
 
-        html = sub_once(r'</style>', '</style>\n  <link rel="stylesheet" href="assets/site.css?v=4" />', html, name)
+        html = sub_once(r'</style>', '</style>\n  <link rel="stylesheet" href="assets/site.css?v=5" />', html, name)
         html = sub_once(r'</body>', '  <script src="assets/site.js" defer></script>\n</body>', html, name)
 
         if "Serandip" in html:
