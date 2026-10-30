@@ -408,7 +408,7 @@
     .cta-section { background: var(--cream); padding: 64px 48px; }
 
     .details-section { background: var(--cream); }
-    .details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .details-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .details-grid > *, .detail-rows > div > span { min-width: 0; overflow-wrap: anywhere; }
     .detail-card, .guide-card { background: var(--warm-white); border: 1px solid var(--border); padding: 24px 26px; }
     .detail-card h4, .guide-card h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.4rem; color: var(--green-deep); line-height: 1.25; }
@@ -416,13 +416,17 @@
     .detail-ref { display: inline-block; font-size: 0.78rem; letter-spacing: 0.06em; color: var(--green-mid); border: 1px solid var(--gold-light); padding: 4px 10px; margin-bottom: 14px; }
     .detail-rows > div { display: grid; grid-template-columns: 82px 1fr; gap: 10px; font-size: 0.9rem; line-height: 1.5; padding: 7px 0; border-top: 1px solid var(--border); color: var(--text-mid); }
     .detail-rows > div span:first-child { color: var(--text-light); font-size: 0.8rem; letter-spacing: 0.04em; padding-top: 1px; }
-    .guide-card { margin-top: 20px; }
+    .guide-card { margin-top: 20px; display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
+    .guide-photo { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .guide-body { min-width: 0; }
     .guide-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; margin-bottom: 12px; }
     .guide-phone { font-size: 1rem; color: var(--green-mid); font-weight: 400; }
     .guide-card p { font-size: 0.98rem; line-height: 1.75; color: var(--text-mid); margin-top: 10px; }
     @media (max-width: 900px) {
       .details-grid { grid-template-columns: 1fr; }
       .detail-card, .guide-card { padding: 20px 18px; }
+      .guide-card { grid-template-columns: 1fr; gap: 18px; }
+      .guide-photo { width: 140px; height: 140px; }
     }
     .cta-eyebrow {
       font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -822,15 +826,30 @@
         </div>
       </div>
 
+      <div class="detail-card">
+        <h4>Regent Beijing</h4>
+        <p class="detail-sub">7 to 10 November · 3 nights</p>
+        <div class="detail-rows">
+          <div><span>Typhaine</span><span>Confirmations #88805209 and #27923183 (interconnecting)</span></div>
+          <div><span>Anna</span><span>Confirmations #41305490 (7 to 9 Nov) and #47017777 (9 to 10 Nov), same room</span></div>
+          <div><span>Address</span><span>99 Jinbao Road, Dongcheng District, Beijing</span></div>
+          <div><span>Phone</span><span>+86 10 8522 1888</span></div>
+          <div><span>Check-in</span><span>From 15:00, check-out by 12:00</span></div>
+        </div>
+      </div>
+
     </div>
 
     <div class="guide-card">
+      <img class="guide-photo" src="images/cn-guide-yale-ye.jpg" alt="Yale Ye, your guide in Xi'an">
+      <div class="guide-body">
       <div class="guide-head">
         <h4>Your Guide in Xi'an: Yale Ye</h4>
         <a class="guide-phone" href="tel:+8618702991600">+86 187 0299 1600</a>
       </div>
       <p>After moving from Qinghai in 1998 to attend Xi'an Foreign Language University, Yale didn't want to leave. His excitement for his adopted hometown often bubbles over when he explains the intimate details of Xi'an's history, and his enthusiasm is contagious. Yale takes to kids easily, quickly builds a bond with his young audience, and has a remarkable ability to avoid the long lines visitors know all too well. He is happy to share local culture and specialty foods, including Xi'an's famous <em>suantang shuijiao</em> (hot and sour dumplings).</p>
       <p>Yale will be waiting for you in the arrivals hall when you land.</p>
+      </div>
     </div>
   </div>
 </section>
