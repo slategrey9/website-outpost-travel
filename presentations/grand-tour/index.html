@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Grand Tour Collection · Outpost Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="maplibre-gl.css" rel="stylesheet">
+<link href="deck.css" rel="stylesheet">
+</head>
+<body>
+<main class="deck" id="deck"></main>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const I = n => 'img/' + n + '.jpg';
+window.DECK = {
+  brand: 'Outpost Travel',
+  slides: [
+    { type:'cover', img:I('cover'), pos:'center 60%', kicker:'Self-drive journeys · 2027',
+      title:'The Grand Tour *Collection*',
+      sub:'Guided driving journeys through some of the world’s great landscapes: frozen Arctic roads, high Alpine passes and open desert.' },
+
+    { type:'contents', kicker:'The collection', title:'Take the *wheel*',
+      text:'Small groups, routes driven in advance and hotels chosen for character, with a tour leader travelling alongside. You drive at your own pace; everything around the drive is arranged.' },
+
+    /* =============== 01 · NORTH CAPE =============== */
+    { type:'hero', sec:'Scandinavian Winter Expedition', img:I('arc-hero'), kicker:'Sweden, Norway & Finland',
+      toc:{k:'01 · Arctic', t:'Scandinavian Winter Expedition', s:'14 nights · Jan & Feb 2027'},
+      title:'Scandinavian *Winter Expedition*',
+      tagline:'From Åre to the very edge of Europe and back: two days of ice driving, frozen lakes, huskies, the North Cape and the Lofoten Islands.',
+      facts:[['Duration','14 nights'],['Departures','30 Jan · 13 Feb 2027'],['Group','Max. 7 teams'],['Car','Volvo V60 / V90 AWD'],['From','€14,690 pp','price']] },
+
+    { type:'spread', imgs:[I('arc-road'), I('arc-cockpit')], kicker:'A guided expedition',
+      title:'Your wheel, *your pace*',
+      lead:'Scandinavia is beautiful, but Scandinavia in winter is spellbinding: clear skies, an intensely white landscape and a singular northern light.',
+      body:['Over a fortnight the route runs from Åre in Sweden up to the North Cape, then loops back through Finnish Lapland, the Lofoten Islands and the Norwegian coast. You drive it yourself; the hotels, dinners, excursions and every detail around the drive are taken care of, and the tour leader travels with the group.'],
+      ticks:[['Small group.','A maximum of seven teams on each departure.'],['Pre-driven.','Every kilometre assessed and every hotel visited in advance.'],['Never alone.','Navigation app, roadbook and a satellite GPS tracker with SOS, followed around the clock.'],['Refined.','Run more than twenty times, improved with every edition.']] },
+
+    { type:'route', title:'Åre to the North Cape, *and back*',
+      sub:'Fly in and out of Trondheim. Two fixed departures: 30 January and 13 February 2027.', maxZoom:5,
+      stops:[
+        {name:'Trondheim', pass:true, lat:63.43, lng:10.40, side:'left'},
+        {name:'Åre', lat:63.40, lng:13.08, side:'bottom'},
+        {name:'Umeå', lat:63.83, lng:20.26, side:'right'},
+        {name:'Luleå', lat:65.58, lng:22.15, side:'right'},
+        {name:'Kautokeino', lat:69.01, lng:23.04, side:'right'},
+        {name:'North Cape', lat:70.98, lng:25.97, side:'right'},
+        {name:'Alta', lat:69.97, lng:23.27, side:'left'},
+        {name:'Kilpisjärvi', lat:69.05, lng:20.79, side:'left'},
+        {name:'Lofoten', lat:68.03, lng:13.35, side:'left'},
+        {name:'Mosjøen', lat:65.84, lng:13.19, side:'left'},
+        {name:'Åre', lat:63.40, lng:13.08}
+      ],
+      table:{head:['Day','Overnight','Hotel'], rows:[
+        ['1–3','Åre','Copperhill Mountain Lodge · ice driving on days 2 & 3'],
+        ['4','Umeå','Stora Hotellet'],
+        ['5','Luleå','Clarion Hotel Sense'],
+        ['6','Kautokeino','Thon Hotel'],
+        ['7','Honningsvåg','Scandic Bryggen · the North Cape'],
+        ['8–9','Alta','Sorrisniva · husky sledding, rest day'],
+        ['10','Kilpisjärvi','Cahkal Hotel'],
+        ['11–12','Lofoten','Arctic Resort Nusfjord · rest day'],
+        ['13','Mosjøen','Fru Haugans Hotel'],
+        ['14','Åre','Hotel Åregården · farewell dinner']]} },
+
+    { type:'spread', flip:true, imgs:[I('arc-are'), I('arc-copper')], split:'h', daynum:'Day 1',
+      title:'Arrival in *Åre*',
+      body:['Fly into Trondheim, where a transfer is waiting to bring you across the border to Åre, the leading winter-sports resort of Scandinavia and the starting point of the expedition.',
+            'Three nights at the Copperhill Mountain Lodge form the prologue. Perched on the Förberget with sweeping views across the Åre valley, this striking design lodge is the base for the days on the ice. Your winter-equipped Volvo is ready and waiting at the door.',
+            'In the evening the group gathers for a welcome dinner at the classic Åregården.'],
+      meta:[['Overnight','Copperhill Mountain Lodge'],['Meals','Welcome dinner']] },
+
+    { type:'spread', imgs:[I('arc-ice1'), I('arc-ice3'), I('arc-ice4')], daynum:'Days 2 & 3',
+      title:'Two days *on the ice*',
+      body:['Former WRC champions take you out onto a frozen lake, not in your own car but in a fast Golf R and a Porsche 911. It is about feel and control rather than speed, and a great deal of fun.',
+            'The second day refines it: longer runs, cleaner lines and the confidence to let the car drift beneath you, all under the eye of the instructors.',
+            'Afternoons are free for the pistes, the spa or the Bergbanan, a funicular from 1910 that climbs to Fjällgården in seven minutes. Dinners at restaurant Emilia in the heart of Åre, then the cosy Fjällpuben.'],
+      meta:[['Overnight','Copperhill Mountain Lodge'],['Included','Two days of ice driving']] },
+
+    { type:'spread', flip:true, imgs:[I('arc-reindeer'), I('arc-dash')], daynum:'Days 4 to 6',
+      title:'Across Sweden to *Sami country*',
+      body:['The expedition proper begins, across the Swedish interior to the frozen Gulf of Bothnia and Umeå, the largest city in northern Sweden. The Stora Hotellet, once a seamen’s house, is joined to a grand library with a delicatessen, artisan bakery and fish restaurant around its covered courtyard. Dinner at Harlequin.',
+            'On to Luleå, a harbour since the 13th century, where iron ore from Kiruna is shipped. Dinner at a favourite restaurant on the edge of the frozen bay.',
+            'Then north past the half-frozen Jokkfall waterfalls into Kautokeino, the capital of reindeer herding and the heart of Sami culture, where joik singing and duodji handicraft still thrive.'],
+      meta:[['Overnights','Umeå · Luleå · Kautokeino']] },
+
+    { type:'spread', imgs:[I('arc-plateau'), I('arc-globe')], daynum:'Days 7 & 8',
+      title:'The edge *of Europe*',
+      body:['Through the vast arctic expanse of Lapland to Honningsvåg, with little daylight and no sun. That evening comes the first attempt to reach the North Cape.',
+            'The next morning the cape reveals itself in daylight: the rugged cliff and the endless Arctic Ocean. Then south to Alta and Sorrisniva, the finest hotel in the region, with views over the Alta river.',
+            'In the afternoon, a few hours by dog sled with a musher who has driven the legendary Finnmarksløpet. You harness the huskies yourself before heading out into the silent landscape. Dinner is refined fine dining at Trasti & Trine.'],
+      meta:[['Overnights','Scandic Bryggen · Sorrisniva'],['Included','Husky sledding']] },
+
+    { type:'mosaic', layout:'m3', daynum:'Day 9 · Alta', title:'Huskies, snow and *an ice hotel*',
+      text:'A rest day at Sorrisniva, or a 125-kilometre snowmobile tour across the Finnmark plateau to the Alta Canyon, one of the largest gorges in northern Europe, with lunch at the remote Jotka mountain lodge.',
+      imgs:[{src:I('arc-sled2'), cap:'Husky sledding, Alta'}, {src:I('arc-icehotel'), cap:'The ice hotel at Sorrisniva'}, {src:I('arc-huskyface')}, {src:I('arc-fire')}] },
+
+    { type:'spread', flip:true, imgs:[I('arc-lofdusk'), I('arc-nusfjord2'), I('arc-lofoten')], daynum:'Days 10 to 12',
+      title:'Lapland to *the Lofoten*',
+      body:['Along the Norwegian coast, then inland across the border into Finland and the lakeside village of Kilpisjärvi, wedged between Norway and Sweden. An excellent dinner at the Cahkal Hotel.',
+            'Past the tripoint of Finland, Norway and Sweden to the Lofoten, perhaps the most beautiful island group on earth. In Nusfjord, authentic fishermen’s cabins have become the Arctic Resort Nusfjord, with sauna and jacuzzi in a breathtaking setting.',
+            'The cars stay put on day 12: a rest day for the harbour walks, the spa and the extraordinary arctic light.'],
+      meta:[['Overnights','Cahkal Hotel · Arctic Resort Nusfjord (2)']] },
+
+    { type:'spread', imgs:[I('arc-coast'), I('arc-circle')], daynum:'Days 13 & 14',
+      title:'South, and home *to Åre*',
+      body:['An early ferry to the mainland, or a drive after breakfast; in travel time it makes little difference. The stage ends in Mosjøen on the Vefsnfjord, with its preserved quarter of wooden houses, at Fru Haugans, the oldest hotel in northern Norway.',
+            'The final stage crosses back into Sweden through the snow-laden forests and frozen lakes of Jämtland. The loop closes in Åre at the classic Hotel Åregården, where the cars are handed back and the group gathers for a farewell dinner.',
+            'The next morning, a transfer to Trondheim for the flight home.'],
+      meta:[['Overnights','Fru Haugans · Hotel Åregården'],['Meals','Farewell dinner']] },
+
+    { type:'quote', img:I('arc-lofaurora'), text:'Scandinavia is beautiful. In winter, it is spellbinding.', cite:'Arctic Resort Nusfjord, Lofoten' },
+
+    { type:'stays', kicker:'Where you stay', title:'Ten hotels, *four countries*',
+      imgs:[{src:I('arc-sorrisniva'), cap:'Sorrisniva, Alta'}, {src:I('arc-nusfjord1'), cap:'Arctic Resort Nusfjord'}],
+      list:[['3','Copperhill Mountain Lodge','Åre, Sweden'],['1','Stora Hotellet','Umeå, Sweden'],['1','Clarion Hotel Sense','Luleå, Sweden'],['1','Thon Hotel','Kautokeino, Norway'],['1','Scandic Bryggen','Honningsvåg, Norway'],['2','Sorrisniva','Alta, Norway'],['1','Cahkal Hotel','Kilpisjärvi, Finland'],['2','Arctic Resort Nusfjord','Lofoten, Norway'],['1','Fru Haugans Hotel','Mosjøen, Norway'],['1','Hotel Åregården','Åre, Sweden']],
+      fine:'The best rooms are reserved at each hotel. Choice naturally narrows the further north you travel.' },
+
+    { type:'info', imgs:[I('arc-plough'), I('arc-lake')], kicker:'Good to know', title:'The car & *the details*',
+      blocks:[
+        {h:'The car', p:['A winter-equipped, all-wheel-drive Volvo V60 or V90 with high-grade snowflake winter tyres, full insurance and unlimited mileage.','Collected at Copperhill and returned there at the end of the loop. Rental, insurance, toll tags and vignettes are arranged in advance.']},
+        {h:'Getting there', p:['Fly into Trondheim (TRD), well connected via Oslo, Amsterdam and other European hubs. A transfer takes you to Åre and back.','Flights can be booked and timed to the programme, with extra nights in Åre or Östersund before or after.']},
+        {h:'On the road', p:['Most kilometres are on snow and ice: perfectly manageable for an attentive driver.','Every hotel is called ahead so your room is ready. Dietary wishes, spa treatments and laundry are arranged before departure, and the team is reachable day and night.']}] },
+
+    { type:'price', title:'Scandinavian *Winter Expedition*', price:'€14,690',
+      per:'per person, based on two sharing one car and one room, 14 nights',
+      meta:[['Departures','30 Jan – 13 Feb 2027 · 13 – 27 Feb 2027'],['Group','Maximum seven teams per departure'],['Start & finish','Trondheim, via Åre']],
+      inc:['Winter-equipped Volvo V60/V90, full insurance and unlimited mileage','Transfers Trondheim to Åre and back','14 nights’ accommodation','Breakfast and dinner daily','All beverages with dinner','Roadbook, route app and GPS tracker with SOS','Tour leader and full organisation','Ice driving and all excursions'],
+      exc:['Flights (bookable on request)','Fuel and tolls','Lunches','Beverages outside dinner','Massages','Personal expenses'],
+      extras:'Flights to and from Trondheim · extra nights in Åre or Östersund · pre- and post-expedition stays',
+      fine:'Prices in euros, subject to change with significant currency movements. Cancellation insurance must be arranged within seven days of booking.' },
+
+    /* =============== 02 · ALPINE PASSES =============== */
+    { type:'hero', sec:'Alpine Passes', img:I('dol-stelvio'), pos:'center 55%', kicker:'Switzerland & Italy',
+      toc:{k:'02 · Alps', t:'Alpine Passes: Graubünden & the Dolomites', s:'5 nights · Sep 2027'},
+      title:'Alpine *Passes*',
+      tagline:'Five days over the great passes of Graubünden and the Dolomites, from the Oberalp and the Stelvio to the pale rock towers of Val Gardena.',
+      facts:[['Dates','25 – 30 Sep 2027'],['Duration','5 nights'],['Group','Max. 15 teams'],['Car','Your own'],['From','€4,300 pp','price']] },
+
+    { type:'spread', imgs:[I('dol-classic'), {src:I('dol-turbos'), pos:'center 85%'}, I('dol-spyder')], kicker:'The journey',
+      title:'Glorious driving, *good company*',
+      lead:'The aim is simple: glorious driving, good conversation at the table and tall tales at the bar.',
+      body:['A format refined over fifteen editions in the Swiss Alps now heads south-east to the Dolomites, on a renewed route for 2027. Early autumn often brings settled weather.',
+            'The tour starts and finishes in Switzerland, with three nights in Italy between. Famous passes and lesser-known ones; it is often the lesser-known that capture the imagination.',
+            'Demanding stages are paired with authentic, characterful hotels. Dinner is à la carte wherever possible, several times in restaurants frequented by locals.'] },
+
+    { type:'route', title:'Graubünden to *the Dolomites*', maxZoom:7.4,
+      sub:'Saturday 25 September to Thursday 30 September 2027. Sport and leisure route options on the longer days.',
+      stops:[
+        {name:'Churwalden', lat:46.78, lng:9.54, side:'top'},
+        {name:'Oberalp', pass:true, lat:46.66, lng:8.67, side:'top'},
+        {name:'Lukmanier', pass:true, lat:46.56, lng:8.80, nolabel:true},
+        {name:'San Bernardino', pass:true, lat:46.50, lng:9.17, nolabel:true},
+        {name:'Splügen', pass:true, lat:46.51, lng:9.33, nolabel:true},
+        {name:'Bernina', pass:true, lat:46.41, lng:10.02, side:'bottom'},
+        {name:'Livigno', lat:46.54, lng:10.14, side:'top'},
+        {name:'Stelvio', pass:true, lat:46.53, lng:10.45, side:'top'},
+        {name:'Ortisei', lat:46.57, lng:11.67, side:'top'},
+        {name:'Carisolo', lat:46.17, lng:10.76, side:'bottom'},
+        {name:'Bernina', pass:true, lat:46.41, lng:10.02},
+        {name:'Albula', pass:true, lat:46.58, lng:9.84, side:'top'},
+        {name:'Churwalden', lat:46.78, lng:9.54}
+      ],
+      table:{head:['Day','Overnight','Hotel'], rows:[
+        ['1','Churwalden','Hotel Krone · welcome dinner'],
+        ['2','Livigno','Hotel Camino'],
+        ['3','Ortisei','Val Gardena · hotel to be confirmed'],
+        ['4','Carisolo','Lefay Resort & SPA Dolomiti'],
+        ['5','Churwalden','Hotel Krone · farewell dinner']]} },
+
+    { type:'spread', flip:true, imgs:[I('dol-bernina'), I('dol-pair')], split:'h', daynum:'Days 1 & 2',
+      title:'Graubünden & *the Swiss passes*',
+      body:['The group gathers in Switzerland, high above the Churwalden valley near Lenzerheide, at the characterful Hotel Krone. Drinks are waiting, introductions are made, and a fine welcome dinner opens the tour.',
+            'The first driving day heads west over the Oberalp Pass and down through Andermatt, then the Lukmanier from Disentis. The sport route continues over the San Bernardino, the Splügen and the Bernina, passing St. Moritz before finishing in Livigno; the leisure route cuts a loop and arrives a little earlier.'],
+      meta:[['Overnights','Hotel Krone · Hotel Camino']] },
+
+    { type:'spread', imgs:[I('dol-stelvio2'), I('dol-stelviocars')], daynum:'Day 3',
+      title:'The *Stelvio*',
+      body:['A fully Italian day. A few shorter passes build towards the highlight: the Stelvio, at 2,758 metres the highest paved pass in Italy. Behind every hairpin, a postcard of glacier ice and alpine meadow.',
+            'Via the finest Dolomites passes to Ortisei in Val Gardena, for the night and dinner in an atmospheric local restaurant.'],
+      meta:[['Overnight','Ortisei, Val Gardena'],['Highlight','Stelvio Pass, 2,758 m']] },
+
+    { type:'spread', flip:true, imgs:[I('dol-sella'), I('dol-rendena')], daynum:'Days 4 & 5',
+      title:'Into the Dolomites, *and back*',
+      body:['Through the heart of the Dolomites over some of the region’s finest passes: flowing curves, sweeping larch forests and the characteristic pale-grey rock towers. The day ends high above Val Rendena at Lefay Resort & SPA Dolomiti, with an extensive spa and dinner in the hotel.',
+            'The final day runs through the Italian interior to a few resounding Swiss passes, taking the Bernina and the Albula in reverse before finishing where it began, at Hotel Krone, for a last dinner together.'],
+      meta:[['Overnights','Lefay Resort & SPA Dolomiti · Hotel Krone']] },
+
+    { type:'mosaic', layout:'m4',
+      imgs:[{src:I('dol-giau3'), cap:'Passo Giau'}, {src:I('dol-gulf')}, {src:I('dol-rainbow')}, {src:I('dol-forest')}, {src:I('dol-snow')}] },
+
+    { type:'price', title:'Alpine *Passes*', price:'€4,300',
+      per:'per person, 5 nights',
+      meta:[['Dates','Saturday 25 – Thursday 30 September 2027'],['Group','Maximum 15 teams · registration closes 1 Sep 2027']],
+      inc:['Five nights’ accommodation','Breakfast daily','Dinners','All drinks with dinner','Roadbook and route','Tour guidance','Full organisation','A keepsake of the tour'],
+      exc:['Car costs (fuel, tolls)','Lunches','Drinks outside dinner','Massages','Personal expenses'],
+      extras:'Flights · car transport to and from Switzerland',
+      fine:'Places are allocated in order of registration.' },
+
+    /* =============== 03 · EGYPT =============== */
+    { type:'hero', sec:'The Egyptian Expedition', img:I('egy-rocks'), pos:'center 60%', kicker:'Egypt',
+      toc:{k:'03 · Desert', t:'The Egyptian Expedition', s:'21 nights · Mar to Apr 2027'},
+      title:'The Egyptian *Expedition*',
+      tagline:'Through the Black and the White Desert to Abu Simbel, then along the Nile, in your own 4×4.',
+      facts:[['Dates','20 Mar – 10 Apr 2027'],['Duration','21 nights'],['Distance','c. 2,800 km'],['In the desert','6 nights'],['From','c. €25,000 pp','price']] },
+
+    { type:'spread', imgs:[I('egy-white'), I('egy-gem')], split:'h', kicker:'The journey',
+      title:'Sand, temples *and the Nile*',
+      lead:'Six nights deep in the Western Desert, then fine hotels, three nights on the Nile and the Red Sea.',
+      ticks:[['Real desert.','The Black and the White Desert and the dunes of the Passage des Fous, with a specialist desert driver.'],['Remote.','Six nights in the desert, sleeping in Bedouin tents.'],['Culture you will see nowhere else.','The Grand Egyptian Museum, the pyramids, Abu Simbel, Karnak.'],['The Nile at its finest.','Three nights on a dahabiya from Aswan to Luxor.'],['Fine hotels.','Four Seasons in Alexandria and Cairo, the Old Cataract in Aswan and La Maison Bleue on the Red Sea.']] },
+
+    { type:'route', title:'Alexandria to *Abu Simbel*, and back', maxZoom:6,
+      sub:'21 nights in eight stages, c. 2,800 km. Distances are rounded.',
+      stops:[
+        {name:'Alexandria', lat:31.20, lng:29.92, side:'left'},
+        {name:'Cairo', lat:30.04, lng:31.24, side:'right'},
+        {name:'Bahariya', pass:true, lat:28.35, lng:28.86, side:'left'},
+        {name:'White Desert', pass:true, lat:27.30, lng:28.00, side:'left'},
+        {name:'Kharga', lat:25.44, lng:30.55, side:'left'},
+        {name:'Toshka', pass:true, lat:22.80, lng:31.40, side:'left'},
+        {name:'Abu Simbel', lat:22.34, lng:31.63, side:'bottom'},
+        {name:'Aswan', lat:24.09, lng:32.90, side:'right'},
+        {name:'Luxor', lat:25.69, lng:32.64, side:'right'},
+        {name:'El Gouna', lat:27.39, lng:33.68, side:'right'},
+        {name:'Cairo', lat:30.04, lng:31.24}
+      ],
+      table:{head:['Nights','Stage','Distance & highlights'], rows:[
+        ['2','Alexandria','The library, the citadel, the old harbour'],
+        ['3','Cairo','c. 380 km · Grand Egyptian Museum, pyramids, Saqqara'],
+        ['6 + 1','Western Desert','c. 1,000 km · Black & White Desert, Djara, Passage des Fous; a last night in Kharga'],
+        ['2','Toshka & Abu Simbel','c. 400 km · off-road south, a camp near Toshka'],
+        ['1','Aswan','c. 280 km · Abu Simbel at sunrise, Philae, the Old Cataract'],
+        ['3','On the Nile','By dahabiya · Kom Ombo, Edfu, Valley of the Kings, Karnak'],
+        ['2','El Gouna','c. 320 km · off-road to the Red Sea'],
+        ['1','Cairo','c. 450 km · farewell dinner, home on 10 April']]} },
+
+    { type:'spread', flip:true, imgs:[I('egy-giza'), I('egy-alex'), I('egy-cairo')], kicker:'The start · 5 nights',
+      title:'Alexandria *& Cairo*',
+      body:['The expedition opens on the Mediterranean, with two nights at the Four Seasons by the sea, then follows the Nile Delta to Cairo and three nights at the Four Seasons on the river.'],
+      ticks:[['Alexandria.','The new library, the Citadel of Qaitbay and fresh fish by the old harbour.'],['Grand Egyptian Museum.','Fully open since November 2025, with the complete treasure of Tutankhamun.'],['Giza and Saqqara','with a private guide.'],['Islamic Cairo.','The Citadel and Khan el-Khalili.']],
+      meta:[['Overnights','Four Seasons Alexandria · Four Seasons Cairo']] },
+
+    { type:'quote', img:I('egy-horizon'), text:'Six nights in the sand.', cite:'The Western Desert · Cairo to Kharga' },
+
+    { type:'spread', imgs:[I('egy-slope'), I('egy-camp')], kicker:'The Western Desert · 7 nights',
+      title:'No road, *everything arranged*',
+      body:['By road to the Bahariya oasis, then six days through the sand.'],
+      ticks:[['Black Desert.','Hills capped with black volcanic rock.'],['White Desert.','Chalk-white rocks in the strangest shapes.'],['Djara.','A cave full of stalactites, in the middle of the sand.'],['Passage des Fous.','Between table mountains and high dunes.'],['Kharga.','The oasis, and a proper bed again.']],
+      meta:[['Camp','Bedouin tents, set up by the local crew who also cook'],['Provided','Food, water, fuel and permits']] },
+
+    { type:'mosaic', layout:'m1', kicker:'In the dunes', title:'With a specialist *at the front*',
+      text:'The desert stages are driven with a specialist desert driver and a local partner who knows this desert intimately. Food, water and fuel are carried for you, because there is nothing to be had along the way.',
+      imgs:[{src:I('egy-mtndune')}, {src:I('egy-white'), cap:'The White Desert'}, {src:I('egy-2011')}, {src:I('egy-sun')}] },
+
+    { type:'spread', flip:true, imgs:[I('egy-abusimbel'), I('egy-nasser')], kicker:'The south · 3 nights',
+      title:'Abu Simbel *at sunrise*',
+      body:['Off-road from Kharga to the south, with a camp by the lakes near Toshka.',
+            'At Abu Simbel, the temples of Ramesses II on Lake Nasser are seen at sunrise, before the coaches arrive. Lake Nasser stretches to the horizon in the middle of the desert.',
+            'Then Aswan: the Temple of Isis at Philae, seen from the water, and a night at the legendary Old Cataract.'],
+      meta:[['Overnights','Desert camp · Abu Simbel · Old Cataract, Aswan']] },
+
+    { type:'spread', imgs:[I('egy-nile'), I('egy-philae'), I('egy-edfu')], kicker:'On the Nile · 3 nights',
+      title:'Aswan to Luxor *by dahabiya*',
+      body:['Three nights aboard a traditional Nile sailing boat with only a few cabins, while your car travels on to Luxor by truck.'],
+      ticks:[['Kom Ombo','and the Temple of Horus at Edfu.'],['The west bank of Luxor:','the Valley of the Kings and the temple of Hatshepsut.'],['Karnak,','the great temple complex of Thebes.']],
+      meta:[['Board','Full board on the boat']] },
+
+    { type:'spread', flip:true, imgs:[I('egy-redsea'), I('egy-luxor')], kicker:'The final stages · 3 nights',
+      title:'Across the Eastern Desert *to the Red Sea*',
+      body:['From Luxor, off-road across the Eastern Desert to the coast and two nights in El Gouna at La Maison Bleue, a small Relais & Châteaux hotel with thirteen suites.',
+            'Then back to Cairo for the farewell dinner and a last night at the Four Seasons, and home on 10 April.'],
+      meta:[['Overnights','La Maison Bleue (2) · Four Seasons Cairo']] },
+
+    { type:'info', imgs:[I('egy-convoy')], kicker:'Good to know', title:'Practical *matters*',
+      blocks:[
+        {h:'On the road', list:['A tour leader in a support car, all the way','A specialist desert driver and local partner in the sand','A private guide in Cairo and Luxor','3 to 8 hours’ driving a day; a few long days on empty roads','25 to 35 °C by day, cold nights in the desert']},
+        {h:'Your 4×4', list:['Shipped to Alexandria and back, temporary import arranged','Good ground clearance and underbody protection','All-terrain tyres, a compressor and a pressure gauge','Radios provided; drones, Starlink and CB radios not permitted','Always with a co-driver; driving alone is not possible']},
+        {h:'Documents & insurance', list:['Passport valid six months beyond travel','Driving licence and international driving permit','Egypt visa application arranged (cost your own)','Third-party liability for your car included','Comprehensive and travel insurance your own']}] },
+
+    { type:'price', title:'The Egyptian *Expedition*', fromLabel:'Indicative price', price:'€25,000',
+      per:'per person: around €25,000 to €27,000, one car with two people sharing a room (€50,000 to €54,000 per team)',
+      meta:[['Dates','20 March – 10 April 2027, 21 nights'],['Based on','Four teams · two rooms per team on request'],['Payment','25% deposit, balance in instalments before departure']],
+      inc:['Shipping your car out and back, including customs','21 nights: hotels, desert camps and three nights on board','Breakfast and dinner with drinks; full board in the desert and on board','In the desert: food, water, fuel and the camp crew','Tour leader and support car; desert specialist in the dunes','Guides and entrance fees; truck Aswan to Luxor','Third-party insurance, permits and escort'],
+      exc:['Flights','Fuel outside the desert, tolls and other car costs','Egypt visa','Comprehensive, travel and cancellation insurance','Personal expenses','Unforeseen repairs'],
+      extras:'Flights · help preparing your 4×4 with the right specialists',
+      fine:'Indicative price. The final price follows the route inspection in January 2027 and is subject to exchange rates, shipping and the boat.' },
+
+    /* =============== NAMIBIA =============== */
+    { type:'tailor', sec:'Namibia', img:I('nam-hero'), kicker:'Also in the desert · Namibia',
+      toc:{k:'Tailor-made', t:'Namibia Dune Driving', s:'Details & price on request'},
+      title:'Namibia *Dune Driving*',
+      tagline:'Where the dunes of the Namib run straight into the Atlantic. A tailor-made 4×4 journey along one of Africa’s wildest coastlines.' },
+
+    { type:'mosaic', layout:'m4',
+      imgs:[{src:I('nam-7'), cap:'Dunes meet the Atlantic'}, {src:I('nam-1')}, {src:I('nam-3')}, {src:I('nam-10'), cap:'The Skeleton Coast from the air'}, {src:I('nam-5')}] },
+
+    /* =============== EUROPE =============== */
+    { type:'chapter', sec:'European Road Journeys', img:I('grc-4'), num:'Europe', title:'European Road *Journeys*',
+      toc:{k:'Tailor-made', t:'Ireland, Greece & Southern Italy', s:'Details & price on request', img:I('irl-2')},
+      sub:'Coast roads, mountain passes and small hotels, at your own pace. Each journey is designed around you.' },
+
+    { type:'tailor', img:I('irl-2'), pos:'center 40%', kicker:'Tailor-made · Ireland', title:'The Wild West *of Ireland*',
+      tagline:'Mountain passes, Atlantic beaches and small-town Ireland.' },
+    { type:'mosaic', layout:'m4', imgs:[I('irl-3'), I('irl-4'), I('irl-5'), I('irl-6'), I('irl-1')] },
+
+    { type:'tailor', img:I('grc-2'), pos:'center 35%', kicker:'Tailor-made · Greece', title:'Mainland *Greece*',
+      tagline:'Mountain roads, the monasteries of Meteora and a quiet coastline.' },
+    { type:'mosaic', layout:'m4', imgs:[I('grc-3'), I('grc-4'), I('grc-6'), I('grc-5'), {src:I('grc-2'), pos:'center 30%'}] },
+
+    { type:'tailor', img:I('sic-1'), kicker:'Tailor-made · Sicily & the Amalfi Coast', title:'Southern Italy *by road*',
+      tagline:'Hairpin roads through the hills, coastal towns and long lunches.' },
+    { type:'mosaic', layout:'m4', imgs:[I('sic-2'), {src:I('sic-3'), pos:'center 30%'}, I('sic-5'), I('sic-4'), {src:I('amf-1'), cap:'The Amalfi Coast'}] },
+
+    /* =============== CAR CLUBS =============== */
+    { type:'spread', sec:'For car clubs', imgs:[{src:I('sic-2'), pos:'center 70%'}, I('dol-classic'), I('egy-rocks')], kicker:'For car clubs',
+      toc:{k:'For car clubs', t:'Private club journeys', s:'Built around your members', img:I('sic-2')},
+      title:'Bring the club. *We’ll bring the road.*',
+      lead:'Private driving journeys for car clubs and their members, built around your dates, your cars and your group.',
+      points:[['Every route recced first','Each route is driven in full before the group arrives: stages timed, roads assessed, every hotel and restaurant visited.'],
+              ['A support vehicle with the convoy','A tour leader drives with the group in a support car, and the team is reachable around the clock.'],
+              ['Connected to car clubs worldwide','Working relationships with car clubs around the world bring local knowledge, the best roads and a warm welcome wherever you drive.'],
+              ['Your cars, or ours','Members’ own cars shipped and cleared through customs, or premium rentals waiting at the start.']],
+      cta:'Dates, routes and group size on request' },
+
+    { type:'closing', img:I('arc-aerial'), title:'Your road *starts here*',
+      text:'Join a small-group departure or travel privately. Flights, extra nights and car arrangements are all handled for you.',
+      contact:'outposttravel.co',
+      credits:'Additional photography via Wikimedia Commons: Stelvio Pass, Raul Taciu (CC0); Stelvio Pass, Damian Morys (CC BY 2.0); Passo Giau, Ximonic (CC BY-SA 4.0); Frea Pass, Wolfgang Moroder (CC BY-SA 3.0); Alta Val Rendena, Syrio (CC BY-SA 4.0); Bernina Pass, Capricorn4049 (CC BY-SA 4.0).' }
+  ]
+};
+</script>
+<script src="deck.js"></script>
+</body>
+</html>

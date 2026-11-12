@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sichuan & Ningxia · Outpost Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="maplibre-gl.css" rel="stylesheet">
+<link href="deck.css" rel="stylesheet">
+</head>
+<body>
+<main class="deck" id="deck"></main>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const I = n => 'img/' + n + '.jpg';
+window.DECK = {
+  brand: 'Outpost Travel',
+  slides: [
+    { type:'hero', sec:'Sichuan & Ningxia', img:I('startrail'), kicker:'China · 8 days',
+      title:'Sichuan *& Ningxia*',
+      tagline:'An intimate wine and gourmet journey, from the tea houses and distilleries of Sichuan to the vineyards of the Helan Mountain and the dunes of the Tengger Desert.',
+      facts:[['Duration','8 days, 7 nights'],['Group','2 to 6 guests'],['Style','Private guide & car'],['From','SGD 8,250 pp','price']] },
+
+    { type:'spread', imgs:[I('grapes'), I('pour')], kicker:'The journey',
+      title:'Exploration of *authentic flavours*',
+      lead:'Age-old Chinese brewing heritage, striking landscapes and unhurried, upscale comfort, for discerning food and wine lovers.',
+      body:['The journey begins among the UNESCO sites of Sichuan, with traditional liquor-making at Shuijingfang and The Chuan whisky distillery, then flies north to Ningxia: the lost Western Xia kingdom, desert trails beside the Yellow River, and the celebrated vineyards of the Helan Mountain.',
+            'Every meal is chosen, from tender Qiaojiao beef and Sichuan hot pot to halal Tan lamb and a goji berry vegetarian feast, paired with exclusive winery dinners.'],
+      ticks:[['UNESCO.','Dujiangyan, the Leshan Giant Buddha and the Western Xia Imperial Tombs.'],['Spirits.','A private blending session at Shuijingfang and a limited-edition flight at The Chuan.'],['Wine.','Chateau Mihope, Silver Heights and Xige Estate on the Helan Mountain.'],['Five hotels,','from The Upper House to a stargazing resort in the dunes.']] },
+
+    { type:'route', title:'Chengdu to *the Helan Mountain*', maxZoom:6,
+      sub:'Three nights in Sichuan, then a short flight north to Ningxia for the vineyards, the desert and the Yellow River.',
+      stops:[
+        {name:'Chengdu', lat:30.657, lng:104.066, side:'right'},
+        {name:'Dujiangyan', pass:true, lat:31.00, lng:103.62, side:'left'},
+        {name:'Chengdu', lat:30.657, lng:104.066},
+        {name:'Leshan', pass:true, lat:29.552, lng:103.766, side:'right'},
+        {name:'Mount Emei', lat:29.601, lng:103.484, side:'left'},
+        {name:'Yinchuan', lat:38.60, lng:105.98, side:'right'},
+        {name:'Zhongwei', lat:37.46, lng:105.0, side:'left'},
+        {name:'Qingtongxia', lat:38.02, lng:106.08, side:'right'}
+      ],
+      table:{head:['Day','Overnight','Hotel'], rows:[
+        ['1–2','Chengdu','The Upper House'],
+        ['3','Mount Emei','Hongzhushan Hotel'],
+        ['4–5','Helan Mountain, Yinchuan','Amnor Hotel'],
+        ['6','Tengger Desert, Zhongwei','Desert Star Hotel'],
+        ['7','Qingtongxia','Xige Estate Vineyard Hotel'],
+        ['8','Departure','A slow morning among the vines']]} },
+
+    { type:'spread', flip:true, imgs:[I('w-taikooli'), I('upperhouse')], split:'h', daynum:'Day 1 · Saturday',
+      title:'Arrive *Chengdu*',
+      body:['A private transfer from Chengdu Tianfu International Airport to The Upper House, set in the Taikoo Li district. Rooms start from 60 square metres, with a 24-hour butler service, pool, spa, gallery and library within a restored Qing-dynasty setting.',
+            'Dinner at Mixun Tea House: a new eight-course menu inspired by the Four Wonders of Qingcheng Mountain, with mountain-spring pickles, ginkgo-braised chicken, Dongtian Tribute Tea and Dongtian rice wine.',
+            'Close by, the 1,600-year-old Daci Temple, where the monk Xuanzang took his vows, is a quiet optional walk among red walls and bamboo.'],
+      meta:[['Overnight','The Upper House, Chengdu'],['Dinner','Mixun Tea House']] },
+
+    { type:'spread', imgs:[I('w-dujiangyan'), I('baijiu'), I('hotpot')], daynum:'Day 2 · Sunday',
+      title:'Dujiangyan *& Shuijingfang*',
+      body:['The UNESCO-listed Dujiangyan Irrigation System has regulated the Minjiang River without a dam for over 2,000 years. Walk its three great works and cross the ornate Nanqiao Bridge, then wander the old town.',
+            'Lunch at Shuguan Laowei, keeper of Guanxian cooking, for its celebrated Guo Guo fish. In the afternoon, a private visit to Shuijingfang, the oldest continuously operating baijiu distillery, with a museum of artefacts from the late Yuan dynasty and a blending session led by professional bartenders to craft your own spirit.',
+            'Dinner is Sichuan hot pot at Longsenyuan, famous since 1997 for its wild-eel broth.'],
+      meta:[['Lunch','Shuguan Laowei'],['Dinner','Longsenyuan hot pot']] },
+
+    { type:'spread', flip:true, imgs:[I('w-leshan'), I('whisky')], daynum:'Day 3 · Monday',
+      title:'The Giant Buddha *& The Chuan*',
+      body:['A river cruise to the Leshan Giant Buddha, carved into the cliff in the Tang dynasty and, at 71 metres, the largest stone Buddha in the world, seen whole from the water where three rivers meet.',
+            'Lunch at Gushixiang in Suji Ancient Town: Qiaojiao beef simmered in a broth of more than 20 herbs, from a 70-year family recipe, in a Qing courtyard.',
+            'Late afternoon at The Chuan, Pernod Ricard’s malt whisky distillery at the foot of Mount Emei, designed by Neri&Hu. An in-depth tour with the brand ambassador, a flight of limited-edition whiskies and a Michelin-inspired Sichuan dinner.'],
+      meta:[['Overnight','Hongzhushan Hotel, Mount Emei'],['Dinner','The Chuan distillery']] },
+
+    { type:'spread', imgs:[I('w-emei'), I('amnor')], daynum:'Day 4 · Tuesday',
+      title:'Mount Emei *to Ningxia*',
+      body:['A slow start at Hongzhushan, set in primeval forest at the foot of Mount Emei, with radon hot springs and private forest trails.',
+            'Lunch in Meishan, hometown of the poet Su Dongpo, at Mawangzi: founded in 1923, Michelin-recommended and run by the same family for four generations. Order the Dongpo pork elbow.',
+            'An afternoon flight to Yinchuan, then the Amnor Hotel among the vineyards on the eastern slopes of the Helan Mountain, for a private welcome dinner prepared for the group.'],
+      meta:[['Flight','Chengdu 15:50 – Yinchuan 18:00'],['Overnight','Amnor Hotel']] },
+
+    { type:'spread', flip:true, imgs:[I('w-tombs'), I('winery'), I('barrels')], daynum:'Day 5 · Wednesday',
+      title:'The Helan Mountain *vineyards*',
+      body:['Morning at the Western Xia Imperial Tombs, newly inscribed by UNESCO, and the museum’s Silk Road treasures from the lost Tangut kingdom.',
+            'Lunch is Yanchi Tan lamb hot pot. In the afternoon, two estates with contrasting philosophies: the art estate Chateau Mihope, known for precise modern viticulture, and Silver Heights, a pioneer of the region farming biodynamically. Tastings at both.',
+            'Dinner is a goji-themed vegetarian banquet at the Bairuiyuan manor, among 1,500 mu of organic goji orchards.'],
+      meta:[['Lunch','Tan lamb hot pot'],['Dinner','Goji banquet, Bairuiyuan']] },
+
+    { type:'spread', imgs:[I('jeep'), I('camels')], daynum:'Day 6 · Thursday',
+      title:'Off-road *to the Tengger*',
+      body:['An off-road morning at Hooke Park in the Helan Mountains, on the border of Ningxia and Inner Mongolia: 4WD routes up the mountain and a well-preserved stretch of the Ming Great Wall.',
+            'Lunch at Wuzhong Guoqiang, a century-old landmark for hand-grabbed Tan lamb, Muslim pastries and Babao tea.',
+            'In the afternoon, on to the Tengger Desert and desert-view rooms at Desert Star. Camel treks and desert safaris can be added.'],
+      meta:[['Overnight','Desert Star Hotel'],['Lunch','Wuzhong Guoqiang']] },
+
+    { type:'mosaic', layout:'m2', kicker:'Tengger Desert', title:'A night *among the dunes*',
+      text:'Far from any light pollution, Desert Star is a stargazing resort deep in the Tengger. Most rooms have floor-to-ceiling windows over the dunes, and on a clear night the Milky Way is overhead.',
+      imgs:[{src:I('milkyway')}, {src:I('desertstar'), cap:'Desert Star Hotel'}] },
+
+    { type:'spread', flip:true, imgs:[I('w-yellowriver'), I('raft'), I('xige')], daynum:'Days 7 & 8',
+      title:'The Yellow River *& Xige Estate*',
+      body:['Two classic Yellow River experiences at Shapotou: sand sliding down the dunes and a drift on a sheepskin raft, a craft used for millennia, where the desert meets the river.',
+            'Lunch is Zhongwei’s Haozi noodles, made with ground desert-wormwood seed. Then Xige Estate at the foot of Gezi Mountain, one of China’s standout boutique wineries: a tour of the cellars, a walk among the vines, a tasting and dinner at the estate.',
+            'The final morning is free among the vines before onward travel.'],
+      meta:[['Overnight','Xige Estate Vineyard Hotel'],['Dinner','At the estate']] },
+
+    { type:'mosaic', layout:'m1', kicker:'At the table', title:'Every meal, *chosen*',
+      text:'A Qingcheng tea-house menu, Leshan’s Qiaojiao beef, Meishan’s Dongpo pork, Tan lamb three ways, Haozi noodles and a goji banquet among the orchards.',
+      imgs:[{src:I('lamb')}, {src:I('dish1')}, {src:I('noodles')}, {src:I('dish2')}] },
+
+    { type:'stays', kicker:'Where you stay', title:'Five hotels, *each for its setting*',
+      items:[
+        {img:I('upperhouse'), name:'The Upper House', place:'Chengdu · 2 nights', note:'Swire’s Chengdu address in Taikoo Li, with butler service and rooms from 60 m².'},
+        {img:I('emei'), name:'Hongzhushan Hotel', place:'Mount Emei · 1 night', note:'A forest retreat with natural radon hot springs.'},
+        {img:I('amnor'), name:'Amnor Hotel', place:'Helan Mountain · 2 nights', note:'Eastern aesthetics and wine culture, among the vineyards.'},
+        {img:I('desertstar'), name:'Desert Star Hotel', place:'Tengger Desert · 1 night', note:'Floor-to-ceiling windows over the dunes; superb stargazing.'},
+        {img:I('xige'), name:'Xige Estate Vineyard Hotel', place:'Qingtongxia · 1 night', note:'Twenty-two rooms, each named after a grape variety.'}
+      ] },
+
+    { type:'price', title:'Sichuan *& Ningxia*', fromLabel:'From', price:'SGD 8,250',
+      per:'per person, based on two guests twin sharing. Private departures for up to six guests, priced to your group size and dates.',
+      meta:[['Duration','8 days, 7 nights · Chengdu to Qingtongxia'],['Ideal for','Wine and food lovers; can be hosted by a sommelier'],['Flight','Chengdu to Yinchuan, included']],
+      inc:['Seven nights at five hotels','All meals as described, including winery and distillery dinners','English-speaking guide and private car throughout','Economy flight Chengdu to Yinchuan','Distillery, winery and site visits as described','Private baijiu blending session and whisky tasting flight','Sand sliding and sheepskin raft at Shapotou'],
+      exc:['International flights','Optional experiences (Daci Temple, camel treks, desert safaris)','Chauffeur service beyond the programme','Travel insurance','Personal expenses'],
+      fine:'Single rooms available on request. Itinerary order may adjust to flight and winery schedules.' },
+
+    { type:'closing', img:I('w-yellowriver'), title:'Host it *your way*',
+      text:'Ideal as a private departure for a small group of wine lovers, or hosted by a sommelier. Dates and details tailored to your group.',
+      contact:'From SGD 8,250 per person · outposttravel.co',
+      credits:'Additional photography via Wikimedia Commons: Leshan Giant Buddha, 王计 (CC BY 2.5); Dujiang Weir, 星星 (CC BY-SA 4.0); Western Xia mausoleums, Thebrainchamber1 (CC BY-SA 4.0); Mount Emei, George N (CC BY 2.0); Yellow River at Shapotou, Liuxingy (CC BY-SA 4.0); Taikoo Li Chengdu, EditQ (CC0).' }
+  ]
+};
+</script>
+<script src="deck.js"></script>
+</body>
+</html>
