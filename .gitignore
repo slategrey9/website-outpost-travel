@@ -33,3 +33,26 @@ website-copy-master.md
 .netlify
 
 __pycache__/
+
+# ---- Local-only working files (never deploy) ----
+# Internal design system doc (would be public if committed)
+DESIGN.md
+
+# Raw photo library (395 MB); referenced by the Publish Itinerary Page SOP
+travel_photos/
+
+# Itinerary drafts unpublished on 12 Oct 2026 (commit 41e7629). Kept locally
+# because skills/SOPs use some as base templates (nz-self-drive v5, louise v2, q8r2w).
+itineraries/annette-phuket-2026-h4t9c.html
+itineraries/annette-phuket-2026-h4t9c-v2.html
+itineraries/jeanette-iceland-2026-p4t9m.html
+itineraries/jeanette-iceland-2026-retreat-d2x8k.html
+itineraries/jeanette-iceland-2026-x7k2p.html
+itineraries/jeff-dixie-nz-2026-h5n7q.html
+itineraries/jeff-dixie-nz-2026-h5n7q-v2.html
+itineraries/jeff-dixie-nz-2026-h5n7q-v3.html
+itineraries/jeff-east-africa-2026-overview-m4r9k-alchemist.html
+itineraries/jeff-east-africa-2027-q8r2w.html
+itineraries/jeff-east-africa-2027-q8r2w-v2-alchemist.html
+itineraries/louise-nz-2026-w9k4p-v2.html
+itineraries/nz-self-drive-oct-2026-v5.html
