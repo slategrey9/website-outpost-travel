@@ -1,0 +1,16 @@
+{#- statement: { heading, headingEm, lede, link: { label, href }, image, alt, caption } -#}
+<section class="wrap statement">
+  <h2 class="statement__h">{{ statement.heading }}{% if statement.headingEm %} <em>{{ statement.headingEm }}</em>{% endif %}</h2>
+  <div class="statement__body">
+    <p class="body body--lg">{{ statement.lede }}</p>
+    {%- if statement.link %}
+    <a class="link" href="{{ statement.link.href }}">{{ statement.link.label }}</a>
+    {%- endif %}
+  </div>
+  {%- if statement.image %}
+  <figure class="statement__fig">
+    {% image statement.image, statement.alt, "(min-width: 1024px) 380px, 80vw", { class: "img-portrait" } %}
+    {%- if statement.caption %}<figcaption class="cap">{{ statement.caption }}</figcaption>{% endif %}
+  </figure>
+  {%- endif %}
+</section>

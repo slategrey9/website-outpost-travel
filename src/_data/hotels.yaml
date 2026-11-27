@@ -1,0 +1,15 @@
+# One entry per hotel. Cards on destination and journey pages pull from here
+# by id, so a hotel's line or photo is changed once and updates everywhere.
+#
+# Fields:
+#   id:        short, lowercase, hyphenated; never change once used
+#   name:      as the hotel writes it
+#   place:     "Town, Province" as shown under the card
+#   line:      one short sentence (the hover/below-photo description)
+#   image:     path under src/photos/ (LANDSCAPE, about 4:3)
+#   alt:       names the place
+#   virtuoso:  true | false  (true shows "Virtuoso benefits")
+#   stayed:    optional, only where true, e.g. "We stayed here in March 2026"
+#
+# Hotels are added in Phase 2 (China). Empty until then.
+[]

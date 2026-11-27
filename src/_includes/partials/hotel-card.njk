@@ -1,0 +1,11 @@
+{#- One hotel card from hotels.yaml. Expects `h`. LANDSCAPE photo (about 4:3).
+    Desktop hover: the photo drifts and the line rises over it. Narrow/touch: the line sits below. -#}
+<article class="htl">
+  <div class="htl__im">
+    {% image h.image, h.alt, "(min-width: 1024px) 400px, (min-width: 640px) 45vw, 90vw" %}
+    <p class="htl__ds">{{ h.line }}</p>
+  </div>
+  <h3 class="htl__h">{{ h.name }}</h3>
+  <p class="cap">{{ h.place }}{% if h.virtuoso %}<span class="cap--gold htl__v">Virtuoso benefits</span>{% endif %}</p>
+  {%- if h.stayed %}<p class="cap htl__stayed">{{ h.stayed }}</p>{% endif %}
+</article>

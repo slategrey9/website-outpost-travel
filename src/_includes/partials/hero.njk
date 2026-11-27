@@ -1,0 +1,22 @@
+{#- hero: { image, alt, title, titleEm, caption, sub, button: { label, href } }
+    `crumbs` (optional, journey pages): the breadcrumb sits at the top of the hero,
+    under the nav, so it is the first thing after the nav in reading order.
+    The hero photo is the LCP image: eager, high priority, preloaded. -#}
+<section class="hero">
+  {% image hero.image, hero.alt, "100vw", { eager: true, class: "hero__img drift" } %}
+  <div class="hero__shade" aria-hidden="true"></div>
+  {%- if crumbs %}{% include "partials/breadcrumb.njk" %}{% endif %}
+  <div class="wrap hero__in">
+    <div class="hero__text">
+      <h1 class="hero__h1">{{ hero.title }}{% if hero.titleEm %} <em>{{ hero.titleEm }}</em>{% endif %}</h1>
+      {%- if hero.sub %}
+      <p class="hero__sub">{{ hero.sub }}</p>
+      {%- endif %}
+    </div>
+    {%- if hero.button %}
+    <a class="btn btn--light" href="{{ hero.button.href }}">{{ hero.button.label }}</a>
+    {%- elif hero.caption %}
+    <p class="cap hero__cap">{{ hero.caption }}</p>
+    {%- endif %}
+  </div>
+</section>

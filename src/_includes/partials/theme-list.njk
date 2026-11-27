@@ -1,0 +1,24 @@
+{#- "Ways into": themes: { heading, intro, items: [{ name, line, journeys, image1, alt1, image2, alt2 }] }
+    Desktop: centred list; hovering a theme darkens it and shows its photos and line.
+    Touch / narrow: stacked theme blocks with photo and line. All text is in the HTML. -#}
+<section class="ways" aria-labelledby="ways-h">
+  <div class="wrap">
+    <h2 class="h2 h2--md center" id="ways-h">{{ themes.heading }}</h2>
+    {%- if themes.intro %}<p class="body center ways__intro">{{ themes.intro }}</p>{% endif %}
+  </div>
+  <ul class="ways__list" role="list">
+    {%- for t in themes.items %}
+    <li class="ways__item{% if loop.first %} is-first{% endif %}" tabindex="0">
+      <span class="ways__name">{{ t.name }}</span>
+      <div class="ways__reveal">
+        <div class="ways__im1">{% image t.image1, t.alt1, "(min-width: 1024px) 230px, 90vw" %}</div>
+        {%- if t.image2 %}<div class="ways__im2">{% image t.image2, t.alt2, "260px" %}</div>{% endif %}
+        <div class="ways__txt">
+          <p class="cap">{{ t.line }}</p>
+          {%- if t.journeys %}<p class="cap cap--gold">{{ t.journeys }}</p>{% endif %}
+        </div>
+      </div>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>

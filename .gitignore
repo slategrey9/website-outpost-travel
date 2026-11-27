@@ -56,3 +56,8 @@ itineraries/jeff-east-africa-2027-q8r2w.html
 itineraries/jeff-east-africa-2027-q8r2w-v2-alchemist.html
 itineraries/louise-nz-2026-w9k4p-v2.html
 itineraries/nz-self-drive-oct-2026-v5.html
+
+# ---- Eleventy (site-foundation, Nov 2026) ----
+node_modules/
+_site/
+.cache/

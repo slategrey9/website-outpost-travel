@@ -1,0 +1,12 @@
+# Netlify headers. Copied to the site root by Eleventy.
+
+# Client itineraries and decks: never in search results, including the
+# photos and PDFs inside them (a header covers files a meta tag can't).
+/itineraries/*
+  X-Robots-Tag: noindex
+/presentations/*
+  X-Robots-Tag: noindex
+
+# Generated images have a content hash in the name, so they never change.
+/img/*
+  Cache-Control: public, max-age=31536000, immutable

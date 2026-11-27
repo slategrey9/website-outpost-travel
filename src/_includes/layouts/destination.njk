@@ -1,0 +1,103 @@
+---
+layout: layouts/base.njk
+heroOverlay: true
+---
+{#- The template for EVERY destination. `d` is the destination's data file.
+    Each section renders only when the data file has it, so a new destination
+    can start with just a hero, a statement and the enquiry band. -#}
+{%- set hero = d.hero %}{% include "partials/hero.njk" %}
+
+{%- if d.statement %}{% set statement = d.statement %}{% include "partials/statement.njk" %}{% endif %}
+
+{%- if d.regions %}
+<section class="sec" aria-labelledby="regions-h">
+  <div class="wrap sec__head">
+    <h2 class="h2" id="regions-h">{{ d.regions.heading }}</h2>
+    {%- if d.regions.intro %}<p class="body sec__intro">{{ d.regions.intro }}</p>{% endif %}
+  </div>
+  <div class="wrap regions">
+    {%- for r in d.regions.items %}{% include "partials/region-card.njk" %}{% endfor %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if d.themes %}{% set themes = d.themes %}{% include "partials/theme-list.njk" %}{% endif %}
+
+{%- if d.journeys %}
+<section class="wrap sec" id="journeys" aria-labelledby="journeys-h">
+  <div class="sec__head">
+    <h2 class="h2" id="journeys-h">{{ d.journeys.heading }}</h2>
+    {%- if d.journeys.intro %}<p class="body sec__intro">{{ d.journeys.intro }}</p>{% endif %}
+  </div>
+  {%- set items = d.journeys.items %}
+  {%- set j = items[0] %}{% set featured = true %}{% include "partials/journey-card.njk" %}
+  {%- if items.length > 1 %}
+  <div class="jgrid">
+    <div class="jgrid__col">
+      {%- for j in items.slice(1) %}{% if loop.index0 % 2 == 0 %}{% set featured = false %}{% include "partials/journey-card.njk" %}{% endif %}{% endfor %}
+    </div>
+    <div class="jgrid__col jgrid__col--b">
+      {%- for j in items.slice(1) %}{% if loop.index0 % 2 == 1 %}{% set featured = false %}{% include "partials/journey-card.njk" %}{% endif %}{% endfor %}
+    </div>
+  </div>
+  {%- endif %}
+</section>
+{%- endif %}
+
+{%- if d.hotels %}
+<section class="wrap sec" aria-labelledby="hotels-h">
+  <div class="center sec__head--c">
+    <h2 class="h2" id="hotels-h">{{ d.hotels.heading }}</h2>
+    {%- if d.hotels.intro %}<p class="body center sec__intro--c">{{ d.hotels.intro }}</p>{% endif %}
+  </div>
+  <div class="hotels">
+    {%- for h in d.hotels.ids | hotelsById(hotels) %}{% include "partials/hotel-card.njk" %}{% endfor %}
+  </div>
+  {%- if d.hotels.note %}<p class="cap center hotels__note">{{ d.hotels.note }}</p>{% endif %}
+</section>
+{%- endif %}
+
+{%- if d.testimonial %}{% set t = d.testimonial %}
+<section class="wrap sec quote" aria-labelledby="quote-h">
+  <h2 class="h2 h2--md center" id="quote-h">{{ t.heading }}</h2>
+  <div class="quote__grid">
+    <figure class="quote__main">
+      {%- if t.label %}<p class="cap ink">{{ t.label }}</p>{% endif %}
+      {% image t.image1, t.alt1, "(min-width: 1024px) 620px, 100vw" %}
+      {%- if t.caption1 %}<figcaption class="cap">{{ t.caption1 }}</figcaption>{% endif %}
+    </figure>
+    <div class="quote__side">
+      {%- if t.image2 %}<div class="quote__im2">{% image t.image2, t.alt2, "(min-width: 1024px) 460px, 100vw" %}</div>{% endif %}
+      <blockquote class="quote__q">{{ t.quote }}</blockquote>
+      <p class="cap ink">{{ t.by }}</p>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if d.books %}
+<section class="wrap sec books" aria-labelledby="books-h">
+  <h2 class="h2 h2--md" id="books-h">{{ d.books.heading }}</h2>
+  {%- for b in d.books.items %}
+  <article>
+    <h3 class="books__t">{{ b.title }}</h3>
+    <p class="cap">{{ b.author }}</p>
+    <p class="body">{{ b.line }}</p>
+  </article>
+  {%- endfor %}
+</section>
+{%- endif %}
+
+{#- Journal teaser: only if the article actually exists in the repo. -#}
+{%- if d.journal and (d.journal.url | pageExists) %}
+<a class="jteaser" href="{{ d.journal.url }}">
+  {% image d.journal.image, d.journal.alt, "100vw", { class: "jteaser__img" } %}
+  <div class="jteaser__shade" aria-hidden="true"></div>
+  <div class="wrap jteaser__in">
+    <h2 class="jteaser__h">{{ d.journal.title }}</h2>
+    <span class="link">Read the piece</span>
+  </div>
+</a>
+{%- endif %}
+
+{%- if d.enquiry %}{% set enquiry = d.enquiry %}{% include "partials/enquiry-band.njk" %}{% endif %}

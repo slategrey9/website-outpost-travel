@@ -1,0 +1,12 @@
+{#- One day-by-day frame. Expects `day`: { label, title, paras: [], stay, image, alt } and `flip` (bool). -#}
+<article class="day{% if flip %} day--flip{% endif %}">
+  <div class="day__im">{% image day.image, day.alt, "(min-width: 1024px) 62vw, 100vw" %}</div>
+  <div class="day__tx">
+    <p class="day__d">{{ day.label }}</p>
+    <h3 class="day__h">{{ day.title }}</h3>
+    {%- for p in day.paras %}
+    <p class="body">{{ p }}</p>
+    {%- endfor %}
+    {%- if day.stay %}<p class="day__st">{{ day.stay }}</p>{% endif %}
+  </div>
+</article>

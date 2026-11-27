@@ -1,0 +1,28 @@
+---
+permalink: /_test/blocks/
+layout: layouts/base.njk
+title: "Block test: every block | Outpost Travel"
+description: Hidden test page that renders every shared block once. Not indexed.
+heroOverlay: true
+---
+{%- set hero = fx.destination.hero %}{% include "partials/hero.njk" %}
+{%- set statement = fx.destination.statement %}{% include "partials/statement.njk" %}
+<section class="wrap sec"><h2 class="h2">Region card</h2><div class="regions">{% set r = fx.destination.regions.items[0] %}{% include "partials/region-card.njk" %}</div></section>
+{%- set themes = fx.destination.themes %}{% include "partials/theme-list.njk" %}
+<section class="wrap sec"><h2 class="h2">Journey cards</h2>
+{%- set j = fx.destination.journeys.items[0] %}{% set featured = true %}{% include "partials/journey-card.njk" %}
+<div class="jgrid"><div class="jgrid__col">{% set j = fx.destination.journeys.items[1] %}{% set featured = false %}{% include "partials/journey-card.njk" %}</div></div>
+</section>
+<section class="wrap sec"><h2 class="h2">Hotel card</h2><div class="hotels">{% for h in fx.hotels %}{% include "partials/hotel-card.njk" %}{% endfor %}</div></section>
+{%- set day = fx.journey.days[0] %}{% set flip = false %}{% include "partials/day-block.njk" %}
+{%- set day = fx.journey.days[1] %}{% set flip = true %}{% include "partials/day-block.njk" %}
+{%- set glance = fx.journey.glance %}{% include "partials/at-a-glance.njk" %}
+<section class="wrap sec pricing"><div class="pricing__grid">
+{%- set included = fx.journey.included %}{% set exclusions = fx.journey.exclusions %}{% include "partials/included.njk" %}
+{%- set price = fx.journey.price %}{% set planHref = "/start-planning?type=trip" %}{% include "partials/price-block.njk" %}
+</div></section>
+{%- set crumbs = [{ name: "Home", url: "/" }, { name: "Testland", url: "/_test/destination/" }, { name: "Here", url: page.url }] %}
+<div class="crumbs-demo">{% include "partials/breadcrumb.njk" %}</div>
+{%- set crumbs = null %}
+{%- set more = fx.destination.journeys.items %}{% set moreHeading = "More journeys row" %}{% set allHref = "/_test/destination/#journeys" %}{% set allLabel = "See all journeys" %}{% include "partials/more-journeys.njk" %}
+{%- set enquiry = fx.destination.enquiry %}{% include "partials/enquiry-band.njk" %}

@@ -1,0 +1,20 @@
+{
+  "name": "outpost-travel-site",
+  "private": true,
+  "description": "outposttravel.co, built with Eleventy",
+  "type": "module",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "verify": "node tools/verify-build.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "@11ty/eleventy-img": "^6.0.4",
+    "js-yaml": "^4.1.0",
+    "netlify-plugin-cache": "^1.0.3"
+  }
+}

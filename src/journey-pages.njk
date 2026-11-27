@@ -1,0 +1,14 @@
+---
+pagination:
+  data: journeys
+  size: 1
+  alias: jr
+  resolve: values
+permalink: "/{{ jr.destination }}/{{ jr.slug }}/"
+layout: layouts/journey.njk
+eleventyComputed:
+  title: "{{ jr.title }}"
+  description: "{{ jr.description }}"
+  ogImage: "{{ jr.ogImage }}"
+  updated: "{{ jr.updated }}"
+---

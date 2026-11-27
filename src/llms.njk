@@ -1,0 +1,21 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.name }}
+
+> {{ site.description | safe }} {{ site.affiliation | safe }}.
+
+{{ site.name }} is a travel concierge based in {{ site.address.locality }}, founded by {{ site.founder.name }} ({{ site.founder.url }}). It plans hotel stays and tailor-made journeys {{ site.areaServed | lower }}.
+
+Contact: {{ site.email }}, {{ site.phone }} (WhatsApp: {{ site.whatsapp }})
+{%- for s in site.sameAs %}
+Profile: {{ s }}{% endfor %}
+
+## Pages
+{% for p in staticPages %}
+- [{{ p.title | safe }}]({{ site.url }}{{ p.url }}): {{ p.description | safe }}
+{%- endfor %}
+{%- for p in collections.all %}{% if not p.data.noindex and p.url and p.url.endsWith("/") %}
+- [{{ p.data.title | safe }}]({{ site.url }}{{ p.url }}): {{ p.data.description | safe }}
+{%- endif %}{% endfor %}

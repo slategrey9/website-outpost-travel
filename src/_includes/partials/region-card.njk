@@ -1,0 +1,6 @@
+{#- One region card. Expects `r`: { name, line, image, alt }. Not a link (no region pages yet). -#}
+<article class="card region">
+  <div class="card__im region__im">{% image r.image, r.alt, "(min-width: 1024px) 20vw, (min-width: 640px) 45vw, 90vw" %}</div>
+  <h3 class="card__h">{{ r.name }}</h3>
+  <p class="cap">{{ r.line }}</p>
+</article>

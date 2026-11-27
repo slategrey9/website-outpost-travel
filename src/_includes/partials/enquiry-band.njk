@@ -1,0 +1,10 @@
+{#- enquiry: { heading, primary: { label, href } } -#}
+<section class="band">
+  <div class="wrap band__in">
+    <h2 class="band__h">{{ enquiry.heading }}</h2>
+    <div class="band__btns">
+      <a class="btn btn--light" href="{{ enquiry.primary.href }}">{{ enquiry.primary.label }}</a>
+      <a class="btn btn--ghost" href="{{ site.whatsapp }}">WhatsApp us</a>
+    </div>
+  </div>
+</section>

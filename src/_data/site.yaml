@@ -1,0 +1,35 @@
+# The facts about Outpost Travel. One source for the footer line,
+# the structured data on every page and llms.txt. Edit here, nowhere else.
+name: Outpost Travel
+url: https://outposttravel.co
+# One line about who Outpost is. Shown in the footer of the new pages and
+# used as the structured-data description. (Reused from the homepage copy.)
+description: Hotel stays with Virtuoso perks, and tailor-made journeys for families, celebrations and places worth the effort.
+# Decision 1 (27 Nov 2026), word for word. Text only: no memberOf claim.
+affiliation: An independent affiliate of Alchemist Travel and Virtuoso
+tagline: The effortless way to go further.
+email: hello@outposttravel.co
+phone: "+65 9751 4830"
+whatsapp: https://wa.me/6597514830
+address:
+  locality: Singapore
+  country: SG
+areaServed: Worldwide
+logo: https://outposttravel.co/favicon.svg
+image: https://outposttravel.co/images/og-image.jpg
+founder:
+  name: Kristin Lim
+  url: https://outposttravel.co/about
+  jobTitle: Founder
+sameAs:
+  - https://www.instagram.com/outposttravelco/
+# The v4 nav, used on the new pages only. Until there's a second
+# destination, "Destinations" goes straight to China (brief 2.2).
+nav:
+  - { label: Destinations, href: /china/ }
+  - { label: Journeys, href: /china/#journeys }
+  - { label: Journal, href: /journal/ }
+  - { label: About, href: /about }
+cta:
+  label: Start planning
+  href: /start-planning?type=trip

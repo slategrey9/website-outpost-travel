@@ -1,0 +1,15 @@
+# Netlify build settings. These override the settings in the Netlify UI.
+# If a build ever fails, Netlify keeps the last good deploy live.
+
+[build]
+  command = "npx @11ty/eleventy"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Keep generated images between builds so they aren't remade every time.
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs]
+    paths = [".cache"]

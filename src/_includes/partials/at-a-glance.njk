@@ -1,0 +1,7 @@
+{#- glance: ["Eight nights", ...]. Plain list, no price, no icons, no lines. -#}
+<section class="wrap glance" aria-labelledby="glance-h">
+  <h2 class="h3" id="glance-h">At a glance</h2>
+  <ul class="list" role="list">
+    {%- for g in glance %}<li>{{ g }}</li>{% endfor %}
+  </ul>
+</section>

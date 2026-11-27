@@ -1,0 +1,47 @@
+{#- Shared shell for every new (v4) page.
+    Page data used here:
+      title, description          required
+      canonical                   path, e.g. /china/  (defaults to page.url)
+      noindex                     true keeps it out of search and the sitemap
+      ogImage                     absolute or site path, 1200x630
+      schemaGraph                 extra JSON-LD nodes for this page
+      heroOverlay                 true = nav sits white over the hero photo
+-#}
+{%- set canonicalUrl = (canonical or page.url) | absUrl(site.url) -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  {%- if noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ ogTitle or title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:image" content="{{ (ogImage or site.image) | absUrl(site.url) }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/newsreader-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- hero-preload -->
+  <link rel="stylesheet" href="/assets/v4.css">
+  <script type="application/ld+json">
+{%- set graph = site | schema_base %}{{ graph.concat(schemaGraph or []) | jsonld | safe }}
+  </script>
+</head>
+<body class="v4">
+  <a class="skip" href="#main">Skip to content</a>
+  {% include "partials/nav.njk" %}
+  <main id="main">
+{{ content | safe }}
+  </main>
+  {% include "partials/footer.njk" %}
+</body>
+</html>
