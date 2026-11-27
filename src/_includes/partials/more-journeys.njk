@@ -1,0 +1,12 @@
+{#- more: [cards] (the other journeys in this destination), allHref.
+    Only cards with pages are links; if none has a page, just the "See all" link. -#}
+{%- set linked = more | withPages(journeys) -%}
+<section class="wrap more" aria-labelledby="more-h">
+  <h2 class="h3" id="more-h">{{ moreHeading }}</h2>
+  {%- if linked.length %}
+  <div class="more__row">
+    {%- for j in more %}{% set featured = false %}{% include "partials/journey-card.njk" %}{% endfor %}
+  </div>
+  {%- endif %}
+  <a class="link" href="{{ allHref }}">{{ allLabel }}</a>
+</section>

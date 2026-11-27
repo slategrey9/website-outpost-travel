@@ -1,0 +1,71 @@
+# Test data for the hidden block test pages. Uses photos already in the repo.
+# Not real copy. Never built on the production site.
+destination:
+  slug: test-destination
+  name: Testland
+  journeys:
+    heading: Three journeys to start from
+    intro: Each is a starting point.
+    items:
+      - { page: test-journey, title: "Test journey with a page", when: "Eight nights, here to there", line: "This card links because a journey file exists.", image: images/china.jpg, alt: "China test photo" }
+      - { title: "Card without a page", when: "Seven nights, somewhere", line: "Shows, but is not a link.", image: images/iceland.jpg, alt: "Iceland test photo", tall: true }
+      - { title: "Second card without a page", when: "Four nights, elsewhere", line: "Also not a link.", image: images/safari.jpg, alt: "Safari test photo" }
+      - { title: "Third card without a page", when: "Fifteen nights, the mountains", line: "Also not a link.", image: images/antarctica.jpg, alt: "Antarctica test photo", tall: true }
+  hero: { image: images/hero.jpg, alt: "Test hero photo", title: "Testing every block,", titleEm: "one at a time.", caption: "Hero caption, bottom right" }
+  statement: { heading: "A statement headline that runs over two lines.", headingEm: "The italic part.", lede: "A short lede paragraph sits here, with a link below it and a portrait photo to the right.", link: { label: Start planning, href: "/start-planning?type=trip" }, image: images/amankora-tigers-nest.jpg, alt: "Portrait test photo", caption: "Portrait caption" }
+  regions:
+    heading: Where to go
+    intro: Five regions, one line each.
+    items:
+      - { name: One, line: "First region line.", image: images/china.jpg, alt: "Region one" }
+      - { name: Two, line: "Second region line.", image: images/iceland.jpg, alt: "Region two" }
+      - { name: Three, line: "Third region line.", image: images/maldives.jpg, alt: "Region three" }
+      - { name: Four, line: "Fourth region line.", image: images/safari.jpg, alt: "Region four" }
+      - { name: Five, line: "Fifth region line.", image: images/south-america.jpg, alt: "Region five" }
+  themes:
+    heading: Ways into Testland
+    intro: Each journey follows one or two of these threads.
+    items:
+      - { name: Living cultures, line: "Theme one line.", journeys: "In Test journey", image1: images/proof-japan.jpg, alt1: "Theme one a", image2: images/proof-iceland.jpg, alt2: "Theme one b" }
+      - { name: Old routes, line: "Theme two line.", journeys: "In Test journey", image1: images/amankora-paro-lodge.jpg, alt1: "Theme two a", image2: images/antarctica.jpg, alt2: "Theme two b" }
+      - { name: Sacred places, line: "Theme three line.", image1: images/amankora-gangtey-lodge.jpg, alt1: "Theme three a", image2: images/china.jpg, alt2: "Theme three b" }
+  hotels:
+    heading: Where you'll sleep
+    intro: Hotel cards come from hotels.yaml, by id.
+    ids: [test-a, test-b, test-c]
+    note: At Virtuoso hotels you receive breakfast daily, a hotel credit and an upgrade when one is available.
+  testimonial: { heading: What our clients say, label: "Somewhere, Month Year", image1: images/proof-iceland.jpg, alt1: "Testimonial photo one", caption1: "Photo caption", image2: images/proof-new-zealand.jpg, alt2: "Testimonial photo two", quote: "A test quote, set in the serif.", by: "Initials, Singapore" }
+  books:
+    heading: Before you go, read
+    items:
+      - { title: "First Book", author: "Author One, 1955", line: "One line about the book." }
+      - { title: "Second Book", author: "Author Two, 2006", line: "One line about the book." }
+  journal: { url: /journal/, title: "Journal teaser renders only when the URL exists", image: images/antarctica.jpg, alt: "Journal test photo" }
+  enquiry: { heading: "Tell us where you've already been.", primary: { label: Start planning, href: "/start-planning?type=trip&dest=Testland" } }
+
+hotels:
+  - { id: test-a, name: "Hotel With Benefits", place: "Town, Province", line: "Rises over the photo on hover; sits below it on phones.", image: images/amankora-punakha-pool.jpg, alt: "Hotel A", virtuoso: true }
+  - { id: test-b, name: "Second Hotel", place: "Town, Province", line: "A short description.", image: images/capella-lord-howe-hero.jpg, alt: "Hotel B", virtuoso: false, stayed: "We stayed here in March 2026" }
+  - { id: test-c, name: "Third Hotel", place: "Town, Province", line: "A short description.", image: images/amankora-gangtey-lodge.jpg, alt: "Hotel C", virtuoso: false }
+
+journey:
+  slug: test-journey
+  name: Test Journey
+  destination: test-destination
+  updated: 2026-11-27
+  hero: { image: images/amankora-paro-lodge.jpg, alt: "Journey hero", title: "Test Journey:", titleEm: "Here to There", sub: "Eight nights with a private guide.", button: { label: Plan this journey, href: "/start-planning?type=trip&dest=Test%20Journey" } }
+  intro: { heading: "A short intro headline.", body: "One paragraph of intro. No route table." }
+  glance:
+    - Eight nights
+    - Here to there
+    - Private guide and vehicle
+    - Best March to June
+    - Highest night at 3,600 metres
+  days:
+    - { label: "Days 1–2", title: "First stop", paras: ["Paragraph one.", "Paragraph two."], stay: "Two nights in First", image: images/proof-japan.jpg, alt: "Day one photo" }
+    - { label: "Day 3", title: "Second stop", paras: ["Paragraph one."], stay: "One night in Second", image: images/proof-koh-yao-yai.jpg, alt: "Day three photo" }
+  included: [Eight nights in lodges, Private guide and vehicle, All meals]
+  exclusions: [Flights, Visa and travel insurance]
+  price: { from: "USD 0,000", per: per person }
+  note: "This journey is a starting point for reference. Every journey is tailor-made to your preferences and timing."
+  enquiry: { heading: "A question for the enquiry band?" }

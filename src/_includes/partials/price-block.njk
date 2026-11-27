@@ -1,0 +1,6 @@
+{#- price: { from, per }, planHref. The ONLY place a price appears on the site. -#}
+<div class="price">
+  <p class="price__fig"><span class="price__from">Starting from</span><span class="price__amt">{{ price.from }}</span><span class="price__per">{{ price.per }}</span></p>
+  <a class="btn btn--light btn--block" href="{{ planHref }}">Plan this journey</a>
+  <a class="price__wa" href="{{ site.whatsapp }}">or WhatsApp us</a>
+</div>

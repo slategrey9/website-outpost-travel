@@ -1,0 +1,14 @@
+---
+pagination:
+  data: destinations
+  size: 1
+  alias: d
+  resolve: values
+permalink: "/{{ d.slug }}/"
+layout: layouts/destination.njk
+eleventyComputed:
+  title: "{{ d.title }}"
+  description: "{{ d.description }}"
+  ogImage: "{{ d.ogImage }}"
+  updated: "{{ d.updated }}"
+---

@@ -1,0 +1,19 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+{%- set disallow = ["/journal/_drafts/", "/tools/"] -%}
+# outposttravel.co
+# Everything is open except working folders. Client itineraries and decks
+# are crawlable but carry a noindex header, so they stay out of results.
+
+User-agent: *
+{% for d in disallow %}Disallow: {{ d }}
+{% endfor %}
+# AI crawlers, search and training alike: all allowed (decision, 27 Nov 2026).
+# Named so the choice is explicit. Each repeats the rules above, because a
+# crawler that finds its own name ignores the "*" group.
+{% for bot in ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "CCBot", "Meta-ExternalAgent", "Amazonbot", "Bytespider"] %}User-agent: {{ bot }}
+{% endfor %}{% for d in disallow %}Disallow: {{ d }}
+{% endfor %}
+Sitemap: {{ site.url }}/sitemap.xml

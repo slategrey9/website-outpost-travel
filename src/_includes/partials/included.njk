@@ -1,0 +1,13 @@
+{#- included: [], exclusions: []. Always "Exclusions", never "Not Included". -#}
+<div class="incl">
+  <div>
+    <h3 class="h3">Included</h3>
+    <ul class="list" role="list">{% for i in included %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+  {%- if exclusions %}
+  <div>
+    <h3 class="h3">Exclusions</h3>
+    <ul class="list" role="list">{% for i in exclusions %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+  {%- endif %}
+</div>

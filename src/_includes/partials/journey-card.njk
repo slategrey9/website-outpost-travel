@@ -1,0 +1,13 @@
+{#- One journey card. Expects `j`: { page?, title, when, line, image, alt, tall? } and `featured` (bool).
+    Only a card whose `page` matches a journey data file is a link (brief: no links to nowhere). -#}
+{%- set jp = journeys[j.page] if (j.page and journeys) else null -%}
+{%- set tag = "a" if jp else "article" -%}
+<{{ tag }} class="card jcard{% if featured %} jcard--feature{% endif %}{% if j.tall %} jcard--tall{% endif %}"{% if jp %} href="{{ jp | journeyUrl }}"{% endif %}>
+  <div class="card__im jcard__im">{% image j.image, j.alt, ("(min-width: 1024px) 820px, 100vw" if featured else "(min-width: 1024px) 600px, 100vw") %}</div>
+  <div class="jcard__txt">
+    <p class="when">{{ j.when }}</p>
+    <h3 class="jcard__h">{{ j.title }}</h3>
+    <p class="body">{{ j.line }}</p>
+    {%- if jp and featured %}<span class="link">See the journey</span>{% endif %}
+  </div>
+</{{ tag }}>

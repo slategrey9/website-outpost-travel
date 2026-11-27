@@ -1,0 +1,22 @@
+{#- v4 nav. White over a hero photo (heroOverlay: true), ink on white otherwise.
+    Phones get a no-script disclosure menu. -#}
+<header class="nav{% if heroOverlay %} nav--over{% endif %}">
+  <div class="wrap nav__in">
+    <a class="nav__logo" href="/">{{ site.name }}</a>
+    <nav class="nav__links" aria-label="Main">
+      {%- for item in site.nav %}
+      <a href="{{ item.href }}"{% if page.url == item.href %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {%- endfor %}
+      <a class="btn btn--light btn--sm" href="{{ ctaHref or site.cta.href }}">{{ site.cta.label }}</a>
+    </nav>
+    <details class="nav__menu">
+      <summary>Menu</summary>
+      <div class="nav__panel">
+        {%- for item in site.nav %}
+        <a href="{{ item.href }}">{{ item.label }}</a>
+        {%- endfor %}
+        <a class="btn btn--deep" href="{{ ctaHref or site.cta.href }}">{{ site.cta.label }}</a>
+      </div>
+    </details>
+  </div>
+</header>

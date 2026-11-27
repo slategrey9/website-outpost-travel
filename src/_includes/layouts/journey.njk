@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+heroOverlay: true
+---
+{#- One journey page. `jr` is the journey's data file; `dest` its destination. -#}
+{%- set dest = dest or destinations[jr.destination] %}
+{%- if not dest %}{{ ("journey " + jr.slug + " names destination \"" + jr.destination + "\" but there is no src/_data/destinations/" + jr.destination + ".yaml") | fail }}{% endif %}
+{%- set planHref = "/start-planning?type=trip&dest=" + (jr.name | urlencode) %}
+{%- set crumbs = [{ name: "Home", url: "/" }, { name: dest.name, url: "/" + dest.slug + "/" }, { name: jr.name, url: page.url }] %}
+{%- set hero = jr.hero %}{% include "partials/hero.njk" %}
+
+{%- if jr.intro %}
+<section class="wrap intro">
+  <h2 class="intro__h">{{ jr.intro.heading }}</h2>
+  <p class="body">{{ jr.intro.body }}</p>
+</section>
+{%- endif %}
+
+{%- if jr.glance %}{% set glance = jr.glance %}{% include "partials/at-a-glance.njk" %}{% endif %}
+
+{%- if jr.days %}
+<section aria-labelledby="days-h">
+  <h2 class="h2 wrap days__h" id="days-h">Day by day</h2>
+  {%- for day in jr.days %}{% set flip = loop.index0 % 2 == 1 %}{% include "partials/day-block.njk" %}{% endfor %}
+</section>
+{%- endif %}
+
+<section class="wrap sec pricing">
+  <div class="pricing__grid">
+    {%- set included = jr.included %}{% set exclusions = jr.exclusions %}{% include "partials/included.njk" %}
+    {%- if jr.price %}{% set price = jr.price %}{% include "partials/price-block.njk" %}{% endif %}
+  </div>
+  {%- if jr.note %}<p class="pricing__note">{{ jr.note }}</p>{% endif %}
+  <p class="cap center">Updated {{ jr.updated | monthYear }}</p>
+</section>
+
+{%- set more = (dest.journeys.items if dest.journeys else []) | exceptPage(jr.slug) %}
+{%- set moreHeading = "More journeys in " + dest.name %}{% set allHref = "/" + dest.slug + "/#journeys" %}{% set allLabel = "See all " + dest.name + " journeys" %}
+{% include "partials/more-journeys.njk" %}
+
+{%- if jr.enquiry %}{% set enquiry = { heading: jr.enquiry.heading, primary: { label: "Plan this journey", href: planHref } } %}{% include "partials/enquiry-band.njk" %}{% endif %}
